@@ -1,11 +1,9 @@
 {
   "author": "Shawn Martin-Truesdell",
-  "description": "Add a new progression system to your game with =Into Starlight='s passive skill tree. Customize your journey by choosing which skills matter to your playstyle.",
-  "friendlyName": "Into Starlight",
-  "name": "Into_Starlight",
-  "requires": [
-    "StardustLib"
-  ],
-  "tags": "Mechanics",
+  "description": "Improves compatability between mods by creating a system of plugins for vanilla modules",
+  "friendlyName": "PlugBoundLib",
+  "name": "PlugBoundLib",
+  "requires": [],
+  "tags": "",
   "version": "1.0.0"
 }
