@@ -25,7 +25,7 @@
     [
       "@semantic-release/github",
       {
-        "assets": "./PlugBoundLib.pak"
+        "assets": "./LuaPatchingEngine.pak"
       }
     ]
   ]
