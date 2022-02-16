@@ -103,6 +103,7 @@ end
 Out of the box, LuaPluginLib updates the following vanilla scripts to add patch support:
 
 - `items/active/weapons/weapon.lua`
+- `monsters/monster.lua`
 
 With more to be added as needed!
 
