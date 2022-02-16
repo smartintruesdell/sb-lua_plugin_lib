@@ -24,7 +24,7 @@ jobs:
     - name: Pack
       uses: edwardspec/github-action-pack-starbound-mod@v1
       with:
-        outputFilename: PlugBoundLib.pak
+        outputFilename: LuaPatchingEngine.pak
     - name: Install release dependencies
       run: npm ci
     - name: Release

@@ -1,5 +1,5 @@
 {
-  "name": "plugboundlib",
+  "name": "sb-lua_patching_engine",
   "version": "1.0.0",
   "description": "A mod for Starbound to make vanilla lua more extensible",
   "main": "",
@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/smartintruesdell/plugboundlib.git"
+    "url": "git+https://github.com/smartintruesdell/sb-lua_patching_engine.git"
   },
   "author": "Shawn Martin-Truesdell <shawn@martin-truesdell.com>",
   "license": "GPL-3.0-or-later",
   "bugs": {
-    "url": "https://github.com/smartintruesdell/plugboundlib/issues"
+    "url": "https://github.com/smartintruesdell/sb-lua_patching_engine/issues"
   },
-  "homepage": "https://github.com/smartintruesdell/plugboundlib#readme",
+  "homepage": "https://github.com/smartintruesdell/sb-lua_patching_engine#readme",
   "dependencies": {
     "semantic-release": "^19.0.2"
   }
