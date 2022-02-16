@@ -1,0 +1,22 @@
+{
+  "name": "plugboundlib",
+  "version": "1.0.0",
+  "description": "A mod for Starbound to make vanilla lua more extensible",
+  "main": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/smartintruesdell/plugboundlib.git"
+  },
+  "author": "Shawn Martin-Truesdell <shawn@martin-truesdell.com>",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/smartintruesdell/plugboundlib/issues"
+  },
+  "homepage": "https://github.com/smartintruesdell/plugboundlib#readme",
+  "dependencies": {
+    "semantic-release": "^19.0.2"
+  }
+}

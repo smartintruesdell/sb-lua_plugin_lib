@@ -1,0 +1,41 @@
+{
+  "$schema": "https://raw.githubusercontent.com/sumneko/vscode-lua/master/setting/schema.json",
+  "runtime.version": "Lua 5.3",
+  "diagnostics": {
+    "enable": true,
+    "globals": [
+      "activeItem",
+      "activeItemAnimation",
+      "mcontroller",
+      "animator",
+      "celestial",
+      "CommandProcessor",
+      "config",
+      "pane",
+      "entity",
+      "item",
+      "localAnimator",
+      "message",
+      "monster",
+      "npc",
+      "object",
+      "objectAnimator",
+      "physics",
+      "player",
+      "playerCompanions",
+      "projectile",
+      "quest",
+      "root",
+      "animationConfig",
+      "stagehand",
+      "status",
+      "effect",
+      "tech",
+      "script",
+      "sb",
+      "vehicle",
+      "widget",
+      "world"
+    ]
+  }
+}
