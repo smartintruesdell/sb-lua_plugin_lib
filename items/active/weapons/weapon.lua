@@ -5,7 +5,7 @@
   to edit the same lua scripts non-destructively.
 ]]
 require "/scripts/util.lua"
-require "/scripts/lpe_load_plugins.lua"
+require "/scripts/lpl_load_plugins.lua"
 local PLUGINS_PATH = "/items/active/weapons/weapon_plugins.config"
 
 -- handles weapon stances, animations, and abilities

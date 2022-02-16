@@ -1,4 +1,4 @@
-# LuaPatchingEngine
+# LuaPluginLib
 A library mod for Starbound which makes Lua scripts little more extensible.
 
 
@@ -13,7 +13,7 @@ Whoever loads last, gets to keep their code! That's not great.
 
 This mod offers a simple interface for loading "plugins" on top of your lua, and modifies vanilla lua to use its mechanisms.
 
-With LuaPatchingEngine, you can add a reference to your "plugin" to a local `.config` or `.config.patch` file and supported scripts will layer your code on top of their own.
+With LuaPluginLib, you can add a reference to your "plugin" to a local `.config` or `.config.patch` file and supported scripts will layer your code on top of their own.
 
 
 ## Example
@@ -98,11 +98,9 @@ end
 --        Vanilla code
 ```
 
-## What "vanilla" scripts get support when I load LuaPatchingEngine?
+## What "vanilla" scripts get support when I load LuaPluginLib?
 
-It's important to `require` LuaPatchingEngine if you're going to include it as a dependency of your mod.
-
-Out of the box, LuaPatchingEngine updates the following vanilla scripts to add patch support:
+Out of the box, LuaPluginLib updates the following vanilla scripts to add patch support:
 
 - `items/active/weapons/weapon.lua`
 
@@ -127,7 +125,7 @@ For it to work, the plugin loader needs access to the `root` table, so be carefu
 Here's an example, from `items/active/weapons/weapon.lua`
 
 ```lua
-require "/scripts/lpe_load_plugins.lua"
+require "/scripts/lpl_load_plugins.lua"
 local PLUGINS_PATH = "/items/active/weapons/weapon_plugins.config"
 
 function Weapon:new(weaponConfig)
@@ -142,7 +140,7 @@ function Weapon:new(weaponConfig)
   ...
 ```
 
-First, we require the plugin loader from `/scripts/lpe_load_plugins.lua`.
+First, we require the plugin loader from `/scripts/lpl_load_plugins.lua`.
 
 Then, we defined where the plugins for this script are going to come from.
 

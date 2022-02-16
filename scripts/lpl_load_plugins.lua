@@ -4,7 +4,7 @@
   Instead of making direct edits to the vanilla scripts, we use this script once
   in each of those scripts to load plugins dynamically.
 ]]
-require "/scripts/lpe_dependencies.lua"
+require "/scripts/lpl_dependencies.lua"
 
 PluginLoader = {}
 

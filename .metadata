@@ -1,8 +1,8 @@
 {
   "author": "Shawn Martin-Truesdell",
   "description": "Improves compatability between mods by creating a system of plugins for vanilla modules",
-  "friendlyName": "LuaPatchingEngine",
-  "name": "LuaPatchingEngine",
+  "friendlyName": "LuaPluginLib",
+  "name": "LuaPluginLib",
   "requires": [],
   "tags": "",
   "version": "1.0.0-beta"
