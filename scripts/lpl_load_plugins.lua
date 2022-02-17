@@ -13,7 +13,7 @@ local function debug(message, ...)
   if PluginLoader.debug then
     sb.logInfo(
       string.format(
-        message,
+        "PluginLoader: "..message,
         ...
       )
     )

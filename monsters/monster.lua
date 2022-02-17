@@ -16,8 +16,10 @@ local PLUGINS_PATH = "/monsters/monster_plugins.config"
 -- Engine callback - called on initialization of entity
 function init()
   -- PLUGIN LOADER ------------------------------------------------------------
-  PluginLoader.debug = true
   PluginLoader.load(PLUGINS_PATH)
+  if plugin_init ~= nil then
+    plugin_init()
+  end
   -- END PLUGIN LOADER --------------------------------------------------------
 
   init_behavior()
