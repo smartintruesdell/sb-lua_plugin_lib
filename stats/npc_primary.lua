@@ -1,8 +1,7 @@
-require "/scripts/status.lua"
-require "/scripts/achievements.lua"
+require "/scripts/vec2.lua"
 
 require "/scripts/lpl_load_plugins.lua"
-local PLUGINS_PATH = "/stats/player_primary_plugins.config"
+local PLUGINS_PATH = "/stats/npc_primary_plugins.config"
 
 -- Module initialization ------------------------------------------------------
 
@@ -14,31 +13,9 @@ function init()
   end
   -- END PLUGIN LOADER --------------------------------------------------------
 
-  self.lastYPosition = 0
-  self.lastYVelocity = 0
-  self.fallDistance = 0
+  self.damageFlashTime = 0
   self.hitInvulnerabilityTime = 0
-  self.shieldHitInvulnerabilityTime = 0
-  self.suffocateSoundTimer = 0
-  self.ouchCooldown = 0
 
-  init_set_ouch_noise()
-  init_setup_inflictedDamageHandler()
-  init_setup_applyStatusEffectHandler()
-end
-
-function init_set_ouch_noise()
-  local ouchNoise = status.statusProperty("ouchNoise")
-  if ouchNoise then
-    animator.setSoundPool("ouch", {ouchNoise})
-  end
-end
-
-function init_setup_inflictedDamageHandler()
-  self.inflictedDamage = damageListener("inflictedDamage", inflictedDamageCallback)
-end
-
-function init_setup_applyStatusEffectHandler()
   message.setHandler("applyStatusEffect", applyStatusEffectCallback)
 end
 
@@ -46,51 +23,6 @@ end
 
 function applyStatusEffectCallback(_, _, effectConfig, duration, sourceEntityId)
   status.addEphemeralEffect(effectConfig, duration, sourceEntityId)
-end
-
-function inflictedDamageCallback(notifications)
-  for _,notification in ipairs(notifications) do
-    inflictedDamageCallback_handle_notification(notification)
-  end
-end
-
-function inflictedDamageCallback_handle_notification(notification)
-  if notification.hitType == "Kill" then
-    if world.entityExists(notification.targetEntityId) then
-      inflictedDamageCallback_handle_killed_entity(notification)
-    else
-      -- TODO: better method for getting data on killed entities
-      sb.logInfo(
-        "Skipped event recording for nonexistent entity %s",
-        notification.targetEntityId
-      )
-    end
-  end
-end
-
-function inflictedDamageCallback_handle_killed_entity(notification)
-  local entityType = world.entityType(notification.targetEntityId)
-  local eventFields = entityEventFields(notification.targetEntityId)
-  util.mergeTable(eventFields, worldEventFields())
-  eventFields.damageSourceKind = notification.damageSourceKind
-
-  if entityType == "object" then
-    recordEvent(entity.id(), "killObject", eventFields)
-
-  elseif
-    entityType == "npc" or
-    entityType == "monster" or
-    entityType == "player"
-  then
-    recordEvent(entity.id(), "kill", eventFields)
-  end
-
-  if entityType == "monster" then
-    local monsterClass =
-      root.monsterParameters(eventFields.monsterType).monsterClass or "standard"
-
-    recordEvent(entity.id(), "killMonster", {monsterClass = monsterClass})
-  end
 end
 
 -- applyDamageRequest : handles incoming hits ---------------------------------
@@ -119,12 +51,8 @@ DamageFnByDamageType = {
 }
 
 --- Applies damage dealt to this entity
-function applyDamageRequest_apply_health_lost(health_lost, damage)
+function applyDamageRequest_apply_health_lost(health_lost, damage, _damageRequest)
   status.modifyResource("health", -health_lost)
-  if self.ouchCooldown <= 0 then
-    animator.playSound("ouch")
-    self.ouchCooldown = 0.5
-  end
 
   applyDamageRequest_apply_invulnerability_frames(damage)
 end
@@ -138,7 +66,7 @@ HealthLossFnByDamageType = {
 --- An engine supplied event listener that catches incoming damage requests (hits)
 function applyDamageRequest(damageRequest)
   -- Early out if the entity is invulnerable
-  if applyDamageRequest_player_is_invulnerable(damageRequest) then return {} end
+  if applyDamageRequest_entity_is_invulnerable(damageRequest) then return {} end
 
   -- Early out for status-only attacks
   if
@@ -146,6 +74,14 @@ function applyDamageRequest(damageRequest)
     damageRequest.damageType == "Status"
   then
     applyDamageRequest_apply_status_effects(damageRequest)
+    return {}
+  end
+
+  -- Early out if environment damage doesn't apply
+  if
+    damageRequest.damageType == "Environment" and
+    not applyDamageRequest_should_apply_environment_damage()
+  then
     return {}
   end
 
@@ -180,10 +116,7 @@ function applyDamageRequest(damageRequest)
   -- Apply result damage to the entity's health
   local health_lost = math.min(damage, status.resource("health"))
   if health_lost > 0 then
-    applyDamageRequest_apply_damageFlashType(
-      effectiveness,
-      damageRequest
-    )
+    applyDamageRequest_apply_damageFlashType(effectiveness, damageRequest)
     if HealthLossFnByDamageType[damageRequest.damageType] ~= nil then
       HealthLossFnByDamageType[damageRequest.damageType](
         health_lost,
@@ -210,21 +143,15 @@ function applyDamageRequest(damageRequest)
     damageDealt = damage,
     healthLost = health_lost,
     hitType = applyDamageRequest_update_hit_type(damageRequest),
+    kind = "Normal",
     damageSourceKind = damageRequest.damageSourceKind,
     targetMaterialKind = status.statusProperty("targetMaterialKind")
   }}
 end
 
 --- Returns `true` if the entity should be considered invulnerable
-function applyDamageRequest_player_is_invulnerable(damageRequest)
-  local hitInvulnerability =
-    self.hitInvulnerabilityTime > 0 and
-    damageRequest.damageSourceKind ~= "applystatus"
-
-  return world.getProperty("invinciblePlayers") or (
-    damageRequest.damageSourceKind ~= "falling" and
-    (hitInvulnerability or world.getProperty("nonCombat"))
-  )
+function applyDamageRequest_entity_is_invulnerable(_damageRequest)
+  return self.hitInvulnerabilityTime > 0 or world.getProperty("nonCombat")
 end
 
 --- Applies the status effects of a damage request to the entity
@@ -237,28 +164,18 @@ end
 
 --- Reduces incoming damage if the entity has damage absorbtion active.
 function applyDamageRequest_apply_damage_absorbtion(damage, damageRequest)
-  if status.resourcePositive("damageAbsorption") then
-    local damageAbsorb = math.min(damage, status.resource("damageAbsorption"))
-    status.modifyResource("damageAbsorption", -damageAbsorb)
-    return damage - damageAbsorb
-  end
+  -- NPCs don't apply damage absorbtion.
   return damage, damageRequest
 end
 
 --- Reduces incoming damage if the entity has a shield raised
 function applyDamageRequest_apply_shield(damage, damageRequest)
-  if damageRequest.hitType == "ShieldHit" then
-    if self.shieldHitInvulnerabilityTime == 0 then
-      local preShieldDamageHealthPercentage = damage / status.resourceMax("health")
-      self.shieldHitInvulnerabilityTime =
-        status.statusProperty("shieldHitInvulnerabilityTime") *
-        math.min(preShieldDamageHealthPercentage, 1.0)
-
-      if not status.resourcePositive("perfectBlock") then
-        status.modifyResource("shieldStamina", -damage / status.stat("shieldHealth"))
-      end
-    end
-
+  if
+    damageRequest.hitType == "ShieldHit" and
+    status.statPositive("shieldHealth") and
+    status.resourcePositive("shieldStamina")
+  then
+    status.modifyResource("shieldStamina", -damage / status.stat("shieldHealth"))
     status.setResourcePercentage("shieldStaminaRegenBlock", 1.0)
     damage = 0
     damageRequest.statusEffects = {}
@@ -269,10 +186,8 @@ end
 
 --- Reduces incoming damage if the entity has the appropriate resistances
 function applyDamageRequest_apply_elemental_resistances(damage, damageRequest)
-  local elementalStat = root.elementalResistance(damageRequest.damageSourceKind)
-  local resistance = status.stat(elementalStat)
-
-  return damage - (resistance * damage), "normalhit", damageRequest
+  -- NPC's don't apply elemental resistances
+  return damage, "normalhit", damageRequest
 end
 
 --- Handles the application of invulnerability frames for this entity on hit
@@ -285,9 +200,14 @@ function applyDamageRequest_apply_invulnerability_frames(damage)
   end
 end
 
+--- NPCs have special environmental damage rules
+function applyDamageRequest_should_apply_environment_damage()
+  return false
+end
+
 --- Determines the type and intensity of the hit damage flash
 function applyDamageRequest_apply_damageFlashType(_flash_type, _damageRequest)
-  -- Players don't do hit damage flash
+  -- NPCs don't do hit damage flash
 end
 
 --- Applies knockback momentum/velocity to the entity
@@ -295,13 +215,32 @@ function applyDamageRequest_apply_knockback(damageRequest)
   local momentum, knockback = applyDamageRequest_get_knockback_momentum(damageRequest)
 
   if status.resourcePositive("health") and knockback > 0 then
+    -- NPCs reset their velocity on hit
+    mcontroller.setVelocity({0,0})
     if knockback > status.stat("knockbackThreshold") then
-      -- Reset the player's velocity only when the knockback is great.
-      mcontroller.setVelocity({0,0})
-      -- `knockback` is an absolute distance, so we need to re-assign the direction
-      -- from `momentum` on the X axis.
-      local dir = momentum[1] > 0 and 1 or -1
-      mcontroller.addMomentum({dir * knockback / 1.41, knockback / 1.41})
+      -- Apply knockback momentum
+      if
+        mcontroller.baseParameters().gravityEnabled and
+        math.abs(momentum[1]) > 0
+      then
+        -- NPCs apply normal knockback when they're in gravity
+        -- `knockback` is an absolute distance, so we need to re-assign the direction
+        -- from `momentum` on the X axis.
+        local dir = momentum[1] > 0 and 1 or -1
+        mcontroller.addMomentum({dir * knockback / 1.41, knockback / 1.41})
+      else
+        -- NPCs apply exaggerated knockback when they're not in gravity
+        mcontroller.addMomentum(momentum)
+      end
+
+      -- NPCs are stunned on knockback
+      status.setResource(
+        "stunned",
+        math.max(
+          status.resource("stunned"),
+          status.stat("knockbackStunTime")
+        )
+      )
     end
   end
 end
@@ -323,123 +262,67 @@ function applyDamageRequest_update_hit_type(damageRequest)
   return damageRequest.hitType
 end
 
+
 -- Update ---------------------------------------------------------------------
 
 --- An engine supplied callback that fires on every update tick
 function update(dt)
+  update_apply_damage_flash(dt)
   update_apply_fall_damage(dt)
   update_apply_breathing(dt)
   update_apply_invulnerability_frames(dt)
   update_apply_energy_regen(dt)
   update_apply_shield_regen(dt)
   update_apply_world_limit(dt)
+end
 
-  self.inflictedDamage:update(dt)
+--- Applies a flashing directive when the entity is hit
+function update_apply_damage_flash(dt)
+  if self.damageFlashTime > 0 then
+    local color = status.statusProperty("damageFlashColor") or "ff0000=0.85"
+    if self.damageFlashType == "strong" then
+      color = status.statusProperty("strongDamageFlashColor") or "ffffff=1.0" or color
+    elseif self.damageFlashType == "weak" then
+      color = status.statusProperty("weakDamageFlashColor") or "000000=0.0" or color
+    end
+    status.setPrimaryDirectives(string.format("fade=%s", color))
+  else
+    status.setPrimaryDirectives()
+  end
+  self.damageFlashTime = math.max(0, self.damageFlashTime - dt)
 end
 
 --- Applies fall damage to the entity
-function update_apply_fall_damage(dt)
-  local minimumFallDistance = 14
-  local fallDistanceDamageFactor = 3
-  local minimumFallVel = 40
-  local baseGravity = 80
-  local gravityDiffFactor = 1 / 30.0
-
-  local curYPosition = mcontroller.yPosition()
-  local yPosChange = curYPosition - (self.lastYPosition or curYPosition)
-
-  self.ouchCooldown = math.max(0.0, self.ouchCooldown - dt)
-
-  if
-    self.fallDistance > minimumFallDistance and
-    -self.lastYVelocity > minimumFallVel and
-    mcontroller.onGround()
-  then
-    local damage =
-      (self.fallDistance - minimumFallDistance) * fallDistanceDamageFactor
-
-    damage = damage * (
-      1.0 + (
-        world.gravity(mcontroller.position()) - baseGravity
-      ) * gravityDiffFactor
-    )
-    damage = damage * status.stat("fallDamageMultiplier")
-    status.applySelfDamageRequest({
-      damageType = "IgnoresDef",
-      damage = damage,
-      damageSourceKind = "falling",
-      sourceEntityId = entity.id()
-    })
-  end
-
-  if mcontroller.yVelocity() < -minimumFallVel and not mcontroller.onGround() then
-    self.fallDistance = self.fallDistance + -yPosChange
-  else
-    self.fallDistance = 0
-  end
-
-  self.lastYPosition = curYPosition
-  self.lastYVelocity = mcontroller.yVelocity()
+function update_apply_fall_damage(_dt)
+  -- NPCs don't suffer from fall damage.
 end
 
 --- Applies breathing effects to the entity
-function update_apply_breathing(dt)
-  local mouthPosition = vec2.add(
-    mcontroller.position(),
-    status.statusProperty("mouthPosition")
-  )
-  if
-    status.statPositive("breathProtection") or
-    world.breathable(mouthPosition)
-  then
-    status.modifyResource("breath", status.stat("breathRegenerationRate") * dt)
-  else
-    status.modifyResource("breath", -status.stat("breathDepletionRate") * dt)
-  end
-
-  if not status.resourcePositive("breath") then
-    self.suffocateSoundTimer = self.suffocateSoundTimer - dt
-    if self.suffocateSoundTimer <= 0 then
-      self.suffocateSoundTimer = 0.5 + (0.5 * status.resourcePercentage("health"))
-      animator.playSound("suffocate")
-    end
-    status.modifyResourcePercentage(
-      "health",
-      -status.statusProperty("breathHealthPenaltyPercentageRate") * dt
-    )
-  else
-    self.suffocateSoundTimer = 0
-  end
+function update_apply_breathing(_dt)
+  -- NPCs don't breathe.
 end
 
 --- If the entity has invulnerability frames, this handles them.
 function update_apply_invulnerability_frames(dt)
-  self.hitInvulnerabilityTime = math.max(self.hitInvulnerabilityTime - dt, 0)
-  local flashTime = status.statusProperty("hitInvulnerabilityFlash")
+  if status.statusProperty("hitInvulnerability") then
+    self.hitInvulnerabilityTime = math.max(self.hitInvulnerabilityTime - dt, 0)
+    local flashTime = status.statusProperty("hitInvulnerabilityFlash")
 
-  if self.hitInvulnerabilityTime > 0 then
-    if math.fmod(self.hitInvulnerabilityTime, flashTime) > flashTime / 2 then
-      status.setPrimaryDirectives(status.statusProperty("damageFlashOffDirectives"))
+    if self.hitInvulnerabilityTime > 0 then
+      if math.fmod(self.hitInvulnerabilityTime, flashTime) > flashTime / 2 then
+        status.setPrimaryDirectives(status.statusProperty("damageFlashOffDirectives"))
+      else
+        status.setPrimaryDirectives(status.statusProperty("damageFlashOnDirectives"))
+      end
     else
-      status.setPrimaryDirectives(status.statusProperty("damageFlashOnDirectives"))
+      status.setPrimaryDirectives()
     end
-  else
-    status.setPrimaryDirectives()
   end
 end
 
 --- Applies energy resource regeneration to the entity
 function update_apply_energy_regen(dt)
-  if status.resourceLocked("energy") and status.resourcePercentage("energy") == 1 then
-    animator.playSound("energyRegenDone")
-  end
-
   if status.resource("energy") == 0 then
-    if not status.resourceLocked("energy") then
-      animator.playSound("outOfEnergy")
-      animator.burstParticleEmitter("outOfEnergy")
-    end
-
     status.setResourceLocked("energy", true)
   elseif status.resourcePercentage("energy") == 1 then
     status.setResourceLocked("energy", false)
@@ -455,25 +338,16 @@ end
 
 --- Applies shield (item) resource regeneration to the entity
 function update_apply_shield_regen(dt)
-  self.shieldHitInvulnerabilityTime = math.max(
-    self.shieldHitInvulnerabilityTime - dt,
-    0
-  )
-
   if not status.resourcePositive("shieldStaminaRegenBlock") then
     status.modifyResourcePercentage(
       "shieldStamina",
       status.stat("shieldStaminaRegen") * dt
     )
-    status.modifyResourcePercentage(
-      "perfectBlockLimit",
-      status.stat("perfectBlockLimitRegen") * dt
-    )
   end
 end
 
 --- If the entity is at/below the bottom of the world, KILL THEM
-function update_apply_world_limit(dt)
+function update_apply_world_limit(_dt)
   if mcontroller.atWorldLimit(true) then
     status.setResourcePercentage("health", 0)
   end
@@ -490,14 +364,6 @@ end
 
 --- If the result of this function is not nil, draws overhead bars
 function overheadBars()
-  local bars = {}
-
-  if status.statPositive("shieldHealth") then
-    table.insert(bars, {
-      percentage = status.resource("shieldStamina"),
-      color = status.resourcePositive("perfectBlock") and {255, 255, 200, 255} or {200, 200, 0, 255}
-    })
-  end
-
-  return bars
+  -- NPCs don't draw bars
+  return nil
 end
