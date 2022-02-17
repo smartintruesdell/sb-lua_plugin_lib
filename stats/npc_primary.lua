@@ -46,16 +46,13 @@ DamageFnByDamageType = {
   ["Damage"] = applyDamageRequest_get_damage_with_protection,
   ["Knockback"] = applyDamageRequest_get_damage_with_protection,
   ["IgnoresDef"] = applyDamageRequest_get_damage_without_protection,
+  ["Environment"] = applyDamageRequest_get_damage_without_protection,
   default = function() return 0 end
 }
 
 --- Applies damage dealt to this entity
-function applyDamageRequest_apply_health_lost(health_lost, damage)
+function applyDamageRequest_apply_health_lost(health_lost, damage, _damageRequest)
   status.modifyResource("health", -health_lost)
-  if self.ouchCooldown <= 0 then
-    animator.playSound("ouch")
-    self.ouchCooldown = 0.5
-  end
 
   applyDamageRequest_apply_invulnerability_frames(damage)
 end
@@ -107,10 +104,11 @@ function applyDamageRequest(damageRequest)
     damageRequest
   )
   -- Damage reduction from resistances
-  damage, damageRequest = applyDamageRequest_apply_elemental_resistances(
-    damage,
-    damageRequest
-  )
+  damage, effectiveness, damageRequest =
+    applyDamageRequest_apply_elemental_resistances(
+      damage,
+      damageRequest
+    )
 
   -- Shield or resistances may have nullified status effects, so we apply them here.
   applyDamageRequest_apply_status_effects(damageRequest)
@@ -118,6 +116,7 @@ function applyDamageRequest(damageRequest)
   -- Apply result damage to the entity's health
   local health_lost = math.min(damage, status.resource("health"))
   if health_lost > 0 then
+    applyDamageRequest_apply_damageFlashType(effectiveness, damageRequest)
     if HealthLossFnByDamageType[damageRequest.damageType] ~= nil then
       HealthLossFnByDamageType[damageRequest.damageType](
         health_lost,
@@ -188,7 +187,7 @@ end
 --- Reduces incoming damage if the entity has the appropriate resistances
 function applyDamageRequest_apply_elemental_resistances(damage, damageRequest)
   -- NPC's don't apply elemental resistances
-  return damage, damageRequest
+  return damage, "normalhit", damageRequest
 end
 
 --- Handles the application of invulnerability frames for this entity on hit
@@ -204,6 +203,11 @@ end
 --- NPCs have special environmental damage rules
 function applyDamageRequest_should_apply_environment_damage()
   return false
+end
+
+--- Determines the type and intensity of the hit damage flash
+function applyDamageRequest_apply_damageFlashType(_flash_type, _damageRequest)
+  -- NPCs don't do hit damage flash
 end
 
 --- Applies knockback momentum/velocity to the entity
@@ -258,6 +262,7 @@ function applyDamageRequest_update_hit_type(damageRequest)
   return damageRequest.hitType
 end
 
+
 -- Update ---------------------------------------------------------------------
 
 --- An engine supplied callback that fires on every update tick
@@ -274,7 +279,13 @@ end
 --- Applies a flashing directive when the entity is hit
 function update_apply_damage_flash(dt)
   if self.damageFlashTime > 0 then
-    status.setPrimaryDirectives("fade=ff0000=0.85")
+    local color = status.statusProperty("damageFlashColor") or "ff0000=0.85"
+    if self.damageFlashType == "strong" then
+      color = status.statusProperty("strongDamageFlashColor") or "ffffff=1.0" or color
+    elseif self.damageFlashType == "weak" then
+      color = status.statusProperty("weakDamageFlashColor") or "000000=0.0" or color
+    end
+    status.setPrimaryDirectives(string.format("fade=%s", color))
   else
     status.setPrimaryDirectives()
   end
@@ -336,7 +347,7 @@ function update_apply_shield_regen(dt)
 end
 
 --- If the entity is at/below the bottom of the world, KILL THEM
-function update_apply_world_limit(dt)
+function update_apply_world_limit(_dt)
   if mcontroller.atWorldLimit(true) then
     status.setResourcePercentage("health", 0)
   end
