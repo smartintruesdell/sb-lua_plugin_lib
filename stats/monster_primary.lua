@@ -1,7 +1,7 @@
 require "/scripts/vec2.lua"
 
 require "/scripts/lpl_load_plugins.lua"
-local PLUGINS_PATH = "/stats/npc_primary_plugins.config"
+local PLUGINS_PATH = "/stats/monster_primary_plugins.config"
 
 -- Module initialization ------------------------------------------------------
 
