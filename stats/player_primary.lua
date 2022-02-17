@@ -4,6 +4,8 @@ require "/scripts/achievements.lua"
 require "/scripts/lpl_load_plugins.lua"
 local PLUGINS_PATH = "/stats/player_primary_plugins.config"
 
+-- Module initialization ------------------------------------------------------
+
 function init()
   -- PLUGIN LOADER ------------------------------------------------------------
   PluginLoader.load(PLUGINS_PATH)
@@ -21,8 +23,8 @@ function init()
   self.ouchCooldown = 0
 
   init_set_ouch_noise()
-  init_setup_damageListener()
-  init_handlers()
+  init_setup_inflictedDamageHandler()
+  init_setup_applyStatusEffectHandler()
 end
 
 function init_set_ouch_noise()
@@ -32,17 +34,18 @@ function init_set_ouch_noise()
   end
 end
 
-function init_setup_damageListener()
+function init_setup_inflictedDamageHandler()
   self.inflictedDamage = damageListener("inflictedDamage", inflictedDamageCallback)
 end
 
-function init_handlers()
-  message.setHandler(
-    "applyStatusEffect",
-    function(_, _, effectConfig, duration, sourceEntityId)
-      status.addEphemeralEffect(effectConfig, duration, sourceEntityId)
-    end
-  )
+function init_setup_applyStatusEffectHandler()
+  message.setHandler("applyStatusEffect", applyStatusEffectCallback)
+end
+
+-- Event Handlers -------------------------------------------------------------
+
+function applyStatusEffectCallback(_, _, effectConfig, duration, sourceEntityId)
+  status.addEphemeralEffect(effectConfig, duration, sourceEntityId)
 end
 
 function inflictedDamageCallback(notifications)
@@ -90,6 +93,9 @@ function inflictedDamageCallback_handle_killed_entity(notification)
   end
 end
 
+-- applyDamageRequest : handles incoming hits ---------------------------------
+
+--- Determines the correct damage for an attack that is mitigated by protection
 function applyDamageRequest_get_damage_with_protection(damageRequest)
   return root.evalFunction2(
     "protection",
@@ -98,10 +104,12 @@ function applyDamageRequest_get_damage_with_protection(damageRequest)
   )
 end
 
+--- Determines the correct damage for an attack that ignores protection
 function applyDamageRequest_get_damage_without_protection(damageRequest)
   return damageRequest.damage
 end
 
+--- A Map<DamageType, Function> used to determine the correct damage function
 DamageFnByDamageType = {
   ["Damage"] = applyDamageRequest_get_damage_with_protection,
   ["Knockback"] = applyDamageRequest_get_damage_with_protection,
@@ -110,6 +118,7 @@ DamageFnByDamageType = {
   default = function() return 0 end
 }
 
+--- Applies damage dealt to this entity
 function applyDamageRequest_apply_health_lost(health_lost, damage)
   status.modifyResource("health", -health_lost)
   if self.ouchCooldown <= 0 then
@@ -120,21 +129,23 @@ function applyDamageRequest_apply_health_lost(health_lost, damage)
   applyDamageRequest_apply_invulnerability_frames(damage)
 end
 
+--- A Map<DamageType, function> used to determine the correct health loss function
 HealthLossFnByDamageType = {
   Knockback = function() return end,
   default = applyDamageRequest_apply_health_lost
 }
 
+--- An engine supplied event listener that catches incoming damage requests (hits)
 function applyDamageRequest(damageRequest)
-  if applyDamageRequest_player_is_invulnerable(damageRequest) then
-    return {}
-  end
+  -- Early out if the entity is invulnerable
+  if applyDamageRequest_player_is_invulnerable(damageRequest) then return {} end
 
-  applyDamageRequest_apply_status_effects(damageRequest)
+  -- Early out for status-only attacks
   if
     damageRequest.damageSourceKind == "applystatus" or
     damageRequest.damageType == "Status"
   then
+    applyDamageRequest_apply_status_effects(damageRequest)
     return {}
   end
 
@@ -147,12 +158,25 @@ function applyDamageRequest(damageRequest)
   end
 
   -- Damage Absorbtion
-  damage = applyDamageRequest_apply_damage_absorbtion(damage, damageRequest)
+  damage, damageRequest = applyDamageRequest_apply_damage_absorbtion(
+    damage,
+    damageRequest
+  )
   -- Damage reduction from shields
-  damage, damageRequest = applyDamageRequest_apply_shield(damage, damageRequest)
+  damage, damageRequest = applyDamageRequest_apply_shield(
+    damage,
+    damageRequest
+  )
   -- Damage reduction from resistances
-  damage = applyDamageRequest_apply_elemental_resistances(damage, damageRequest)
+  damage, damageRequest = applyDamageRequest_apply_elemental_resistances(
+    damage,
+    damageRequest
+  )
 
+  -- Shield or resistances may have nullified status effects, so we apply them here.
+  applyDamageRequest_apply_status_effects(damageRequest)
+
+  -- Apply result damage to the entity's health
   local health_lost = math.min(damage, status.resource("health"))
   if health_lost > 0 then
     if HealthLossFnByDamageType[damageRequest.damageType] ~= nil then
@@ -170,8 +194,10 @@ function applyDamageRequest(damageRequest)
     end
   end
 
+  -- Apply knockback to the entity
   applyDamageRequest_apply_knockback(damageRequest)
 
+  -- Return an array of hits to apply to the entity
   return {{
     sourceEntityId = damageRequest.sourceEntityId,
     targetEntityId = entity.id(),
@@ -184,6 +210,7 @@ function applyDamageRequest(damageRequest)
   }}
 end
 
+--- Returns `true` if the entity should be considered invulnerable
 function applyDamageRequest_player_is_invulnerable(damageRequest)
   local hitInvulnerability =
     self.hitInvulnerabilityTime > 0 and
@@ -195,6 +222,7 @@ function applyDamageRequest_player_is_invulnerable(damageRequest)
   )
 end
 
+--- Applies the status effects of a damage request to the entity
 function applyDamageRequest_apply_status_effects(damageRequest)
   status.addEphemeralEffects(
     damageRequest.statusEffects,
@@ -202,15 +230,17 @@ function applyDamageRequest_apply_status_effects(damageRequest)
   )
 end
 
-function applyDamageRequest_apply_damage_absorbtion(damage)
+--- Reduces incoming damage if the entity has damage absorbtion active.
+function applyDamageRequest_apply_damage_absorbtion(damage, damageRequest)
   if status.resourcePositive("damageAbsorption") then
     local damageAbsorb = math.min(damage, status.resource("damageAbsorption"))
     status.modifyResource("damageAbsorption", -damageAbsorb)
     return damage - damageAbsorb
   end
-  return damage
+  return damage, damageRequest
 end
 
+--- Reduces incoming damage if the entity has a shield raised
 function applyDamageRequest_apply_shield(damage, damageRequest)
   if damageRequest.hitType == "ShieldHit" then
     if self.shieldHitInvulnerabilityTime == 0 then
@@ -232,12 +262,15 @@ function applyDamageRequest_apply_shield(damage, damageRequest)
   return damage, damageRequest
 end
 
+--- Reduces incoming damage if the entity has the appropriate resistances
 function applyDamageRequest_apply_elemental_resistances(damage, damageRequest)
   local elementalStat = root.elementalResistance(damageRequest.damageSourceKind)
   local resistance = status.stat(elementalStat)
-  return damage - (resistance * damage)
+
+  return damage - (resistance * damage), damageRequest
 end
 
+--- Handles the application of invulnerability frames for this entity on hit
 function applyDamageRequest_apply_invulnerability_frames(damage)
   local damageHealthPercentage = damage / status.resourceMax("health")
   if
@@ -247,18 +280,32 @@ function applyDamageRequest_apply_invulnerability_frames(damage)
   end
 end
 
+--- Applies knockback momentum/velocity to the entity
 function applyDamageRequest_apply_knockback(damageRequest)
-  local knockbackFactor = (1 - status.stat("grit"))
+  local momentum, knockback = applyDamageRequest_get_knockback_momentum(damageRequest)
 
-  local knockbackMomentum = vec2.mul(damageRequest.knockbackMomentum, knockbackFactor)
-  local knockback = vec2.mag(knockbackMomentum)
-  if knockback > status.stat("knockbackThreshold") then
-    mcontroller.setVelocity({0,0})
-    local dir = knockbackMomentum[1] > 0 and 1 or -1
-    mcontroller.addMomentum({dir * knockback / 1.41, knockback / 1.41})
+  if status.resourcePositive("health") and knockback > 0 then
+    if knockback > status.stat("knockbackThreshold") then
+      -- Reset the player's velocity only when the knockback is great.
+      mcontroller.setVelocity({0,0})
+      -- `knockback` is an absolute distance, so we need to re-assign the direction
+      -- from `momentum` on the X axis.
+      local dir = momentum[1] > 0 and 1 or -1
+      mcontroller.addMomentum({dir * knockback / 1.41, knockback / 1.41})
+    end
   end
 end
 
+--- Determines knockback momentum
+function applyDamageRequest_get_knockback_momentum(damageRequest)
+  local knockbackFactor = (1 - status.stat("grit"))
+  local momentum = vec2.mul(damageRequest.knockbackMomentum, knockbackFactor)
+
+  return momentum, vec2.mag(momentum)
+end
+
+--- Updates the hitType of the damage request, usually setting it to kill
+--- where appropriate
 function applyDamageRequest_update_hit_type(damageRequest)
   if not status.resourcePositive("health") then
     return "kill"
@@ -266,22 +313,21 @@ function applyDamageRequest_update_hit_type(damageRequest)
   return damageRequest.hitType
 end
 
-function notifyResourceConsumed(resourceName, amount)
-  if resourceName == "energy" and amount > 0 then
-    status.setResourcePercentage("energyRegenBlock", 1.0)
-  end
-end
+-- Update ---------------------------------------------------------------------
 
+--- An engine supplied callback that fires on every update tick
 function update(dt)
   update_apply_fall_damage(dt)
   update_apply_breathing(dt)
   update_apply_invulnerability_frames(dt)
   update_apply_energy_regen(dt)
   update_apply_shield_regen(dt)
-  self.inflictedDamage:update(dt)
   update_apply_world_limit(dt)
+
+  self.inflictedDamage:update(dt)
 end
 
+--- Applies fall damage to the entity
 function update_apply_fall_damage(dt)
   local minimumFallDistance = 14
   local fallDistanceDamageFactor = 3
@@ -294,16 +340,26 @@ function update_apply_fall_damage(dt)
 
   self.ouchCooldown = math.max(0.0, self.ouchCooldown - dt)
 
-  if self.fallDistance > minimumFallDistance and -self.lastYVelocity > minimumFallVel and mcontroller.onGround() then
-    local damage = (self.fallDistance - minimumFallDistance) * fallDistanceDamageFactor
-    damage = damage * (1.0 + (world.gravity(mcontroller.position()) - baseGravity) * gravityDiffFactor)
+  if
+    self.fallDistance > minimumFallDistance and
+    -self.lastYVelocity > minimumFallVel and
+    mcontroller.onGround()
+  then
+    local damage =
+      (self.fallDistance - minimumFallDistance) * fallDistanceDamageFactor
+
+    damage = damage * (
+      1.0 + (
+        world.gravity(mcontroller.position()) - baseGravity
+      ) * gravityDiffFactor
+    )
     damage = damage * status.stat("fallDamageMultiplier")
     status.applySelfDamageRequest({
-        damageType = "IgnoresDef",
-        damage = damage,
-        damageSourceKind = "falling",
-        sourceEntityId = entity.id()
-      })
+      damageType = "IgnoresDef",
+      damage = damage,
+      damageSourceKind = "falling",
+      sourceEntityId = entity.id()
+    })
   end
 
   if mcontroller.yVelocity() < -minimumFallVel and not mcontroller.onGround() then
@@ -316,6 +372,7 @@ function update_apply_fall_damage(dt)
   self.lastYVelocity = mcontroller.yVelocity()
 end
 
+--- Applies breathing effects to the entity
 function update_apply_breathing(dt)
   local mouthPosition = vec2.add(
     mcontroller.position(),
@@ -345,6 +402,7 @@ function update_apply_breathing(dt)
   end
 end
 
+--- If the entity has invulnerability frames, this handles them.
 function update_apply_invulnerability_frames(dt)
   self.hitInvulnerabilityTime = math.max(self.hitInvulnerabilityTime - dt, 0)
   local flashTime = status.statusProperty("hitInvulnerabilityFlash")
@@ -360,6 +418,7 @@ function update_apply_invulnerability_frames(dt)
   end
 end
 
+--- Applies energy resource regeneration to the entity
 function update_apply_energy_regen(dt)
   if status.resourceLocked("energy") and status.resourcePercentage("energy") == 1 then
     animator.playSound("energyRegenDone")
@@ -384,6 +443,7 @@ function update_apply_energy_regen(dt)
   end
 end
 
+--- Applies shield (item) resource regeneration to the entity
 function update_apply_shield_regen(dt)
   self.shieldHitInvulnerabilityTime = math.max(
     self.shieldHitInvulnerabilityTime - dt,
@@ -402,12 +462,23 @@ function update_apply_shield_regen(dt)
   end
 end
 
+--- If the entity is at/below the bottom of the world, KILL THEM
 function update_apply_world_limit(dt)
   if mcontroller.atWorldLimit(true) then
     status.setResourcePercentage("health", 0)
   end
 end
 
+-- Other methods --------------------------------------------------------------
+
+--- An engine supplied callback to handle changes to base resources
+function notifyResourceConsumed(resourceName, amount)
+  if resourceName == "energy" and amount > 0 then
+    status.setResourcePercentage("energyRegenBlock", 1.0)
+  end
+end
+
+--- If the result of this function is not nil, draws overhead bars
 function overheadBars()
   local bars = {}
 
