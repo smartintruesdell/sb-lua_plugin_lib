@@ -17,6 +17,9 @@ local PLUGINS_PATH = "/monsters/monster_plugins.config"
 function init()
   -- PLUGIN LOADER ------------------------------------------------------------
   PluginLoader.load(PLUGINS_PATH)
+  if plugin_init ~= nil then
+    plugin_init()
+  end
   -- END PLUGIN LOADER --------------------------------------------------------
 
   init_behavior()
