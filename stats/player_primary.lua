@@ -168,10 +168,11 @@ function applyDamageRequest(damageRequest)
     damageRequest
   )
   -- Damage reduction from resistances
-  damage, damageRequest = applyDamageRequest_apply_elemental_resistances(
-    damage,
-    damageRequest
-  )
+  damage, effectiveness, damageRequest =
+    applyDamageRequest_apply_elemental_resistances(
+      damage,
+      damageRequest
+    )
 
   -- Shield or resistances may have nullified status effects, so we apply them here.
   applyDamageRequest_apply_status_effects(damageRequest)
@@ -179,6 +180,10 @@ function applyDamageRequest(damageRequest)
   -- Apply result damage to the entity's health
   local health_lost = math.min(damage, status.resource("health"))
   if health_lost > 0 then
+    applyDamageRequest_apply_damageFlashType(
+      effectiveness,
+      damageRequest
+    )
     if HealthLossFnByDamageType[damageRequest.damageType] ~= nil then
       HealthLossFnByDamageType[damageRequest.damageType](
         health_lost,
@@ -267,7 +272,7 @@ function applyDamageRequest_apply_elemental_resistances(damage, damageRequest)
   local elementalStat = root.elementalResistance(damageRequest.damageSourceKind)
   local resistance = status.stat(elementalStat)
 
-  return damage - (resistance * damage), damageRequest
+  return damage - (resistance * damage), "normalhit", damageRequest
 end
 
 --- Handles the application of invulnerability frames for this entity on hit
@@ -278,6 +283,11 @@ function applyDamageRequest_apply_invulnerability_frames(damage)
   then
     self.hitInvulnerabilityTime = status.statusProperty("hitInvulnerabilityTime")
   end
+end
+
+--- Determines the type and intensity of the hit damage flash
+function applyDamageRequest_apply_damageFlashType(_flash_type, _damageRequest)
+  -- Players don't do hit damage flash
 end
 
 --- Applies knockback momentum/velocity to the entity
