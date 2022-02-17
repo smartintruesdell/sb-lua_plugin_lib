@@ -6,7 +6,6 @@ local PLUGINS_PATH = "/stats/player_primary_plugins.config"
 
 function init()
   -- PLUGIN LOADER ------------------------------------------------------------
-  PluginLoader.debug = true
   PluginLoader.load(PLUGINS_PATH)
   if plugin_init ~= nil then
     plugin_init()
@@ -91,13 +90,36 @@ function inflictedDamageCallback_handle_killed_entity(notification)
   end
 end
 
+function applyDamageRequest_get_damage_with_protection(damageRequest)
+  return root.evalFunction2(
+    "protection",
+    damageRequest.damage,
+    status.stat("protection")
+  )
+end
+
+function applyDamageRequest_get_damage_without_protection(damageRequest)
+  return damageRequest.damage
+end
+
 DamageFnByDamageType = {
-  Damage = applyDamageRequest_get_damage_with_protection,
-  Knockback = applyDamageRequest_get_damage_with_protection,
-  IgnoresDef = applyDamageRequest_get_damage_without_protection,
-  Environment = applyDamageRequest_get_damage_without_protection,
+  ["Damage"] = applyDamageRequest_get_damage_with_protection,
+  ["Knockback"] = applyDamageRequest_get_damage_with_protection,
+  ["IgnoresDef"] = applyDamageRequest_get_damage_without_protection,
+  ["Environment"] = applyDamageRequest_get_damage_without_protection,
   default = function() return 0 end
 }
+
+function applyDamageRequest_apply_health_lost(health_lost, damage)
+  status.modifyResource("health", -health_lost)
+  if self.ouchCooldown <= 0 then
+    animator.playSound("ouch")
+    self.ouchCooldown = 0.5
+  end
+
+  applyDamageRequest_apply_invulnerability_frames(damage)
+end
+
 HealthLossFnByDamageType = {
   Knockback = function() return end,
   default = applyDamageRequest_apply_health_lost
@@ -123,6 +145,7 @@ function applyDamageRequest(damageRequest)
   else
     damage = DamageFnByDamageType.default(damageRequest)
   end
+
   -- Damage Absorbtion
   damage = applyDamageRequest_apply_damage_absorbtion(damage, damageRequest)
   -- Damage reduction from shields
@@ -179,18 +202,6 @@ function applyDamageRequest_apply_status_effects(damageRequest)
   )
 end
 
-function applyDamageRequest_get_damage_with_protection(damageRequest)
-  return root.evalFunction2(
-    "protection",
-    damageRequest.damage,
-    status.stat("protection")
-  )
-end
-
-function applyDamageRequest_get_damage_without_protection(damageRequest)
-  return damageRequest.damage
-end
-
 function applyDamageRequest_apply_damage_absorbtion(damage)
   if status.resourcePositive("damageAbsorption") then
     local damageAbsorb = math.min(damage, status.resource("damageAbsorption"))
@@ -225,16 +236,6 @@ function applyDamageRequest_apply_elemental_resistances(damage, damageRequest)
   local elementalStat = root.elementalResistance(damageRequest.damageSourceKind)
   local resistance = status.stat(elementalStat)
   return damage - (resistance * damage)
-end
-
-function applyDamageRequest_apply_health_lost(health_lost, damage)
-  status.modifyResource("health", -health_lost)
-  if self.ouchCooldown <= 0 then
-    animator.playSound("ouch")
-    self.ouchCooldown = 0.5
-  end
-
-  applyDamageRequest_apply_invulnerability_frames(damage)
 end
 
 function applyDamageRequest_apply_invulnerability_frames(damage)
