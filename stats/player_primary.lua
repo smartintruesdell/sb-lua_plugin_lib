@@ -23,8 +23,8 @@ function init()
   self.ouchCooldown = 0
 
   init_set_ouch_noise()
-  init_setup_inflictedDamageHandler()
-  init_setup_applyStatusEffectHandler()
+  message.setHandler("applyStatusEffect", applyStatusEffectCallback)
+  self.inflictedDamage = damageListener("inflictedDamage", inflictedDamageCallback)
 end
 
 function init_set_ouch_noise()
@@ -32,14 +32,6 @@ function init_set_ouch_noise()
   if ouchNoise then
     animator.setSoundPool("ouch", {ouchNoise})
   end
-end
-
-function init_setup_inflictedDamageHandler()
-  self.inflictedDamage = damageListener("inflictedDamage", inflictedDamageCallback)
-end
-
-function init_setup_applyStatusEffectHandler()
-  message.setHandler("applyStatusEffect", applyStatusEffectCallback)
 end
 
 -- Event Handlers -------------------------------------------------------------
