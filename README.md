@@ -104,8 +104,13 @@ Out of the box, LuaPluginLib updates the following vanilla scripts to add patch 
 
 - `items/active/weapons/weapon.lua`
 - `monsters/monster.lua`
+- `stats/player_primary.lua`
 
 With more to be added as needed!
+
+These updates do more than just call the PluginLoader: They also non-destructively refactor the vanilla modules into individual functions to make writing your plugins easier.
+
+For example, in `player_primary.lua`, you don't necessarily have to write your plugin to wrap the entire `applyDamageRequest(damageRequest)` method. Instead, you can just wrap `applyDamageRequest_apply_knockback(damageRequest)` subroutine to make your mod that dramatically exaggerates knockback force.
 
 
 ## I need a vanilla script to support patching, what can I do?
@@ -121,7 +126,11 @@ The plugin loader works by "wrapping" functions in layers.
 
 For this to work, your code needs to have an entry-point where those layers can be assembled. A great example is the `new` or `init` method for a player/entity/weapon/etc script, or in an intializer for your module.
 
-For it to work, the plugin loader needs access to the `root` table, so be careful not to call it in the global namespace.
+`PluginLoader` won't work without access to the `root` table, so be careful not to call it in the global namespace.
+
+> Note: The best lua files for plugin authors are split up into lots of individual subroutine functions so that patches can target specific parts of the logic more easily!
+>
+> Also, remember you can pass additional data as arguments to your functions even if you're not using them. This can be super valuable for a plugin author down the line!
 
 Here's an example, from `items/active/weapons/weapon.lua`
 
