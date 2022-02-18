@@ -1,0 +1,146 @@
+#+title:Plugin Support Plan
+#+author:Shawn Martin-Truesdell
+#+email:shawn@martin-truesdell.com
+
+* Items
+
+** Generic
+- [X] =./active/fishingrod/fishingrod.lua=
+- [X] =./active/shields/shield.lua=
+- [ ] =./active/vehiclecontroller/vehiclecontroller.lua=
+- [ ] =./active/vehiclecontroller/vehiclecursor.lua=
+- [ ] =./active/weapons/fist/fistweapon.lua=
+- [ ] =./active/weapons/fist/punch.lua=
+- [ ] =./active/weapons/melee/abilities/axe/axecleave.lua=
+- [ ] =./active/weapons/melee/abilities/broadsword/bladecharge/bladecharge.lua=
+- [ ] =./active/weapons/melee/abilities/broadsword/downstab/downstab.lua=
+- [ ] =./active/weapons/melee/abilities/broadsword/flipslash/flipslash.lua=
+- [ ] =./active/weapons/melee/abilities/broadsword/parry/parry.lua=
+- [ ] =./active/weapons/melee/energymeleeweapon.lua=
+- [ ] =./active/weapons/melee/meleecombo.lua=
+- [ ] =./active/weapons/melee/meleeslash.lua=
+- [ ] =./active/weapons/melee/meleeweapon.lua=
+- [ ] =./active/weapons/ranged/gun.lua=
+- [ ] =./active/weapons/ranged/gunfire.lua=
+- [ ] =./active/weapons/staff/staff.lua=
+- [ ] =./active/weapons/whip/abilities/energyorb.lua=
+- [ ] =./active/weapons/whip/abilities/whipcrack.lua=
+- [ ] =./active/weapons/whip/whip.lua=
+- [ ] =./buildscripts/abilities.lua=
+- [ ] =./buildscripts/buildbow.lua=
+- [ ] =./buildscripts/buildfishingrod.lua=
+- [ ] =./buildscripts/buildfist.lua=
+- [ ] =./buildscripts/buildfood.lua=
+- [ ] =./buildscripts/buildmechpart.lua=
+- [ ] =./buildscripts/buildsapling.lua=
+- [ ] =./buildscripts/buildshield.lua=
+- [ ] =./buildscripts/buildunrandshield.lua=
+- [ ] =./buildscripts/buildunrandweapon.lua=
+- [ ] =./buildscripts/buildweapon.lua=
+- [ ] =./buildscripts/buildwhip.lua=
+- [X] =./active/weapons/boomerang/boomerang.lua=
+- [X] =./active/weapons/bow/abilities/bowshot.lua=
+- [X] =./active/weapons/bow/abilities/zenshot.lua=
+- [X] =./active/weapons/bow/bow.lua=
+- [X] =./active/weapons/weapon.lua=
+
+** Specific
+
+- [ ] =./active/effects/chain.lua=
+- [ ] =./active/effects/detector.lua=
+- [ ] =./active/effects/entitymarker.lua=
+- [ ] =./active/effects/laserbeam.lua=
+- [ ] =./active/effects/lightning.lua=
+- [ ] =./active/effects/renderrope.lua=
+- [ ] =./active/fossil/fossilbrush.lua=
+- [ ] =./active/grapplinghooks/grapplinghook.lua=
+- [ ] =./active/randomblueprint/randomblueprint.lua=
+- [ ] =./active/stationtransponder/stationtransponder.lua=
+- [ ] =./active/unsorted/arrester/arrester.lua=
+- [ ] =./active/unsorted/arrester/arresteranimation.lua=
+- [ ] =./active/unsorted/audiodisc/audiodisc.lua=
+- [ ] =./active/unsorted/broom/broom.lua=
+- [ ] =./active/unsorted/filledcapturepod/filledcapturepod.lua=
+- [ ] =./active/unsorted/filledcapturepod/npcpetcapturepod.lua=
+- [ ] =./active/unsorted/geode/geode.lua=
+- [ ] =./active/unsorted/handcuffs/handcuffs.lua=
+- [ ] =./active/unsorted/laserminer/beammine.lua=
+- [ ] =./active/unsorted/miningdrone/arrow.lua=
+- [ ] =./active/unsorted/miningdrone/miningdrone.lua=
+- [ ] =./active/unsorted/oredetector/oredetector.lua=
+- [ ] =./active/unsorted/papernote/papernote.lua=
+- [ ] =./active/unsorted/parasol/parasol.lua=
+- [ ] =./active/unsorted/penguincostume/penguincostume.lua=
+- [ ] =./active/unsorted/railhook/railhook.lua=
+- [ ] =./active/unsorted/railplatform/placementpreview.lua=
+- [ ] =./active/unsorted/railplatform/railplatform.lua=
+- [ ] =./active/unsorted/relocator/relocate.lua=
+- [ ] =./active/unsorted/rewardbag/rewardbag.lua=
+- [ ] =./active/unsorted/stunmine/stunmine.lua=
+- [ ] =./active/unsorted/superrewardbag/superrewardbag.lua=
+- [ ] =./active/unsorted/translocator/translocator.lua=
+- [ ] =./active/unsorted/wateringcan/wateringcan.lua=
+- [ ] =./active/weapons/fist/combofinishers/dashslash.lua=
+- [ ] =./active/weapons/fist/combofinishers/powerpunch.lua=
+- [ ] =./active/weapons/fist/combofinishers/snaproot.lua=
+- [ ] =./active/weapons/fist/combofinishers/uppercut.lua=
+- [ ] =./active/weapons/melee/abilities/broadsword/astraltear/astraltear.lua=
+- [ ] =./active/weapons/melee/abilities/broadsword/giantsword/giantsword.lua=
+- [ ] =./active/weapons/melee/abilities/broadsword/greatwave/greatwave.lua=
+- [ ] =./active/weapons/melee/abilities/broadsword/kunaiblast/kunaiblast.lua=
+- [ ] =./active/weapons/melee/abilities/broadsword/risingslash/risingslash.lua=
+- [ ] =./active/weapons/melee/abilities/broadsword/spinslash/spinslash.lua=
+- [ ] =./active/weapons/melee/abilities/broadsword/spinslash/superspinslash.lua=
+- [ ] =./active/weapons/melee/abilities/broadsword/traildash/traildash.lua=
+- [ ] =./active/weapons/melee/abilities/broadsword/travelingslash/travelingslash.lua=
+- [ ] =./active/weapons/melee/abilities/generic/blinkexplosion/blinkexplosion.lua=
+- [ ] =./active/weapons/melee/abilities/generic/blinkslash/blinkslash.lua=
+- [ ] =./active/weapons/melee/abilities/generic/scouteye/scouteye.lua=
+- [ ] =./active/weapons/melee/abilities/hammer/elementalaura/elementalaura.lua=
+- [ ] =./active/weapons/melee/abilities/hammer/elementalpillar/elementalpillar.lua=
+- [ ] =./active/weapons/melee/abilities/hammer/groundslam/groundslam.lua=
+- [ ] =./active/weapons/melee/abilities/hammer/hammersmash.lua=
+- [ ] =./active/weapons/melee/abilities/hammer/shockwave/shockwave.lua=
+- [ ] =./active/weapons/melee/abilities/hammer/uppercut/uppercut.lua=
+- [ ] =./active/weapons/melee/abilities/spear/barrier/barrier.lua=
+- [ ] =./active/weapons/melee/abilities/spear/charge/charge.lua=
+- [ ] =./active/weapons/melee/abilities/spear/elementalspin/elementalspin.lua=
+- [ ] =./active/weapons/melee/abilities/spear/flurry/flurry.lua=
+- [ ] =./active/weapons/melee/abilities/spear/rocketspear/rocketspear.lua=
+- [ ] =./active/weapons/melee/abilities/spear/spearstab.lua=
+- [ ] =./active/weapons/melee/abilities/spear/spin/spin.lua==
+- [ ] =./active/weapons/melee/pickaxe/pickslash.lua=
+- [ ] =./active/weapons/other/adaptablecrossbow/adaptableammo.lua=
+- [ ] =./active/weapons/other/drillspear/drillcharge.lua=
+- [ ] =./active/weapons/other/drillspear/drillspearstab.lua=
+- [ ] =./active/weapons/other/evileye/evileye.lua=
+- [ ] =./active/weapons/other/eyesword/eyesword.lua=
+- [ ] =./active/weapons/other/magnorbs/magnorbs.lua=
+- [ ] =./active/weapons/other/nurusspear/nurusspear.lua=
+- [ ] =./active/weapons/other/remotegrenadelauncher/remotegrenadelauncher.lua=
+- [ ] =./active/weapons/other/tentaclegun/tentaclegun.lua=
+- [ ] =./active/weapons/protectorate/protectoratebroadsword/empowerment.lua=
+- [ ] =./active/weapons/protectorate/protectoratebroadsword/protectoratebroadsword.lua=
+- [ ] =./active/weapons/ranged/abilities/altfire.lua=
+- [ ] =./active/weapons/ranged/abilities/burstshot/burstshot.lua=
+- [ ] =./active/weapons/ranged/abilities/chargefire/chargefire.lua=
+- [ ] =./active/weapons/ranged/abilities/erchiusbeam/erchiusbeam.lua=
+- [ ] =./active/weapons/ranged/abilities/explosiveburst/explosiveburst.lua=
+- [ ] =./active/weapons/ranged/abilities/flamethrower/flamethrower.lua=
+- [ ] =./active/weapons/ranged/abilities/flashlight/flashlight.lua=
+- [ ] =./active/weapons/ranged/abilities/fuelairtrail/fuelairtrail.lua=
+- [ ] =./active/weapons/ranged/abilities/guidedrocket/guidedrocket.lua=
+- [ ] =./active/weapons/ranged/abilities/homingrocket/homingrocket.lua=
+- [ ] =./active/weapons/ranged/abilities/homingrocket/homingrocketanimation.lua=
+- [ ] =./active/weapons/ranged/abilities/lance/lance.lua=
+- [ ] =./active/weapons/ranged/abilities/markedshot/markedshot.lua=
+- [ ] =./active/weapons/ranged/abilities/rocketburst/rocketburst.lua=
+- [ ] =./active/weapons/ranged/beamfire.lua=
+- [ ] =./active/weapons/ranged/flamethrower/flamethrower.lua=
+- [ ] =./active/weapons/staff/abilities/controlprojectile/controlprojectile.lua=
+- [ ] =./active/weapons/staff/abilities/controlprojectile/kluexshooter.lua=
+- [ ] =./active/weapons/staff/abilities/controlprojectile/plasmabarrage.lua=
+- [ ] =./active/weapons/staff/abilities/effectzone/effectzone.lua=
+- [ ] =./active/weapons/staff/abilities/guidedbolt/guidedbolt.lua=
+- [ ] =./tools/miningtools/beamaxe.lua=
+- [X] =./active/weapons/bossdrop/miniknoglauncher/rocketstack.lua=

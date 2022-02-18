@@ -114,8 +114,15 @@ knockbackMomentum = Plugins.add_after_hook(
 
 Out of the box, LuaPluginLib updates the following vanilla scripts to add plugin support:
 
+<details>
+  <summary>Click to see supported scripts</summary>
+
 - /items
   - /active
+    - /fishingrod
+      - `fishingrod.lua`
+    - /shields
+      - `shield.lua`
     - /weapons
       - `weapon.lua`
       - /boomerang
@@ -129,6 +136,7 @@ Out of the box, LuaPluginLib updates the following vanilla scripts to add plugin
   - `monster_primary.lua`
   - `npc_primary.lua`
   - `player_primary.lua`
+</details>
 
 With more to be added as needed!
 
