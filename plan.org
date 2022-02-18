@@ -16,10 +16,10 @@
 - [ ] =./active/weapons/melee/abilities/broadsword/downstab/downstab.lua=
 - [ ] =./active/weapons/melee/abilities/broadsword/flipslash/flipslash.lua=
 - [ ] =./active/weapons/melee/abilities/broadsword/parry/parry.lua=
-- [ ] =./active/weapons/melee/energymeleeweapon.lua=
-- [ ] =./active/weapons/melee/meleecombo.lua=
-- [ ] =./active/weapons/melee/meleeslash.lua=
-- [ ] =./active/weapons/melee/meleeweapon.lua=
+- [X] =./active/weapons/melee/energymeleeweapon.lua=
+- [X] =./active/weapons/melee/meleecombo.lua=
+- [X] =./active/weapons/melee/meleeslash.lua=
+- [X] =./active/weapons/melee/meleeweapon.lua=
 - [ ] =./active/weapons/ranged/gun.lua=
 - [ ] =./active/weapons/ranged/gunfire.lua=
 - [ ] =./active/weapons/staff/staff.lua=

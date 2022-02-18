@@ -136,6 +136,11 @@ Out of the box, LuaPluginLib updates the following vanilla scripts to add plugin
       - /fist
         - `fistweapon.lua`
         - `punch.lua`
+      - /melee
+        - `energymeleeweapon.lua`
+        - `meleecombo.lua`
+        - `meleeslash.lua`
+        - `meleeweapon.lua`
 - /monsters
   - `monster.lua`
 - /stats
