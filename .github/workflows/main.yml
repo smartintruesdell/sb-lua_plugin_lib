@@ -1,4 +1,4 @@
-name: IntoStarlight CI/CD Release process
+name: LuaPluginLib CI/CD Release process
 
 on: [push, pull_request, workflow_dispatch]
 
