@@ -160,6 +160,7 @@ Out of the box, LuaPluginLib updates the following vanilla scripts to add plugin
     - `buildfishingrod.lua`
     - `buildfist.lua`
     - `buildfood.lua`
+    - `buildmechpart.lua`
     - `buildsapling.lua`
     - `buildweapon.lua`
     - `buildunrandweapon.lua`
