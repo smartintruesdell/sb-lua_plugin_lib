@@ -22,8 +22,8 @@
 - [X] =./active/weapons/ranged/gun.lua=
 - [X] =./active/weapons/ranged/gunfire.lua=
 - [X] =./active/weapons/staff/staff.lua=
-- [ ] =./active/weapons/whip/abilities/energyorb.lua=
-- [ ] =./active/weapons/whip/abilities/whipcrack.lua=
+- [X] =./active/weapons/whip/abilities/energyorb.lua=
+- [X] =./active/weapons/whip/abilities/whipcrack.lua=
 - [X] =./active/weapons/whip/whip.lua=
 - [ ] =./buildscripts/abilities.lua=
 - [ ] =./buildscripts/buildbow.lua=
