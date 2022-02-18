@@ -62,6 +62,7 @@ Plugins.add_after_initialize_hook(
         break;
       end
     end
+    return weaponConfig
   end
 )
 
@@ -113,11 +114,21 @@ knockbackMomentum = Plugins.add_after_hook(
 
 Out of the box, LuaPluginLib updates the following vanilla scripts to add plugin support:
 
-- `items/active/weapons/weapon.lua`
-- `monsters/monster.lua`
-- `stats/monster_primary.lua`
-- `stats/npc_primary.lua`
-- `stats/player_primary.lua`
+- /items
+  - /active
+    - /weapons
+      - `weapon.lua`
+      - /boomerang
+        - `boomerang.lua`
+      - /bossdrop
+        - /miniknoglauncher
+          - `rocketstack.lua`
+- /monsters
+  - `monster.lua`
+- /stats
+  - `monster_primary.lua`
+  - `npc_primary.lua`
+  - `player_primary.lua`
 
 With more to be added as needed!
 
