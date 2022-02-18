@@ -22,7 +22,7 @@ local function call_hooks(hfn, ...)
   -- Then, call the "after" hooks, updating the result until we
   -- hit a stop or the end of the list.
   for i = 1, #hfn.__after_hooks, 1 do
-    results, stop = hfn.__before_hooks[i](result)
+    results, stop = hfn.__after_hooks[i](result)
     -- Handle stop return
     if stop ~= nil then break end
   end
@@ -48,6 +48,8 @@ local function new_hook(fn)
       return hfn.__fn(...)
     end
   })
+
+  return hfn
 end
 
 local function add_before_hook(hfn, callback)
@@ -100,9 +102,23 @@ end
 
 function Plugins.remove_before_hook(hfn, callback)
   if is_PluginHookFunction(hfn) then
-    for i = 0, #hfn.__before_hooks, 1, -1 do
+    for i = #hfn.__before_hooks, 1, -1 do
       if hfn.__before_hooks[i] == callback then
         table.remove(hfn.__before_hooks, i)
+      end
+    end
+    if #hfn.__hooks == 0 then
+      return hfn.__fn
+    end
+  end
+  return hfn
+end
+
+function Plugins.remove_after_hook(hfn, callback)
+  if is_PluginHookFunction(hfn) then
+    for i = #hfn.__after_hooks, 1, -1 do
+      if hfn.__after_hooks[i] == callback then
+        table.remove(hfn.__after_hooks, i)
       end
     end
     if #hfn.__hooks == 0 then
