@@ -141,6 +141,9 @@ Out of the box, LuaPluginLib updates the following vanilla scripts to add plugin
         - `meleecombo.lua`
         - `meleeslash.lua`
         - `meleeweapon.lua`
+      - /ranged
+        - `gun.lua`
+        - `gunfire.lua`
 - /monsters
   - `monster.lua`
 - /stats
