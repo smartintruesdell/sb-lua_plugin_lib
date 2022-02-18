@@ -45,6 +45,14 @@ function build(... --[[directory, config, parameters, level, seed]])
   config, parameters = build_setup_tooltip_fields(config, parameters)
   config, parameters = build_set_price(config, parameters)
 
+  -- PLUGIN LOADER ------------------------------------------------------------
+  config, parameters = Plugins.call_after_initialize_hooks(
+    "buildbow",
+    config,
+    parameters
+  )
+  -- END PLUGIN LOADER --------------------------------------------------------
+
   return config, parameters
 end
 
