@@ -122,22 +122,35 @@ Out of the box, LuaPluginLib updates the following vanilla scripts to add plugin
 
 - /items
   - /active
-    - /fishingrod
-      - `fishingrod.lua`
-    - /shields
-      - `shield.lua`
+    - /fishingrod/`fishingrod.lua`
+    - /shields/`shield.lua`
+    - /vehiclecontroller/`vehiclecontroller.lua`
     - /weapons
       - `weapon.lua`
-      - /boomerang
-        - `boomerang.lua`
+      - /boomerang/`boomerang.lua`
       - /bossdrop
-        - /miniknoglauncher
-          - `rocketstack.lua`
+        - /miniknoglauncher/`rocketstack.lua`
       - /fist
         - `fistweapon.lua`
         - `punch.lua`
-- /monsters
-  - `monster.lua`
+      - /melee
+        - `energymeleeweapon.lua`
+        - `meleecombo.lua`
+        - `meleeslash.lua`
+        - `meleeweapon.lua`
+        - /abilities
+          - /axe/`axecleave.lua`
+          - /broadsword
+            - /bladecharge/`bladecharge.lua`
+            - /downstab/`downstab.lua`
+            - /flipslash/`flipslash.lua`
+            - /parry/`parry.lua`
+      - /ranged
+        - `gun.lua`
+        - `gunfire.lua`
+      - /staff/`staff.lua`
+      - /whip/`whip.lua`
+- /monsters/`monster.lua`
 - /stats
   - `monster_primary.lua`
   - `npc_primary.lua`
