@@ -2,52 +2,66 @@
   This is an example weapon plugin. You can use this as a template for your own
   plugins.
 ]]
+-- Require the Plugins module with useful utilities
+require "/scripts/lsl_plugin_util.lua"
 
--- First, we localize references to the existing Weapon methods.
--- These will be chains of all other plugin Weapon methods and the original Weapon
--- script methods. Note we use the Weapon.method and not Weapon:method forms because
--- we want to pass references directly
---
--- You can omit any of these that you don't plan to modify. If you're not going
--- to override uninit, you don't have to bind a super.
-local super_init = Weapon.init
-local super_update = Weapon.update
+-- Name should match the json patch above.
+local MODULE_NAME = "weapon"
 
--- There is a special case for 'new', because Weapon.new is where we run the plugin
--- loader so we can't realistically chain it. Instead, we specify Weapon:plugin_new
--- and call that after plugins are loaded
-local super_new = Weapon.plugin_new or function (config) return config end
-
-function Weapon.plugin_new(weaponConfig)
-  weaponConfig.worksWithPlugins = true
-  -- This is the only `super` where we won't pass `self` through.
-  return super_new(weaponConfig)
-end
+-- Here, we add our first "Hook". This one will run AFTER the new/init script
+-- where plugins are loaded for the module being patched. It's important that
+-- your MODULE_NAME name matches the name of the script file you're patching.
+Plugins.add_after_initialize_hook(
+  MODULE_NAME,
+  function (weaponConfig)
+    for _, tag in ipairs(weaponConfig.itemTags or {}) do
+      if tag == "shortspear" then
+        table.insert(weaponConfig.itemTags, "spear")
+        break;
+      end
+    end
+    return weaponConfig
+  end
+)
 
 -- Amending standard methods is easy, there are two patterns to keep in mind:
 
-function Weapon:init()
-  -- You can call the super first,
-  -- Always call the `super` method with self and all appropriate arguments
-  super_init(self)
+-- To call code BEFORE a function is called, or to modify its arguements before
+-- they're applied, use `Plugins.add_before_hook`. Note that we do assignment
+-- here:
+-- <function> = Plugins.add_before_hook(<function>, <your hook>)
 
-  -- And then do additional handling if you want your logic to happen AFTER
-  -- your dependencies are resolved
-  self.worksWithPlugins = true
-end
+Weapon.update = Plugins.add_before_hook(
+  Weapon.update,
+  function(_self, dt, fireMode, shiftHeld)
+    -- Here, we can do some work that will apply BEFORE `Weapon.update` is called.
+    if shiftHeld then
+      sb.logInfo("Player held shift!")
+    end
 
-function Weapon:update(dt, fireMode, shiftHeld)
-  -- Or you can do your logic first to apply your logic BEFORE your dependencies.
-  self.worksWithPlugins = true
+    -- But then we need to return any (non-self) arguments we were given.
+    -- It's fine if you want to update them, but return them in the order they
+    -- were given to you.
 
-  -- And then call the super method
-  -- Always call the `super` method with self and all appropriate arguments.
-  return super_update(self, dt, fireMode, shiftHeld)
-  -- Note that here we RETURN the result, because update expects the return value
-end
+    fireMode = "awesome"
 
--- However, keep in mind that if you forget (or choose not to) call the `super`
--- method that you saved at the top of the script, you can break plugin chaining.
--- Your plugin -> Super()
---    Some dependency -> Super()
---        Vanilla code
+    return dt, fireMode, shiftHeld
+  end
+)
+
+-- To call code AFTER a function is called, or to modify its return value,
+-- use `Plugins.add_after_hook`. Note that we do assignment here:
+-- <function> = Plugins.add_after_hook(<function>, <your hook>)
+
+knockbackMomentum = Plugins.add_after_hook(
+  knockbackMomentum,
+  function(momentum)
+    -- Here we receive the last return value for the function we're attached
+    -- to, and can modify it before execution continues.
+
+    -- If you return a non-nil second value, then you can stop additional
+    -- hooks from firing. If your code wants to say: "If X, abort",
+    -- `return nil, true`
+    return { momentum[1] * 1.5, momentum[2] * 1.5 }
+  end
+)
