@@ -1,3 +1,6 @@
+[![LuaPluginLib CI/CD Release process](https://github.com/smartintruesdell/sb-lua_plugin_lib/actions/workflows/main.yml/badge.svg)](https://github.com/smartintruesdell/sb-lua_plugin_lib/actions/workflows/main.yml)
+[![GPL-3.0 License](https://img.shields.io/github/license/smartintruesdell/sb-lua_plugin_lib)](https://github.com/smartintruesdell/sb-lua_plugin_lib/blob/main/LICENSE)
+
 # LuaPluginLib
 A library mod for Starbound which makes Lua scripts little more extensible.
 
