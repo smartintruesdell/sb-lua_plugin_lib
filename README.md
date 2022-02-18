@@ -149,35 +149,46 @@ Here's an example, from `items/active/weapons/weapon.lua`
 
 ```lua
 require "/scripts/lpl_load_plugins.lua"
+require "/scripts/lpl_plugin_util.lua"
 local PLUGINS_PATH = "/items/active/weapons/weapon_plugins.config"
 
 function Weapon:new(weaponConfig)
   -- PLUGIN LOADER ------------------------------------------------------------
   PluginLoader.load(PLUGINS_PATH)
-  if Weapon.plugin_new ~= nil then
-    weaponConfig = Weapon.plugin_new(weaponConfig or {})
-  end
+  Plugins.call_before_initialize_hooks("weapon", weaponConfig)
   -- END PLUGIN LOADER --------------------------------------------------------
 
   local newWeapon = weaponConfig or {}
   ...
+
+  -- PLUGIN LOADER ------------------------------------------------------------
+  newWeapon = Plugins.call_after_initialize_hooks("weapon", newWeapon)
+  -- END PLUGIN LOADER --------------------------------------------------------
+
+  return newWeapon
+end
 ```
 
 First, we require the plugin loader from `/scripts/lpl_load_plugins.lua`.
 
 Then, we defined where the plugins for this script are going to come from.
 
-Finally, in `Weapon:new`, we invoke `PluginLoader.load(<path>)` to load the plugins `.config` file and its described plugins.
+In `Weapon:new`, we invoke `PluginLoader.load(<path>)` to load the `.config` file and its described plugins.
 
 There's an extra bit of note here,
 ```lua
-if Weapon.plugin_new ~= nil then
-  weaponConfig = Weapon.plugin_new(weaponConfig or {})
-end
+Plugins.call_before_initialize_hooks("weapon")
 ```
 
 Because the PluginLoader runs in `Weapon.new`, we can't patch `Weapon.new`.
 
-However, we know we can call arbitrary methods that plugins may have added. So instead we anticipate that one or more may have layered on a `Weapon.plugin_new` method, and we invoke that.
+However, our plugin used `Plugin.add_after_initialize_hook`, so we need to make sure our `Weapon.new` method calls both
+
+- `Plugins.call_before_initialize_hooks("weapon", weaponConfig)` and
+- `Plugins.call_after_initialize_hooks("weapon", newWeapon)`
+
+We call the former with our module name "weapon", as in `weapon.lua`, and with any arguments that were passed to new/init.
+
+We call the latter with our module name again, and with whatever our new/init was going to return.
 
 Huzzah! Now our shortspears are all spears.
