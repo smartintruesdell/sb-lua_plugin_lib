@@ -130,6 +130,9 @@ Out of the box, LuaPluginLib updates the following vanilla scripts to add plugin
       - /bossdrop
         - /miniknoglauncher
           - `rocketstack.lua`
+      - /fist
+        - `fistweapon.lua`
+        - `punch.lua`
 - /monsters
   - `monster.lua`
 - /stats

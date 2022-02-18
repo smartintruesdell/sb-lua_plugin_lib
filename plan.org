@@ -9,8 +9,8 @@
 - [X] =./active/shields/shield.lua=
 - [ ] =./active/vehiclecontroller/vehiclecontroller.lua=
 - [ ] =./active/vehiclecontroller/vehiclecursor.lua=
-- [ ] =./active/weapons/fist/fistweapon.lua=
-- [ ] =./active/weapons/fist/punch.lua=
+- [X] =./active/weapons/fist/fistweapon.lua=
+- [X] =./active/weapons/fist/punch.lua=
 - [ ] =./active/weapons/melee/abilities/axe/axecleave.lua=
 - [ ] =./active/weapons/melee/abilities/broadsword/bladecharge/bladecharge.lua=
 - [ ] =./active/weapons/melee/abilities/broadsword/downstab/downstab.lua=
