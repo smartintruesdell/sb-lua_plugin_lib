@@ -48,13 +48,13 @@ You could add `.patch` files for every shortspear ever, or you could add the fol
 require "/scripts/lsl_plugin_util.lua"
 
 -- Name should match the json patch above.
-local PLUGIN_NAME = "my_shortspears_weapon_plugin"
+local MODULE_NAME = "weapon"
 
 -- Here, we add our first "Hook". This one will run AFTER the new/init script
 -- where plugins are loaded for the module being patched. It's important that
--- your plugin name matches.
+-- your MODULE_NAME name matches the name of the script file you're patching.
 Plugins.add_after_initialize_hook(
-  PLUGIN_NAME,
+  MODULE_NAME,
   function (weaponConfig)
     for _, tag in ipairs(weaponConfig.itemTags or {}) do
       if tag == "shortspear" then
