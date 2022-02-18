@@ -34,8 +34,8 @@
 - [ ] =./buildscripts/buildsapling.lua=
 - [ ] =./buildscripts/buildshield.lua=
 - [ ] =./buildscripts/buildunrandshield.lua=
-- [ ] =./buildscripts/buildunrandweapon.lua=
-- [ ] =./buildscripts/buildweapon.lua=
+- [X] =./buildscripts/buildunrandweapon.lua=
+- [X] =./buildscripts/buildweapon.lua=
 - [ ] =./buildscripts/buildwhip.lua=
 - [X] =./active/weapons/boomerang/boomerang.lua=
 - [X] =./active/weapons/bow/abilities/bowshot.lua=
