@@ -144,6 +144,8 @@ Out of the box, LuaPluginLib updates the following vanilla scripts to add plugin
       - /ranged
         - `gun.lua`
         - `gunfire.lua`
+      - /staff
+        - `staff.lua`
 - /monsters
   - `monster.lua`
 - /stats

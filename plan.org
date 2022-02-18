@@ -22,7 +22,7 @@
 - [X] =./active/weapons/melee/meleeweapon.lua=
 - [X] =./active/weapons/ranged/gun.lua=
 - [X] =./active/weapons/ranged/gunfire.lua=
-- [ ] =./active/weapons/staff/staff.lua=
+- [X] =./active/weapons/staff/staff.lua=
 - [ ] =./active/weapons/whip/abilities/energyorb.lua=
 - [ ] =./active/weapons/whip/abilities/whipcrack.lua=
 - [ ] =./active/weapons/whip/whip.lua=
