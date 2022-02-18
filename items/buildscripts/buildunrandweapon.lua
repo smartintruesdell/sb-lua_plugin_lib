@@ -196,7 +196,7 @@ function build_setup_ranged_primary_attack_config(config, parameters)
   return config, parameters
 end
 
-function build_setup_damage_level_multiplier(config, parameters, _seed)
+function build_setup_damage_level_multiplier(config, parameters)
   -- calculate damage level multiplier
   config.damageLevelMultiplier =
     root.evalFunction(
