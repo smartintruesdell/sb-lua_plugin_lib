@@ -146,6 +146,8 @@ Out of the box, LuaPluginLib updates the following vanilla scripts to add plugin
         - `gunfire.lua`
       - /staff
         - `staff.lua`
+      - /whip
+        - `whip.lua`
 - /monsters
   - `monster.lua`
 - /stats

@@ -25,7 +25,7 @@
 - [X] =./active/weapons/staff/staff.lua=
 - [ ] =./active/weapons/whip/abilities/energyorb.lua=
 - [ ] =./active/weapons/whip/abilities/whipcrack.lua=
-- [ ] =./active/weapons/whip/whip.lua=
+- [X] =./active/weapons/whip/whip.lua=
 - [ ] =./buildscripts/abilities.lua=
 - [ ] =./buildscripts/buildbow.lua=
 - [ ] =./buildscripts/buildfishingrod.lua=
