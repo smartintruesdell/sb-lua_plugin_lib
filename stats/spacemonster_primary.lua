@@ -3,16 +3,15 @@ require "/scripts/util.lua"
 require "/scripts/status.lua"
 
 require "/scripts/lpl_load_plugins.lua"
-local PLUGINS_PATH = "/stats/monster_primary_plugins.config"
+require "/scripts/lpl_plugin_util.lua"
+local PLUGINS_PATH = "/stats/spacemonster_primary_plugins.config"
 
 -- Module initialization ------------------------------------------------------
 
 function init()
   -- PLUGIN LOADER ------------------------------------------------------------
   PluginLoader.load(PLUGINS_PATH)
-  if plugin_init ~= nil then
-    plugin_init()
-  end
+  Plugins.call_before_initialize_hooks("spacemonster_primary")
   -- END PLUGIN LOADER --------------------------------------------------------
 
   self.damageFlashTime = 0
@@ -21,6 +20,10 @@ function init()
 
   message.setHandler("applyStatusEffect", applyStatusEffectCallback)
   self.damageListener = damageListener("inflictedHits", inflictedDamageCallback)
+
+  -- PLUGIN LOADER ------------------------------------------------------------
+  Plugins.call_after_initialize_hooks("spacemonster_primary")
+  -- END PLUGIN LOADER --------------------------------------------------------
 end
 
 -- Event Handlers -------------------------------------------------------------

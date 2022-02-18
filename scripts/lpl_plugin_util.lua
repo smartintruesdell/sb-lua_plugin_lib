@@ -195,3 +195,52 @@ function Plugins.get_hooks(hfn)
   end
   return {}, {}
 end
+
+-- Initializer Hooks ----------------------------------------------------------
+
+--[[ These are a little trickier, and require a module name to avoid collisions ]]
+
+Plugins.initialize_hooks = {}
+function Plugins.add_before_initialize_hook(module_name, callback)
+  assert(
+    module_name ~= nil and type(module_name) == string,
+    "Plugins: You must provide a module name to add_before_initialize_hook"
+  )
+  if Plugins.initialize_hooks[module_name] == nil then
+    Plugins.initialize_hooks[module_name] = {
+      __before_hooks = {},
+      __after_hooks = {}
+    }
+  end
+  table.insert(Plugins.initialize_hooks[module_name].__before_hooks, callback)
+end
+function Plugins.add_after_initialize_hook(module_name, callback)
+  assert(
+    module_name ~= nil and type(module_name) == string,
+    "Plugins: You must provide a module name to add_after_initialize_hook"
+  )
+  if Plugins.initialize_hooks[module_name] == nil then
+    Plugins.initialize_hooks[module_name] = {
+      __before_hooks = {},
+      __after_hooks = {}
+    }
+  end
+  table.insert(Plugins.initialize_hooks[module_name].__after_hooks, callback)
+end
+
+function Plugins.call_before_initialize_hooks(module_name, ...)
+  if Plugins.initialize_hooks[module_name] ~= nil then
+    for i = 1, #Plugins.initialize_hooks[module_name].__before_hooks, 1 do
+      Plugins.initialize_hooks[module_name].__before_hooks[i](...)
+    end
+  end
+end
+function Plugins.call_after_initialize_hooks(module_name, ...)
+  if Plugins.initialize_hooks[module_name] ~= nil then
+    for i = 1, #Plugins.initialize_hooks[module_name].__after_hooks, 1 do
+      Plugins.initialize_hooks[module_name].__after_hooks[i](...)
+    end
+  end
+
+  return ...
+end

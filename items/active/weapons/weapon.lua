@@ -6,17 +6,18 @@
 ]]
 require "/scripts/util.lua"
 require "/scripts/lpl_load_plugins.lua"
+require "/scripts/lpl_plugin_util.lua"
 local PLUGINS_PATH = "/items/active/weapons/weapon_plugins.config"
 
 -- handles weapon stances, animations, and abilities
 Weapon = {}
 
+-- Module initialization ------------------------------------------------------
+
 function Weapon:new(weaponConfig)
   -- PLUGIN LOADER ------------------------------------------------------------
   PluginLoader.load(PLUGINS_PATH)
-  if Weapon.plugin_new ~= nil then
-    weaponConfig = Weapon.plugin_new(weaponConfig or {})
-  end
+  Plugins.call_before_initialize_hooks("weapon")
   -- END PLUGIN LOADER --------------------------------------------------------
 
   local newWeapon = weaponConfig or {}
@@ -28,6 +29,11 @@ function Weapon:new(weaponConfig)
   newWeapon.transformationGroups = {}
   newWeapon.handGrip = config.getParameter("handGrip", "inside")
   setmetatable(newWeapon, extend(self))
+
+  -- PLUGIN LOADER ------------------------------------------------------------
+  newWeapon = Plugins.call_after_initialize_hooks("weapon", newWeapon)
+  -- END PLUGIN LOADER --------------------------------------------------------
+
   return newWeapon
 end
 

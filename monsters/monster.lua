@@ -11,15 +11,15 @@ require "/scripts/actions/movement.lua"
 require "/scripts/actions/animator.lua"
 
 require "/scripts/lpl_load_plugins.lua"
+require "/scripts/lpl_plugin_util.lua"
 local PLUGINS_PATH = "/monsters/monster_plugins.config"
 
--- Engine callback - called on initialization of entity
+-- Module initialization ------------------------------------------------------
+
 function init()
   -- PLUGIN LOADER ------------------------------------------------------------
   PluginLoader.load(PLUGINS_PATH)
-  if plugin_init ~= nil then
-    plugin_init()
-  end
+  Plugins.call_before_initialize_hooks("monster")
   -- END PLUGIN LOADER --------------------------------------------------------
 
   init_behavior()
@@ -30,6 +30,10 @@ function init()
   init_effects_damageBar()
   init_interactive()
   init_chains_animation()
+
+  -- PLUGIN LOADER ------------------------------------------------------------
+  Plugins.call_after_initialize_hooks("monster")
+  -- END PLUGIN LOADER --------------------------------------------------------
 end
 
 -- from init(), refactored to improve plugin support

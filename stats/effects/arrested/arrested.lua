@@ -1,4 +1,5 @@
 require "/scripts/lpl_load_plugins.lua"
+require "/scripts/lpl_plugin_util.lua"
 local PLUGINS_PATH = "/stats/effects/arrested/arrested_plugins.config"
 
 -- Module initialization ------------------------------------------------------
@@ -6,13 +7,16 @@ local PLUGINS_PATH = "/stats/effects/arrested/arrested_plugins.config"
 function init()
   -- PLUGIN LOADER ------------------------------------------------------------
   PluginLoader.load(PLUGINS_PATH)
-  if plugin_init ~= nil then
-    plugin_init()
-  end
+  Plugins.call_before_initialize_hooks("arrested")
   -- END PLUGIN LOADER --------------------------------------------------------
 
   apply_effect()
+
+  -- PLUGIN LOADER ------------------------------------------------------------
+  Plugins.call_after_initialize_hooks("arrested")
+  -- END PLUGIN LOADER --------------------------------------------------------
 end
+
 
 function apply_effect()
   effect.addStatModifierGroup({
