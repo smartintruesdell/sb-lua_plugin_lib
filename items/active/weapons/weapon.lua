@@ -1,6 +1,6 @@
 --[[
   This is a modified version of the vanilla weapon.lua which adds support for
-  PlugBound plugins.
+  LuaPluginLib plugins.
   Don't replace me in your mod! I bring broader support for a variety of mods
   to edit the same lua scripts non-destructively.
 ]]
@@ -17,7 +17,7 @@ Weapon = {}
 function Weapon:new(weaponConfig)
   -- PLUGIN LOADER ------------------------------------------------------------
   PluginLoader.load(PLUGINS_PATH)
-  Plugins.call_before_initialize_hooks("weapon")
+  Plugins.call_before_initialize_hooks("weapon", weaponConfig)
   -- END PLUGIN LOADER --------------------------------------------------------
 
   local newWeapon = weaponConfig or {}
