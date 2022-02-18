@@ -126,6 +126,8 @@ Out of the box, LuaPluginLib updates the following vanilla scripts to add plugin
       - `fishingrod.lua`
     - /shields
       - `shield.lua`
+    - /vehiclecontroller
+      - `vehiclecontroller.lua`
     - /weapons
       - `weapon.lua`
       - /boomerang
