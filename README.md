@@ -149,7 +149,14 @@ Out of the box, LuaPluginLib updates the following vanilla scripts to add plugin
         - `gun.lua`
         - `gunfire.lua`
       - /staff/`staff.lua`
-      - /whip/`whip.lua`
+      - /whip
+        - `whip.lua`
+        - /abilities
+          - `energyorb.lua`
+          - `whipcrack.lua`
+  - /buildscripts
+    - `buildweapon.lua`
+    - `buildunrandweapon.lua`
 - /monsters/`monster.lua`
 - /stats
   - `monster_primary.lua`

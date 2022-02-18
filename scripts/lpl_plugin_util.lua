@@ -229,18 +229,28 @@ function Plugins.add_after_initialize_hook(module_name, callback)
 end
 
 function Plugins.call_before_initialize_hooks(module_name, ...)
+  local pargs = table.pack(...)
   if Plugins.initialize_hooks[module_name] ~= nil then
     for i = 1, #Plugins.initialize_hooks[module_name].__before_hooks, 1 do
-      Plugins.initialize_hooks[module_name].__before_hooks[i](...)
+      pargs = table.pack(
+        Plugins.initialize_hooks[module_name].__before_hooks[i](
+          table.unpack(pargs)
+        )
+      )
     end
   end
 end
 function Plugins.call_after_initialize_hooks(module_name, ...)
+  local results = table.pack(...)
   if Plugins.initialize_hooks[module_name] ~= nil then
     for i = 1, #Plugins.initialize_hooks[module_name].__after_hooks, 1 do
-      Plugins.initialize_hooks[module_name].__after_hooks[i](...)
+      results = table.pack(
+        Plugins.initialize_hooks[module_name].__after_hooks[i](
+          table.unpack(results)
+        )
+      )
     end
   end
 
-  return ...
+  return table.unpack(results)
 end
