@@ -155,8 +155,14 @@ Out of the box, LuaPluginLib updates the following vanilla scripts to add plugin
           - `energyorb.lua`
           - `whipcrack.lua`
   - /buildscripts
+    - `abilities.lua`
+    - `buildbow.lua`
+    - `buildfishingrod.lua`
+    - `buildfood.lua`
+    - `buildsapling.lua`
     - `buildweapon.lua`
     - `buildunrandweapon.lua`
+    - `buildwhip.lua`
 - /monsters/`monster.lua`
 - /stats
   - `monster_primary.lua`
