@@ -1,23 +1,28 @@
 require "/scripts/vec2.lua"
+require "/scripts/util.lua"
+require "/scripts/status.lua"
 
 require "/scripts/lpl_load_plugins.lua"
 require "/scripts/lpl_plugin_util.lua"
-local PLUGINS_PATH = "/stats/monster_primary_plugins.config"
+local PLUGINS_PATH = "/stats/spacemonster_primary_plugins.config"
 
 -- Module initialization ------------------------------------------------------
 
 function init()
   -- PLUGIN LOADER ------------------------------------------------------------
   PluginLoader.load(PLUGINS_PATH)
-  Plugins.call_before_initialize_hooks("monster_primary")
+  Plugins.call_before_initialize_hooks("spacemonster_primary")
   -- END PLUGIN LOADER --------------------------------------------------------
 
   self.damageFlashTime = 0
+  self.reboundFactor = status.statusProperty("onHitReboundFactor", 0.65)
+  self.minReboundSpeed = status.statusProperty("onHitMinReboundSpeed", 13)
 
   message.setHandler("applyStatusEffect", applyStatusEffectCallback)
+  self.damageListener = damageListener("inflictedHits", inflictedDamageCallback)
 
   -- PLUGIN LOADER ------------------------------------------------------------
-  Plugins.call_after_initialize_hooks("monster_primary")
+  Plugins.call_after_initialize_hooks("spacemonster_primary")
   -- END PLUGIN LOADER --------------------------------------------------------
 end
 
@@ -25,6 +30,42 @@ end
 
 function applyStatusEffectCallback(_, _, effectConfig, duration, sourceEntityId)
   status.addEphemeralEffect(effectConfig, duration, sourceEntityId)
+end
+
+function inflictedDamageCallback(notifications)
+  for _, notification in ipairs(notifications) do
+    inflicatedDamageCallback_handle_notification(notification)
+  end
+end
+
+function inflicatedDamageCallback_handle_notification(notification)
+  if notification.damageSourceKind == "impact" then
+    local entityVelocity = world.entityVelocity(notification.targetEntityId)
+    local entityPosition = world.entityPosition(notification.targetEntityId)
+
+    if entityVelocity and entityPosition then
+      local relativeVelocity = vec2.sub(
+        vec2.mul(entityVelocity, 0.85),
+        mcontroller.velocity()
+      )
+      local relativePosition = world.distance(mcontroller.position(), entityPosition)
+      local angleDiff = util.angleDiff(
+        vec2.angle(relativeVelocity),
+        vec2.angle(relativePosition)
+      )
+      if math.abs(angleDiff) < math.pi / 2 then
+        local reboundSpeed = math.max(
+          self.minReboundSpeed,
+          vec2.mag(relativeVelocity) * self.reboundFactor
+        )
+        local bounceVelocity = vec2.add(
+          relativeVelocity,
+          vec2.withAngle(vec2.angle(relativePosition), reboundSpeed)
+        )
+        mcontroller.setVelocity(vec2.add(mcontroller.velocity(), bounceVelocity))
+      end
+    end
+  end
 end
 
 -- applyDamageRequest : handles incoming hits ---------------------------------
@@ -272,8 +313,6 @@ function applyDamageRequest_update_hit_type(damageRequest)
 end
 
 
--- Update ---------------------------------------------------------------------
-
 function update(dt)
   update_apply_damage_flash(dt)
   update_apply_fall_damage(dt)
@@ -282,6 +321,8 @@ function update(dt)
   update_apply_energy_regen(dt)
   update_apply_shield_regen(dt)
   update_apply_world_limit(dt)
+
+  self.damageListener:update()
 end
 
 --- Applies a flashing directive when the entity is hit
