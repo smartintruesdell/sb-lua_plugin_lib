@@ -17,10 +17,11 @@ local function getConfigParameter(config, parameters, keyName, defaultValue)
   end
 end
 
-function build(directory, config, parameters, level, seed)
+function build(... --[[directory, config, parameters, level, seed]])
   -- PLUGIN LOADER ------------------------------------------------------------
   PluginLoader.load(PLUGINS_PATH)
-  Plugins.call_before_initialize_hooks("buildunrandweapon")
+  local directory, config, parameters, level, seed =
+    Plugins.call_before_initialize_hooks("buildunrandweapon", ...)
   -- END PLUGIN LOADER --------------------------------------------------------
 
   config, parameters = build_set_seed(config, parameters, seed)
