@@ -1,6 +1,27 @@
 {
   "author": "Shawn Martin-Truesdell",
-  "description": "Improves compatability between mods by creating a system of plugins for vanilla modules",
+  "description": "Improves compatability between mods by creating a system of plugins for vanilla modules
+
+[h2]The problem:[/h2]
+
+Many mods want to update the code in weapon.lua or player_primary.lua, and doing so risks incompatabilities with other mods.
+
+Whoever loads last, gets to keep their code! That's not great.
+
+[h2]The solution:[/h2]
+
+This mod offers a simple interface for loading \"plugins\" on top of your lua, and modifies vanilla lua to use its mechanisms.
+
+With [b]LuaPluginLib[/b], you can add a reference to your \"plugin\" to a local .config or .config.patch file and supported scripts will layer your code on top of their own.
+
+[b]LuaPluginLib[/b] also adds utilties for adding hooks to functions, which allows you to execute your code BEFORE a function or AFTER that function is called.
+
+
+To learn more, [url=https://github.com/smartintruesdell/sb-lua_plugin_lib/tree/beta#readme]check out the GitHub repository[/url]
+
+[h1]Note! This is a Beta Release[/h1]
+
+Not all vanilla scripts are currently supported. Please take a look at the [url=https://github.com/smartintruesdell/sb-lua_plugin_lib/tree/beta#readme]README on GitHub[/url] for details.",
   "friendlyName": "LuaPluginLib",
   "name": "LuaPluginLib",
   "requires": [],
