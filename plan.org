@@ -6,7 +6,7 @@
 
 ** Generic
 - [X] =./active/fishingrod/fishingrod.lua=
-- [ ] =./active/shields/shield.lua=
+- [X] =./active/shields/shield.lua=
 - [ ] =./active/vehiclecontroller/vehiclecontroller.lua=
 - [ ] =./active/vehiclecontroller/vehiclecursor.lua=
 - [ ] =./active/weapons/fist/fistweapon.lua=
