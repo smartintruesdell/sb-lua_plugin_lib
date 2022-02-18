@@ -8,7 +8,7 @@ Plugins = Plugins or {}
 
 -- Hooks ----------------------------------------------------------------------
 
----@param hfn function @The PluginHookFunction assembed by adding hooks
+---@param hfn function @The Hookable assembed by adding hooks
 local function call_hooks(hfn, ...)
   local pargs = table.pack(...)
 
@@ -17,7 +17,7 @@ local function call_hooks(hfn, ...)
     pargs = table.pack(hfn.__before_hooks[i](table.unpack(pargs)))
   end
 
-  local result = nil
+  local result = hfn.__fn(table.unpack(pargs))
   local stop = nil
   -- Then, call the "after" hooks, updating the result until we
   -- hit a stop or the end of the list.
@@ -30,11 +30,14 @@ local function call_hooks(hfn, ...)
   return result
 end
 
---- Build a new PluginHookFunction from a regular function
-local function new_hook(fn)
+--- Build a new Hookable from a regular function
+Plugins.Hookable = {}
+function Plugins.Hookable.new(fn)
   local hfn = {}
+  hfn.is_Hookable = true
 
-  hfn.__hooks = {}
+  hfn.__before_hooks = {}
+  hfn.__after_hooks = {}
   hfn.__fn = fn
 
   setmetatable(hfn, {
@@ -64,7 +67,7 @@ local function add_after_hook(hfn, callback)
   return hfn
 end
 
-local function is_PluginHookFunction(a)
+local function is_Hookable(a)
   if type(a) == "table" and type(a.__before_hooks) == "table" then
     return true
   end
@@ -72,64 +75,94 @@ local function is_PluginHookFunction(a)
 end
 
 function Plugins.add_before_hook(fn, callback)
-  if callback == nil then return fn end
+  assert(
+    fn ~= nil,
+    "Plugins: Cound not add before hook to `nil` - "..
+    "ensure your function/method reference is valid"
+  )
+  assert(
+    callback ~= nil,
+    "Plugins: Cound not add `nil` before hook to function - "..
+    "ensure your hook callback is valid"
+  )
 
   if type(fn) == "function" then
-    return add_before_hook(new_hook(fn), callback)
-  elseif is_PluginHookFunction(fn) then
+    return add_before_hook(Plugins.Hookable.new(fn), callback)
+  elseif is_Hookable(fn) then
     return add_before_hook(fn, callback)
+  else
+    assert(
+      false,
+      string.format(
+        "Plugins: Could not add a before hook to type '%s'",
+        type(fn)
+      )
+    )
   end
+
   return fn
 end
 
 function Plugins.add_after_hook(fn, callback)
-  if callback == nil then return fn end
+  assert(
+    fn ~= nil,
+    "Plugins: Cound not add after hook to `nil` - "..
+    "ensure your function/method reference is valid"
+  )
+  assert(
+    callback ~= nil,
+    "Plugins: Cound not add `nil` after hook to function - "..
+    "ensure your hook callback is valid"
+  )
 
   if type(fn) == "function" then
-    return add_after_hook(new_hook(fn), callback)
-  elseif is_PluginHookFunction(fn) then
+    return add_after_hook(Plugins.Hookable.new(fn), callback)
+  elseif is_Hookable(fn) then
     return add_after_hook(fn, callback)
+  else
+    assert(
+      false,
+      string.format(
+        "Plugins: Could not add a after hook to type '%s'",
+        type(fn)
+      )
+    )
   end
+
   return fn
 end
 
 function Plugins.call(hfn, ...)
-  if is_PluginHookFunction(hfn) then
+  if is_Hookable(hfn) then
     return call_hooks(hfn, ...)
   end
   return nil
 end
 
 function Plugins.remove_before_hook(hfn, callback)
-  if is_PluginHookFunction(hfn) then
+  if is_Hookable(hfn) then
     for i = #hfn.__before_hooks, 1, -1 do
       if hfn.__before_hooks[i] == callback then
         table.remove(hfn.__before_hooks, i)
       end
-    end
-    if #hfn.__hooks == 0 then
-      return hfn.__fn
     end
   end
   return hfn
 end
 
 function Plugins.remove_after_hook(hfn, callback)
-  if is_PluginHookFunction(hfn) then
+  if is_Hookable(hfn) then
     for i = #hfn.__after_hooks, 1, -1 do
       if hfn.__after_hooks[i] == callback then
         table.remove(hfn.__after_hooks, i)
       end
-    end
-    if #hfn.__hooks == 0 then
-      return hfn.__fn
     end
   end
   return hfn
 end
 
 function Plugins.clear_hooks(hfn)
-  if is_PluginHookFunction(hfn) then
+  if is_Hookable(hfn) then
     hfn.__before_hooks = {}
     hfn.__after_hooks = {}
 
@@ -140,14 +173,14 @@ function Plugins.clear_hooks(hfn)
 end
 
 function Plugins.count_hooks(hfn)
-  if is_PluginHookFunction(hfn) then
+  if is_Hookable(hfn) then
     return #hfn.__before_hooks + #hfn.__after_hooks
   end
   return 0
 end
 
 function Plugins.get_hooks(hfn)
-  if is_PluginHookFunction(hfn) then
+  if is_Hookable(hfn) then
     local before_hooks = {}
     local after_hooks = {}
 
