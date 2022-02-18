@@ -28,7 +28,7 @@
 - [X] =./buildscripts/abilities.lua=
 - [X] =./buildscripts/buildbow.lua=
 - [X] =./buildscripts/buildfishingrod.lua=
-- [ ] =./buildscripts/buildfist.lua=
+- [X] =./buildscripts/buildfist.lua=
 - [X] =./buildscripts/buildfood.lua=
 - [ ] =./buildscripts/buildmechpart.lua=
 - [X] =./buildscripts/buildsapling.lua=

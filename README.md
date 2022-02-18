@@ -158,6 +158,7 @@ Out of the box, LuaPluginLib updates the following vanilla scripts to add plugin
     - `abilities.lua`
     - `buildbow.lua`
     - `buildfishingrod.lua`
+    - `buildfist.lua`
     - `buildfood.lua`
     - `buildsapling.lua`
     - `buildweapon.lua`
