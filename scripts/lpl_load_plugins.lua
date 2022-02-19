@@ -5,6 +5,7 @@
   in each of those scripts to load plugins dynamically.
 ]]
 require "/scripts/lpl_dependencies.lua"
+require "/scripts/lpl_plugin_util.lua"
 
 PluginLoader = {}
 PluginLoader.debug = false
@@ -38,5 +39,22 @@ function PluginLoader.load(config_path)
       require(plugin.path)
       loaded_plugins[plugin.name] = true
     end
+  end
+end
+
+
+function PluginLoader.add_plugin_loader(module_name, path, fn)
+  return function(...)
+    -- Load the plugins
+    PluginLoader.load(path)
+
+    -- Call pre-fn hooks
+    local pargs = table.pack(Plugins.call_before_initialize_hooks(module_name, ...))
+
+    -- call the original function
+    local results = table.pack(fn(table.unpack(pargs)))
+
+    -- call post-fn hooks
+    return Plugins.call_after_initialize_hooks(module_name, table.unpack(results))
   end
 end
