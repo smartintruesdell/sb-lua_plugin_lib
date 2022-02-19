@@ -141,25 +141,27 @@ end
 
 function build_setup_elemental_type(config, parameters)
   -- elemental type
-  if
-    not parameters.elementalType and
-    type(parameters.builderConfig) == "table" and
-    parameters.builderConfig.elementalType
-  then
-    parameters.elementalType = randomFromList(
-      parameters.builderConfig.elementalType,
-      parameters.seed,
-      "elementalType"
-    )
+  if not parameters.elementalType then
+    if
+      type(parameters.builderConfig) == "table" and
+      parameters.builderConfig.elementalType
+    then
+      parameters.elementalType = randomFromList(
+        parameters.builderConfig.elementalType,
+        parameters.seed,
+        "elementalType"
+      )
+    else
+      parameters.elementalType = getConfigParameter(
+        config,
+        parameters,
+        "elementalType",
+        "physical"
+      )
+    end
   end
-  local elementalType = getConfigParameter(
-    config,
-    parameters,
-    "elementalType",
-    "physical"
-  )
-  assert(elementalType ~= nil, "Could not find an elemental type in config")
-  replacePatternInData(config, nil, "<elementalType>", elementalType)
+  assert(parameters.elementalType ~= nil, "Could not find an elemental type in config")
+  replacePatternInData(config, nil, "<elementalType>", parameters.elementalType)
 
   -- elemental config
   if
@@ -167,23 +169,23 @@ function build_setup_elemental_type(config, parameters)
     parameters.builderConfig.elementalConfig
   then
     util.mergeTable(
-      config, parameters.builderConfig.elementalConfig[elementalType]
+      config, parameters.builderConfig.elementalConfig[parameters.elementalType]
     )
   end
   if config.altAbility and config.altAbility.elementalConfig then
     util.mergeTable(
       config.altAbility,
-      (config.altAbility.elementalConfig[elementalType] or {})
+      (config.altAbility.elementalConfig[parameters.elementalType] or {})
     )
   end
 
   -- elemental tag
-  replacePatternInData(config, nil, "<elementalType>", elementalType)
+  replacePatternInData(config, nil, "<elementalType>", parameters.elementalType)
   replacePatternInData(
     config,
     nil,
     "<elementalName>",
-    elementalType:gsub("^%l", string.upper)
+    parameters.elementalType:gsub("^%l", string.upper)
   )
 
   assert(parameters.elementalType ~= nil,"Failed to determine a valid elementalType")
