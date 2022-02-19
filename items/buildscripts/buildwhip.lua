@@ -3,7 +3,7 @@ require "/items/buildscripts/abilities.lua"
 
 require "/scripts/lpl_load_plugins.lua"
 require "/scripts/lpl_plugin_util.lua"
-local PLUGINS_PATH = "items/buildscripts/buildwhip_plugins.config"
+local PLUGINS_PATH = "/items/buildscripts/buildwhip_plugins.config"
 
 local function getConfigParameter(config, parameters, keyName, defaultValue)
   if parameters[keyName] ~= nil then

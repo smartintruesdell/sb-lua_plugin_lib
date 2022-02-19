@@ -3,7 +3,7 @@ require "/scripts/staticrandom.lua"
 
 require "/scripts/lpl_load_plugins.lua"
 require "/scripts/lpl_plugin_util.lua"
-local PLUGINS_PATH = "items/buildscripts/abilities_plugins.config"
+local PLUGINS_PATH = "/items/buildscripts/abilities_plugins.config"
 
 local abilityTablePath = "/items/buildscripts/weaponabilities.config"
 local abilities = nil

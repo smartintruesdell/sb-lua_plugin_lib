@@ -1,7 +1,7 @@
 require "/scripts/vec2.lua"
 require "/scripts/lpl_load_plugins.lua"
 require "/scripts/lpl_plugin_util.lua"
-local PLUGINS_PATH = "items/active/weapons/bow/abilities/zenshot_plugins.config"
+local PLUGINS_PATH = "/items/active/weapons/bow/abilities/zenshot_plugins.config"
 
 -- Module initialization ------------------------------------------------------
 
