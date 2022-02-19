@@ -172,7 +172,7 @@ function build_setup_elemental_type(config, parameters)
   if config.altAbility and config.altAbility.elementalConfig then
     util.mergeTable(
       config.altAbility,
-      config.altAbility.elementalConfig[elementalType]
+      (config.altAbility.elementalConfig[elementalType] or {})
     )
   end
 
