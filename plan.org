@@ -33,7 +33,7 @@
 - [X] =./buildscripts/buildmechpart.lua=
 - [X] =./buildscripts/buildsapling.lua=
 - [X] =./buildscripts/buildshield.lua=
-- [ ] =./buildscripts/buildunrandshield.lua=
+- [X] =./buildscripts/buildunrandshield.lua=
 - [X] =./buildscripts/buildunrandweapon.lua=
 - [X] =./buildscripts/buildweapon.lua=
 - [X] =./buildscripts/buildwhip.lua=

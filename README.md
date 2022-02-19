@@ -165,6 +165,7 @@ Out of the box, LuaPluginLib updates the following vanilla scripts to add plugin
     - `buildshield.lua`
     - `buildweapon.lua`
     - `buildunrandweapon.lua`
+    - `buildunrandshield.lua`
     - `buildwhip.lua`
 - /monsters/`monster.lua`
 - /stats
