@@ -194,56 +194,28 @@ The plugin loader works by "wrapping" functions in layers.
 
 For this to work, your code needs to have an entry-point where those layers can be assembled. A great example is the `new` or `init` method for a player/entity/weapon/etc script, or in an intializer for your module.
 
-`PluginLoader` won't work without access to the `root` table, so be careful not to call it in the global namespace.
-
-> Note: The best lua files for plugin authors are split up into lots of individual subroutine functions so that patches can target specific parts of the logic more easily!
->
-> Also, remember you can pass additional data as arguments to your functions even if you're not using them. This can be super valuable for a plugin author down the line!
 
 Here's an example, from `items/active/weapons/weapon.lua`
 
 ```lua
 require "/scripts/lpl_load_plugins.lua"
-require "/scripts/lpl_plugin_util.lua"
 local PLUGINS_PATH = "/items/active/weapons/weapon_plugins.config"
 
 function Weapon:new(weaponConfig)
-  -- PLUGIN LOADER ------------------------------------------------------------
-  PluginLoader.load(PLUGINS_PATH)
-  Plugins.call_before_initialize_hooks("weapon", weaponConfig)
-  -- END PLUGIN LOADER --------------------------------------------------------
-
-  local newWeapon = weaponConfig or {}
   ...
-
-  -- PLUGIN LOADER ------------------------------------------------------------
-  newWeapon = Plugins.call_after_initialize_hooks("weapon", newWeapon)
-  -- END PLUGIN LOADER --------------------------------------------------------
 
   return newWeapon
 end
+
+Weapon.new = PluginLoader.add_plugin_loader("weapon", PLUGINS_PATH, Weapon.new)
 ```
 
-First, we require the plugin loader from `/scripts/lpl_load_plugins.lua`.
+First, we require the `PluginLoader` module from `/scripts/lpl_load_plugins.lua`.
 
-Then, we defined where the plugins for this script are going to come from.
+After `Weapon:new` is defined, we reassign it the result of `PluginLoader.add_plugin_loader(<filename>, <path>, <method>)`.
 
-In `Weapon:new`, we invoke `PluginLoader.load(<path>)` to load the `.config` file and its described plugins.
+This wraps the Weapon.new function with our PluginLoader and activates the `initialization_hooks` described above, all in a single line of code.
 
-There's an extra bit of note here,
-```lua
-Plugins.call_before_initialize_hooks("weapon")
-```
+It's important that the `<filename>` part of that invocation match the name of the file, as it helps the plugin loader know which initialization hooks to run.
 
-Because the PluginLoader runs in `Weapon.new`, we can't patch `Weapon.new`.
-
-However, our plugin used `Plugin.add_after_initialize_hook`, so we need to make sure our `Weapon.new` method calls both
-
-- `Plugins.call_before_initialize_hooks("weapon", weaponConfig)` and
-- `Plugins.call_after_initialize_hooks("weapon", newWeapon)`
-
-We call the former with our module name "weapon", as in `weapon.lua`, and with any arguments that were passed to new/init.
-
-We call the latter with our module name again, and with whatever our new/init was going to return.
-
-Huzzah! Now our shortspears are all spears.
+It really **is** that easy. Just one line of code, after your `init` or `new` script, and you're all set.
