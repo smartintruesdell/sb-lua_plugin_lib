@@ -1,10 +1,8 @@
 require "/scripts/util.lua"
-require "/scripts/versioningutils.lua"
-require "/items/buildscripts/abilities.lua"
 
 require "/scripts/lpl_load_plugins.lua"
 require "/scripts/lpl_plugin_util.lua"
-local PLUGINS_PATH = "/items/buildscripts/buildbow_plugins.config"
+local PLUGINS_PATH = "items/buildscripts/buildfist_plugins.config"
 
 local function getConfigParameter(config, parameters, keyName, defaultValue)
   if parameters[keyName] ~= nil then
@@ -20,7 +18,7 @@ function build(... --[[directory, config, parameters, level, seed]])
   -- PLUGIN LOADER ------------------------------------------------------------
   PluginLoader.load(PLUGINS_PATH)
   local directory, config, parameters, level, seed =
-    Plugins.call_before_initialize_hooks("buildbow", ...)
+    Plugins.call_before_initialize_hooks("buildfist", ...)
   -- END PLUGIN LOADER --------------------------------------------------------
 
   config, parameters = build_set_seed(config, parameters, seed)
@@ -28,10 +26,12 @@ function build(... --[[directory, config, parameters, level, seed]])
   config, parameters = build_set_level(config, parameters, level)
   config, parameters = build_set_builderConfig(config, parameters)
   config, parameters = build_set_name(config, parameters)
+  config, parameters = build_set_price(config, parameters)
 
   config, parameters = build_setup_abilities(config, parameters)
   config, parameters = build_setup_elemental_type(config, parameters)
   config, parameters = build_setup_damage_config(config, parameters)
+  config, parameters = build_setup_combo_finishers(config, parameters)
   config, parameters = build_setup_shared_primary_attack_config(config,parameters)
   config, parameters = build_setup_melee_primary_attack_config(config,parameters)
   config, parameters = build_setup_ranged_primary_attack_config(config,parameters)
@@ -43,11 +43,10 @@ function build(... --[[directory, config, parameters, level, seed]])
   config, parameters = build_setup_elemental_fire_sounds(config,parameters)
   config, parameters = build_setup_inventory_icon(config, parameters)
   config, parameters = build_setup_tooltip_fields(config, parameters)
-  config, parameters = build_set_price(config, parameters)
 
   -- PLUGIN LOADER ------------------------------------------------------------
   config, parameters = Plugins.call_after_initialize_hooks(
-    "buildbow",
+    "buildfist",
     config,
     parameters
   )
@@ -171,6 +170,21 @@ function build_setup_elemental_type(config, parameters)
   return config, parameters
 end
 
+function build_setup_combo_finishers(config, parameters)
+  -- load and merge combo finisher
+  local comboFinisherSource = getConfigParameter(
+    config,
+    parameters,
+    "comboFinisherSource"
+  )
+  if comboFinisherSource then
+    local comboFinisherConfig = root.assetJson(comboFinisherSource)
+    util.mergeTable(config, comboFinisherConfig)
+  end
+
+  return config, parameters
+end
+
 function build_setup_damage_config(config, parameters)
   -- buildbow doesn't setup damage config
 
@@ -250,31 +264,16 @@ end
 function build_setup_tooltip_fields(config, parameters)
   config.tooltipFields = {}
   config.tooltipFields.subtitle = parameters.category
-  config.tooltipFields.energyPerShotLabel = config.primaryAbility.energyPerShot or 0
-  local bestDrawTime = (
-    config.primaryAbility.powerProjectileTime[1] +
-    config.primaryAbility.powerProjectileTime[2]
-  ) / 2
-  local bestDrawMultiplier = root.evalFunction(
-    config.primaryAbility.drawPowerMultiplier,
-    bestDrawTime
-  )
-  config.tooltipFields.maxDamageLabel = util.round(
-    config.primaryAbility.projectileParameters.power *
-    config.damageLevelMultiplier *
-    bestDrawMultiplier,
+  config.tooltipFields.speedLabel = util.round(1 / config.primaryAbility.fireTime, 1)
+  config.tooltipFields.damagePerShotLabel = util.round(
+    config.primaryAbility.baseDps *
+    config.primaryAbility.fireTime *
+    config.damageLevelMultiplier,
     1
   )
-
-  local elementalType = getConfigParameter(
-    config,
-    parameters,
-    "elementalType",
-    "physical"
-  )
-  if elementalType ~= "physical" then
-    config.tooltipFields.damageKindImage =
-      "/interface/elements/"..elementalType..".png"
+  if config.comboFinisher then
+    config.tooltipFields.comboFinisherTitleLabel = "Finisher:"
+    config.tooltipFields.comboFinisherLabel = config.comboFinisher.name or "unknown"
   end
 
   return config, parameters

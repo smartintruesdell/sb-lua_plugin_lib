@@ -1,10 +1,9 @@
 require "/scripts/util.lua"
-require "/scripts/versioningutils.lua"
 require "/items/buildscripts/abilities.lua"
 
 require "/scripts/lpl_load_plugins.lua"
 require "/scripts/lpl_plugin_util.lua"
-local PLUGINS_PATH = "/items/buildscripts/buildbow_plugins.config"
+local PLUGINS_PATH = "items/buildscripts/buildwhip_plugins.config"
 
 local function getConfigParameter(config, parameters, keyName, defaultValue)
   if parameters[keyName] ~= nil then
@@ -20,7 +19,7 @@ function build(... --[[directory, config, parameters, level, seed]])
   -- PLUGIN LOADER ------------------------------------------------------------
   PluginLoader.load(PLUGINS_PATH)
   local directory, config, parameters, level, seed =
-    Plugins.call_before_initialize_hooks("buildbow", ...)
+    Plugins.call_before_initialize_hooks("buildwhip", ...)
   -- END PLUGIN LOADER --------------------------------------------------------
 
   config, parameters = build_set_seed(config, parameters, seed)
@@ -28,6 +27,7 @@ function build(... --[[directory, config, parameters, level, seed]])
   config, parameters = build_set_level(config, parameters, level)
   config, parameters = build_set_builderConfig(config, parameters)
   config, parameters = build_set_name(config, parameters)
+  config, parameters = build_set_price(config, parameters)
 
   config, parameters = build_setup_abilities(config, parameters)
   config, parameters = build_setup_elemental_type(config, parameters)
@@ -43,11 +43,10 @@ function build(... --[[directory, config, parameters, level, seed]])
   config, parameters = build_setup_elemental_fire_sounds(config,parameters)
   config, parameters = build_setup_inventory_icon(config, parameters)
   config, parameters = build_setup_tooltip_fields(config, parameters)
-  config, parameters = build_set_price(config, parameters)
 
   -- PLUGIN LOADER ------------------------------------------------------------
   config, parameters = Plugins.call_after_initialize_hooks(
-    "buildbow",
+    "buildwhip",
     config,
     parameters
   )
@@ -250,31 +249,20 @@ end
 function build_setup_tooltip_fields(config, parameters)
   config.tooltipFields = {}
   config.tooltipFields.subtitle = parameters.category
-  config.tooltipFields.energyPerShotLabel = config.primaryAbility.energyPerShot or 0
-  local bestDrawTime = (
-    config.primaryAbility.powerProjectileTime[1] +
-    config.primaryAbility.powerProjectileTime[2]
-  ) / 2
-  local bestDrawMultiplier = root.evalFunction(
-    config.primaryAbility.drawPowerMultiplier,
-    bestDrawTime
-  )
-  config.tooltipFields.maxDamageLabel = util.round(
-    config.primaryAbility.projectileParameters.power *
-    config.damageLevelMultiplier *
-    bestDrawMultiplier,
+  config.tooltipFields.speedLabel = util.round(1 / config.primaryAbility.fireTime, 1)
+  config.tooltipFields.damagePerShotLabel = util.round(
+    (config.primaryAbility.crackDps + config.primaryAbility.chainDps) *
+      config.primaryAbility.fireTime * config.damageLevelMultiplier,
     1
   )
-
-  local elementalType = getConfigParameter(
-    config,
-    parameters,
-    "elementalType",
-    "physical"
-  )
-  if elementalType ~= "physical" then
+  if config.elementalType and config.elementalType ~= "physical" then
     config.tooltipFields.damageKindImage =
-      "/interface/elements/"..elementalType..".png"
+      "/interface/elements/"..config.elementalType..".png"
+  end
+
+  if config.altAbility then
+    config.tooltipFields.altAbilityTitleLabel = "Special:"
+    config.tooltipFields.altAbilityLabel = config.altAbility.name or "unknown"
   end
 
   return config, parameters

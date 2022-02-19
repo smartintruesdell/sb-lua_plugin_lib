@@ -25,18 +25,18 @@
 - [X] =./active/weapons/whip/abilities/energyorb.lua=
 - [X] =./active/weapons/whip/abilities/whipcrack.lua=
 - [X] =./active/weapons/whip/whip.lua=
-- [ ] =./buildscripts/abilities.lua=
-- [ ] =./buildscripts/buildbow.lua=
-- [ ] =./buildscripts/buildfishingrod.lua=
-- [ ] =./buildscripts/buildfist.lua=
-- [ ] =./buildscripts/buildfood.lua=
-- [ ] =./buildscripts/buildmechpart.lua=
-- [ ] =./buildscripts/buildsapling.lua=
-- [ ] =./buildscripts/buildshield.lua=
-- [ ] =./buildscripts/buildunrandshield.lua=
+- [X] =./buildscripts/abilities.lua=
+- [X] =./buildscripts/buildbow.lua=
+- [X] =./buildscripts/buildfishingrod.lua=
+- [X] =./buildscripts/buildfist.lua=
+- [X] =./buildscripts/buildfood.lua=
+- [X] =./buildscripts/buildmechpart.lua=
+- [X] =./buildscripts/buildsapling.lua=
+- [X] =./buildscripts/buildshield.lua=
+- [X] =./buildscripts/buildunrandshield.lua=
 - [X] =./buildscripts/buildunrandweapon.lua=
 - [X] =./buildscripts/buildweapon.lua=
-- [ ] =./buildscripts/buildwhip.lua=
+- [X] =./buildscripts/buildwhip.lua=
 - [X] =./active/weapons/boomerang/boomerang.lua=
 - [X] =./active/weapons/bow/abilities/bowshot.lua=
 - [X] =./active/weapons/bow/abilities/zenshot.lua=
