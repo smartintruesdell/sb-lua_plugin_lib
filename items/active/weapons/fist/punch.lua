@@ -9,10 +9,6 @@ local PLUGINS_PATH = "/items/active/weapons/fist/punch_plugins.config"
 Punch = WeaponAbility:new()
 
 function Punch:init()
-  -- PLUGIN LOADER ------------------------------------------------------------
-  PluginLoader.load(PLUGINS_PATH)
-  Plugins.call_before_initialize_hooks("punch")
-  -- END PLUGIN LOADER --------------------------------------------------------
 
   self.damageConfig.baseDamage = self.baseDps * self.fireTime
 
@@ -26,11 +22,9 @@ function Punch:init()
   self.weapon.onLeaveAbility = function()
     self.weapon:setStance(self.stances.idle)
   end
-
-  -- PLUGIN LOADER ------------------------------------------------------------
-  Plugins.call_after_initialize_hooks("punch")
-  -- END PLUGIN LOADER --------------------------------------------------------
 end
+
+Punch.init = PluginLoader.add_plugin_loader("punch", PLUGINS_PATH, Punch.init)
 
 -- Ticks on every update regardless if this is the active ability
 function Punch:update(dt, fireMode, shiftHeld)

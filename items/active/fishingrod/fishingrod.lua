@@ -4,17 +4,11 @@ require "/scripts/rope.lua"
 require "/scripts/activeitem/stances.lua"
 
 require "/scripts/lpl_load_plugins.lua"
-require "/scripts/lpl_plugin_util.lua"
 local PLUGINS_PATH = "/items/active/fishingrod/fishingrod_plugins.config"
 
 -- Module initialization ------------------------------------------------------
 
 function init()
-  -- PLUGIN LOADER ------------------------------------------------------------
-  PluginLoader.load(PLUGINS_PATH)
-  Plugins.call_before_initialize_hooks("fishingrod")
-  -- END PLUGIN LOADER --------------------------------------------------------
-
   self.lureProjectile = config.getParameter("lureProjectile")
   self.castVector = config.getParameter("castVector", {1, 1})
 
@@ -61,11 +55,9 @@ function init()
 
   initStances()
   setStance("idle")
-
-  -- PLUGIN LOADER ------------------------------------------------------------
-  Plugins.call_after_initialize_hooks("fishingrod")
-  -- END PLUGIN LOADER --------------------------------------------------------
 end
+
+init = PluginLoader.add_plugin_loader("fishingrod", PLUGINS_PATH, init)
 
 function update(dt, fireMode, shiftHeld, controls)
   checkConnected()

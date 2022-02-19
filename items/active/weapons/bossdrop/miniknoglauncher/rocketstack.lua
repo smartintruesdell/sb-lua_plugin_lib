@@ -2,7 +2,6 @@ require "/scripts/util.lua"
 require "/scripts/interp.lua"
 
 require "/scripts/lpl_load_plugins.lua"
-require "/scripts/lpl_plugin_util.lua"
 local PLUGINS_PATH = "/stats/_plugins.config"
 
 
@@ -11,10 +10,6 @@ RocketStack = WeaponAbility:new()
 -- Module initialization ------------------------------------------------------
 
 function RocketStack:init()
-  -- PLUGIN LOADER ------------------------------------------------------------
-  PluginLoader.load(PLUGINS_PATH)
-  Plugins.call_before_initialize_hooks("rocketstack")
-  -- END PLUGIN LOADER --------------------------------------------------------
 
   self.weapon:setStance(self.stances.idle)
 
@@ -25,11 +20,10 @@ function RocketStack:init()
   self.weapon.onLeaveAbility = function()
     self.weapon:setStance(self.stances.idle)
   end
-
-  -- PLUGIN LOADER ------------------------------------------------------------
-  Plugins.call_after_initialize_hooks("")
-  -- END PLUGIN LOADER --------------------------------------------------------
 end
+
+RocketStack.init =
+  PluginLoader.add_plugin_loader("rocketstack", PLUGINS_PATH, RocketStack.init)
 
 function RocketStack:update(dt, fireMode, shiftHeld)
   WeaponAbility.update(self, dt, fireMode, shiftHeld)

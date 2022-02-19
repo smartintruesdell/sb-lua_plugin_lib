@@ -3,14 +3,9 @@ require "/scripts/vec2.lua"
 require "/items/active/weapons/weapon.lua"
 
 require "/scripts/lpl_load_plugins.lua"
-require "/scripts/lpl_plugin_util.lua"
 local PLUGINS_PATH = "/items/active/weapons/ranged/gun_plugins.config"
 
 function init()
-  -- PLUGIN LOADER ------------------------------------------------------------
-  PluginLoader.load(PLUGINS_PATH)
-  Plugins.call_before_initialize_hooks("gun")
-  -- END PLUGIN LOADER --------------------------------------------------------
 
   activeItem.setCursor("/cursors/reticle0.cursor")
   animator.setGlobalTag("paletteSwaps", config.getParameter("paletteSwaps", ""))
@@ -30,10 +25,9 @@ function init()
 
   self.weapon:init()
 
-  -- PLUGIN LOADER ------------------------------------------------------------
-  Plugins.call_after_initialize_hooks("gun")
-  -- END PLUGIN LOADER --------------------------------------------------------
 end
+
+init = PluginLoader.add_plugin_loader("gun", PLUGINS_PATH, init)
 
 function update(dt, fireMode, shiftHeld)
   self.weapon:update(dt, fireMode, shiftHeld)

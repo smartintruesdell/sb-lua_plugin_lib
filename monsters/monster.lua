@@ -11,17 +11,11 @@ require "/scripts/actions/movement.lua"
 require "/scripts/actions/animator.lua"
 
 require "/scripts/lpl_load_plugins.lua"
-require "/scripts/lpl_plugin_util.lua"
 local PLUGINS_PATH = "/monsters/monster_plugins.config"
 
 -- Module initialization ------------------------------------------------------
 
 function init()
-  -- PLUGIN LOADER ------------------------------------------------------------
-  PluginLoader.load(PLUGINS_PATH)
-  Plugins.call_before_initialize_hooks("monster")
-  -- END PLUGIN LOADER --------------------------------------------------------
-
   init_behavior()
   init_handlers()
   init_ControlMap()
@@ -31,10 +25,10 @@ function init()
   init_interactive()
   init_chains_animation()
 
-  -- PLUGIN LOADER ------------------------------------------------------------
-  Plugins.call_after_initialize_hooks("monster")
-  -- END PLUGIN LOADER --------------------------------------------------------
 end
+
+init = PluginLoader.add_plugin_loader("monster", PLUGINS_PATH, init)
+
 
 -- from init(), refactored to improve plugin support
 function init_behavior()

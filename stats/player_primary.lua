@@ -2,16 +2,9 @@ require "/scripts/status.lua"
 require "/scripts/achievements.lua"
 
 require "/scripts/lpl_load_plugins.lua"
-require "/scripts/lpl_plugin_util.lua"
 local PLUGINS_PATH = "/stats/player_primary_plugins.config"
 
--- Module initialization ------------------------------------------------------
-
 function init()
-  -- PLUGIN LOADER ------------------------------------------------------------
-  PluginLoader.load(PLUGINS_PATH)
-  Plugins.call_before_initialize_hooks("player_primary")
-  -- END PLUGIN LOADER --------------------------------------------------------
 
   self.lastYPosition = 0
   self.lastYVelocity = 0
@@ -25,10 +18,9 @@ function init()
   message.setHandler("applyStatusEffect", applyStatusEffectCallback)
   self.inflictedDamage = damageListener("inflictedDamage", inflictedDamageCallback)
 
-  -- PLUGIN LOADER ------------------------------------------------------------
-  Plugins.call_after_initialize_hooks("player_primary", self)
-  -- END PLUGIN LOADER --------------------------------------------------------
 end
+
+init = PluginLoader.add_plugin_loader("player_primary", PLUGINS_PATH, init)
 
 function init_set_ouch_noise()
   local ouchNoise = status.statusProperty("ouchNoise")

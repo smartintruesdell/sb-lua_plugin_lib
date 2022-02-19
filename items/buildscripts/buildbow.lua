@@ -3,7 +3,6 @@ require "/scripts/versioningutils.lua"
 require "/items/buildscripts/abilities.lua"
 
 require "/scripts/lpl_load_plugins.lua"
-require "/scripts/lpl_plugin_util.lua"
 local PLUGINS_PATH = "/items/buildscripts/buildbow_plugins.config"
 
 local function getConfigParameter(config, parameters, keyName, defaultValue)
@@ -16,13 +15,7 @@ local function getConfigParameter(config, parameters, keyName, defaultValue)
   end
 end
 
-function build(... --[[directory, config, parameters, level, seed]])
-  -- PLUGIN LOADER ------------------------------------------------------------
-  PluginLoader.load(PLUGINS_PATH)
-  local directory, config, parameters, level, seed =
-    Plugins.call_before_initialize_hooks("buildbow", ...)
-  -- END PLUGIN LOADER --------------------------------------------------------
-
+function build(directory, config, parameters, level, seed)
   config, parameters = build_set_seed(config, parameters, seed)
   config, parameters = build_set_directory(config, parameters, directory)
   config, parameters = build_set_level(config, parameters, level)
@@ -45,16 +38,10 @@ function build(... --[[directory, config, parameters, level, seed]])
   config, parameters = build_setup_tooltip_fields(config, parameters)
   config, parameters = build_set_price(config, parameters)
 
-  -- PLUGIN LOADER ------------------------------------------------------------
-  config, parameters = Plugins.call_after_initialize_hooks(
-    "buildbow",
-    config,
-    parameters
-  )
-  -- END PLUGIN LOADER --------------------------------------------------------
-
   return config, parameters
 end
+
+build = PluginLoader.add_plugin_loader("buildbow", PLUGINS_PATH, build)
 
 function build_set_seed(config, parameters, seed)
   -- initialize randomization

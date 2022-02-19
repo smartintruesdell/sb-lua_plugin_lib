@@ -2,26 +2,21 @@ require "/scripts/util.lua"
 require "/items/active/weapons/weapon.lua"
 
 require "/scripts/lpl_load_plugins.lua"
-require "/scripts/lpl_plugin_util.lua"
 local PLUGINS_PATH =
   "/items/active/weapons/melee/abilities/broadsword/bladecharge/bladecharge_plugins.config"
 
 BladeCharge = WeaponAbility:new()
 
 function BladeCharge:init()
-  -- PLUGIN LOADER ------------------------------------------------------------
-  PluginLoader.load(PLUGINS_PATH)
-  Plugins.call_before_initialize_hooks("bladecharge")
-  -- END PLUGIN LOADER --------------------------------------------------------
 
   BladeCharge:reset()
 
   self.cooldownTimer = 0
 
-  -- PLUGIN LOADER ------------------------------------------------------------
-  Plugins.call_after_initialize_hooks("bladecharge")
-  -- END PLUGIN LOADER --------------------------------------------------------
 end
+
+BladeCharge.init =
+  PluginLoader.add_plugin_loader("bladecharge", PLUGINS_PATH, BladeCharge.init)
 
 function BladeCharge:update(dt, fireMode, shiftHeld)
   WeaponAbility.update(self, dt, fireMode, shiftHeld)

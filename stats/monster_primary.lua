@@ -1,25 +1,19 @@
 require "/scripts/vec2.lua"
 
 require "/scripts/lpl_load_plugins.lua"
-require "/scripts/lpl_plugin_util.lua"
 local PLUGINS_PATH = "/stats/monster_primary_plugins.config"
 
 -- Module initialization ------------------------------------------------------
 
 function init()
-  -- PLUGIN LOADER ------------------------------------------------------------
-  PluginLoader.load(PLUGINS_PATH)
-  Plugins.call_before_initialize_hooks("monster_primary")
-  -- END PLUGIN LOADER --------------------------------------------------------
 
   self.damageFlashTime = 0
 
   message.setHandler("applyStatusEffect", applyStatusEffectCallback)
 
-  -- PLUGIN LOADER ------------------------------------------------------------
-  Plugins.call_after_initialize_hooks("monster_primary")
-  -- END PLUGIN LOADER --------------------------------------------------------
 end
+
+init = PluginLoader.add_plugin_loader("monster_primary", PLUGINS_PATH, init)
 
 -- Event Handlers -------------------------------------------------------------
 

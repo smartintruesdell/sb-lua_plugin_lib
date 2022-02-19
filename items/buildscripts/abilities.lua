@@ -47,13 +47,7 @@ end
 -- abilitySlot is either "alt" or "primary"
 -- If builderConfig is given, it will randomly choose an ability from
 -- builderConfig if the ability is not specified in the config/parameters.
-function setupAbility(... --[[config, parameters, abilitySlot, builderConfig, seed]])
-  -- PLUGIN LOADER ------------------------------------------------------------
-  PluginLoader.load(PLUGINS_PATH)
-  local config, parameters, abilitySlot, builderConfig, seed =
-    Plugins.call_before_initialize_hooks("abilities", ...)
-  -- END PLUGIN LOADER --------------------------------------------------------
-
+function setupAbility(config, parameters, abilitySlot, builderConfig, seed)
   seed = seed or parameters.seed or config.seed or 0
 
   local abilitySource = getAbilitySource(config, parameters, abilitySlot)
@@ -68,8 +62,6 @@ function setupAbility(... --[[config, parameters, abilitySlot, builderConfig, se
   if abilitySource then
     addAbility(config, parameters, abilitySlot, abilitySource)
   end
-
-  -- PLUGIN LOADER ------------------------------------------------------------
-  Plugins.call_after_initialize_hooks("abilities")
-  -- END PLUGIN LOADER --------------------------------------------------------
 end
+
+setupAbility = PluginLoader.add_plugin_loader("abilities", PLUGINS_PATH, setupAbility)

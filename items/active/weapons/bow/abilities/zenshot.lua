@@ -1,6 +1,5 @@
 require "/scripts/vec2.lua"
 require "/scripts/lpl_load_plugins.lua"
-require "/scripts/lpl_plugin_util.lua"
 local PLUGINS_PATH = "/items/active/weapons/bow/abilities/zenshot_plugins.config"
 
 -- Module initialization ------------------------------------------------------
@@ -8,11 +7,6 @@ local PLUGINS_PATH = "/items/active/weapons/bow/abilities/zenshot_plugins.config
 ZenShot = WeaponAbility:new()
 
 function ZenShot:init()
-  -- PLUGIN LOADER ------------------------------------------------------------
-  PluginLoader.load(PLUGINS_PATH)
-  Plugins.call_before_initialize_hooks("zenshot")
-  -- END PLUGIN LOADER --------------------------------------------------------
-
   self.energyPerShot = self.energyPerShot or 0
 
   self.drawTime = 0
@@ -52,10 +46,9 @@ function ZenShot:init()
   --   self:reset()
   -- end
 
-  -- PLUGIN LOADER ------------------------------------------------------------
-  Plugins.call_after_initialize_hooks("zenshot")
-  -- END PLUGIN LOADER --------------------------------------------------------
 end
+
+ZenShot.init = PluginLoader.add_plugin_loader("zenshot", PLUGINS_PATH, ZenShot.init)
 
 function ZenShot:update(dt, fireMode, shiftHeld)
   WeaponAbility.update(self, dt, fireMode, shiftHeld)

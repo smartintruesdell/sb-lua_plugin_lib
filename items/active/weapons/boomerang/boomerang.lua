@@ -3,16 +3,11 @@ require "/scripts/util.lua"
 require "/scripts/activeitem/stances.lua"
 
 require "/scripts/lpl_load_plugins.lua"
-require "/scripts/lpl_plugin_util.lua"
 local PLUGINS_PATH = "/items/active/weapons/boomerang/boomerang_plugins.config"
 
 -- Module initialization ------------------------------------------------------
 
 function init()
-  -- PLUGIN LOADER ------------------------------------------------------------
-  PluginLoader.load(PLUGINS_PATH)
-  Plugins.call_before_initialize_hooks("boomerang")
-  -- END PLUGIN LOADER --------------------------------------------------------
 
   self.projectileType = config.getParameter("projectileType")
   self.projectileParameters = config.getParameter("projectileParameters")
@@ -29,10 +24,9 @@ function init()
     setStance("idle")
   end
 
-  -- PLUGIN LOADER ------------------------------------------------------------
-  Plugins.call_after_initialize_hooks("boomerang")
-  -- END PLUGIN LOADER --------------------------------------------------------
 end
+
+init = PluginLoader.add_plugin_loader("boomerang", PLUGINS_PATH, init)
 
 function update(dt, fireMode, shiftHeld)
   updateStance(dt)

@@ -1,19 +1,12 @@
 require "/scripts/vec2.lua"
 
 require "/scripts/lpl_load_plugins.lua"
-require "/scripts/lpl_plugin_util.lua"
 local PLUGINS_PATH = "/items/active/weapons/bow/abilities/bowshot_plugins.config"
-
--- Module initialization ------------------------------------------------------
 
 -- Bow primary ability
 BowShot = WeaponAbility:new()
 
 function BowShot:init()
-  -- PLUGIN LOADER ------------------------------------------------------------
-  PluginLoader.load(PLUGINS_PATH)
-  Plugins.call_before_initialize_hooks("bowshot")
-  -- END PLUGIN LOADER --------------------------------------------------------
 
   self.energyPerShot = self.energyPerShot or 0
 
@@ -26,10 +19,9 @@ function BowShot:init()
     self:reset()
   end
 
-  -- PLUGIN LOADER ------------------------------------------------------------
-  Plugins.call_after_initialize_hooks("bowshot")
-  -- END PLUGIN LOADER --------------------------------------------------------
 end
+
+BowShot.init = PluginLoader.add_plugin_loader("bowshot", PLUGINS_PATH, BowShot.init)
 
 function BowShot:update(dt, fireMode, shiftHeld)
   WeaponAbility.update(self, dt, fireMode, shiftHeld)

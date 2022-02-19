@@ -1,15 +1,9 @@
 require "/scripts/lpl_load_plugins.lua"
-require "/scripts/lpl_plugin_util.lua"
 local PLUGINS_PATH = "/items/buildscripts/buildmechpart_plugins.config"
 
 VEHICLE_BASE_PATH = "/vehicles/modularmech"
 
-function build(... --[[directory, config, parameters, level, seed]])
-  -- PLUGIN LOADER ------------------------------------------------------------
-  PluginLoader.load(PLUGINS_PATH)
-  local directory, config, parameters, level, seed =
-    Plugins.call_before_initialize_hooks("buildmechpart", ...)
-  -- END PLUGIN LOADER --------------------------------------------------------
+function build(directory, config, parameters, level, seed)
 
   local partFrames = root.assetJson("/items/buildscripts/buildmechpart_frames.config")
 
@@ -60,16 +54,10 @@ function build(... --[[directory, config, parameters, level, seed]])
     end
   end
 
-  -- PLUGIN LOADER ------------------------------------------------------------
-  config, parameters = Plugins.call_after_initialize_hooks(
-    "buildmechpart",
-    config,
-    parameters
-  )
--- END PLUGIN LOADER --------------------------------------------------------
-
   return config, parameters
 end
+
+build = PluginLoader.add_plugin_loader("buildmechpart", PLUGINS_PATH, build)
 
 function directiveString(paletteConfig, primaryColors, secondaryColors)
   local result = ""

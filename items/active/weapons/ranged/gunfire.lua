@@ -9,10 +9,6 @@ local PLUGINS_PATH = "/items/active/weapons/ranged/gunfire_plugins.config"
 GunFire = WeaponAbility:new()
 
 function GunFire:init()
-  -- PLUGIN LOADER ------------------------------------------------------------
-  PluginLoader.load(PLUGINS_PATH)
-  Plugins.call_before_initialize_hooks("gunfire")
-  -- END PLUGIN LOADER --------------------------------------------------------
   self.weapon:setStance(self.stances.idle)
 
   self.cooldownTimer = self.fireTime
@@ -21,10 +17,10 @@ function GunFire:init()
     self.weapon:setStance(self.stances.idle)
   end
 
-  -- PLUGIN LOADER ------------------------------------------------------------
-  Plugins.call_after_initialize_hooks("gunfire")
-  -- END PLUGIN LOADER --------------------------------------------------------
 end
+
+GunFire.init =
+  PluginLoader.add_plugin_loader("gunfire", PLUGINS_PATH, GunFire.init)
 
 function GunFire:update(dt, fireMode, shiftHeld)
   WeaponAbility.update(self, dt, fireMode, shiftHeld)
