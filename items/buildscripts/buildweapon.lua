@@ -143,7 +143,7 @@ function build_setup_elemental_type(config, parameters)
   -- elemental type
   if
     not parameters.elementalType and
-    type(parameters.builderConfig) == table and
+    type(parameters.builderConfig) == "table" and
     parameters.builderConfig.elementalType
   then
     parameters.elementalType = randomFromList(
@@ -158,11 +158,12 @@ function build_setup_elemental_type(config, parameters)
     "elementalType",
     "physical"
   )
+  assert(elementalType ~= nil, "Could not find an elemental type in config")
   replacePatternInData(config, nil, "<elementalType>", elementalType)
 
   -- elemental config
   if
-    type(parameters.builderConfig) == table and
+    type(parameters.builderConfig) == "table" and
     parameters.builderConfig.elementalConfig
   then
     util.mergeTable(
@@ -185,6 +186,8 @@ function build_setup_elemental_type(config, parameters)
     elementalType:gsub("^%l", string.upper)
   )
 
+  assert(parameters.elementalType ~= nil,"Failed to determine a valid elementalType")
+
   return config, parameters
 end
 
@@ -192,12 +195,15 @@ function build_set_name(config, parameters)
   -- name
   if
     not parameters.shortdescription and
-    type(parameters.builderConfig) == table and
+    type(parameters.builderConfig) == "table" and
     parameters.builderConfig.nameGenerator
   then
     parameters.shortdescription =
       root.generateName(
-        util.absolutePath(directory, parameters.builderConfig.nameGenerator),
+        util.absolutePath(
+          parameters.directory,
+          parameters.builderConfig.nameGenerator
+        ),
         parameters.seed
       )
   end
@@ -208,7 +214,7 @@ end
 function build_setup_damage_config(config, parameters)
   -- merge damage properties
   if
-    type(parameters.builderConfig) == table and
+    type(parameters.builderConfig) == "table" and
     parameters.builderConfig.damageConfig
   then
     util.mergeTable(
@@ -329,7 +335,7 @@ function build_setup_palette_swaps(config, parameters)
   -- build palette swap directives
   config.paletteSwaps = ""
   if
-    type(parameters.builderConfig) == table and
+    type(parameters.builderConfig) == "table" and
     parameters.builderConfig.palette
   then
     local palette = root.assetJson(
@@ -367,12 +373,10 @@ end
 
 function build_setup_animation_parts(config, parameters)
   -- animation parts
-  sb.logInfo(string.format("%s", util.tableToString(parameters.builderConfig)))
   if
     type(parameters.builderConfig) == 'table' and
     parameters.builderConfig.animationParts
   then
-    sb.logInfo(string.format("Adding parts to `animationParts`"))
     config.animationParts = config.animationParts or {}
     if parameters.animationPartVariants == nil then
       parameters.animationPartVariants = {}
@@ -399,18 +403,15 @@ function build_setup_animation_parts(config, parameters)
             parameters.animationPartVariants[k] or ""
           )
         )
-        sb.logInfo(string.format("Adding part '%s' to `animationParts`: %s", k, config.animationParts[k]))
         if v.paletteSwap then
           config.animationParts[k] =
             config.animationParts[k] .. config.paletteSwaps
         end
       else
-        sb.logInfo(string.format("Adding part '%s' to `animationParts`: %s", k, v))
         config.animationParts[k] = v
       end
     end
   end
-  sb.logInfo(string.format("Done adding parts to `animationParts`"))
   return config, parameters
 end
 

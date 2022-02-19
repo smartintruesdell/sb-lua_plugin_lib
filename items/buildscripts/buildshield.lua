@@ -104,12 +104,15 @@ function build_set_name(config, parameters)
   -- name
   if
     not parameters.shortdescription and
-    type(parameters.builderConfig) == table and
+    type(parameters.builderConfig) == "table" and
     parameters.builderConfig.nameGenerator
   then
     parameters.shortdescription =
       root.generateName(
-        util.absolutePath(directory, parameters.builderConfig.nameGenerator),
+        util.absolutePath(
+          parameters.directory,
+          parameters.builderConfig.nameGenerator
+        ),
         parameters.seed
       )
   end
@@ -121,7 +124,7 @@ function build_setup_palette_swaps(config, parameters)
   -- build palette swap directives
   config.paletteSwaps = ""
   if
-    type(parameters.builderConfig) == table and
+    type(parameters.builderConfig) == "table" and
     parameters.builderConfig.palette
   then
     local palette = root.assetJson(
