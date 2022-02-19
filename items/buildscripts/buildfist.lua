@@ -16,7 +16,7 @@ local function getConfigParameter(config, parameters, keyName, defaultValue)
   end
 end
 
-function build(... --[[directory, config, parameters, level, seed]])
+function build(directory, config, parameters, level, seed)
   config, parameters = build_set_seed(config, parameters, seed)
   config, parameters = build_set_directory(config, parameters, directory)
   config, parameters = build_set_level(config, parameters, level)
