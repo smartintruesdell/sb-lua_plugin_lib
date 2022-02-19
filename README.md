@@ -162,6 +162,7 @@ Out of the box, LuaPluginLib updates the following vanilla scripts to add plugin
     - `buildfood.lua`
     - `buildmechpart.lua`
     - `buildsapling.lua`
+    - `buildshield.lua`
     - `buildweapon.lua`
     - `buildunrandweapon.lua`
     - `buildwhip.lua`
