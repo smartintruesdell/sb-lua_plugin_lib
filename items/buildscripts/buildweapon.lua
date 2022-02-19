@@ -143,7 +143,7 @@ function build_setup_elemental_type(config, parameters)
   -- elemental type
   if
     not parameters.elementalType and
-    type(parameters.builderConfig) == table and
+    type(parameters.builderConfig) == "table" and
     parameters.builderConfig.elementalType
   then
     parameters.elementalType = randomFromList(
@@ -158,11 +158,12 @@ function build_setup_elemental_type(config, parameters)
     "elementalType",
     "physical"
   )
+  assert(elementalType ~= nil, "Could not find an elemental type in config")
   replacePatternInData(config, nil, "<elementalType>", elementalType)
 
   -- elemental config
   if
-    type(parameters.builderConfig) == table and
+    type(parameters.builderConfig) == "table" and
     parameters.builderConfig.elementalConfig
   then
     util.mergeTable(
@@ -172,7 +173,7 @@ function build_setup_elemental_type(config, parameters)
   if config.altAbility and config.altAbility.elementalConfig then
     util.mergeTable(
       config.altAbility,
-      config.altAbility.elementalConfig[elementalType]
+      (config.altAbility.elementalConfig[elementalType] or {})
     )
   end
 
@@ -185,6 +186,8 @@ function build_setup_elemental_type(config, parameters)
     elementalType:gsub("^%l", string.upper)
   )
 
+  assert(parameters.elementalType ~= nil,"Failed to determine a valid elementalType")
+
   return config, parameters
 end
 
@@ -192,12 +195,15 @@ function build_set_name(config, parameters)
   -- name
   if
     not parameters.shortdescription and
-    type(parameters.builderConfig) == table and
+    type(parameters.builderConfig) == "table" and
     parameters.builderConfig.nameGenerator
   then
     parameters.shortdescription =
       root.generateName(
-        util.absolutePath(directory, parameters.builderConfig.nameGenerator),
+        util.absolutePath(
+          parameters.directory,
+          parameters.builderConfig.nameGenerator
+        ),
         parameters.seed
       )
   end
@@ -208,7 +214,7 @@ end
 function build_setup_damage_config(config, parameters)
   -- merge damage properties
   if
-    type(parameters.builderConfig) == table and
+    type(parameters.builderConfig) == "table" and
     parameters.builderConfig.damageConfig
   then
     util.mergeTable(
@@ -329,7 +335,7 @@ function build_setup_palette_swaps(config, parameters)
   -- build palette swap directives
   config.paletteSwaps = ""
   if
-    type(parameters.builderConfig) == table and
+    type(parameters.builderConfig) == "table" and
     parameters.builderConfig.palette
   then
     local palette = root.assetJson(
@@ -368,11 +374,13 @@ end
 function build_setup_animation_parts(config, parameters)
   -- animation parts
   if
-    type(parameters.builderConfig) == table and
+    type(parameters.builderConfig) == 'table' and
     parameters.builderConfig.animationParts
   then
     config.animationParts = config.animationParts or {}
-    if parameters.animationPartVariants == nil then parameters.animationPartVariants = {} end
+    if parameters.animationPartVariants == nil then
+      parameters.animationPartVariants = {}
+    end
     for k, v in pairs(parameters.builderConfig.animationParts) do
       if type(v) == "table" then
         if
@@ -404,7 +412,6 @@ function build_setup_animation_parts(config, parameters)
       end
     end
   end
-
   return config, parameters
 end
 
@@ -450,6 +457,14 @@ function build_setup_inventory_icon(config, parameters)
     config.inventoryIcon = jarray()
     local parts = parameters.builderConfig.iconDrawables or {}
     for _,partName in pairs(parts) do
+      assert(
+        config.animationParts[partName] ~= nil,
+        string.format(
+          "Could not find an animationPart for '%s' in %s",
+          partName,
+          util.tableToString(config.animationParts)
+        )
+      )
       local drawable = {
         image = config.animationParts[partName] .. config.paletteSwaps,
         position = parameters.partImagePositions[partName]

@@ -1,4 +1,7 @@
 require "/scripts/util.lua"
+require "/scripts/vec2.lua"
+require "/scripts/versioningutils.lua"
+require "/scripts/staticrandom.lua"
 
 require "/scripts/lpl_load_plugins.lua"
 require "/scripts/lpl_plugin_util.lua"
@@ -97,26 +100,13 @@ function build_set_builderConfig(config, parameters)
 end
 
 function build_set_name(config, parameters)
-  -- buildunrandweapon doesn't set a name
+  -- buildfist doesn't set a name
 
   return config, parameters
 end
 
 function build_setup_abilities(config, parameters)
-  setupAbility(
-    config,
-    parameters,
-    "primary",
-    parameters.builderConfig,
-    parameters.seed
-  )
-  setupAbility(
-    config,
-    parameters,
-    "alt",
-    parameters.builderConfig,
-    parameters.seed
-  )
+  -- buildfist doesn't setup abilities
 
   return config, parameters
 end
@@ -125,7 +115,7 @@ function build_setup_elemental_type(config, parameters)
   -- elemental type
   if
     not parameters.elementalType and
-    type(parameters.builderConfig) == table and
+    type(parameters.builderConfig) == "table" and
     parameters.builderConfig.elementalType
   then
     parameters.elementalType = randomFromList(
@@ -144,7 +134,7 @@ function build_setup_elemental_type(config, parameters)
 
   -- elemental config
   if
-    type(parameters.builderConfig) == table and
+    type(parameters.builderConfig) == "table" and
     parameters.builderConfig.elementalConfig
   then
     util.mergeTable(
@@ -232,13 +222,13 @@ function build_setup_palette_swaps(config, parameters)
 end
 
 function build_setup_animation_custom(config, parameters)
-  -- buildunrandweapon doesn't setup animation custom
+  -- buildfist doesn't setup animation custom
 
   return config, parameters
 end
 
 function build_setup_animation_parts(config, parameters)
-  -- buildunrandweapon doesn't setup animation parts
+  -- buildfist doesn't setup animation parts
 
   return config, parameters
 end
@@ -250,13 +240,13 @@ function build_setup_gun_offsets(config, parameters)
 end
 
 function build_setup_elemental_fire_sounds(config, parameters)
-  -- buildunrandweapon doesn't setup elemental fire sounds
+  -- buildfist doesn't setup elemental fire sounds
 
   return config, parameters
 end
 
 function build_setup_inventory_icon(config, parameters)
-  -- buildunrandweapon doesn't setup an inventory icon
+  -- buildfist doesn't setup an inventory icon
 
   return config, parameters
 end

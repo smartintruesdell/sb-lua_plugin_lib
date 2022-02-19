@@ -1,4 +1,7 @@
 require "/scripts/util.lua"
+require "/scripts/vec2.lua"
+require "/scripts/versioningutils.lua"
+require "/scripts/staticrandom.lua"
 require "/items/buildscripts/abilities.lua"
 
 require "/scripts/lpl_load_plugins.lua"
@@ -125,7 +128,7 @@ function build_setup_elemental_type(config, parameters)
   -- elemental type
   if
     not parameters.elementalType and
-    type(parameters.builderConfig) == table and
+    type(parameters.builderConfig) == "table" and
     parameters.builderConfig.elementalType
   then
     parameters.elementalType = randomFromList(
@@ -144,7 +147,7 @@ function build_setup_elemental_type(config, parameters)
 
   -- elemental config
   if
-    type(parameters.builderConfig) == table and
+    type(parameters.builderConfig) == "table" and
     parameters.builderConfig.elementalConfig
   then
     util.mergeTable(

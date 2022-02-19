@@ -3,7 +3,7 @@ require "/scripts/status.lua"
 
 require "/scripts/lpl_load_plugins.lua"
 require "/scripts/lpl_plugin_util.lua"
-local PLUGINS_PATH = "/stats/shield_plugins.config"
+local PLUGINS_PATH = "/items/active/shields/shield_plugins.config"
 
 -- Module initialization ------------------------------------------------------
 
