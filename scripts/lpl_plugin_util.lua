@@ -239,6 +239,8 @@ function Plugins.call_before_initialize_hooks(module_name, ...)
       )
     end
   end
+
+  return table.unpack(pargs)
 end
 function Plugins.call_after_initialize_hooks(module_name, ...)
   local results = table.pack(...)
