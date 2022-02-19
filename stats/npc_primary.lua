@@ -191,9 +191,11 @@ end
 function applyDamageRequest_apply_invulnerability_frames(damage)
   local damageHealthPercentage = damage / status.resourceMax("health")
   if
+    status.statusProperty("hitInvulnerabilityThreshold") ~= nil and
     damageHealthPercentage > status.statusProperty("hitInvulnerabilityThreshold")
   then
-    self.hitInvulnerabilityTime = status.statusProperty("hitInvulnerabilityTime")
+    self.hitInvulnerabilityTime =
+      (status.statusProperty("hitInvulnerabilityTime") or 0)
   end
 end
 
