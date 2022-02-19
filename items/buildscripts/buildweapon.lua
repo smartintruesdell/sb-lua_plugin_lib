@@ -367,12 +367,16 @@ end
 
 function build_setup_animation_parts(config, parameters)
   -- animation parts
+  sb.logInfo(string.format("%s", util.tableToString(parameters.builderConfig)))
   if
-    type(parameters.builderConfig) == table and
+    type(parameters.builderConfig) == 'table' and
     parameters.builderConfig.animationParts
   then
+    sb.logInfo(string.format("Adding parts to `animationParts`"))
     config.animationParts = config.animationParts or {}
-    if parameters.animationPartVariants == nil then parameters.animationPartVariants = {} end
+    if parameters.animationPartVariants == nil then
+      parameters.animationPartVariants = {}
+    end
     for k, v in pairs(parameters.builderConfig.animationParts) do
       if type(v) == "table" then
         if
@@ -395,16 +399,18 @@ function build_setup_animation_parts(config, parameters)
             parameters.animationPartVariants[k] or ""
           )
         )
+        sb.logInfo(string.format("Adding part '%s' to `animationParts`: %s", k, config.animationParts[k]))
         if v.paletteSwap then
           config.animationParts[k] =
             config.animationParts[k] .. config.paletteSwaps
         end
       else
+        sb.logInfo(string.format("Adding part '%s' to `animationParts`: %s", k, v))
         config.animationParts[k] = v
       end
     end
   end
-
+  sb.logInfo(string.format("Done adding parts to `animationParts`"))
   return config, parameters
 end
 
@@ -450,6 +456,14 @@ function build_setup_inventory_icon(config, parameters)
     config.inventoryIcon = jarray()
     local parts = parameters.builderConfig.iconDrawables or {}
     for _,partName in pairs(parts) do
+      assert(
+        config.animationParts[partName] ~= nil,
+        string.format(
+          "Could not find an animationPart for '%s' in %s",
+          partName,
+          util.tableToString(config.animationParts)
+        )
+      )
       local drawable = {
         image = config.animationParts[partName] .. config.paletteSwaps,
         position = parameters.partImagePositions[partName]
