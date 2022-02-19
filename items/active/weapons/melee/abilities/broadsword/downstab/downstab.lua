@@ -3,23 +3,16 @@ require "/scripts/status.lua"
 require "/items/active/weapons/weapon.lua"
 
 require "/scripts/lpl_load_plugins.lua"
-require "/scripts/lpl_plugin_util.lua"
 local PLUGINS_PATH = "/items/active/weapons/melee/abilities/broadsword/downstab/downstab_plugins.config"
 
 Downstab = WeaponAbility:new()
 
 function Downstab:init()
-  -- PLUGIN LOADER ------------------------------------------------------------
-  PluginLoader.load(PLUGINS_PATH)
-  Plugins.call_before_initialize_hooks("downstab")
-  -- END PLUGIN LOADER --------------------------------------------------------
-
   self.cooldownTimer = self.cooldownTime
-
-  -- PLUGIN LOADER ------------------------------------------------------------
-  Plugins.call_after_initialize_hooks("downstab")
-  -- END PLUGIN LOADER --------------------------------------------------------
 end
+
+Downstab.init =
+  PluginLoader.add_plugin_loader("downstab", PLUGINS_PATH, Downstab.init)
 
 function Downstab:update(dt, fireMode, shiftHeld)
   WeaponAbility.update(self, dt, fireMode, shiftHeld)

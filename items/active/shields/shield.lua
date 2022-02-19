@@ -2,17 +2,9 @@ require "/scripts/util.lua"
 require "/scripts/status.lua"
 
 require "/scripts/lpl_load_plugins.lua"
-require "/scripts/lpl_plugin_util.lua"
 local PLUGINS_PATH = "/items/active/shields/shield_plugins.config"
 
--- Module initialization ------------------------------------------------------
-
 function init()
-  -- PLUGIN LOADER ------------------------------------------------------------
-  PluginLoader.load(PLUGINS_PATH)
-  Plugins.call_before_initialize_hooks("shield")
-  -- END PLUGIN LOADER --------------------------------------------------------
-
   self.debug = true
 
   self.aimAngle = 0
@@ -39,11 +31,9 @@ function init()
   setStance(self.stances.idle)
 
   updateAim()
-
-  -- PLUGIN LOADER ------------------------------------------------------------
-  Plugins.call_after_initialize_hooks("shield")
-  -- END PLUGIN LOADER --------------------------------------------------------
 end
+
+init = PluginLoader.add_plugin_loader("shield", PLUGINS_PATH, init)
 
 function update(dt, fireMode, shiftHeld)
   self.cooldownTimer = math.max(0, self.cooldownTimer - dt)

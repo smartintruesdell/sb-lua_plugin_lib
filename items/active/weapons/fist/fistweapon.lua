@@ -4,15 +4,9 @@ require "/scripts/status.lua"
 require "/items/active/weapons/weapon.lua"
 
 require "/scripts/lpl_load_plugins.lua"
-require "/scripts/lpl_plugin_util.lua"
 local PLUGINS_PATH = "/items/active/weapons/fist/fistweapon_plugins.config"
 
 function init()
-  -- PLUGIN LOADER ------------------------------------------------------------
-  PluginLoader.load(PLUGINS_PATH)
-  Plugins.call_before_initialize_hooks("fistweapon")
-  -- END PLUGIN LOADER --------------------------------------------------------
-
   self.weapon = Weapon:new()
 
   self.weapon:addTransformationGroup("weapon", {0,0}, 0)
@@ -39,11 +33,9 @@ function init()
   self.weapon.freezesLeft = self.weapon.freezeLimit
 
   updateHand()
-
-  -- PLUGIN LOADER ------------------------------------------------------------
-  Plugins.call_after_initialize_hooks("fistweapon")
-  -- END PLUGIN LOADER --------------------------------------------------------
 end
+
+init = PluginLoader.add_plugin_loader("fistweapon", PLUGINS_PATH, init)
 
 function update(dt, fireMode, shiftHeld)
   if mcontroller.onGround() then

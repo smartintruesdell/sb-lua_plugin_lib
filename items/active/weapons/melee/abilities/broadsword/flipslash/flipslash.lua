@@ -4,23 +4,18 @@ require "/scripts/poly.lua"
 require "/items/active/weapons/weapon.lua"
 
 require "/scripts/lpl_load_plugins.lua"
-require "/scripts/lpl_plugin_util.lua"
 local PLUGINS_PATH = "/items/active/weapons/melee/abilities/broadword/flipslash/flipslash_plugins.config"
 
 FlipSlash = WeaponAbility:new()
 
 function FlipSlash:init()
-  -- PLUGIN LOADER ------------------------------------------------------------
-  PluginLoader.load(PLUGINS_PATH)
-  Plugins.call_before_initialize_hooks("flipslash")
-  -- END PLUGIN LOADER --------------------------------------------------------
 
   self.cooldownTimer = self.cooldownTime
 
-  -- PLUGIN LOADER ------------------------------------------------------------
-  Plugins.call_after_initialize_hooks("flipslash")
-  -- END PLUGIN LOADER --------------------------------------------------------
 end
+
+FlipSlash.init =
+  PluginLoader.add_plugin_loader("flipslash", PLUGINS_PATH, FlipSlash.init)
 
 function FlipSlash:update(dt, fireMode, shiftHeld)
   WeaponAbility.update(self, dt, fireMode, shiftHeld)

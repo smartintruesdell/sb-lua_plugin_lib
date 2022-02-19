@@ -2,15 +2,9 @@ require "/scripts/util.lua"
 require "/scripts/vec2.lua"
 
 require "/scripts/lpl_load_plugins.lua"
-require "/scripts/lpl_plugin_util.lua"
 local PLUGINS_PATH = "/items/active/vehiclecontroller/vehiclecontroller_plugins.config"
 
 function init()
-  -- PLUGIN LOADER ------------------------------------------------------------
-  PluginLoader.load(PLUGINS_PATH)
-  Plugins.call_before_initialize_hooks("vehiclecontroller")
-  -- END PLUGIN LOADER --------------------------------------------------------
-
   if config.getParameter("key") == nil then
     activeItem.setInstanceValue("key", sb.makeUuid())
   end
@@ -31,11 +25,9 @@ function init()
 
   activeItem.setScriptedAnimationParameter("vehicleImage", config.getParameter("vehicleImage"))
   activeItem.setScriptedAnimationParameter("vehicleState", self.vehicleState)
-
-  -- PLUGIN LOADER ------------------------------------------------------------
-  Plugins.call_after_initialize_hooks("vehiclecontroller")
-  -- END PLUGIN LOADER --------------------------------------------------------
 end
+
+init = PluginLoader.add_plugin_loader("vehiclecontroller", PLUGINS_PATH, init)
 
 function activate(fireMode, shiftHeld)
   if config.getParameter("filled") then

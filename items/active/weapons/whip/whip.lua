@@ -4,14 +4,9 @@ require "/scripts/status.lua"
 require "/items/active/weapons/weapon.lua"
 
 require "/scripts/lpl_load_plugins.lua"
-require "/scripts/lpl_plugin_util.lua"
 local PLUGINS_PATH = "/items/active/weapons/whip/whip_plugins.config"
 
 function init()
-  -- PLUGIN LOADER ------------------------------------------------------------
-  PluginLoader.load(PLUGINS_PATH)
-  Plugins.call_before_initialize_hooks("whip")
-  -- END PLUGIN LOADER --------------------------------------------------------
   activeItem.setCursor("/cursors/reticle0.cursor")
 
   self.weapon = Weapon:new()
@@ -27,10 +22,10 @@ function init()
   end
 
   self.weapon:init()
-  -- PLUGIN LOADER ------------------------------------------------------------
-  Plugins.call_after_initialize_hooks("whip")
-  -- END PLUGIN LOADER --------------------------------------------------------
+
 end
+
+init = PluginLoader.add_plugin_loader("whip", PLUGINS_PATH, init)
 
 function update(dt, fireMode, shiftHeld)
   self.weapon:update(dt, fireMode, shiftHeld)

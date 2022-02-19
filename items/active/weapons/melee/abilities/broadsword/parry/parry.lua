@@ -3,22 +3,17 @@ require "/scripts/status.lua"
 require "/items/active/weapons/weapon.lua"
 
 require "/scripts/lpl_load_plugins.lua"
-require "/scripts/lpl_plugin_util.lua"
 local PLUGINS_PATH = "/items/active/weapons/melee/abilities/parry/parry_plugins.config"
 
 Parry = WeaponAbility:new()
 
 function Parry:init()
-  -- PLUGIN LOADER ------------------------------------------------------------
-  PluginLoader.load(PLUGINS_PATH)
-  Plugins.call_before_initialize_hooks("parry")
-  -- END PLUGIN LOADER --------------------------------------------------------
+
   self.cooldownTimer = 0
 
-  -- PLUGIN LOADER ------------------------------------------------------------
-  Plugins.call_after_initialize_hooks("parry")
-  -- END PLUGIN LOADER --------------------------------------------------------
 end
+
+Parry.init = PluginLoader.add_plugin_loader("parry", PLUGINS_PATH, Parry.init)
 
 function Parry:update(dt, fireMode, shiftHeld)
   WeaponAbility.update(self, dt, fireMode, shiftHeld)

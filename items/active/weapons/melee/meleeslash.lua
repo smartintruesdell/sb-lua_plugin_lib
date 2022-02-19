@@ -1,15 +1,10 @@
 require "/scripts/lpl_load_plugins.lua"
-require "/scripts/lpl_plugin_util.lua"
 local PLUGINS_PATH = "/items/active/weapons/melee/meleeslash_plugins.config"
 
 -- Melee primary ability
 MeleeSlash = WeaponAbility:new()
 
 function MeleeSlash:init()
-  -- PLUGIN LOADER ------------------------------------------------------------
-  PluginLoader.load(PLUGINS_PATH)
-  Plugins.call_before_initialize_hooks("meleeslash")
-  -- END PLUGIN LOADER --------------------------------------------------------
   self.damageConfig.baseDamage = self.baseDps * self.fireTime
 
   self.energyUsage = self.energyUsage or 0
@@ -21,11 +16,10 @@ function MeleeSlash:init()
   self.weapon.onLeaveAbility = function()
     self.weapon:setStance(self.stances.idle)
   end
-
-  -- PLUGIN LOADER ------------------------------------------------------------
-  Plugins.call_after_initialize_hooks("meleeslash")
-  -- END PLUGIN LOADER --------------------------------------------------------
 end
+
+MeleeSlash.init =
+  PluginLoader.add_plugin_loader("punch", PLUGINS_PATH, MeleeSlash.init)
 
 -- Ticks on every update regardless if this is the active ability
 function MeleeSlash:update(dt, fireMode, shiftHeld)

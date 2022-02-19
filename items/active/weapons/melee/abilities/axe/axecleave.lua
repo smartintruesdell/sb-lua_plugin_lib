@@ -3,7 +3,6 @@ require "/scripts/interp.lua"
 require "/items/active/weapons/melee/meleeslash.lua"
 
 require "/scripts/lpl_load_plugins.lua"
-require "/scripts/lpl_plugin_util.lua"
 local PLUGINS_PATH =
   "/items/active/weapons/melee/abilities/axe/axecleave_plugins.config"
 
@@ -12,20 +11,15 @@ local PLUGINS_PATH =
 AxeCleave = MeleeSlash:new()
 
 function AxeCleave:init()
-  -- PLUGIN LOADER ------------------------------------------------------------
-  PluginLoader.load(PLUGINS_PATH)
-  Plugins.call_before_initialize_hooks("axecleave")
-  -- END PLUGIN LOADER --------------------------------------------------------
 
   self.stances.windup.duration = self.fireTime - self.stances.fire.duration
 
   MeleeSlash.init(self)
   self:setupInterpolation()
 
-  -- PLUGIN LOADER ------------------------------------------------------------
-  Plugins.call_after_initialize_hooks("axecleave")
-  -- END PLUGIN LOADER --------------------------------------------------------
 end
+
+AxeCleave.init = PluginLoader.add_plugin_loader("axecleave", PLUGINS_PATH, AxeCleave.init)
 
 function AxeCleave:windup(windupProgress)
   self.weapon:setStance(self.stances.windup)

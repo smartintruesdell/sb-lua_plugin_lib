@@ -2,17 +2,12 @@ require "/scripts/util.lua"
 require "/items/active/weapons/weapon.lua"
 
 require "/scripts/lpl_load_plugins.lua"
-require "/scripts/lpl_plugin_util.lua"
 local PLUGINS_PATH = "/items/active/weapons/whip/abilities/whipcrack_plugins.config"
 
 -- whip primary attack
 WhipCrack = WeaponAbility:new()
 
 function WhipCrack:init()
-  -- PLUGIN LOADER ------------------------------------------------------------
-  PluginLoader.load(PLUGINS_PATH)
-  Plugins.call_before_initialize_hooks("whipcrack")
-  -- END PLUGIN LOADER --------------------------------------------------------
 
   self.damageConfig.baseDamage = self.chainDps * self.fireTime
 
@@ -30,10 +25,10 @@ function WhipCrack:init()
 
   self.chain = config.getParameter("chain")
 
-  -- PLUGIN LOADER ------------------------------------------------------------
-  Plugins.call_after_initialize_hooks("whipcrack")
-  -- END PLUGIN LOADER --------------------------------------------------------
 end
+
+WhipCrack.init =
+  PluginLoader.add_plugin_loader("whipcrack", PLUGINS_PATH, WhipCrack.init)
 
 -- Ticks on every update regardless if this is the active ability
 function WhipCrack:update(dt, fireMode, shiftHeld)

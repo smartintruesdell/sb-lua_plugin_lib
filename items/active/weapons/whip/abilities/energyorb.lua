@@ -2,26 +2,21 @@ require "/scripts/util.lua"
 require "/items/active/weapons/weapon.lua"
 
 require "/scripts/lpl_load_plugins.lua"
-require "/scripts/lpl_plugin_util.lua"
 local PLUGINS_PATH = "/items/active/weapons/whip/abilities/energyorb_plugins.config"
 
 EnergyOrb = WeaponAbility:new()
 
 function EnergyOrb:init()
-  -- PLUGIN LOADER ------------------------------------------------------------
-  PluginLoader.load(PLUGINS_PATH)
-  Plugins.call_before_initialize_hooks("energyorb")
-  -- END PLUGIN LOADER --------------------------------------------------------
 
   self.chain = config.getParameter("chain")
   self.chain.endOffset = self.projectileOffset
 
   self.cooldownTimer = self.cooldownTime
 
-  -- PLUGIN LOADER ------------------------------------------------------------
-  Plugins.call_after_initialize_hooks("energyorb")
-  -- END PLUGIN LOADER --------------------------------------------------------
 end
+
+EnergyOrb.init =
+  PluginLoader.add_plugin_loader("energyorb", PLUGINS_PATH, EnergyOrb.init)
 
 function EnergyOrb:update(dt, fireMode, shiftHeld)
   WeaponAbility.update(self, dt, fireMode, shiftHeld)
