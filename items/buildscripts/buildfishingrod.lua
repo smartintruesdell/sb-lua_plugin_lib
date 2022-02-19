@@ -1,5 +1,4 @@
 require "/scripts/lpl_load_plugins.lua"
-require "/scripts/lpl_plugin_util.lua"
 local PLUGINS_PATH = "/items/buildscripts/buildfishingrod_plugins.config"
 
 local function getConfigParameter(config, parameters, keyName, defaultValue)
@@ -12,28 +11,17 @@ local function getConfigParameter(config, parameters, keyName, defaultValue)
   end
 end
 
-function build(... --[[directory, config, parameters, level, seed]])
-  -- PLUGIN LOADER ------------------------------------------------------------
-  PluginLoader.load(PLUGINS_PATH)
-  local directory, config, parameters, level, seed =
-    Plugins.call_before_initialize_hooks("buildfishingrod", ...)
-  -- END PLUGIN LOADER --------------------------------------------------------
+function build(directory, config, parameters, level, seed)
   config, parameters = build_set_seed(config, parameters, seed)
   config, parameters = build_set_directory(config, parameters, directory)
   config, parameters = build_set_level(config, parameters, level)
 
   config, parameters = build_setup_tooltip_fields(config, parameters)
 
-  -- PLUGIN LOADER ------------------------------------------------------------
-  config, parameters = Plugins.call_after_initialize_hooks(
-    "buildfishingrod",
-    config,
-    parameters
-  )
-  -- END PLUGIN LOADER --------------------------------------------------------
-
   return config, parameters
 end
+
+build = PluginLoader.add_plugin_loader("buildfishingrod", PLUGINS_PATH, build)
 
 function build_set_seed(config, parameters, seed)
   -- initialize randomization

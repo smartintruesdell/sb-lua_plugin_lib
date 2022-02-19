@@ -1,14 +1,7 @@
 require "/scripts/lpl_load_plugins.lua"
-require "/scripts/lpl_plugin_util.lua"
 local PLUGINS_PATH = "/items/buildscripts/buildfood_plugins.config"
 
-function build(... --[[directory, config, parameters, level, seed]])
-  -- PLUGIN LOADER ------------------------------------------------------------
-  PluginLoader.load(PLUGINS_PATH)
-  local _directory, config, parameters, _level, _seed =
-    Plugins.call_before_initialize_hooks("buildfood", ...)
-  -- END PLUGIN LOADER --------------------------------------------------------
-
+function build(directory, config, parameters, level, seed)
   if not parameters.timeToRot then
     local rottingMultiplier =
       parameters.rottingMultiplier or
@@ -22,16 +15,10 @@ function build(... --[[directory, config, parameters, level, seed]])
   config.tooltipFields = config.tooltipFields or {}
   config.tooltipFields.rotTimeLabel = getRotTimeDescription(parameters.timeToRot)
 
-  -- PLUGIN LOADER ------------------------------------------------------------
-  config, parameters = Plugins.call_after_initialize_hooks(
-    "buildfood",
-    config,
-    parameters
-  )
-  -- END PLUGIN LOADER --------------------------------------------------------
-
   return config, parameters
 end
+
+build = PluginLoader.add_plugin_loader("buildfood", PLUGINS_PATH, build)
 
 function getRotTimeDescription(rotTime)
   local descList = root.assetJson("/items/rotting.config:rotTimeDescriptions")
