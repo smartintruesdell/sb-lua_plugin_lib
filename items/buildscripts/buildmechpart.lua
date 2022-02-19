@@ -32,7 +32,7 @@ function build(... --[[directory, config, parameters, level, seed]])
       local baseImage = partConfig.partImages[frameConfig[1]]
       if baseImage and baseImage ~= "" then
         table.insert(drawables, {
-            image = VEHICLE_BASE_PATH .. baseImage .. frameConfig[2] .. directives,
+            image = VEHICLE_BASE_PATH.."/".. baseImage .. frameConfig[2] .. directives,
             centered = true,
             position = frameConfig[3]
           })
