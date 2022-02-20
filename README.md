@@ -122,7 +122,17 @@ Out of the box, LuaPluginLib updates the following vanilla scripts to add plugin
 
 - /items
   - /active
+    - /effects
+      - `chain.lua`
+      - `detector.lua`
+      - `entitymarker.lua`
+      - `laserbeam.lua`
+      - `lightning.lua`
+      - `renderrope.lua`
     - /fishingrod/`fishingrod.lua`
+    - /fossil/`fossilbrush.lua`
+    - /grapplinghooks/`grapplinghook.lua`
+    - /randomblueprint/`randomblueprint.lua`
     - /shields/`shield.lua`
     - /vehiclecontroller/`vehiclecontroller.lua`
     - /weapons
@@ -250,3 +260,34 @@ This wraps the Weapon.new function with our PluginLoader and activates the `init
 It's important that the `<filename>` part of that invocation match the name of the file, as it helps the plugin loader know which initialization hooks to run.
 
 It really **is** that easy. Just one line of code, after your `init` or `new` script, and you're all set.
+
+
+## Limitations
+
+Unfortunately, there are some few scripts in the base assets that may be impossible to support with plugins.
+
+In particular, those modules that don't offer a discreet entrypoint where plugins can be loaded, like `/scripts/behavior.lua`, are going to be difficult to patch through `.config` driven plugins.
+
+However, you can still take advantage of our hooks utilties and add a script that creates hooks using the "old way" of inserting a script into a `"scripts": []` list for execution, ie
+
+**/stagehands/coordinator.stagehand.config**
+```json
+[{ // The old way
+  "op": "add", "path": "/scripts/-", "value": "/my_plugins/example_classic_plugin.lua"
+}]
+```
+
+**/my_plugins/example_classic_plugin.lua**
+```lua
+-- But with new hooks
+require "/scripts/lpl_plugin_util.lua"
+
+getStorage = Plugins.add_before_hook(
+  getStorage,
+  function (args, board)
+    -- Do something here
+
+    return args, board
+  end
+)
+```
