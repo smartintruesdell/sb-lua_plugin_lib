@@ -122,6 +122,13 @@ Out of the box, LuaPluginLib updates the following vanilla scripts to add plugin
 
 - /items
   - /active
+    - /effects
+      - `chain.lua`
+      - `detector.lua`
+      - `entitymarker.lua`
+      - `laserbeam.lua`
+      - `lightning.lua`
+      - `renderrope.lua`
     - /fishingrod/`fishingrod.lua`
     - /shields/`shield.lua`
     - /vehiclecontroller/`vehiclecontroller.lua`
