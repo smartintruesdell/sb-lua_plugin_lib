@@ -168,10 +168,41 @@ Out of the box, LuaPluginLib updates the following vanilla scripts to add plugin
     - `buildunrandshield.lua`
     - `buildwhip.lua`
 - /monsters/`monster.lua`
+- /scripts
+  - /companions
+    - `capturable.lua`
+    - `crewbenefits.lua`
+    - `petspawner.lua`
+    - `player.lua`
+    - `recruitable.lua`
+    - `recruitspawner.lua`
+  - /player
+    - `playerbounty.lua`
+    - `stealing.lua`
+  - /quest
+    - /manager
+      - `add_tenant.lua`
+      - `plugin.lua`
+      - `spawn_entities.lua`
 - /stats
   - `monster_primary.lua`
   - `npc_primary.lua`
   - `player_primary.lua`
+- /vehicles
+  - /modularmech
+    - /armscripts
+      - `base.lua`
+      - `beamarm.lua`
+      - `boomerangarm.lua`
+      - `dasharm.lua`
+      - `despawnarm.lua`
+      - `drillarm.lua`
+      - `dronelauncher.lua`
+      - `gatlingarm.lua`
+      - `gunarm.lua`
+      - `meleearm.lua`
+      - `missileburstarm.lua`
+      - `remotedetonatorarm.lua`
 </details>
 
 With more to be added as needed!
