@@ -50,7 +50,7 @@ You could add `.patch` files for every shortspear ever, or you could add the fol
 -- Require the Plugins module with useful utilities
 require "/scripts/lsl_plugin_util.lua"
 
--- Name should match the json patch above.
+-- Name should match the name of the lua file.
 local MODULE_NAME = "weapon"
 
 -- Here, we add our first "Hook". This one will run AFTER the new/init script
@@ -177,6 +177,7 @@ Out of the box, LuaPluginLib updates the following vanilla scripts to add plugin
     - `buildunrandweapon.lua`
     - `buildunrandshield.lua`
     - `buildwhip.lua`
+  - /tools/miningtools/`beamaxe.lua`
 - /monsters/`monster.lua`
 - /scripts
   - /companions
