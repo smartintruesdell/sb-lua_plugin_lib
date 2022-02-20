@@ -176,6 +176,9 @@ Out of the box, LuaPluginLib updates the following vanilla scripts to add plugin
     - `player.lua`
     - `recruitable.lua`
     - `recruitspawner.lua`
+  - /player
+    - `playerbounty.lua`
+    - `stealing.lua`
   - /quest
     - /manager
       - `add_tenant.lua`
