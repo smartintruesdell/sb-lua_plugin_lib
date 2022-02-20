@@ -176,6 +176,11 @@ Out of the box, LuaPluginLib updates the following vanilla scripts to add plugin
     - `player.lua`
     - `recruitable.lua`
     - `recruitspawner.lua`
+  - /quest
+    - /manager
+      - `add_tenant.lua`
+      - `plugin.lua`
+      - `spawn_entities.lua`
 - /stats
   - `monster_primary.lua`
   - `npc_primary.lua`
