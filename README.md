@@ -131,6 +131,7 @@ Out of the box, LuaPluginLib updates the following vanilla scripts to add plugin
       - `renderrope.lua`
     - /fishingrod/`fishingrod.lua`
     - /fossil/`fossilbrush.lua`
+    - /grapplinghooks/`grapplinghook.lua`
     - /shields/`shield.lua`
     - /vehiclecontroller/`vehiclecontroller.lua`
     - /weapons
