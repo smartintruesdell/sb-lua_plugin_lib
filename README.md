@@ -50,7 +50,7 @@ You could add `.patch` files for every shortspear ever, or you could add the fol
 -- Require the Plugins module with useful utilities
 require "/scripts/lsl_plugin_util.lua"
 
--- Name should match the json patch above.
+-- Name should match the name of the lua file.
 local MODULE_NAME = "weapon"
 
 -- Here, we add our first "Hook". This one will run AFTER the new/init script
@@ -134,7 +134,35 @@ Out of the box, LuaPluginLib updates the following vanilla scripts to add plugin
     - /grapplinghooks/`grapplinghook.lua`
     - /randomblueprint/`randomblueprint.lua`
     - /shields/`shield.lua`
+    - /stationtransponder/`stationtransponder.lua`
     - /vehiclecontroller/`vehiclecontroller.lua`
+    - /unsorted
+      - /arrester/
+        - `arrester.lua`
+        - `arresteranimation.lua`
+      - /audiodisc/`audiodisc.lua`
+      - /boom/`broom.lua`
+      - /filledcapturepod
+        - `filledcapturepod.lua`
+        - `npcpetcapturepod.lua`
+      - /geode/`geode.lua`
+      - /handcuffs/`handcuffs.lua`
+      - /laserminer/`beammine.lua`
+      - /miningdrone/`miningdrone.lua`
+      - /oredetector/`oredetector.lua`
+      - /papernote/`papernote.lua`
+      - /parasol/`parasol.lua`
+      - /penguincostume/`penguincostume.lua`
+      - /railhook/`railhook.lua`
+      - /railplatform
+        - `placementpreview.lua`
+        - `railhook.lua`
+      - /relocator/`relocate.lua`
+      - /rewardbag/`rewardbag.lua`
+      - /stunmine/`stunmine.lua`
+      - /superrewardbag/`superrewardbag.lua`
+      - /translocator/`translocator.lua`
+      - /wateringcan/`wateringcan.lua`
     - /weapons
       - `weapon.lua`
       - /boomerang/`boomerang.lua`
@@ -177,6 +205,7 @@ Out of the box, LuaPluginLib updates the following vanilla scripts to add plugin
     - `buildunrandweapon.lua`
     - `buildunrandshield.lua`
     - `buildwhip.lua`
+  - /tools/miningtools/`beamaxe.lua`
 - /monsters/`monster.lua`
 - /scripts
   - /companions
