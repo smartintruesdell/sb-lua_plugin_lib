@@ -46,6 +46,7 @@ end
 function PluginLoader.add_plugin_loader(module_name, path, fn)
   return function(...)
     -- Load the plugins
+    debug("Starting plugin loader for %s, %s", module_name, path)
     PluginLoader.load(path)
 
     -- Call pre-fn hooks
