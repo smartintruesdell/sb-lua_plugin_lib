@@ -168,6 +168,14 @@ Out of the box, LuaPluginLib updates the following vanilla scripts to add plugin
     - `buildunrandshield.lua`
     - `buildwhip.lua`
 - /monsters/`monster.lua`
+- /scripts
+  - /companions
+    - `capturable.lua`
+    - `crewbenefits.lua`
+    - `petspawner.lua`
+    - `player.lua`
+    - `recruitable.lua`
+    - `recruitspawner.lua`
 - /stats
   - `monster_primary.lua`
   - `npc_primary.lua`
