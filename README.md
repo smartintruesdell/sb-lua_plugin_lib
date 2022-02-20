@@ -134,6 +134,7 @@ Out of the box, LuaPluginLib updates the following vanilla scripts to add plugin
     - /grapplinghooks/`grapplinghook.lua`
     - /randomblueprint/`randomblueprint.lua`
     - /shields/`shield.lua`
+    - /stationtransponder/`stationtransponder.lua`
     - /vehiclecontroller/`vehiclecontroller.lua`
     - /weapons
       - `weapon.lua`
