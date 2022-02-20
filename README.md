@@ -185,6 +185,21 @@ Out of the box, LuaPluginLib updates the following vanilla scripts to add plugin
   - `monster_primary.lua`
   - `npc_primary.lua`
   - `player_primary.lua`
+- /vehicles
+  - /modularmech
+    - /armscripts
+      - `base.lua`
+      - `beamarm.lua`
+      - `boomerangarm.lua`
+      - `dasharm.lua`
+      - `despawnarm.lua`
+      - `drillarm.lua`
+      - `dronelauncher.lua`
+      - `gatlingarm.lua`
+      - `gunarm.lua`
+      - `meleearm.lua`
+      - `missileburstarm.lua`
+      - `remotedetonatorarm.lua`
 </details>
 
 With more to be added as needed!
