@@ -136,6 +136,33 @@ Out of the box, LuaPluginLib updates the following vanilla scripts to add plugin
     - /shields/`shield.lua`
     - /stationtransponder/`stationtransponder.lua`
     - /vehiclecontroller/`vehiclecontroller.lua`
+    - /unsorted
+      - /arrester/
+        - `arrester.lua`
+        - `arresteranimation.lua`
+      - /audiodisc/`audiodisc.lua`
+      - /boom/`broom.lua`
+      - /filledcapturepod
+        - `filledcapturepod.lua`
+        - `npcpetcapturepod.lua`
+      - /geode/`geode.lua`
+      - /handcuffs/`handcuffs.lua`
+      - /laserminer/`beammine.lua`
+      - /miningdrone/`miningdrone.lua`
+      - /oredetector/`oredetector.lua`
+      - /papernote/`papernote.lua`
+      - /parasol/`parasol.lua`
+      - /penguincostume/`penguincostume.lua`
+      - /railhook/`railhook.lua`
+      - /railplatform
+        - `placementpreview.lua`
+        - `railhook.lua`
+      - /relocator/`relocate.lua`
+      - /rewardbag/`rewardbag.lua`
+      - /stunmine/`stunmine.lua`
+      - /superrewardbag/`superrewardbag.lua`
+      - /translocator/`translocator.lua`
+      - /wateringcan/`wateringcan.lua`
     - /weapons
       - `weapon.lua`
       - /boomerang/`boomerang.lua`
