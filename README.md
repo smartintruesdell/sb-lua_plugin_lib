@@ -120,6 +120,46 @@ Out of the box, LuaPluginLib updates the following vanilla scripts to add plugin
 <details>
   <summary>Click to see supported scripts</summary>
 
+- /interface
+  - /cockpit
+    - `cockpit.lua`
+    - `cockpitutil.lua`
+    - `cockpitview.lua`
+  - /easel/`signstoregui.lua`
+  - /expandstation/`expandstation.lua`
+  - /games
+    - `util.lua`
+    - /fossilgames
+      - `fossil.lua`
+      - `fossilgame.lua`
+      - `generator.lua`
+      - `level.lua`
+      - `sprite.lua`
+      - `tileset.lua`
+      - `tools.lua`
+      - `ui.lua`
+  - /placestation/`placestation.lua`
+  - /scripted
+    - /ancientconsole/`ancientconsolegui.lua`
+    - /bountyboard/`bountyboardgui.lua`
+    - /collections/`collectionsgui.lua`
+    - /cropshipper/`cropshippergui.lua`
+    - /goodstrader/`goodstradergui.lua`
+    - /keypad/`keypadgui.lua`
+    - /keytrader/`keytradergui.lua`
+    - /mannequin/`mannequingui.lua`
+    - /mechassembly/`mechassemblygui.lua`
+    - /mmupgrade/`mmupgradegui.lua`
+    - /papernote/`papernotegui.lua`
+    - /playerstationconsole/`playerstationconsolegui.lua`
+    - /sbvn
+      - `svbngui.lua`
+      - `svbnobject.lua`
+    - /techupgrade/`techupgradegui.lua`
+    - /vaultaccess/`vaultaccessgui.lua`
+    - /vaultconsole/`vaultconsolegui.lua`
+    - /vehiclerepair/`vehiclerepairgui.lua`
+    - /weaponupgrade/`weaponupgradegui.lua`
 - /items
   - /active
     - /effects
