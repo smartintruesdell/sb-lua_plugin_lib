@@ -188,7 +188,9 @@ Out of the box, LuaPluginLib updates the following vanilla scripts to add plugin
       - /geode/`geode.lua`
       - /handcuffs/`handcuffs.lua`
       - /laserminer/`beammine.lua`
-      - /miningdrone/`miningdrone.lua`
+      - /miningdrone/
+        - `arrow.lua`
+        - `miningdrone.lua`
       - /oredetector/`oredetector.lua`
       - /papernote/`papernote.lua`
       - /parasol/`parasol.lua`
@@ -211,6 +213,11 @@ Out of the box, LuaPluginLib updates the following vanilla scripts to add plugin
       - /fist
         - `fistweapon.lua`
         - `punch.lua`
+        - /combofinishers
+          - `dashslash.lua`
+          - `powerpunch.lua`
+          - `snaproot.lua`
+          - `uppercut.lua`
       - /melee
         - `energymeleeweapon.lua`
         - `meleecombo.lua`
@@ -219,14 +226,83 @@ Out of the box, LuaPluginLib updates the following vanilla scripts to add plugin
         - /abilities
           - /axe/`axecleave.lua`
           - /broadsword
+            - /astraltear/`astraltear.lua`
             - /bladecharge/`bladecharge.lua`
             - /downstab/`downstab.lua`
             - /flipslash/`flipslash.lua`
+            - /giantsword/`giantsword.lua`
+            - /greatwave/`greatwave.lua`
+            - /kunaiblast/`kunaiblast.lua`
             - /parry/`parry.lua`
+            - /risingslash/`risingslash.lua`
+            - /spinslash
+              - `spinslash.lua`
+              - `superspinslash.lua`
+            - /traildash/`traildash.lua`
+            - /travelingslash/`travelingslash.lua`
+          - /generic
+            - /blinkexplosion/`blinkexplosion.lua`
+            - /blinkslash/`blinkslash.lua`
+            - /scouteye/`scouteye.lua`
+          - /hammer
+            - `hammersmash.lua`
+            - /elementalaura/`elementalaura.lua`
+            - /elementalpillar/`elementalpillar.lua`
+            - /groundslam/`groundslam.lua`
+            - /shockwave/`shockwave.lua`
+            - /uppercut/`uppercut.lua`
+          - /spear
+            - `spearstab.lua`
+            - /barrier/`barrier.lua`
+            - /charge/`charge.lua`
+            - /elementalspin/`elementalspin.lua`
+            - /flurry/`flurry.lua`
+            - /rocketspear/`rocketspear.lua`
+            - /spin/`spin.lua`
+        - /pickaxe/`pickslash.lua`
+      - /other
+        - /remotegrenadelauncher/`remotegrenadelauncher.lua`
+        - /nurusspear/`nurusspear.lua`
+        - /eyesword/`eyesword.lua`
+        - /evileye/`evileye.lua`
+        - /magnorbs/`magnorbs.lua`
+        - /tentaclegun/`tentaclegun.lua`
+        - /adaptablecrossbow/`adaptableammo.lua`
+        - /drillspear
+          - `drillcharge.lua`
+          - `drillspearstab.lua`
+      - /protectorate/protectoratebroadsword
+        - `empowerment.lua`
+        - `protectoratebroadsword.lua`
       - /ranged
+        - `beamfire.lua`
         - `gun.lua`
         - `gunfire.lua`
-      - /staff/`staff.lua`
+        - /abilities
+          - `altfire.lua`
+          - /burstshot/`burstshot.lua`
+          - /chargefire/`chargefire.lua`
+          - /erchiusbeam/`erchiusbeam.lua`
+          - /explosiveburst/`explosiveburst.lua`
+          - /flamethrower/`flamethrower.lua`
+          - /flashlight/`flashlight.lua`
+          - /fuelairtrail/`fuelairtrail.lua`
+          - /homingrocket
+            - `homingrocket.lua`
+            - `homingrocketanimation.lua`
+          - /lance/`lance.lua`
+          - /markedshot/`markedshot.lua`
+          - /rocketburst/`rocketburst.lua`
+        - /flamethrower/`flamethrower.lua`
+      - /staff/
+        - `staff.lua`
+        - /abilities
+          - /controlprojectile
+            - `kluexshooter.lua`
+            - `controlprojectile.lua`
+            - `plasmabarrage.lua`
+          - /guidedbolt/`guidedbolt.lua`
+          - /effectzone/`effectzone.lua`
       - /whip
         - `whip.lua`
         - /abilities
