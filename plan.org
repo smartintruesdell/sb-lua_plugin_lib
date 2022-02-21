@@ -512,7 +512,7 @@
   - [ ] ./tech/dash/dash.lua
   - [ ] ./tech/dash/blinkdash.lua
   - [ ] ./tech/dash/sprint.lua
-- [-] ./items [134/136]
+- [X] ./items [136/136]
   - [X] ./items/buildscripts/buildfood.lua
   - [X] ./items/buildscripts/buildfishingrod.lua
   - [X] ./items/buildscripts/buildweapon.lua
@@ -587,7 +587,7 @@
   - [X] ./items/active/weapons/melee/abilities/broadsword/astraltear/astraltear.lua
   - [X] ./items/active/weapons/melee/abilities/broadsword/traildash/traildash.lua
   - [X] ./items/active/weapons/melee/meleeweapon.lua
-  - [ ] ./items/active/weapons/melee/pickaxe/pickslash.lua
+  - [X] ./items/active/weapons/melee/pickaxe/pickslash.lua
   - [X] ./items/active/weapons/melee/energymeleeweapon.lua
   - [X] ./items/active/weapons/melee/meleecombo.lua
   - [X] ./items/active/weapons/melee/meleeslash.lua
@@ -617,7 +617,7 @@
   - [X] ./items/active/unsorted/audiodisc/audiodisc.lua
   - [X] ./items/active/unsorted/translocator/translocator.lua
   - [X] ./items/active/unsorted/miningdrone/miningdrone.lua
-  - [ ] ./items/active/unsorted/miningdrone/arrow.lua
+  - [X] ./items/active/unsorted/miningdrone/arrow.lua
   - [X] ./items/active/unsorted/railhook/railhook.lua
   - [X] ./items/active/unsorted/penguincostume/penguincostume.lua
   - [X] ./items/active/unsorted/filledcapturepod/npcpetcapturepod.lua

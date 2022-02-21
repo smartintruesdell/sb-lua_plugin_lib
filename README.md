@@ -188,7 +188,9 @@ Out of the box, LuaPluginLib updates the following vanilla scripts to add plugin
       - /geode/`geode.lua`
       - /handcuffs/`handcuffs.lua`
       - /laserminer/`beammine.lua`
-      - /miningdrone/`miningdrone.lua`
+      - /miningdrone/
+        - `arrow.lua`
+        - `miningdrone.lua`
       - /oredetector/`oredetector.lua`
       - /papernote/`papernote.lua`
       - /parasol/`parasol.lua`
@@ -257,6 +259,7 @@ Out of the box, LuaPluginLib updates the following vanilla scripts to add plugin
             - /flurry/`flurry.lua`
             - /rocketspear/`rocketspear.lua`
             - /spin/`spin.lua`
+        - /pickaxe/`pickslash.lua`
       - /other
         - /remotegrenadelauncher/`remotegrenadelauncher.lua`
         - /nurusspear/`nurusspear.lua`
