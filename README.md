@@ -272,8 +272,25 @@ Out of the box, LuaPluginLib updates the following vanilla scripts to add plugin
         - `empowerment.lua`
         - `protectoratebroadsword.lua`
       - /ranged
+        - `beamfire.lua`
         - `gun.lua`
         - `gunfire.lua`
+        - /abilities
+          - `altfire.lua`
+          - /burstshot/`burstshot.lua`
+          - /chargefire/`chargefire.lua`
+          - /erchiusbeam/`erchiusbeam.lua`
+          - /explosiveburst/`explosiveburst.lua`
+          - /flamethrower/`flamethrower.lua`
+          - /flashlight/`flashlight.lua`
+          - /fuelairtrail/`fuelairtrail.lua`
+          - /homingrocket
+            - `homingrocket.lua`
+            - `homingrocketanimation.lua`
+          - /lance/`lance.lua`
+          - /markedshot/`markedshot.lua`
+          - /rocketburst/`rocketburst.lua`
+        - /flamethrower/`flamethrower.lua`
       - /staff/
         - `staff.lua`
         - /abilities

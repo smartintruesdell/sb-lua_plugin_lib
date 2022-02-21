@@ -512,7 +512,7 @@
   - [ ] ./tech/dash/dash.lua
   - [ ] ./tech/dash/blinkdash.lua
   - [ ] ./tech/dash/sprint.lua
-- [-] ./items [118/136]
+- [-] ./items [134/136]
   - [X] ./items/buildscripts/buildfood.lua
   - [X] ./items/buildscripts/buildfishingrod.lua
   - [X] ./items/buildscripts/buildweapon.lua
@@ -593,23 +593,23 @@
   - [X] ./items/active/weapons/melee/meleeslash.lua
   - [X] ./items/active/weapons/weapon.lua
   - [X] ./items/active/weapons/boomerang/boomerang.lua
-  - [ ] ./items/active/weapons/ranged/abilities/explosiveburst/explosiveburst.lua
-  - [ ] ./items/active/weapons/ranged/abilities/rocketburst/rocketburst.lua
-  - [ ] ./items/active/weapons/ranged/abilities/homingrocket/homingrocket.lua
-  - [ ] ./items/active/weapons/ranged/abilities/homingrocket/homingrocketanimation.lua
-  - [ ] ./items/active/weapons/ranged/abilities/erchiusbeam/erchiusbeam.lua
-  - [ ] ./items/active/weapons/ranged/abilities/lance/lance.lua
-  - [ ] ./items/active/weapons/ranged/abilities/altfire.lua
-  - [ ] ./items/active/weapons/ranged/abilities/flamethrower/flamethrower.lua
-  - [ ] ./items/active/weapons/ranged/abilities/markedshot/markedshot.lua
-  - [ ] ./items/active/weapons/ranged/abilities/guidedrocket/guidedrocket.lua
-  - [ ] ./items/active/weapons/ranged/abilities/fuelairtrail/fuelairtrail.lua
-  - [ ] ./items/active/weapons/ranged/abilities/flashlight/flashlight.lua
-  - [ ] ./items/active/weapons/ranged/abilities/burstshot/burstshot.lua
-  - [ ] ./items/active/weapons/ranged/abilities/chargefire/chargefire.lua
-  - [ ] ./items/active/weapons/ranged/beamfire.lua
+  - [X] ./items/active/weapons/ranged/abilities/explosiveburst/explosiveburst.lua
+  - [X] ./items/active/weapons/ranged/abilities/rocketburst/rocketburst.lua
+  - [X] ./items/active/weapons/ranged/abilities/homingrocket/homingrocket.lua
+  - [X] ./items/active/weapons/ranged/abilities/homingrocket/homingrocketanimation.lua
+  - [X] ./items/active/weapons/ranged/abilities/erchiusbeam/erchiusbeam.lua
+  - [X] ./items/active/weapons/ranged/abilities/lance/lance.lua
+  - [X] ./items/active/weapons/ranged/abilities/altfire.lua
+  - [X] ./items/active/weapons/ranged/abilities/flamethrower/flamethrower.lua
+  - [X] ./items/active/weapons/ranged/abilities/markedshot/markedshot.lua
+  - [X] ./items/active/weapons/ranged/abilities/guidedrocket/guidedrocket.lua
+  - [X] ./items/active/weapons/ranged/abilities/fuelairtrail/fuelairtrail.lua
+  - [X] ./items/active/weapons/ranged/abilities/flashlight/flashlight.lua
+  - [X] ./items/active/weapons/ranged/abilities/burstshot/burstshot.lua
+  - [X] ./items/active/weapons/ranged/abilities/chargefire/chargefire.lua
+  - [X] ./items/active/weapons/ranged/beamfire.lua
   - [X] ./items/active/weapons/ranged/gunfire.lua
-  - [ ] ./items/active/weapons/ranged/flamethrower/flamethrower.lua
+  - [X] ./items/active/weapons/ranged/flamethrower/flamethrower.lua
   - [X] ./items/active/weapons/ranged/gun.lua
   - [X] ./items/active/unsorted/geode/geode.lua
   - [X] ./items/active/unsorted/railplatform/railplatform.lua
