@@ -1,7 +1,7 @@
 require "/scripts/util.lua"
 require "/scripts/lpl_load_plugins.lua"
 local PLUGINS_PATH =
-  "interface/scripted/terraformer/terraformergui_plugins.config"
+  "/interface/scripted/terraformer/terraformergui_plugins.config"
 
 function init()
   self.pollInterval = config.getParameter("pollInterval", 0.5)

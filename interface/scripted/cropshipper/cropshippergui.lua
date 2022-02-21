@@ -1,6 +1,6 @@
 require "/scripts/lpl_load_plugins.lua"
 local PLUGINS_PATH =
-  "interface/scripted/cropshipper/cropshippergui_plugins.config"
+  "/interface/scripted/cropshipper/cropshippergui_plugins.config"
 
 function init()
   local acceptItems = config.getParameter("acceptItems")

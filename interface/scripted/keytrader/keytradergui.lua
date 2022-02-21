@@ -1,7 +1,7 @@
 require "/scripts/util.lua"
 require "/scripts/lpl_load_plugins.lua"
 local PLUGINS_PATH =
-  "interface/scripted/keytrader/keytradergui_plugins.config"
+  "/interface/scripted/keytrader/keytradergui_plugins.config"
 
 function init()
   widget.setItemSlotItem("itmKey", "vaultkey")

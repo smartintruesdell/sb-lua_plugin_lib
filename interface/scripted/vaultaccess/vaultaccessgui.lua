@@ -1,6 +1,6 @@
 require "/scripts/lpl_load_plugins.lua"
 local PLUGINS_PATH =
-  "interface/scripted/vaultaccess/vaultaccessgui_plugins.config"
+  "/interface/scripted/vaultaccess/vaultaccessgui_plugins.config"
 
 function init()
   self.closeTime = config.getParameter("closeTime")

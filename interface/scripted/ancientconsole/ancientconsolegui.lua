@@ -1,6 +1,6 @@
 require "/scripts/lpl_load_plugins.lua"
 local PLUGINS_PATH =
-  "interface/scripted/ancientconsole/ancientconsolegui_plugins.config"
+  "/interface/scripted/ancientconsole/ancientconsolegui_plugins.config"
 
 function init()
   self.activateItem = config.getParameter("activateItem")

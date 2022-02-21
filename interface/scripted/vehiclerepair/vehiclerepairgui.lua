@@ -2,7 +2,7 @@ require "/scripts/util.lua"
 require "/scripts/interp.lua"
 require "/scripts/lpl_load_plugins.lua"
 local PLUGINS_PATH =
-  "interface/scripted/vehiclerepair/vehiclerepairgui_plugins.config"
+  "/interface/scripted/vehiclerepair/vehiclerepairgui_plugins.config"
 
 function init()
   self.chipRepairAmount = config.getParameter("chipRepairAmount")

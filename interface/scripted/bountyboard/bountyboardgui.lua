@@ -7,7 +7,7 @@ require "/interface/cockpit/cockpitutil.lua"
 
 require "/scripts/lpl_load_plugins.lua"
 local PLUGINS_PATH =
-  "interface/scripted/bountyboard/bountyboardgui_plugins.config"
+  "/interface/scripted/bountyboard/bountyboardgui_plugins.config"
 
 function init()
   self.bountyTypes = root.assetJson("/quests/bounty/assignment.config:bountyTypes")

@@ -1,6 +1,6 @@
 require "/scripts/lpl_load_plugins.lua"
 local PLUGINS_PATH =
-  "interface/scripted/mannequin/mannequingui_plugins.config"
+  "/interface/scripted/mannequin/mannequingui_plugins.config"
 
 function init()
   self.functionalSlots = {

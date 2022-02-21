@@ -1,7 +1,7 @@
 require "/scripts/util.lua"
 require "/scripts/lpl_load_plugins.lua"
 local PLUGINS_PATH =
-  "interface/scripted/mmupgrade/mmupgradegui_plugins.config"
+  "/interface/scripted/mmupgrade/mmupgradegui_plugins.config"
 
 function init()
   self.currentUpgrades = {}

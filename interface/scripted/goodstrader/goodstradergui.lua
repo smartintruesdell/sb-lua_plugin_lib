@@ -1,7 +1,7 @@
 require "/scripts/util.lua"
 require "/scripts/lpl_load_plugins.lua"
 local PLUGINS_PATH =
-  "interface/scripted/goodstrader/goodstradergui_plugins.config"
+  "/interface/scripted/goodstrader/goodstradergui_plugins.config"
 
 function init()
   self.baseBuyFactor = config.getParameter("baseBuyFactor")

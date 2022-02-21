@@ -4,7 +4,7 @@ require "/scripts/rect.lua"
 
 require "/scripts/lpl_load_plugins.lua"
 local PLUGINS_PATH =
-  "interface/scripted/collections/collectionsgui_plugins.config"
+  "/interface/scripted/collections/collectionsgui_plugins.config"
 
 function init()
   self.list = "scrollArea.collectionList"

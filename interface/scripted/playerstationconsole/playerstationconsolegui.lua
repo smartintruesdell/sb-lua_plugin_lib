@@ -1,6 +1,6 @@
 require "/scripts/lpl_load_plugins.lua"
 local PLUGINS_PATH =
-  "interface/scripted/playerstationconsole/playerstationconsolegui_plugins.config"
+  "/interface/scripted/playerstationconsole/playerstationconsolegui_plugins.config"
 
 function init()
   local hideExpansionSlots = config.getParameter("hideExpansionSlots")

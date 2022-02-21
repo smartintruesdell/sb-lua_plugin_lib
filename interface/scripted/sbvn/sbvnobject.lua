@@ -1,6 +1,6 @@
 require "/scripts/lpl_load_plugins.lua"
 local PLUGINS_PATH =
-  "interface/scripted/sbvn/sbvnobject_plugins.config"
+  "/interface/scripted/sbvn/sbvnobject_plugins.config"
 
 function init()
   self.interactData = config.getParameter("interactData")

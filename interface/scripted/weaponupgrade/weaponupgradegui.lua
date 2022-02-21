@@ -2,7 +2,7 @@ require "/scripts/util.lua"
 require "/scripts/interp.lua"
 require "/scripts/lpl_load_plugins.lua"
 local PLUGINS_PATH =
-  "interface/scripted/weaponupgrade/weaponupgradegui_plugins.config"
+  "/interface/scripted/weaponupgrade/weaponupgradegui_plugins.config"
 
 function init()
   self.itemList = "itemScrollArea.itemList"

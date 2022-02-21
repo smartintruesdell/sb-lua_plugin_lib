@@ -1,7 +1,7 @@
 require "/scripts/util.lua"
 require "/scripts/lpl_load_plugins.lua"
 local PLUGINS_PATH =
-  "interface/scripted/sbvn/sbvngui_plugins.config"
+  "/interface/scripted/sbvn/sbvngui_plugins.config"
 
 function init()
   -- global because dynamic dt is annoying in coroutines

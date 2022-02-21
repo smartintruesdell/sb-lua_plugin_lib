@@ -3,7 +3,7 @@ require "/scripts/util.lua"
 require "/scripts/vec2.lua"
 require "/scripts/lpl_load_plugins.lua"
 local PLUGINS_PATH =
-  "interface/scripted/mechassembly/mechassemblygui_plugins.config"
+  "/interface/scripted/mechassembly/mechassemblygui_plugins.config"
 
 previewStates = {
   power = "active",

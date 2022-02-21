@@ -1,6 +1,6 @@
 require "/scripts/lpl_load_plugins.lua"
 local PLUGINS_PATH =
-  "interface/scripted/keypad/keypadgui_plugins.config"
+  "/interface/scripted/keypad/keypadgui_plugins.config"
 
 function init()
   self.entry = config.getParameter("entry", "")

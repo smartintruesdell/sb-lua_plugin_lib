@@ -121,6 +121,24 @@ Out of the box, LuaPluginLib updates the following vanilla scripts to add plugin
   <summary>Click to see supported scripts</summary>
 
 - /interface
+  - /cockpit
+    - `cockpit.lua`
+    - `cockpitutil.lua`
+    - `cockpitview.lua`
+  - /easel/`signstoregui.lua`
+  - /expandstation/`expandstation.lua`
+  - /games
+    - `util.lua`
+    - /fossilgames
+      - `fossil.lua`
+      - `fossilgame.lua`
+      - `generator.lua`
+      - `level.lua`
+      - `sprite.lua`
+      - `tileset.lua`
+      - `tools.lua`
+      - `ui.lua`
+  - /placestation/`placestation.lua`
   - /scripted
     - /ancientconsole/`ancientconsolegui.lua`
     - /bountyboard/`bountyboardgui.lua`

@@ -1,6 +1,6 @@
 require "/scripts/lpl_load_plugins.lua"
 local PLUGINS_PATH =
-  "interface/scripted/vaultconsole/vaultconsolegui_plugins.config"
+  "/interface/scripted/vaultconsole/vaultconsolegui_plugins.config"
 
 function init()
   self.activateItem = config.getParameter("activateItem")
