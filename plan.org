@@ -512,7 +512,7 @@
   - [ ] ./tech/dash/dash.lua
   - [ ] ./tech/dash/blinkdash.lua
   - [ ] ./tech/dash/sprint.lua
-- [-] ./items [78/136]
+- [-] ./items [87/136]
   - [X] ./items/buildscripts/buildfood.lua
   - [X] ./items/buildscripts/buildfishingrod.lua
   - [X] ./items/buildscripts/buildweapon.lua
@@ -536,15 +536,15 @@
   - [X] ./items/active/weapons/staff/abilities/effectzone/effectzone.lua
   - [X] ./items/active/weapons/staff/staff.lua
   - [X] ./items/active/weapons/bossdrop/miniknoglauncher/rocketstack.lua
-  - [ ] ./items/active/weapons/other/remotegrenadelauncher/remotegrenadelauncher.lua
-  - [ ] ./items/active/weapons/other/nurusspear/nurusspear.lua
-  - [ ] ./items/active/weapons/other/eyesword/eyesword.lua
-  - [ ] ./items/active/weapons/other/evileye/evileye.lua
-  - [ ] ./items/active/weapons/other/magnorbs/magnorbs.lua
-  - [ ] ./items/active/weapons/other/tentaclegun/tentaclegun.lua
-  - [ ] ./items/active/weapons/other/adaptablecrossbow/adaptableammo.lua
-  - [ ] ./items/active/weapons/other/drillspear/drillcharge.lua
-  - [ ] ./items/active/weapons/other/drillspear/drillspearstab.lua
+  - [X] ./items/active/weapons/other/remotegrenadelauncher/remotegrenadelauncher.lua
+  - [X] ./items/active/weapons/other/nurusspear/nurusspear.lua
+  - [X] ./items/active/weapons/other/eyesword/eyesword.lua
+  - [X] ./items/active/weapons/other/evileye/evileye.lua
+  - [X] ./items/active/weapons/other/magnorbs/magnorbs.lua
+  - [X] ./items/active/weapons/other/tentaclegun/tentaclegun.lua
+  - [X] ./items/active/weapons/other/adaptablecrossbow/adaptableammo.lua
+  - [X] ./items/active/weapons/other/drillspear/drillcharge.lua
+  - [X] ./items/active/weapons/other/drillspear/drillspearstab.lua
   - [X] ./items/active/weapons/fist/fistweapon.lua
   - [X] ./items/active/weapons/fist/punch.lua
   - [ ] ./items/active/weapons/fist/combofinishers/powerpunch.lua

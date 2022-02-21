@@ -223,6 +223,17 @@ Out of the box, LuaPluginLib updates the following vanilla scripts to add plugin
             - /downstab/`downstab.lua`
             - /flipslash/`flipslash.lua`
             - /parry/`parry.lua`
+      - /other
+        - /remotegrenadelauncher/`remotegrenadelauncher.lua`
+        - /nurusspear/`nurusspear.lua`
+        - /eyesword/`eyesword.lua`
+        - /evileye/`evileye.lua`
+        - /magnorbs/`magnorbs.lua`
+        - /tentaclegun/`tentaclegun.lua`
+        - adaptablecrossbow/`adaptableammo.lua`
+        - /drillspear
+          - `drillcharge.lua`
+          - `drillspearstab.lua`
       - /ranged
         - `gun.lua`
         - `gunfire.lua`
