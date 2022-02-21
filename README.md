@@ -224,10 +224,20 @@ Out of the box, LuaPluginLib updates the following vanilla scripts to add plugin
         - /abilities
           - /axe/`axecleave.lua`
           - /broadsword
+            - /astraltear/`astraltear.lua`
             - /bladecharge/`bladecharge.lua`
             - /downstab/`downstab.lua`
             - /flipslash/`flipslash.lua`
+            - /giantsword/`giantsword.lua`
+            - /greatwave/`greatwave.lua`
+            - /kunaiblast/`kunaiblast.lua`
             - /parry/`parry.lua`
+            - /risingslash/`risingslash.lua`
+            - /spinslash
+              - `spinslash.lua`
+              - `superspinslash.lua`
+            - /traildash/`traildash.lua`
+            - /travelingslash/`travelingslash.lua`
       - /other
         - /remotegrenadelauncher/`remotegrenadelauncher.lua`
         - /nurusspear/`nurusspear.lua`

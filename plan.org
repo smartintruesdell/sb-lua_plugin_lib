@@ -512,7 +512,7 @@
   - [ ] ./tech/dash/dash.lua
   - [ ] ./tech/dash/blinkdash.lua
   - [ ] ./tech/dash/sprint.lua
-- [-] ./items [93/136]
+- [-] ./items [102/136]
   - [X] ./items/buildscripts/buildfood.lua
   - [X] ./items/buildscripts/buildfishingrod.lua
   - [X] ./items/buildscripts/buildweapon.lua
@@ -573,19 +573,19 @@
   - [ ] ./items/active/weapons/melee/abilities/hammer/hammersmash.lua
   - [ ] ./items/active/weapons/melee/abilities/hammer/uppercut/uppercut.lua
   - [ ] ./items/active/weapons/melee/abilities/hammer/elementalpillar/elementalpillar.lua
-  - [ ] ./items/active/weapons/melee/abilities/broadsword/kunaiblast/kunaiblast.lua
-  - [ ] ./items/active/weapons/melee/abilities/broadsword/risingslash/risingslash.lua
   - [X] ./items/active/weapons/melee/abilities/broadsword/downstab/downstab.lua
-  - [ ] ./items/active/weapons/melee/abilities/broadsword/giantsword/giantsword.lua
-  - [ ] ./items/active/weapons/melee/abilities/broadsword/travelingslash/travelingslash.lua
-  - [ ] ./items/active/weapons/melee/abilities/broadsword/spinslash/superspinslash.lua
-  - [X] ./items/active/weapons/melee/abilities/broadsword/spinslash/spinslash.lua
   - [X] ./items/active/weapons/melee/abilities/broadsword/parry/parry.lua
   - [X] ./items/active/weapons/melee/abilities/broadsword/flipslash/flipslash.lua
-  - [ ] ./items/active/weapons/melee/abilities/broadsword/greatwave/greatwave.lua
-  - [ ] ./items/active/weapons/melee/abilities/broadsword/astraltear/astraltear.lua
-  - [ ] ./items/active/weapons/melee/abilities/broadsword/bladecharge/bladecharge.lua
-  - [ ] ./items/active/weapons/melee/abilities/broadsword/traildash/traildash.lua
+  - [X] ./items/active/weapons/melee/abilities/broadsword/bladecharge/bladecharge.lua
+  - [X] ./items/active/weapons/melee/abilities/broadsword/kunaiblast/kunaiblast.lua
+  - [X] ./items/active/weapons/melee/abilities/broadsword/risingslash/risingslash.lua
+  - [X] ./items/active/weapons/melee/abilities/broadsword/giantsword/giantsword.lua
+  - [X] ./items/active/weapons/melee/abilities/broadsword/travelingslash/travelingslash.lua
+  - [X] ./items/active/weapons/melee/abilities/broadsword/spinslash/superspinslash.lua
+  - [X] ./items/active/weapons/melee/abilities/broadsword/spinslash/spinslash.lua
+  - [X] ./items/active/weapons/melee/abilities/broadsword/greatwave/greatwave.lua
+  - [X] ./items/active/weapons/melee/abilities/broadsword/astraltear/astraltear.lua
+  - [X] ./items/active/weapons/melee/abilities/broadsword/traildash/traildash.lua
   - [X] ./items/active/weapons/melee/meleeweapon.lua
   - [ ] ./items/active/weapons/melee/pickaxe/pickslash.lua
   - [X] ./items/active/weapons/melee/energymeleeweapon.lua
