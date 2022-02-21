@@ -512,7 +512,7 @@
   - [ ] ./tech/dash/dash.lua
   - [ ] ./tech/dash/blinkdash.lua
   - [ ] ./tech/dash/sprint.lua
-- [-] ./items [73/136]
+- [-] ./items [78/136]
   - [X] ./items/buildscripts/buildfood.lua
   - [X] ./items/buildscripts/buildfishingrod.lua
   - [X] ./items/buildscripts/buildweapon.lua
@@ -529,11 +529,11 @@
   - [X] ./items/active/weapons/bow/abilities/zenshot.lua
   - [X] ./items/active/weapons/bow/abilities/bowshot.lua
   - [X] ./items/active/weapons/bow/bow.lua
-  - [ ] ./items/active/weapons/staff/abilities/controlprojectile/kluexshooter.lua
-  - [ ] ./items/active/weapons/staff/abilities/controlprojectile/controlprojectile.lua
-  - [ ] ./items/active/weapons/staff/abilities/controlprojectile/plasmabarrage.lua
-  - [ ] ./items/active/weapons/staff/abilities/guidedbolt/guidedbolt.lua
-  - [ ] ./items/active/weapons/staff/abilities/effectzone/effectzone.lua
+  - [X] ./items/active/weapons/staff/abilities/controlprojectile/kluexshooter.lua
+  - [X] ./items/active/weapons/staff/abilities/controlprojectile/controlprojectile.lua
+  - [X] ./items/active/weapons/staff/abilities/controlprojectile/plasmabarrage.lua
+  - [X] ./items/active/weapons/staff/abilities/guidedbolt/guidedbolt.lua
+  - [X] ./items/active/weapons/staff/abilities/effectzone/effectzone.lua
   - [X] ./items/active/weapons/staff/staff.lua
   - [X] ./items/active/weapons/bossdrop/miniknoglauncher/rocketstack.lua
   - [ ] ./items/active/weapons/other/remotegrenadelauncher/remotegrenadelauncher.lua

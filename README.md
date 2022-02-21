@@ -226,7 +226,15 @@ Out of the box, LuaPluginLib updates the following vanilla scripts to add plugin
       - /ranged
         - `gun.lua`
         - `gunfire.lua`
-      - /staff/`staff.lua`
+      - /staff/
+        - `staff.lua`
+        - /abilities
+          - /controlprojectile
+            - `kluexshooter.lua`
+            - `controlprojectile.lua`
+            - `plasmabarrage.lua`
+          - /guidedbolt/`guidedbolt.lua`
+          - /effectzone/`effectzone.lua`
       - /whip
         - `whip.lua`
         - /abilities
