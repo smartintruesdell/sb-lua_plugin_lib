@@ -6,7 +6,6 @@ require "/scripts/lpl_load_plugins.lua"
 local PLUGINS_PATH = "/items/active/weapons/melee/meleeweapon_plugins.config"
 
 function init()
-
   animator.setGlobalTag("paletteSwaps", config.getParameter("paletteSwaps", ""))
   animator.setGlobalTag("directives", "")
   animator.setGlobalTag("bladeDirectives", "")

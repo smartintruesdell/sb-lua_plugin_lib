@@ -116,6 +116,10 @@ end
 function Weapon:setAbilityState(ability, state, ...)
   self.currentAbility = ability
   self.currentState = state
+  assert(
+    type(state) == "function",
+    "Plugins: Adding hooks to weapon ability states is not currently supported"
+  )
   self.stateThread = coroutine.create(state)
   local status, result = coroutine.resume(self.stateThread, ability, ...)
   if not status then
