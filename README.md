@@ -238,6 +238,14 @@ Out of the box, LuaPluginLib updates the following vanilla scripts to add plugin
               - `superspinslash.lua`
             - /traildash/`traildash.lua`
             - /travelingslash/`travelingslash.lua`
+          - /spear
+            - `spearstab.lua`
+            - /barrier/`barrier.lua`
+            - /charge/`charge.lua`
+            - /elementalspin/`elementalspin.lua`
+            - /flurry/`flurry.lua`
+            - /rocketspear/`rocketspear.lua`
+            - /spin/`spin.lua`
       - /other
         - /remotegrenadelauncher/`remotegrenadelauncher.lua`
         - /nurusspear/`nurusspear.lua`

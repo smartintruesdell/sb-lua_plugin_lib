@@ -512,7 +512,7 @@
   - [ ] ./tech/dash/dash.lua
   - [ ] ./tech/dash/blinkdash.lua
   - [ ] ./tech/dash/sprint.lua
-- [-] ./items [102/136]
+- [-] ./items [109/136]
   - [X] ./items/buildscripts/buildfood.lua
   - [X] ./items/buildscripts/buildfishingrod.lua
   - [X] ./items/buildscripts/buildweapon.lua
@@ -556,13 +556,13 @@
   - [X] ./items/active/weapons/whip/whip.lua
   - [X] ./items/active/weapons/protectorate/protectoratebroadsword/protectoratebroadsword.lua
   - [X] ./items/active/weapons/protectorate/protectoratebroadsword/empowerment.lua
-  - [ ] ./items/active/weapons/melee/abilities/spear/flurry/flurry.lua
-  - [ ] ./items/active/weapons/melee/abilities/spear/rocketspear/rocketspear.lua
-  - [ ] ./items/active/weapons/melee/abilities/spear/elementalspin/elementalspin.lua
-  - [ ] ./items/active/weapons/melee/abilities/spear/spin/spin.lua
-  - [ ] ./items/active/weapons/melee/abilities/spear/spearstab.lua
-  - [ ] ./items/active/weapons/melee/abilities/spear/barrier/barrier.lua
-  - [ ] ./items/active/weapons/melee/abilities/spear/charge/charge.lua
+  - [X] ./items/active/weapons/melee/abilities/spear/flurry/flurry.lua
+  - [X] ./items/active/weapons/melee/abilities/spear/rocketspear/rocketspear.lua
+  - [X] ./items/active/weapons/melee/abilities/spear/elementalspin/elementalspin.lua
+  - [X] ./items/active/weapons/melee/abilities/spear/spin/spin.lua
+  - [X] ./items/active/weapons/melee/abilities/spear/spearstab.lua
+  - [X] ./items/active/weapons/melee/abilities/spear/barrier/barrier.lua
+  - [X] ./items/active/weapons/melee/abilities/spear/charge/charge.lua
   - [ ] ./items/active/weapons/melee/abilities/generic/scouteye/scouteye.lua
   - [ ] ./items/active/weapons/melee/abilities/generic/blinkexplosion/blinkexplosion.lua
   - [ ] ./items/active/weapons/melee/abilities/generic/blinkslash/blinkslash.lua
