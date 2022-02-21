@@ -512,7 +512,7 @@
   - [ ] ./tech/dash/dash.lua
   - [ ] ./tech/dash/blinkdash.lua
   - [ ] ./tech/dash/sprint.lua
-- [-] ./items [87/136]
+- [-] ./items [91/136]
   - [X] ./items/buildscripts/buildfood.lua
   - [X] ./items/buildscripts/buildfishingrod.lua
   - [X] ./items/buildscripts/buildweapon.lua
@@ -547,10 +547,10 @@
   - [X] ./items/active/weapons/other/drillspear/drillspearstab.lua
   - [X] ./items/active/weapons/fist/fistweapon.lua
   - [X] ./items/active/weapons/fist/punch.lua
-  - [ ] ./items/active/weapons/fist/combofinishers/powerpunch.lua
-  - [ ] ./items/active/weapons/fist/combofinishers/snaproot.lua
-  - [ ] ./items/active/weapons/fist/combofinishers/dashslash.lua
-  - [ ] ./items/active/weapons/fist/combofinishers/uppercut.lua
+  - [X] ./items/active/weapons/fist/combofinishers/powerpunch.lua
+  - [X] ./items/active/weapons/fist/combofinishers/snaproot.lua
+  - [X] ./items/active/weapons/fist/combofinishers/dashslash.lua
+  - [X] ./items/active/weapons/fist/combofinishers/uppercut.lua
   - [X] ./items/active/weapons/whip/abilities/energyorb.lua
   - [X] ./items/active/weapons/whip/abilities/whipcrack.lua
   - [X] ./items/active/weapons/whip/whip.lua

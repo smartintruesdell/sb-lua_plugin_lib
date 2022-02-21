@@ -211,6 +211,11 @@ Out of the box, LuaPluginLib updates the following vanilla scripts to add plugin
       - /fist
         - `fistweapon.lua`
         - `punch.lua`
+        - /combofinishers
+          - `dashslash.lua`
+          - `powerpunch.lua`
+          - `snaproot.lua`
+          - `uppercut.lua`
       - /melee
         - `energymeleeweapon.lua`
         - `meleecombo.lua`
@@ -230,7 +235,7 @@ Out of the box, LuaPluginLib updates the following vanilla scripts to add plugin
         - /evileye/`evileye.lua`
         - /magnorbs/`magnorbs.lua`
         - /tentaclegun/`tentaclegun.lua`
-        - adaptablecrossbow/`adaptableammo.lua`
+        - /adaptablecrossbow/`adaptableammo.lua`
         - /drillspear
           - `drillcharge.lua`
           - `drillspearstab.lua`
