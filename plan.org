@@ -383,7 +383,7 @@
   - [ ] ./quests/bounty/bounty.lua
   - [ ] ./quests/bounty/bounty_gen.lua
   - [ ] ./quests/bounty/bountyassignment.lua
-- [ ] ./scripts [0/116]
+- [-] ./scripts [12/116]
   - [ ] ./scripts/vec2.lua
   - [ ] ./scripts/versioningutils.lua
   - [ ] ./scripts/spawnPoint.lua
@@ -402,10 +402,10 @@
   - [ ] ./scripts/rails.lua
   - [ ] ./scripts/quest/paramtext.lua
   - [ ] ./scripts/quest/directions.lua
-  - [ ] ./scripts/quest/manager.lua
-  - [ ] ./scripts/quest/manager/spawn_entities.lua
-  - [ ] ./scripts/quest/manager/add_tenant.lua
-  - [ ] ./scripts/quest/manager/plugin.lua
+  - [X] ./scripts/quest/manager.lua
+  - [X] ./scripts/quest/manager/spawn_entities.lua
+  - [X] ./scripts/quest/manager/add_tenant.lua
+  - [X] ./scripts/quest/manager/plugin.lua
   - [ ] ./scripts/quest/participant.lua
   - [ ] ./scripts/quest/serialize.lua
   - [ ] ./scripts/quest/location.lua
@@ -468,13 +468,13 @@
   - [ ] ./scripts/augments/augment.lua
   - [ ] ./scripts/augments/collar.lua
   - [ ] ./scripts/augments/item.lua
-  - [ ] ./scripts/companions/crewbenefits.lua
+  - [X] ./scripts/companions/crewbenefits.lua
   - [ ] ./scripts/companions/util.lua
-  - [ ] ./scripts/companions/capturable.lua
-  - [ ] ./scripts/companions/player.lua
-  - [ ] ./scripts/companions/recruitspawner.lua
-  - [ ] ./scripts/companions/recruitable.lua
-  - [ ] ./scripts/companions/petspawner.lua
+  - [X] ./scripts/companions/capturable.lua
+  - [X] ./scripts/companions/player.lua
+  - [X] ./scripts/companions/recruitspawner.lua
+  - [X] ./scripts/companions/recruitable.lua
+  - [X] ./scripts/companions/petspawner.lua
   - [ ] ./scripts/achievements.lua
   - [ ] ./scripts/pathutil.lua
   - [ ] ./scripts/tenant.lua
@@ -494,8 +494,8 @@
   - [ ] ./scripts/activeitem/stances.lua
   - [ ] ./scripts/set.lua
   - [ ] ./scripts/statusProjectileObject.lua
-  - [ ] ./scripts/player/playerbounty.lua
-  - [ ] ./scripts/player/stealing.lua
+  - [X] ./scripts/player/playerbounty.lua
+  - [X] ./scripts/player/stealing.lua
   - [ ] ./scripts/drops.lua
   - [ ] ./scripts/bossgen/platforming.lua
   - [ ] ./scripts/bossgen/globalstateplanner.lua
@@ -512,7 +512,7 @@
   - [ ] ./tech/dash/dash.lua
   - [ ] ./tech/dash/blinkdash.lua
   - [ ] ./tech/dash/sprint.lua
-- [-] ./items [91/136]
+- [-] ./items [93/136]
   - [X] ./items/buildscripts/buildfood.lua
   - [X] ./items/buildscripts/buildfishingrod.lua
   - [X] ./items/buildscripts/buildweapon.lua
@@ -554,8 +554,8 @@
   - [X] ./items/active/weapons/whip/abilities/energyorb.lua
   - [X] ./items/active/weapons/whip/abilities/whipcrack.lua
   - [X] ./items/active/weapons/whip/whip.lua
-  - [ ] ./items/active/weapons/protectorate/protectoratebroadsword/protectoratebroadsword.lua
-  - [ ] ./items/active/weapons/protectorate/protectoratebroadsword/empowerment.lua
+  - [X] ./items/active/weapons/protectorate/protectoratebroadsword/protectoratebroadsword.lua
+  - [X] ./items/active/weapons/protectorate/protectoratebroadsword/empowerment.lua
   - [ ] ./items/active/weapons/melee/abilities/spear/flurry/flurry.lua
   - [ ] ./items/active/weapons/melee/abilities/spear/rocketspear/rocketspear.lua
   - [ ] ./items/active/weapons/melee/abilities/spear/elementalspin/elementalspin.lua

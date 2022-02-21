@@ -239,6 +239,9 @@ Out of the box, LuaPluginLib updates the following vanilla scripts to add plugin
         - /drillspear
           - `drillcharge.lua`
           - `drillspearstab.lua`
+      - /protectorate/protectoratebroadsword
+        - `empowerment.lua`
+        - `protectoratebroadsword.lua`
       - /ranged
         - `gun.lua`
         - `gunfire.lua`
