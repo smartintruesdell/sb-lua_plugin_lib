@@ -5,6 +5,19 @@
   @see https://github.com/vallentin/hook.lua/blob/master/hook.lua
 ]]
 Plugins = Plugins or {}
+Plugins.early_out = false
+Plugins.debug = false
+
+local function debug(message, ...)
+  if PluginLoader.debug then
+    sb.logInfo(
+      string.format(
+        "Plugins: "..message,
+        ...
+      )
+    )
+  end
+end
 
 -- Hooks ----------------------------------------------------------------------
 
@@ -15,19 +28,33 @@ local function call_hooks(hfn, ...)
   -- First, call the "before" hooks, updating the function args
   for i = 1, #hfn.__before_hooks, 1 do
     pargs = table.pack(hfn.__before_hooks[i](table.unpack(pargs)))
+    if Plugins.early_out then
+      debug("Early out after %n before hooks", i)
+      Plugins.early_out = false
+      break
+    end
   end
 
-  local result = hfn.__fn(table.unpack(pargs))
-  local stop = nil
+  -- Call the original function, as the starting point for our results
+  local results = table.pack(hfn.__fn(table.unpack(pargs)))
+
   -- Then, call the "after" hooks, updating the result until we
   -- hit a stop or the end of the list.
   for i = 1, #hfn.__after_hooks, 1 do
-    results, stop = hfn.__after_hooks[i](result)
-    -- Handle stop return
-    if stop ~= nil then break end
+    results = table.pack(
+      hfn.__after_hooks[i](
+        table.unpack(results),
+        table.unpack(pargs)
+      )
+    )
+    if Plugins.early_out then
+      debug("Early out after %n after hooks", i)
+      Plugins.early_out = false
+      break
+    end
   end
 
-  return result
+  return table.unpack(results)
 end
 
 --- Build a new Hookable from a regular function
