@@ -512,7 +512,7 @@
   - [ ] ./tech/dash/dash.lua
   - [ ] ./tech/dash/blinkdash.lua
   - [ ] ./tech/dash/sprint.lua
-- [-] ./items [112/136]
+- [-] ./items [118/136]
   - [X] ./items/buildscripts/buildfood.lua
   - [X] ./items/buildscripts/buildfishingrod.lua
   - [X] ./items/buildscripts/buildweapon.lua
@@ -567,12 +567,12 @@
   - [X] ./items/active/weapons/melee/abilities/generic/blinkexplosion/blinkexplosion.lua
   - [X] ./items/active/weapons/melee/abilities/generic/blinkslash/blinkslash.lua
   - [X] ./items/active/weapons/melee/abilities/axe/axecleave.lua
-  - [ ] ./items/active/weapons/melee/abilities/hammer/shockwave/shockwave.lua
-  - [ ] ./items/active/weapons/melee/abilities/hammer/groundslam/groundslam.lua
-  - [ ] ./items/active/weapons/melee/abilities/hammer/elementalaura/elementalaura.lua
-  - [ ] ./items/active/weapons/melee/abilities/hammer/hammersmash.lua
-  - [ ] ./items/active/weapons/melee/abilities/hammer/uppercut/uppercut.lua
-  - [ ] ./items/active/weapons/melee/abilities/hammer/elementalpillar/elementalpillar.lua
+  - [X] ./items/active/weapons/melee/abilities/hammer/shockwave/shockwave.lua
+  - [X] ./items/active/weapons/melee/abilities/hammer/groundslam/groundslam.lua
+  - [X] ./items/active/weapons/melee/abilities/hammer/elementalaura/elementalaura.lua
+  - [X] ./items/active/weapons/melee/abilities/hammer/hammersmash.lua
+  - [X] ./items/active/weapons/melee/abilities/hammer/uppercut/uppercut.lua
+  - [X] ./items/active/weapons/melee/abilities/hammer/elementalpillar/elementalpillar.lua
   - [X] ./items/active/weapons/melee/abilities/broadsword/downstab/downstab.lua
   - [X] ./items/active/weapons/melee/abilities/broadsword/parry/parry.lua
   - [X] ./items/active/weapons/melee/abilities/broadsword/flipslash/flipslash.lua

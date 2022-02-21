@@ -242,6 +242,13 @@ Out of the box, LuaPluginLib updates the following vanilla scripts to add plugin
             - /blinkexplosion/`blinkexplosion.lua`
             - /blinkslash/`blinkslash.lua`
             - /scouteye/`scouteye.lua`
+          - /hammer
+            - `hammersmash.lua`
+            - /elementalaura/`elementalaura.lua`
+            - /elementalpillar/`elementalpillar.lua`
+            - /groundslam/`groundslam.lua`
+            - /shockwave/`shockwave.lua`
+            - /uppercut/`uppercut.lua`
           - /spear
             - `spearstab.lua`
             - /barrier/`barrier.lua`
