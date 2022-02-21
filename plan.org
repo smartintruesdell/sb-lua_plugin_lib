@@ -512,7 +512,7 @@
   - [ ] ./tech/dash/dash.lua
   - [ ] ./tech/dash/blinkdash.lua
   - [ ] ./tech/dash/sprint.lua
-- [-] ./items [109/136]
+- [-] ./items [112/136]
   - [X] ./items/buildscripts/buildfood.lua
   - [X] ./items/buildscripts/buildfishingrod.lua
   - [X] ./items/buildscripts/buildweapon.lua
@@ -563,9 +563,9 @@
   - [X] ./items/active/weapons/melee/abilities/spear/spearstab.lua
   - [X] ./items/active/weapons/melee/abilities/spear/barrier/barrier.lua
   - [X] ./items/active/weapons/melee/abilities/spear/charge/charge.lua
-  - [ ] ./items/active/weapons/melee/abilities/generic/scouteye/scouteye.lua
-  - [ ] ./items/active/weapons/melee/abilities/generic/blinkexplosion/blinkexplosion.lua
-  - [ ] ./items/active/weapons/melee/abilities/generic/blinkslash/blinkslash.lua
+  - [X] ./items/active/weapons/melee/abilities/generic/scouteye/scouteye.lua
+  - [X] ./items/active/weapons/melee/abilities/generic/blinkexplosion/blinkexplosion.lua
+  - [X] ./items/active/weapons/melee/abilities/generic/blinkslash/blinkslash.lua
   - [X] ./items/active/weapons/melee/abilities/axe/axecleave.lua
   - [ ] ./items/active/weapons/melee/abilities/hammer/shockwave/shockwave.lua
   - [ ] ./items/active/weapons/melee/abilities/hammer/groundslam/groundslam.lua

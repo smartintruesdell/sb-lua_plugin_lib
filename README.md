@@ -238,6 +238,10 @@ Out of the box, LuaPluginLib updates the following vanilla scripts to add plugin
               - `superspinslash.lua`
             - /traildash/`traildash.lua`
             - /travelingslash/`travelingslash.lua`
+          - /generic
+            - /blinkexplosion/`blinkexplosion.lua`
+            - /blinkslash/`blinkslash.lua`
+            - /scouteye/`scouteye.lua`
           - /spear
             - `spearstab.lua`
             - /barrier/`barrier.lua`
