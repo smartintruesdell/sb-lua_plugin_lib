@@ -2,8 +2,6 @@
 require "/scripts/util.lua"
 require "/scripts/lpl_plugin_util.lua"
 
-Plugins.debug = true
-
 build_setup_elemental_type = Plugins.add_before_hook(
   build_setup_elemental_type,
   function (config, parameters)
