@@ -53,7 +53,7 @@ local function call_hooks(hfn, ...)
   -- Then, call the "after" hooks, updating the result until we
   -- hit a stop or the end of the list.
   for i = 1, #hfn.__after_hooks, 1 do
-    local hook, ctx = table.unpack(hfn.__before_hooks[i])
+    local hook, ctx = table.unpack(hfn.__after_hooks[i])
     if ctx then self = ctx end
     results = table.pack(hook(table.unpack(array_concat(results, pargs))))
     if Plugins.early_out then
