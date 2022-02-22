@@ -16,11 +16,10 @@ function GunFire:init()
   self.weapon.onLeaveAbility = function()
     self.weapon:setStance(self.stances.idle)
   end
-
 end
-
 GunFire.init =
   PluginLoader.add_plugin_loader("gunfire", PLUGINS_PATH, GunFire.init)
+
 
 function GunFire:update(dt, fireMode, shiftHeld)
   WeaponAbility.update(self, dt, fireMode, shiftHeld)
@@ -45,6 +44,7 @@ function GunFire:update(dt, fireMode, shiftHeld)
   end
 end
 
+
 function GunFire:auto()
   self.weapon:setStance(self.stances.fire)
 
@@ -55,9 +55,10 @@ function GunFire:auto()
     util.wait(self.stances.fire.duration)
   end
 
-  self.cooldownTimer = self.fireTime
+  self.cooldownTimer = self:get_cooldown_timer()
   self:setState(self.cooldown)
 end
+
 
 function GunFire:burst()
   self.weapon:setStance(self.stances.fire)
@@ -74,15 +75,30 @@ function GunFire:burst()
     util.wait(self.burstTime)
   end
 
-  self.cooldownTimer = (self.fireTime - self.burstTime) * self.burstCount
+  self.cooldownTimer = self:get_cooldown_timer()
 end
+
+
+function GunFire:get_cooldown_timer()
+  if self.fireType == "burst" then
+    return (self.fireTime - self.burstTime) * self.burstCount
+  end
+
+  return self.fireTime
+end
+
+
+function GunFire:get_stance_cooldown_duration()
+  return self.stances.cooldown.duration
+end
+
 
 function GunFire:cooldown()
   self.weapon:setStance(self.stances.cooldown)
   self.weapon:updateAim()
 
   local progress = 0
-  util.wait(self.stances.cooldown.duration, function()
+  util.wait(self:get_stance_cooldown_duration(), function()
     local from = self.stances.cooldown.weaponOffset or {0,0}
     local to = self.stances.idle.weaponOffset or {0,0}
     self.weapon.weaponOffset = {interp.linear(progress, from[1], to[1]), interp.linear(progress, from[2], to[2])}
@@ -90,9 +106,10 @@ function GunFire:cooldown()
     self.weapon.relativeWeaponRotation = util.toRadians(interp.linear(progress, self.stances.cooldown.weaponRotation, self.stances.idle.weaponRotation))
     self.weapon.relativeArmRotation = util.toRadians(interp.linear(progress, self.stances.cooldown.armRotation, self.stances.idle.armRotation))
 
-    progress = math.min(1.0, progress + (self.dt / self.stances.cooldown.duration))
+    progress = math.min(1.0, progress + (self.dt / self:get_stance_cooldown_duration()))
   end)
 end
+
 
 function GunFire:muzzleFlash()
   animator.setPartTag("muzzleFlash", "variant", math.random(1, self.muzzleFlashVariants or 3))
@@ -102,6 +119,7 @@ function GunFire:muzzleFlash()
 
   animator.setLightActive("muzzleFlash", true)
 end
+
 
 function GunFire:fireProjectile(projectileType, projectileParams, inaccuracy, firePosition, projectileCount)
   local params = sb.jsonMerge(self.projectileParameters, projectileParams or {})
@@ -134,9 +152,11 @@ function GunFire:fireProjectile(projectileType, projectileParams, inaccuracy, fi
   return projectileId
 end
 
+
 function GunFire:firePosition()
   return vec2.add(mcontroller.position(), activeItem.handPosition(self.weapon.muzzleOffset))
 end
+
 
 function GunFire:aimVector(inaccuracy)
   local aimVector = vec2.rotate({1, 0}, self.weapon.aimAngle + sb.nrand(inaccuracy, 0))
@@ -144,13 +164,15 @@ function GunFire:aimVector(inaccuracy)
   return aimVector
 end
 
+
 function GunFire:energyPerShot()
   return self.energyUsage * self.fireTime * (self.energyUsageMultiplier or 1.0)
 end
+
 
 function GunFire:damagePerShot()
   return (self.baseDamage or (self.baseDps * self.fireTime)) * (self.baseDamageMultiplier or 1.0) * config.getParameter("damageLevelMultiplier") / self.projectileCount
 end
 
-function GunFire:uninit()
-end
+
+function GunFire:uninit() end
