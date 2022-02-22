@@ -55,7 +55,11 @@ local function call_hooks(hfn, ...)
   for i = 1, #hfn.__after_hooks, 1 do
     local hook, ctx = table.unpack(hfn.__after_hooks[i])
     if ctx then self = ctx end
-    results = table.pack(hook(table.unpack(array_concat(results, pargs))))
+    if #results > 0 then
+      results = table.pack(hook(table.unpack(array_concat(results, pargs))))
+    else
+      results = table.pack(hook(nil, table.unpack(pargs)))
+    end
     if Plugins.early_out then
       debug("Early out after %d after hooks", i)
       Plugins.early_out = false
@@ -79,13 +83,7 @@ function Plugins.Hookable.new(fn)
   setmetatable(
     hfn, {
       __call = function(_, ...)
-        local res = nil
-        if hfn.__ctx then
-          self = ctx
-          res = { call_hooks(hfn, ...) }
-        else
-          res = { call_hooks(hfn, ...) }
-        end
+        local res = { call_hooks(hfn, ...) }
 
         if res ~= nil and #res > 0 then
           return table.unpack(res)
