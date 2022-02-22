@@ -2,23 +2,23 @@
 #+author:Shawn Martin-Truesdell
 #+email:shawn@martin-truesdell.com
 
-- [ ] ./vehicles [0/27]
+- [-] ./vehicles [12/27]
   - [ ] ./vehicles/railplatform/railplatform.lua
   - [ ] ./vehicles/railtram/railtram.lua
   - [ ] ./vehicles/modularmech/modularmech.lua
   - [ ] ./vehicles/modularmech/mechpartmanager.lua
-  - [ ] ./vehicles/modularmech/armscripts/drillarm.lua
-  - [ ] ./vehicles/modularmech/armscripts/missileburstarm.lua
-  - [ ] ./vehicles/modularmech/armscripts/dasharm.lua
-  - [ ] ./vehicles/modularmech/armscripts/despawnarm.lua
-  - [ ] ./vehicles/modularmech/armscripts/beamarm.lua
-  - [ ] ./vehicles/modularmech/armscripts/gunarm.lua
-  - [ ] ./vehicles/modularmech/armscripts/base.lua
-  - [ ] ./vehicles/modularmech/armscripts/boomerangarm.lua
-  - [ ] ./vehicles/modularmech/armscripts/dronelauncher.lua
-  - [ ] ./vehicles/modularmech/armscripts/gatlingarm.lua
-  - [ ] ./vehicles/modularmech/armscripts/meleearm.lua
-  - [ ] ./vehicles/modularmech/armscripts/remotedetonatorarm.lua
+  - [X] ./vehicles/modularmech/armscripts/drillarm.lua
+  - [X] ./vehicles/modularmech/armscripts/missileburstarm.lua
+  - [X] ./vehicles/modularmech/armscripts/dasharm.lua
+  - [X] ./vehicles/modularmech/armscripts/despawnarm.lua
+  - [X] ./vehicles/modularmech/armscripts/beamarm.lua
+  - [X] ./vehicles/modularmech/armscripts/gunarm.lua
+  - [X] ./vehicles/modularmech/armscripts/base.lua
+  - [X] ./vehicles/modularmech/armscripts/boomerangarm.lua
+  - [X] ./vehicles/modularmech/armscripts/dronelauncher.lua
+  - [X] ./vehicles/modularmech/armscripts/gatlingarm.lua
+  - [X] ./vehicles/modularmech/armscripts/meleearm.lua
+  - [X] ./vehicles/modularmech/armscripts/remotedetonatorarm.lua
   - [ ] ./vehicles/minitank/minitank.lua
   - [ ] ./vehicles/mech/mech.lua
   - [ ] ./vehicles/sportscar/sportscar.lua
@@ -76,7 +76,7 @@
   - [ ] ./projectiles/tracksourcestatus.lua
   - [ ] ./projectiles/throwable/filledcapturepod/filledcapturepodprojectile.lua
   - [ ] ./projectiles/throwable/capturepod/capturepod.lua
-- [ ] ./monsters [0/93]
+- [-] ./monsters [1/93]
   - [ ] ./monsters/flocking.lua
   - [ ] ./monsters/fishing/hookedState.lua
   - [ ] ./monsters/fishing/landedState.lua
@@ -111,7 +111,7 @@
   - [ ] ./monsters/returnHomeState.lua
   - [ ] ./monsters/mechdrone/drone_status.lua
   - [ ] ./monsters/mechdrone/drone.lua
-  - [ ] ./monsters/monster.lua
+  - [X] ./monsters/monster.lua
   - [ ] ./monsters/grumbleState.lua
   - [ ] ./monsters/boss/penguin/behavior.lua
   - [ ] ./monsters/boss/apebossprojector/apebossprojector.lua
@@ -173,11 +173,11 @@
 - [ ] ./achievements [0/2]
   - [ ] ./achievements/event.lua
   - [ ] ./achievements/achievement.lua
-- [ ] ./stats [0/125]
-  - [ ] ./stats/player_primary.lua
-  - [ ] ./stats/spacemonster_primary.lua
-  - [ ] ./stats/fishing_primary.lua
-  - [ ] ./stats/npc_primary.lua
+- [-] ./stats [6/125]
+  - [X] ./stats/player_primary.lua
+  - [X] ./stats/spacemonster_primary.lua
+  - [X] ./stats/fishing_primary.lua
+  - [X] ./stats/npc_primary.lua
   - [ ] ./stats/effects/playerbeamin/playerbeamin.lua
   - [ ] ./stats/effects/liquidimmunity/liquidimmunity.lua
   - [ ] ./stats/effects/frostslow/frostsnare.lua
@@ -228,7 +228,7 @@
   - [ ] ./stats/effects/largedamageboost/largedamageboostapplier.lua
   - [ ] ./stats/effects/elitemonster/elitemonster.lua
   - [ ] ./stats/effects/minibossglow/minibossglow.lua
-  - [ ] ./stats/effects/arrested/arrested.lua
+  - [X] ./stats/effects/arrested/arrested.lua
   - [ ] ./stats/effects/jumpboost/jumpboost.lua
   - [ ] ./stats/effects/jumpboost/jumpboost20.lua
   - [ ] ./stats/effects/peacekeeperaugment/peacekeeperaugment.lua
@@ -298,7 +298,7 @@
   - [ ] ./stats/effects/food/hungry/hungry.lua
   - [ ] ./stats/effects/food/wellfed/wellfed.lua
   - [ ] ./stats/effects/maxhealthboost/maxhealthboost.lua
-  - [ ] ./stats/monster_primary.lua
+  - [X] ./stats/monster_primary.lua
 - [X] ./interface [35/35]
   - [X] ./interface/scripted/keytrader/keytradergui.lua
   - [X] ./interface/scripted/terraformer/terraformergui.lua

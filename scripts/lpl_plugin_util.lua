@@ -5,6 +5,29 @@
   @see https://github.com/vallentin/hook.lua/blob/master/hook.lua
 ]]
 Plugins = Plugins or {}
+Plugins.early_out = Plugins.early_out or false
+Plugins.debug = Plugins.debug or false
+
+local function debug(message, ...)
+  if Plugins.debug then
+    sb.logInfo(string.format("Plugins: "..message, ...))
+  end
+end
+
+local function array_concat(...)
+  local t = {}
+  for n = 1,select("#",...) do
+    local arg = select(n,...)
+    if type(arg)=="table" then
+      for _,v in ipairs(arg) do
+        t[#t+1] = v
+      end
+    else
+      t[#t+1] = arg
+    end
+  end
+  return t
+end
 
 -- Hooks ----------------------------------------------------------------------
 
@@ -14,20 +37,33 @@ local function call_hooks(hfn, ...)
 
   -- First, call the "before" hooks, updating the function args
   for i = 1, #hfn.__before_hooks, 1 do
-    pargs = table.pack(hfn.__before_hooks[i](table.unpack(pargs)))
+    local hook, ctx = table.unpack(hfn.__before_hooks[i])
+    if ctx then self = ctx end
+    pargs = table.pack(hook(table.unpack(pargs)))
+    if Plugins.early_out then
+      debug("Early out after %d before hooks", i)
+      Plugins.early_out = false
+      break
+    end
   end
 
-  local result = hfn.__fn(table.unpack(pargs))
-  local stop = nil
+  -- Call the original function, as the starting point for our results
+  local results = table.pack(hfn.__fn(table.unpack(pargs)))
+
   -- Then, call the "after" hooks, updating the result until we
   -- hit a stop or the end of the list.
   for i = 1, #hfn.__after_hooks, 1 do
-    results, stop = hfn.__after_hooks[i](result)
-    -- Handle stop return
-    if stop ~= nil then break end
+    local hook, ctx = table.unpack(hfn.__before_hooks[i])
+    if ctx then self = ctx end
+    results = table.pack(hook(table.unpack(array_concat(results, pargs))))
+    if Plugins.early_out then
+      debug("Early out after %d after hooks", i)
+      Plugins.early_out = false
+      break
+    end
   end
 
-  return result
+  return table.unpack(results)
 end
 
 --- Build a new Hookable from a regular function
@@ -40,29 +76,36 @@ function Plugins.Hookable.new(fn)
   hfn.__after_hooks = {}
   hfn.__fn = fn
 
-  setmetatable(hfn, {
-    __call = function(_, ...)
-      local res = { call_hooks(hfn, ...) }
+  setmetatable(
+    hfn, {
+      __call = function(_, ...)
+        local res = nil
+        if hfn.__ctx then
+          self = ctx
+          res = { call_hooks(hfn, ...) }
+        else
+          res = { call_hooks(hfn, ...) }
+        end
 
-      if res ~= nil and #res > 0 then
-        return table.unpack(res)
+        if res ~= nil and #res > 0 then
+          return table.unpack(res)
+        end
+
+        return hfn.__fn(...)
       end
-
-      return hfn.__fn(...)
-    end
   })
 
   return hfn
 end
 
-local function add_before_hook(hfn, callback)
-  table.insert(hfn.__before_hooks, callback)
+local function add_before_hook(hfn, callback, ctx)
+  table.insert(hfn.__before_hooks, {callback, ctx})
 
   return hfn
 end
 
-local function add_after_hook(hfn, callback)
-  table.insert(hfn.__after_hooks, callback)
+local function add_after_hook(hfn, callback, ctx)
+  table.insert(hfn.__after_hooks, {callback, ctx})
 
   return hfn
 end
@@ -235,7 +278,7 @@ function Plugins.call_before_initialize_hooks(module_name, ...)
       pargs = table.pack(
         Plugins.initialize_hooks[module_name].__before_hooks[i](
           table.unpack(pargs)
-        )
+                                                               )
       )
     end
   end
@@ -249,7 +292,7 @@ function Plugins.call_after_initialize_hooks(module_name, ...)
       results = table.pack(
         Plugins.initialize_hooks[module_name].__after_hooks[i](
           table.unpack(results)
-        )
+                                                              )
       )
     end
   end

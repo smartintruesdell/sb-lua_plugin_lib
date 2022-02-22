@@ -19,7 +19,7 @@ function MeleeSlash:init()
 end
 
 MeleeSlash.init =
-  PluginLoader.add_plugin_loader("punch", PLUGINS_PATH, MeleeSlash.init)
+  PluginLoader.add_plugin_loader("meleeslash", PLUGINS_PATH, MeleeSlash.init)
 
 -- Ticks on every update regardless if this is the active ability
 function MeleeSlash:update(dt, fireMode, shiftHeld)
