@@ -61,7 +61,7 @@ function MeleeCombo:get_cooldown_for_step(step)
   return self.cooldowns[self.comboStep]
 end
 
-function GunFire:get_stance_cooldown_duration(stance_id)
+function MeleeCombo:get_stance_cooldown_duration(stance_id)
   return self.stances[stance_id..self.comboStep].duration
 end
 
