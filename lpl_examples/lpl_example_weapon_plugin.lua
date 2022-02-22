@@ -34,6 +34,10 @@ Plugins.add_after_initialize_hook(
 Weapon.update = Plugins.add_before_hook(
   Weapon.update,
   function(_self, dt, fireMode, shiftHeld)
+    -- Weapon:update is called as a member of a Weapon instance (with the `:`),
+    -- so we get a reference to `self` in the first argument of our
+    -- before/after hooks
+
     -- Here, we can do some work that will apply BEFORE `Weapon.update` is called.
     if shiftHeld then
       sb.logInfo("Player held shift!")
@@ -58,6 +62,9 @@ knockbackMomentum = Plugins.add_after_hook(
   function(momentum)
     -- Here we receive the last return value for the function we're attached
     -- to, and can modify it before execution continues.
+
+    -- This method is called without a reference to `self`, so we don't get
+    -- it.
 
     -- If you return a non-nil second value, then you can stop additional
     -- hooks from firing. If your code wants to say: "If X, abort",
