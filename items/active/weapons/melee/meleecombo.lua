@@ -15,7 +15,7 @@ function MeleeCombo:init()
 
   self.edgeTriggerTimer = 0
   self.flashTimer = 0
-  self.cooldownTimer = self:get_cooldown_for_step(1)
+  self.cooldownTimer = self.cooldowns[1]
 
   self.animKeyPrefix = self.animKeyPrefix or ""
 
@@ -57,14 +57,6 @@ function MeleeCombo:update(dt, fireMode, shiftHeld)
   end
 end
 
-function MeleeCombo:get_cooldown_for_step(step)
-  return self.cooldowns[self.comboStep]
-end
-
-function MeleeCombo:get_stance_cooldown_duration(stance_id)
-  return self.stances[stance_id..self.comboStep].duration
-end
-
 -- State: windup
 function MeleeCombo:windup()
   local stance = self.stances["windup"..self.comboStep]
@@ -78,7 +70,7 @@ function MeleeCombo:windup()
       coroutine.yield()
     end
   else
-    util.wait(self:get_stance_cooldown_duration("windup"))
+    util.wait(self:get_stance_duration(stance))
   end
 
   if self.energyUsage then
@@ -99,18 +91,14 @@ function MeleeCombo:wait()
 
   self.weapon:setStance(stance)
 
-  util.wait(self:get_stance_cooldown_duration("wait"), function()
+  util.wait(self:get_stance_duration(stance), function()
     if self:shouldActivate() then
       self:setState(self.windup)
       return
     end
   end)
 
-  self.cooldownTimer = math.max(
-    0,
-    self:get_cooldown_for_step(self.comboStep - 1) -
-    self:get_stance_cooldown_duration("wait")
-  )
+  self.cooldownTimer = math.max(0, self.cooldowns[self.comboStep - 1] - self:get_stance_duration(stance))
   self.comboStep = 1
 end
 
@@ -122,7 +110,7 @@ function MeleeCombo:preslash()
   self.weapon:setStance(stance)
   self.weapon:updateAim()
 
-  util.wait(self:get_stance_cooldown_duration("preslash"))
+  util.wait(self:get_stance_duration(stance))
 
   self:setState(self.fire)
 end
@@ -142,7 +130,7 @@ function MeleeCombo:fire()
   animator.setParticleEmitterOffsetRegion(swooshKey, self.swooshOffsetRegions[self.comboStep])
   animator.burstParticleEmitter(swooshKey)
 
-  util.wait(stance.duration, function()
+  util.wait(self:get_stance_duration(stance), function()
     local damageArea = partDamageArea("swoosh")
     self.weapon:setDamage(self.stepDamageConfig[self.comboStep], damageArea)
   end)
@@ -189,15 +177,34 @@ function MeleeCombo:computeDamageAndCooldowns()
     self.stepDamageConfig[i].timeoutGroup = "primary"..i
 
     local damageFactor = self.stepDamageConfig[i].baseDamageFactor
-    self.stepDamageConfig[i].baseDamage = damageFactor * self.baseDps * self.fireTime
+    self.stepDamageConfig[i].baseDamage = self:get_step_base_damage(damageFactor)
 
     totalAttackTime = totalAttackTime + attackTime
     totalDamageFactor = totalDamageFactor + damageFactor
 
     local targetTime = totalDamageFactor * self.fireTime
     local speedFactor = 1.0 * (self.comboSpeedFactor ^ i)
-    table.insert(self.cooldowns, (targetTime - totalAttackTime) * speedFactor)
+    table.insert(
+      self.cooldowns,
+      self:get_step_cooldown(
+        targetTime,
+        totalAttackTime,
+        speedFactor
+      )
+    )
   end
+end
+
+function MeleeCombo:get_step_base_damage(damage_factor)
+  return damage_factor * self.baseDps * self.fireTime
+end
+
+function MeleeCombo:get_step_cooldown(target_time, total_attack_time, speed_factor)
+  return (target_time - total_attack_time) * speed_factor
+end
+
+function MeleeCombo:get_stance_duration(stance)
+  return stance.duration
 end
 
 function MeleeCombo:uninit()
