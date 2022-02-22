@@ -409,11 +409,53 @@ It really **is** that easy. Just one line of code, after your `init` or `new` sc
 
 ## Limitations
 
-Unfortunately, there are some few scripts in the base assets that may be impossible to support with plugins.
+### Coroutines
 
-In particular, those modules that don't offer a discreet entrypoint where plugins can be loaded, like `/scripts/behavior.lua`, are going to be difficult to patch through `.config` driven plugins.
+At this time, Coroutines do not support our implementation of hooks.
 
-However, you can still take advantage of our hooks utilties and add a script that creates hooks using the "old way" of inserting a script into a `"scripts": []` list for execution, ie
+In Lua, Coroutines can be `create`d only with a `function`, and technically once we add a hook to something the result is a `callable table` rather than a proper `function`. This causes a number of problems with coroutines, so in the meantime it's best to just avoid them.
+
+In particular, this makes adding hooks to weapon ability stances (fire/hold/etc) difficult. It's something we want to work out eventually but for the moment it's out of scope.
+
+#### Workarounds
+
+Here you can use "classic" hooks, you just cannot use our fancy hook utilities. The Plugin Loader works fine, and will load your plugin, but you'll need to write an oldstyle hook:
+
+**/items/weapons/melee/abilities/spear/spearstab_plugins.config.patch**
+```json
+[
+    {
+        "op": "add",
+        "path": "/plugins/-",
+        "value": {
+            "name": "my_example_weapon_ability_plugin",
+            "path": "/my_scripts/my_example_weapon_ability_plugin.lua",
+            "requires": [],
+            "after": []
+        }
+    }
+]
+```
+
+**/my_scripts/my_example_weapon_ability_plugin.lua**
+```lua
+local super_fire = SpearStab.fire
+
+function SpearStab:fire()
+    -- Do something before
+    super_fire()
+    -- Do something after
+end
+```
+
+### Libraries
+
+Some Lua modules in the base assets don't offer a discreet entrypoint where plugins can be loaded. Scripts that are just a collection of global functions don't have a convenient place to attach the plugin loader, and so we're at kind of an impasse.
+
+#### Workarounds
+
+
+You can still take advantage of our hooks utilties and add a script that creates hooks using the "old way" of inserting a script into a `"scripts": []` list for execution, ie
 
 **/stagehands/coordinator.stagehand.config**
 ```json
