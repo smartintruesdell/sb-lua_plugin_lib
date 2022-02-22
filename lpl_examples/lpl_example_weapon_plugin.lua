@@ -5,7 +5,7 @@
 -- Require the Plugins module with useful utilities
 require "/scripts/lsl_plugin_util.lua"
 
--- Name should match the json patch above.
+-- Name should match the filename of the target of our plugin.
 local MODULE_NAME = "weapon"
 
 -- Here, we add our first "Hook". This one will run AFTER the new/init script
