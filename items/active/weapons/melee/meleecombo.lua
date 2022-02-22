@@ -15,7 +15,7 @@ function MeleeCombo:init()
 
   self.edgeTriggerTimer = 0
   self.flashTimer = 0
-  self.cooldownTimer = self.cooldowns[1]
+  self.cooldownTimer = self:get_cooldown_for_step(1)
 
   self.animKeyPrefix = self.animKeyPrefix or ""
 
@@ -57,6 +57,14 @@ function MeleeCombo:update(dt, fireMode, shiftHeld)
   end
 end
 
+function MeleeCombo:get_cooldown_for_step(step)
+  return self.cooldowns[self.comboStep]
+end
+
+function GunFire:get_stance_cooldown_duration(stance_id)
+  return self.stances[stance_id..self.comboStep].duration
+end
+
 -- State: windup
 function MeleeCombo:windup()
   local stance = self.stances["windup"..self.comboStep]
@@ -70,7 +78,7 @@ function MeleeCombo:windup()
       coroutine.yield()
     end
   else
-    util.wait(stance.duration)
+    util.wait(self:get_stance_cooldown_duration("windup"))
   end
 
   if self.energyUsage then
@@ -91,14 +99,18 @@ function MeleeCombo:wait()
 
   self.weapon:setStance(stance)
 
-  util.wait(stance.duration, function()
+  util.wait(self:get_stance_cooldown_duration("wait"), function()
     if self:shouldActivate() then
       self:setState(self.windup)
       return
     end
   end)
 
-  self.cooldownTimer = math.max(0, self.cooldowns[self.comboStep - 1] - stance.duration)
+  self.cooldownTimer = math.max(
+    0,
+    self:get_cooldown_for_step(self.comboStep - 1) -
+    self:get_stance_cooldown_duration("wait")
+  )
   self.comboStep = 1
 end
 
@@ -110,7 +122,7 @@ function MeleeCombo:preslash()
   self.weapon:setStance(stance)
   self.weapon:updateAim()
 
-  util.wait(stance.duration)
+  util.wait(self:get_stance_cooldown_duration("preslash"))
 
   self:setState(self.fire)
 end
