@@ -149,13 +149,13 @@ end
 -- Engine callback - called on each update
 -- Update frequencey is dependent on update delta
 function update(dt)
-  update_handle_stuck_check()
+  update_handle_stuck_check(dt)
   updateUniqueId()
   self.quest:update()
   recruitable.update(dt)
-  update_handle_delayed_items()
+  update_handle_delayed_items(dt)
 
-  if update_handle_stunned() then return end
+  if update_handle_stunned(dt) then return end
 
   mcontroller.clearControls()
 
@@ -172,12 +172,12 @@ function update(dt)
   self.board:setPosition("self", mcontroller.position())
   self.board:setNumber("facingDirection", mcontroller.facingDirection())
 
-  update_run_behavior()
+  update_run_behavior(dt)
 
-  update_primary_fire()
-  update_alt_fire()
-  update_aggressive()
-  update_playing()
+  update_primary_fire(dt)
+  update_alt_fire(dt)
+  update_aggressive(dt)
+  update_playing(dt)
 
   self.interacted = false
   self.damaged = false
@@ -187,7 +187,7 @@ function update(dt)
   update_handle_die()
 end
 
-function update_handle_stuck_check()
+function update_handle_stuck_check(dt)
   self.stuckCheckTimer = math.max(0, self.stuckCheckTimer - dt)
   if self.stuckCheckTimer == 0 then
     checkStuck()
@@ -214,7 +214,7 @@ function update_handle_stunned()
   return false
 end
 
-function update_run_behavior()
+function update_run_behavior(dt)
   if self.behavior then
     self.behavior:run(dt)
   end
