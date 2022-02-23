@@ -383,7 +383,7 @@
   - [ ] ./quests/bounty/bounty.lua
   - [ ] ./quests/bounty/bounty_gen.lua
   - [ ] ./quests/bounty/bountyassignment.lua
-- [-] ./scripts [12/116]
+- [-] ./scripts [6/76]
   - [ ] ./scripts/vec2.lua
   - [ ] ./scripts/versioningutils.lua
   - [ ] ./scripts/spawnPoint.lua
@@ -425,42 +425,42 @@
   - [ ] ./scripts/items/rotting.lua
   - [ ] ./scripts/statusText.lua
   - [ ] ./scripts/rect.lua
-  - [ ] ./scripts/actions/flying.lua
-  - [ ] ./scripts/actions/items.lua
-  - [ ] ./scripts/actions/monsters/space.lua
-  - [ ] ./scripts/actions/monsters/farmable.lua
-  - [ ] ./scripts/actions/movement.lua
-  - [ ] ./scripts/actions/position.lua
-  - [ ] ./scripts/actions/container.lua
-  - [ ] ./scripts/actions/npc/tonauac.lua
-  - [ ] ./scripts/actions/world.lua
-  - [ ] ./scripts/actions/status.lua
-  - [ ] ./scripts/actions/pets.lua
-  - [ ] ./scripts/actions/crawling.lua
-  - [ ] ./scripts/actions/time.lua
-  - [ ] ./scripts/actions/dialog.lua
-  - [ ] ./scripts/actions/monster.lua
-  - [ ] ./scripts/actions/quests.lua
-  - [ ] ./scripts/actions/npc.lua
-  - [ ] ./scripts/actions/sensor.lua
-  - [ ] ./scripts/actions/builders.lua
-  - [ ] ./scripts/actions/merchant.lua
-  - [ ] ./scripts/actions/boss/eyeboss.lua
-  - [ ] ./scripts/actions/boss/guardian.lua
+  - [X] ./scripts/actions/animator.lua
   - [ ] ./scripts/actions/boss/apeboss.lua
   - [ ] ./scripts/actions/boss/cultistboss.lua
+  - [ ] ./scripts/actions/boss/eyeboss.lua
+  - [ ] ./scripts/actions/boss/guardian.lua
   - [ ] ./scripts/actions/boss/kluexboss.lua
-  - [ ] ./scripts/actions/crew.lua
-  - [ ] ./scripts/actions/query.lua
-  - [ ] ./scripts/actions/animator.lua
-  - [ ] ./scripts/actions/tenant.lua
-  - [ ] ./scripts/actions/overrides.lua
-  - [ ] ./scripts/actions/entity.lua
-  - [ ] ./scripts/actions/math.lua
-  - [ ] ./scripts/actions/reaction.lua
-  - [ ] ./scripts/actions/projectiles.lua
-  - [ ] ./scripts/actions/notification.lua
   - [ ] ./scripts/actions/bounty.lua
+  - [ ] ./scripts/actions/builders.lua
+  - [ ] ./scripts/actions/container.lua
+  - [ ] ./scripts/actions/crawling.lua
+  - [ ] ./scripts/actions/crew.lua
+  - [ ] ./scripts/actions/dialog.lua
+  - [ ] ./scripts/actions/entity.lua
+  - [ ] ./scripts/actions/items.lua
+  - [ ] ./scripts/actions/math.lua
+  - [ ] ./scripts/actions/merchant.lua
+  - [ ] ./scripts/actions/monster.lua
+  - [ ] ./scripts/actions/monsters/farmable.lua
+  - [ ] ./scripts/actions/monsters/space.lua
+  - [ ] ./scripts/actions/movement.lua
+  - [ ] ./scripts/actions/notification.lua
+  - [X] ./scripts/actions/npc.lua
+  - [ ] ./scripts/actions/npc/tonauac.lua
+  - [ ] ./scripts/actions/overrides.lua
+  - [ ] ./scripts/actions/pets.lua
+  - [ ] ./scripts/actions/position.lua
+  - [ ] ./scripts/actions/projectiles.lua
+  - [ ] ./scripts/actions/query.lua
+  - [ ] ./scripts/actions/quests.lua
+  - [ ] ./scripts/actions/reaction.lua
+  - [ ] ./scripts/actions/sensor.lua
+  - [ ] ./scripts/actions/status.lua
+  - [ ] ./scripts/actions/tenant.lua
+  - [ ] ./scripts/actions/time.lua
+  - [ ] ./scripts/actions/world.lua
+- [-] ./scripts/actions/flying.lua
   - [ ] ./scripts/drawingutil.lua
   - [ ] ./scripts/bountygeneration.lua
   - [ ] ./scripts/augments/fishing.lua
