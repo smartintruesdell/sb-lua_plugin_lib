@@ -1,32 +1,49 @@
 --[[
-  This is an example weapon plugin. You can use this as a template for your own
-  plugins.
+  This example is a plugin for /items/active/weapons/weapon.lua
+  which demonstrates the two kinds of hooks:
+  - initializer hooks
+  - standard hooks
 ]]
 -- Require the Plugins module with useful utilities
 require "/scripts/lsl_plugin_util.lua"
 
+-- INITIALIZER HOOK -----------------------------------------------------------
+
 -- Name should match the filename of the target of our plugin.
+-- Because we can't replace Weapon:new directly (it loads the plugins in the
+-- first place), we specify the module name so that the plugin loader knows
+-- what hooks to call.
 local MODULE_NAME = "weapon"
 
--- Here, we add our first "Hook". This one will run AFTER the new/init script
--- where plugins are loaded for the module being patched. It's important that
--- your MODULE_NAME name matches the name of the script file you're patching.
-Plugins.add_after_initialize_hook(
+-- This hook will run BEFORE the new/init script, and allows us to modify
+-- the argumenets being passed into Weapon:new
+Plugins.add_before_initialize_hook(
   MODULE_NAME,
   function (weaponConfig)
+    -- Weapon:new sets a default, so we will too to handle nil configs
+    weaponConfig = weaponConfig or {}
+
+    -- For each item tag,
     for _, tag in ipairs(weaponConfig.itemTags or {}) do
+      -- if this item is a shortspear,
       if tag == "shortspear" then
+        -- let's make sure it's also a spear.
         table.insert(weaponConfig.itemTags, "spear")
-        break;
+        break
       end
     end
+
+    -- Then we return our modified arguments which are passed into
+    -- Weapon:new as normal.
     return weaponConfig
   end
 )
 
+-- STANDARD Hooks -------------------------------------------------------------
+
 -- Amending standard methods is easy, there are two patterns to keep in mind:
 
--- To call code BEFORE a function is called, or to modify its arguements before
+-- To call code BEFORE a function is called, or to modify its arguments before
 -- they're applied, use `Plugins.add_before_hook`. Note that we do assignment
 -- here:
 -- <function> = Plugins.add_before_hook(<function>, <your hook>)
