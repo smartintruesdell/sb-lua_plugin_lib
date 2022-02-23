@@ -8,6 +8,8 @@ require "/scripts/lpl_dependencies.lua"
 require "/scripts/lpl_plugin_util.lua"
 
 PluginLoader = {}
+PluginLoader.__loaded_configs = {}
+PluginLoader.__loaded_plugins = {}
 PluginLoader.debug = false
 
 local function debug(message, ...)
@@ -24,20 +26,27 @@ end
 ---@param config_path string
 ---@return boolean, table
 function PluginLoader.load(config_path)
-  local loaded_plugins = {}
   assert(
     root ~= nil,
     "Run `load_plugins` in module new or init. Cannot run in the global context"
   )
   debug("Loading plugins from %s", config_path)
   local config_data = root.assetJson(config_path)
-  debug("Resolving plugin dependencies")
   local plugins_to_load = PluginDependencies.resolve(config_data.plugins)
   for _, plugin in ipairs(plugins_to_load) do
-    if not loaded_plugins[plugin.name] then
+    if not PluginLoader.__loaded_plugins[plugin.path] then
       debug("Loading plugin '%s' from %s", plugin.name, plugin.path)
       require(plugin.path)
-      loaded_plugins[plugin.name] = true
+      PluginLoader.__loaded_plugins[plugin.path] = true
+    end
+  end
+  PluginLoader.__loaded_configs[config_path] = true
+
+  if LPL_Additional_Paths then
+    for path, _ in pairs(LPL_Additional_Paths) do
+      if not PluginLoader.__loaded_configs[path] then
+        PluginLoader.load(path)
+      end
     end
   end
 end
@@ -46,7 +55,6 @@ end
 function PluginLoader.add_plugin_loader(module_name, path, fn)
   return function(...)
     -- Load the plugins
-    debug("Starting plugin loader for %s, %s", module_name, path)
     PluginLoader.load(path)
 
     -- Call pre-fn hooks
