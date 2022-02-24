@@ -45,12 +45,10 @@ end
 function ControlProjectile:charge()
   self.weapon:setStance(self.stances.charge)
 
-  animator.playSound(self.elementalType.."charge")
-  animator.setAnimationState("charge", "charge")
-  animator.setParticleEmitterActive(self.elementalType .. "charge", true)
-  activeItem.setCursor("/cursors/charge2.cursor")
+  self:charge_set_animation()
+  self:charge_set_cursor()
 
-  local chargeTimer = self.stances.charge.duration
+  local chargeTimer = self:charge_get_initial_chargeTimer()
   while chargeTimer > 0 and self.fireMode == (self.activatingFireMode or self.abilitySlot) do
     chargeTimer = chargeTimer - self.dt
 
@@ -69,12 +67,24 @@ function ControlProjectile:charge()
   end
 end
 
+function ControlProjectile:charge_set_animation()
+  animator.playSound(self.elementalType.."charge")
+  animator.setAnimationState("charge", "charge")
+  animator.setParticleEmitterActive(self.elementalType .. "charge", true)
+end
+
+function ControlProjectile:charge_set_cursor()
+  activeItem.setCursor("/cursors/charge2.cursor")
+end
+
+function ControlProjectile:charge_get_initial_chargeTimer()
+  return self.stances.charge.duration
+end
+
 function ControlProjectile:charged()
   self.weapon:setStance(self.stances.charged)
 
-  animator.playSound(self.elementalType.."fullcharge")
-  animator.playSound(self.elementalType.."chargedloop", -1)
-  animator.setParticleEmitterActive(self.elementalType .. "charge", true)
+  self:charged_set_animation()
 
   local targetValid
   while self.fireMode == (self.activatingFireMode or self.abilitySlot) do
@@ -87,6 +97,12 @@ function ControlProjectile:charged()
   end
 
   self:setState(self.discharge)
+end
+
+function ControlProjectile:charged_set_animation()
+  animator.playSound(self.elementalType.."fullcharge")
+  animator.playSound(self.elementalType.."chargedloop", -1)
+  animator.setParticleEmitterActive(self.elementalType .. "charge", true)
 end
 
 function ControlProjectile:discharge()
@@ -104,7 +120,7 @@ function ControlProjectile:discharge()
   end
 
   util.wait(self.stances.discharge.duration, function(dt)
-    status.setResourcePercentage("energyRegenBlock", 1.0)
+              status.setResourcePercentage("energyRegenBlock", 1.0)
   end)
 
   while #storage.projectiles > 0 do
@@ -139,8 +155,8 @@ end
 function ControlProjectile:targetValid(aimPos)
   local focusPos = self:focusPosition()
   return world.magnitude(focusPos, aimPos) <= self.maxCastRange
-      and not world.lineTileCollision(mcontroller.position(), focusPos)
-      and not world.lineTileCollision(focusPos, aimPos)
+    and not world.lineTileCollision(mcontroller.position(), focusPos)
+    and not world.lineTileCollision(focusPos, aimPos)
 end
 
 function ControlProjectile:createProjectiles()
@@ -157,13 +173,13 @@ function ControlProjectile:createProjectiles()
 
   for i = 1, pCount do
     local projectileId = world.spawnProjectile(
-        self.projectileType,
-        vec2.add(basePos, pOffset),
-        activeItem.ownerEntityId(),
-        pOffset,
-        false,
-        pParams
-      )
+      self.projectileType,
+      vec2.add(basePos, pOffset),
+      activeItem.ownerEntityId(),
+      pOffset,
+      false,
+      pParams
+    )
 
     if projectileId then
       table.insert(storage.projectiles, projectileId)
