@@ -409,13 +409,18 @@ It really **is** that easy. Just one line of code, after your `init` or `new` sc
 
 ## Limitations
 
-### Coroutines
+### Coroutines and Engine Callbacks
 
-At this time, Coroutines do not support our implementation of hooks.
+At this time, Coroutines and Engine Callbacks do not support our implementation of hooks.
 
 In Lua, Coroutines can be `create`d only with a `function`, and technically once we add a hook to something the result is a `callable table` rather than a proper `function`. This causes a number of problems with coroutines, so in the meantime it's best to just avoid them.
 
-In particular, this makes adding hooks to weapon ability stances (fire/hold/etc) difficult. It's something we want to work out eventually but for the moment it's out of scope.
+Engine Callbacks are also executed as Coroutines, so we can't touch those either. You'll know these when you hit them because you'll get an error to the effect of
+
+> Exception while invoking lua function 'onInteraction'. (LuaConversionException) Error converting LuaValue to type 'class Star::LuaFunction'
+
+(as an aside, anywhere you see `Star::<something>`, it's talking about Engine types and your script has encountered an error after going to the Engine.)
+
 
 #### Workarounds
 
