@@ -40,12 +40,10 @@ end
 function EffectZone:charge()
   self.weapon:setStance(self.stances.charge)
 
-  animator.playSound(self.elementalType.."charge")
-  animator.setAnimationState("charge", "charge")
-  animator.setParticleEmitterActive(self.elementalType .. "charge", true)
-  activeItem.setCursor("/cursors/charge2.cursor")
+  self:charge_set_animation()
+  self:charge_set_cursor()
 
-  local chargeTimer = self.stances.charge.duration
+  local chargeTimer = self:charge_get_initial_chargeTimer()
   while chargeTimer > 0 and self.fireMode == (self.activatingFireMode or self.abilitySlot) do
     chargeTimer = chargeTimer - self.dt
 
@@ -62,6 +60,20 @@ function EffectZone:charge()
     animator.playSound(self.elementalType.."discharge")
     self:setState(self.cooldown)
   end
+end
+
+function EffectZone:charge_set_animation()
+  animator.playSound(self.elementalType.."charge")
+  animator.setAnimationState("charge", "charge")
+  animator.setParticleEmitterActive(self.elementalType .. "charge", true)
+end
+
+function EffectZone:charge_set_cursor()
+  activeItem.setCursor("/cursors/charge2.cursor")
+end
+
+function EffectZone:charge_get_initial_chargeTimer()
+  return self.stances.charge.duration
 end
 
 function EffectZone:charged()
