@@ -244,7 +244,7 @@ end
 Plugins.initialize_hooks = {}
 function Plugins.add_before_initialize_hook(module_name, callback)
   assert(
-    module_name ~= nil and type(module_name) == string,
+    module_name ~= nil and type(module_name) == 'string',
     "Plugins: You must provide a module name to add_before_initialize_hook"
   )
   if Plugins.initialize_hooks[module_name] == nil then
@@ -257,7 +257,7 @@ function Plugins.add_before_initialize_hook(module_name, callback)
 end
 function Plugins.add_after_initialize_hook(module_name, callback)
   assert(
-    module_name ~= nil and type(module_name) == string,
+    module_name ~= nil and type(module_name) == 'string',
     "Plugins: You must provide a module name to add_after_initialize_hook"
   )
   if Plugins.initialize_hooks[module_name] == nil then
