@@ -7,7 +7,7 @@ require("/scripts/rect.lua")
 
 require "/scripts/lpl_load_plugins.lua"
 
-local PLUGIN_PATH = "/scripts/quest/manager/spawn_entities_plugins.config"
+local PLUGINS_PATH = "/scripts/quest/manager/spawn_entities_plugins.config"
 
 SpawnEntities = subclass(QuestPlugin, "SpawnEntities")
 
