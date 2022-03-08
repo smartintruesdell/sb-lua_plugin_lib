@@ -4,7 +4,7 @@ require "/scripts/activeitem/stances.lua"
 
 require "/scripts/lpl_load_plugins.lua"
 local PLUGINS_PATH =
-  "/items/active/unsorted/npcpetcapturepod/npcpetcapturepod_plugins.config"
+  "/items/active/unsorted/filledcapturepod/npcpetcapturepod_plugins.config"
 
 function init()
   initStances()
