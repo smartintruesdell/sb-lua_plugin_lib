@@ -3,7 +3,7 @@ require("/scripts/questgen/util.lua")
 
 require "/scripts/lpl_load_plugins.lua"
 
-local PLUGIN_PATH = "/scripts/quest/manager/plugin_plugins.config"
+local LPL_PLUGIN_PATH = "/scripts/quest/manager/plugin_plugins.config"
 
 QuestPlugin = createClass("QuestPlugin")
 
@@ -17,7 +17,7 @@ function QuestPlugin:init(questManager, storageArea, questId, pluginConfig)
   self.data = storageArea
 end
 QuestPlugin.init =
-  PluginLoader.add_plugin_loader("quest_plugin", PLUGIN_PATH, QuestPlugin.init)
+  PluginLoader.add_plugin_loader("quest_plugin", LPL_PLUGIN_PATH, QuestPlugin.init)
 
 function QuestPlugin:update()
 end
@@ -54,10 +54,21 @@ function QuestPluginManager:init(questManager, storageArea, config)
 
   for questId, plugins in pairs(config) do
     for i,plugin in pairs(plugins) do
-      self:loadPlugin(questId, i, plugin.script, plugin.pluginClass, plugin.pluginConfig or {})
+      self:loadPlugin(
+        questId,
+        i,
+        plugin.script,
+        plugin.pluginClass,
+        plugin.pluginConfig or {}
+      )
     end
   end
 end
+QuestPluginManager.init = PluginLoader.add_plugin_loader(
+  "quest_plugin",
+  LPL_PLUGIN_PATH,
+  QuestPluginManager.init
+)
 
 function QuestPluginManager:loadPlugin(questId, pluginIndex, script, className, scriptConfig)
   require(script)
