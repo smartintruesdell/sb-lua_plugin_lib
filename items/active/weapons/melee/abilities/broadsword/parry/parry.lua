@@ -3,7 +3,8 @@ require "/scripts/status.lua"
 require "/items/active/weapons/weapon.lua"
 
 require "/scripts/lpl_load_plugins.lua"
-local PLUGINS_PATH = "/items/active/weapons/melee/abilities/parry/parry_plugins.config"
+local PLUGINS_PATH =
+  "/items/active/weapons/melee/abilities/broadsword/parry/parry_plugins.config"
 
 Parry = WeaponAbility:new()
 
