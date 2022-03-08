@@ -350,7 +350,7 @@ end
 
 function build_setup_animation_custom(config, parameters)
   -- merge extra animationCustom
-  if parameters.builderConfig.animationCustom then
+  if parameters.builderConfig and parameters.builderConfig.animationCustom then
     util.mergeTable(
       config.animationCustom or {},
       parameters.builderConfig.animationCustom
@@ -407,7 +407,7 @@ end
 function build_setup_gun_offsets(config, parameters)
   -- set gun part offsets
   local partImagePositions = {}
-  if parameters.builderConfig.gunParts then
+  if parameters.builderConfig and parameters.builderConfig.gunParts then
     construct(config, "animationCustom", "animatedParts", "parts")
     local imageOffset = {0,0}
     local gunPartOffset = {0,0}
@@ -444,7 +444,13 @@ function build_setup_inventory_icon(config, parameters)
   -- build inventory icon
   if not config.inventoryIcon and config.animationParts then
     config.inventoryIcon = jarray()
-    local parts = parameters.builderConfig.iconDrawables or {}
+
+    local parts = nil
+    if parameters.builderConfig then
+      parts = parameters.builderConfig.iconDrawables
+    end
+    parts = parts or {}
+
     for _,partName in pairs(parts) do
       assert(
         config.animationParts[partName] ~= nil,
