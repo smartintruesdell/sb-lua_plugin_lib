@@ -10,10 +10,10 @@ require "/scripts/lpl_plugin_util.lua"
 PluginLoader = {}
 PluginLoader.__loaded_configs = {}
 PluginLoader.__loaded_plugins = {}
-PluginLoader.debug = false
 
 local function debug(message, ...)
-  if PluginLoader.debug then
+  local lpl_config = root.assetJson("/scripts/lpl_load_plugins.config")
+  if lpl_config.debug then
     sb.logInfo(
       string.format(
         "PluginLoader: "..message,

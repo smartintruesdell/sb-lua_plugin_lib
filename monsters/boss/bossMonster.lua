@@ -33,8 +33,12 @@ function init()
   )
   self.state = stateMachine.create(states)
 
+  self.state.enteringState = function(stateName)
+    return update_handle_enteringState(self, stateName)
+  end
+
   self.state.leavingState = function(stateName)
-    self.state.moveStateToEnd(stateName)
+    return update_handle_leavingState(self, stateName)
   end
 
   self.skillParameters = {}
@@ -61,6 +65,12 @@ function init()
   self.musicEnabled = false
 end
 init = PluginLoader.add_plugin_loader("bossMonster", PLUGINS_PATH, init)
+
+function update_handle_enteringState(_self, _state_name) end
+
+function update_handle_leavingState(self, state_name)
+  self.state.moveStateToEnd(state_name)
+end
 
 function update(dt)
   self.tookDamage = false
