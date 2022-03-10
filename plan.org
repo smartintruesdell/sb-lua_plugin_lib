@@ -76,7 +76,7 @@
   - [ ] ./projectiles/tracksourcestatus.lua
   - [ ] ./projectiles/throwable/filledcapturepod/filledcapturepodprojectile.lua
   - [ ] ./projectiles/throwable/capturepod/capturepod.lua
-- [-] ./monsters [1/93]
+- [-] ./monsters [2/93]
   - [ ] ./monsters/flocking.lua
   - [ ] ./monsters/fishing/hookedState.lua
   - [ ] ./monsters/fishing/landedState.lua
@@ -151,7 +151,7 @@
   - [ ] ./monsters/boss/penguinUfo/skills/ufoSlamAttack.lua
   - [ ] ./monsters/boss/penguinUfo/skills/ufoReinforcementsAttack.lua
   - [ ] ./monsters/boss/penguinUfo/idleState.lua
-  - [ ] ./monsters/boss/bossMonster.lua
+  - [X] ./monsters/boss/bossMonster.lua
   - [ ] ./monsters/bugs/bug.lua
   - [ ] ./monsters/pets/petball/petball.lua
   - [ ] ./monsters/pets/petBehavior.lua
