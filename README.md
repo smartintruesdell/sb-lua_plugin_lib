@@ -322,8 +322,17 @@ Out of the box, LuaPluginLib updates the following vanilla scripts to add plugin
     - `buildunrandshield.lua`
     - `buildwhip.lua`
   - /tools/miningtools/`beamaxe.lua`
-- /monsters/`monster.lua`
+- /monsters
+  - `monster.lua`
+  - /boss/`bossMonster.lua`
+- /npcs
+  - `bmain.lua`
+  - `goodstrader.lua`
 - /scripts
+  - /actions
+    - `animator.lua`
+    - `npc.lua`
+  - /activeitem/`stances.lua`
   - /companions
     - `capturable.lua`
     - `crewbenefits.lua`
@@ -343,7 +352,36 @@ Out of the box, LuaPluginLib updates the following vanilla scripts to add plugin
   - `monster_primary.lua`
   - `npc_primary.lua`
   - `player_primary.lua`
+  - `spacemonster_primary.lua`
+  - /effects
+    - /arrested/`arrested.lua`
+- /tech
+  - `doubletap.lua`
+  - /dash
+    - `blinkdash.lua`
+    - `dash.lua`
+    - `sprint.lua`
+  - /distortionsphere
+    - `aquasphere.lua`
+    - `distortionsphere.lua`
+    - `sonicsphere.lua`
+    - `spikesphere.lua`
+  - /jump
+    - `multijump.lua`
+    - `rocketjump.lua`
+    - `walljump.lua`
 - /vehicles
+  - /ballista/`ballista.lua`
+  - /boat/`boat.lua`
+  - /car/`jeep.lua`
+  - /dropship
+    - `dropship.lua`
+    - `dropshipcontrol.lua`
+    - `eventdropship.lua`
+  - /hoverbike/`hoverbike.lua`
+  - /mech/`mech.lua`
+  - /minitank/`minitank.lua`
+  - /miniufo/`miniufo.lua`
   - /modularmech
     - /armscripts
       - `base.lua`
@@ -358,6 +396,9 @@ Out of the box, LuaPluginLib updates the following vanilla scripts to add plugin
       - `meleearm.lua`
       - `missileburstarm.lua`
       - `remotedetonatorarm.lua`
+  - /railplatform/`railplatform.lua`
+  - /railtram/`railtram.lua`
+  - /sportscar/`sportscar.lua`
 </details>
 
 With more to be added as needed!
