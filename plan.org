@@ -500,18 +500,18 @@
   - [ ] ./scripts/bossgen/platforming.lua
   - [ ] ./scripts/bossgen/globalstateplanner.lua
   - [ ] ./scripts/objectaddons.lua
-- [ ] ./tech [0/11]
-  - [ ] ./tech/distortionsphere/aquasphere.lua
-  - [ ] ./tech/distortionsphere/sonicsphere.lua
-  - [ ] ./tech/distortionsphere/spikesphere.lua
-  - [ ] ./tech/distortionsphere/distortionsphere.lua
-  - [ ] ./tech/doubletap.lua
-  - [ ] ./tech/jump/rocketjump.lua
-  - [ ] ./tech/jump/walljump.lua
-  - [ ] ./tech/jump/multijump.lua
-  - [ ] ./tech/dash/dash.lua
-  - [ ] ./tech/dash/blinkdash.lua
-  - [ ] ./tech/dash/sprint.lua
+- [X] ./tech [11/11]
+  - [X] ./tech/distortionsphere/aquasphere.lua
+  - [X] ./tech/distortionsphere/sonicsphere.lua
+  - [X] ./tech/distortionsphere/spikesphere.lua
+  - [X] ./tech/distortionsphere/distortionsphere.lua
+  - [X] ./tech/doubletap.lua
+  - [X] ./tech/jump/rocketjump.lua
+  - [X] ./tech/jump/walljump.lua
+  - [X] ./tech/jump/multijump.lua
+  - [X] ./tech/dash/dash.lua
+  - [X] ./tech/dash/blinkdash.lua
+  - [X] ./tech/dash/sprint.lua
 - [X] ./items [136/136]
   - [X] ./items/buildscripts/buildfood.lua
   - [X] ./items/buildscripts/buildfishingrod.lua
