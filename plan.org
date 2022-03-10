@@ -2,11 +2,11 @@
 #+author:Shawn Martin-Truesdell
 #+email:shawn@martin-truesdell.com
 
-- [-] ./vehicles [12/27]
-  - [ ] ./vehicles/railplatform/railplatform.lua
-  - [ ] ./vehicles/railtram/railtram.lua
-  - [ ] ./vehicles/modularmech/modularmech.lua
-  - [ ] ./vehicles/modularmech/mechpartmanager.lua
+- [X] ./vehicles [27/27]
+  - [X] ./vehicles/railplatform/railplatform.lua
+  - [X] ./vehicles/railtram/railtram.lua
+  - [X] ./vehicles/modularmech/modularmech.lua
+  - [X] ./vehicles/modularmech/mechpartmanager.lua
   - [X] ./vehicles/modularmech/armscripts/drillarm.lua
   - [X] ./vehicles/modularmech/armscripts/missileburstarm.lua
   - [X] ./vehicles/modularmech/armscripts/dasharm.lua
@@ -19,17 +19,17 @@
   - [X] ./vehicles/modularmech/armscripts/gatlingarm.lua
   - [X] ./vehicles/modularmech/armscripts/meleearm.lua
   - [X] ./vehicles/modularmech/armscripts/remotedetonatorarm.lua
-  - [ ] ./vehicles/minitank/minitank.lua
-  - [ ] ./vehicles/mech/mech.lua
-  - [ ] ./vehicles/sportscar/sportscar.lua
-  - [ ] ./vehicles/car/jeep.lua
-  - [ ] ./vehicles/miniufo/miniufo.lua
-  - [ ] ./vehicles/hoverbike/hoverbike.lua
-  - [ ] ./vehicles/boat/boat.lua
-  - [ ] ./vehicles/dropship/eventdropship.lua
-  - [ ] ./vehicles/dropship/dropship.lua
-  - [ ] ./vehicles/dropship/dropshipcontrol.lua
-  - [ ] ./vehicles/ballista/ballista.lua
+  - [X] ./vehicles/minitank/minitank.lua
+  - [X] ./vehicles/sportscar/sportscar.lua
+  - [X] ./vehicles/car/jeep.lua
+  - [X] ./vehicles/hoverbike/hoverbike.lua
+  - [X] ./vehicles/ballista/ballista.lua
+  - [X] ./vehicles/boat/boat.lua
+  - [X] ./vehicles/dropship/eventdropship.lua
+  - [X] ./vehicles/dropship/dropship.lua
+  - [X] ./vehicles/dropship/dropshipcontrol.lua
+  - [X] ./vehicles/mech/mech.lua
+  - [X] ./vehicles/miniufo/miniufo.lua
 - [ ] ./projectiles [0/45]
   - [ ] ./projectiles/vehicles/dropship/capsule/capsule.lua
   - [ ] ./projectiles/killable.lua
@@ -383,7 +383,7 @@
   - [ ] ./quests/bounty/bounty.lua
   - [ ] ./quests/bounty/bounty_gen.lua
   - [ ] ./quests/bounty/bountyassignment.lua
-- [-] ./scripts [6/76]
+- [-] ./scripts [14/116]
   - [ ] ./scripts/vec2.lua
   - [ ] ./scripts/versioningutils.lua
   - [ ] ./scripts/spawnPoint.lua
@@ -460,7 +460,7 @@
   - [ ] ./scripts/actions/tenant.lua
   - [ ] ./scripts/actions/time.lua
   - [ ] ./scripts/actions/world.lua
-- [-] ./scripts/actions/flying.lua
+  - [ ] ./scripts/actions/flying.lua
   - [ ] ./scripts/drawingutil.lua
   - [ ] ./scripts/bountygeneration.lua
   - [ ] ./scripts/augments/fishing.lua
