@@ -64,7 +64,13 @@ function GunFire:burst()
   self.weapon:setStance(self.stances.fire)
 
   local shots = self.burstCount
-  while shots > 0 and status.overConsumeResource("energy", self:energyPerShot()) do
+  -- SBPP - Prevents some situations where burst-fire could continue while the
+  -- gun's body is in a wall but the muzzle is not.
+  while
+    shots > 0 and
+    not world.lineTileCollision(mcontroller.position(), self:firePosition()) and
+    status.overConsumeResource("energy", self:energyPerShot())
+  do
     self:fireProjectile()
     self:muzzleFlash()
     shots = shots - 1

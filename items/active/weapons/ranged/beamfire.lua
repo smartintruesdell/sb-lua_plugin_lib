@@ -48,7 +48,13 @@ function BeamFire:fire()
   animator.playSound("fireLoop", -1)
 
   local wasColliding = false
-  while self.fireMode == (self.activatingFireMode or self.abilitySlot) and status.overConsumeResource("energy", (self.energyUsage or 0) * self.dt) do
+  -- SBPP - Prevents some situations where a beam could be fired while the
+  -- gun's body is in a wall but the muzzle is not.
+  while
+    self.fireMode == (self.activatingFireMode or self.abilitySlot) and
+    not world.lineTileCollision(mcontroller.position(), self:firePosition())
+    and status.overConsumeResource("energy", (self.energyUsage or 0) * self.dt)
+  do
     local beamStart = self:firePosition()
     local beamEnd = vec2.add(beamStart, vec2.mul(vec2.norm(self:aimVector(0)), self.beamLength))
     local beamLength = self.beamLength
