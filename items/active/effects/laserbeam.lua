@@ -30,7 +30,11 @@ function update()
     local lineEnd = vec2.mul(aimVector, maxLength)
 
     local blocks = world.collisionBlocksAlongLine(beamPosition, vec2.add(beamPosition, lineEnd))
-    if #blocks > 0 then
+    -- SBPP - Prevents the laser from showing if the gun's body is in a wall
+    -- but the muzzle is not.
+    if world.lineTileCollision(activeItemAnimation.ownerPosition(), beamPosition) then
+      lineEnd = {0, 0}
+    elseif #blocks > 0 then
       blockPosition = blocks[1]
       --When approaching the block from the right or top, the intersecting edges will be the right or top ones
       if aimVector[1] < 0 then blockPosition[1] = blockPosition[1] + 1 end
