@@ -493,3 +493,8 @@ function SpearStab:fire()
     -- Do something after
 end
 ```
+
+## Special Thanks
+
+- **jss2a98aj** and the **Starbound-Patch-Project** https://github.com/jss2a98aj/Starbound-Patch-Project
+  LuaPluginLib includes the Lua related patches applied by the Starbound-Patch-Project to ensure long-term compatibility between the two mods
