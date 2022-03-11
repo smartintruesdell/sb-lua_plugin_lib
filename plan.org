@@ -170,9 +170,9 @@
   - [ ] ./monsters/simpleRangedAttack.lua
   - [ ] ./monsters/groundMovement.lua
   - [ ] ./monsters/ghosts/erchiusghost/erchiusghost.lua
-- [ ] ./achievements [0/2]
-  - [ ] ./achievements/event.lua
-  - [ ] ./achievements/achievement.lua
+- [X] ./achievements [2/2]
+  - [X] ./achievements/event.lua
+  - [X] ./achievements/achievement.lua
 - [-] ./stats [6/125]
   - [X] ./stats/player_primary.lua
   - [X] ./stats/spacemonster_primary.lua
