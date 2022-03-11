@@ -819,8 +819,8 @@
   - [ ] ./stagehands/bossplanner/reactions.lua
   - [ ] ./stagehands/mailbox.lua
   - [ ] ./stagehands/waypoint.lua
-- [ ] ./npcs [0/4]
-  - [ ] ./npcs/timers.lua
-  - [ ] ./npcs/vaultkeytrader.lua
-  - [ ] ./npcs/bmain.lua
-  - [ ] ./npcs/goodstrader.lua
+- [X] ./npcs [4/4]
+  - [X] ./npcs/timers.lua
+  - [X] ./npcs/vaultkeytrader.lua
+  - [X] ./npcs/bmain.lua
+  - [X] ./npcs/goodstrader.lua
