@@ -314,18 +314,18 @@ end
 
 --- An engine supplied callback that fires on every update tick
 function update(dt)
-  update_apply_fall_damage(dt)
-  update_apply_breathing(dt)
-  update_apply_invulnerability_frames(dt)
-  update_apply_energy_regen(dt)
-  update_apply_shield_regen(dt)
-  update_apply_world_limit(dt)
+  update_handle_fall_damage(dt)
+  update_handle_breathing(dt)
+  update_handle_invulnerability_frames(dt)
+  update_handle_energy_regen(dt)
+  update_handle_shield_regen(dt)
+  update_handle_world_limit(dt)
 
   self.inflictedDamage:update(dt)
 end
 
 --- Applies fall damage to the entity
-function update_apply_fall_damage(dt)
+function update_handle_fall_damage(dt)
   local minimumFallDistance = 14
   local fallDistanceDamageFactor = 3
   local minimumFallVel = 40
@@ -342,15 +342,13 @@ function update_apply_fall_damage(dt)
     -self.lastYVelocity > minimumFallVel and
     mcontroller.onGround()
   then
-    local damage =
-      (self.fallDistance - minimumFallDistance) * fallDistanceDamageFactor
-
-    damage = damage * (
-      1.0 + (
-        world.gravity(mcontroller.position()) - baseGravity
-      ) * gravityDiffFactor
+    local damage = update_determine_fall_damage(
+      minimumFallDistance,
+      fallDistanceDamageFactor,
+      baseGravity,
+      gravityDiffFactor
     )
-    damage = damage * status.stat("fallDamageMultiplier")
+
     status.applySelfDamageRequest({
       damageType = "IgnoresDef",
       damage = damage,
@@ -369,8 +367,25 @@ function update_apply_fall_damage(dt)
   self.lastYVelocity = mcontroller.yVelocity()
 end
 
+function update_determine_fall_damage(
+    minimumFallDistance,
+    fallDistanceDamageFactor,
+    baseGravity,
+    gravityDiffFactor
+)
+  local damage =
+    (self.fallDistance - minimumFallDistance) * fallDistanceDamageFactor
+
+  damage = damage * (
+    1.0 + (
+      world.gravity(mcontroller.position()) - baseGravity
+          ) * gravityDiffFactor
+                    )
+  return damage * status.stat("fallDamageMultiplier")
+end
+
 --- Applies breathing effects to the entity
-function update_apply_breathing(dt)
+function update_handle_breathing(dt)
   local mouthPosition = vec2.add(
     mcontroller.position(),
     status.statusProperty("mouthPosition")
@@ -400,7 +415,7 @@ function update_apply_breathing(dt)
 end
 
 --- If the entity has invulnerability frames, this handles them.
-function update_apply_invulnerability_frames(dt)
+function update_handle_invulnerability_frames(dt)
   self.hitInvulnerabilityTime = math.max(self.hitInvulnerabilityTime - dt, 0)
   local flashTime = status.statusProperty("hitInvulnerabilityFlash")
 
@@ -416,7 +431,7 @@ function update_apply_invulnerability_frames(dt)
 end
 
 --- Applies energy resource regeneration to the entity
-function update_apply_energy_regen(dt)
+function update_handle_energy_regen(dt)
   if status.resourceLocked("energy") and status.resourcePercentage("energy") == 1 then
     animator.playSound("energyRegenDone")
   end
@@ -441,7 +456,7 @@ function update_apply_energy_regen(dt)
 end
 
 --- Applies shield (item) resource regeneration to the entity
-function update_apply_shield_regen(dt)
+function update_handle_shield_regen(dt)
   self.shieldHitInvulnerabilityTime = math.max(
     self.shieldHitInvulnerabilityTime - dt,
     0
@@ -460,7 +475,7 @@ function update_apply_shield_regen(dt)
 end
 
 --- If the entity is at/below the bottom of the world, KILL THEM
-function update_apply_world_limit(dt)
+function update_handle_world_limit(dt)
   if mcontroller.atWorldLimit(true) then
     status.setResourcePercentage("health", 0)
   end
