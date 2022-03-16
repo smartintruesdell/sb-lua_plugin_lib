@@ -267,12 +267,12 @@ end
 --- An engine supplied callback that fires on every update tick
 function update(dt)
   update_apply_damage_flash(dt)
-  update_apply_fall_damage(dt)
-  update_apply_breathing(dt)
-  update_apply_invulnerability_frames(dt)
-  update_apply_energy_regen(dt)
-  update_apply_shield_regen(dt)
-  update_apply_world_limit(dt)
+  update_handle_fall_damage(dt)
+  update_handle_breathing(dt)
+  update_handle_invulnerability_frames(dt)
+  update_handle_energy_regen(dt)
+  update_handle_shield_regen(dt)
+  update_handle_world_limit(dt)
 end
 
 --- Applies a flashing directive when the entity is hit
@@ -292,17 +292,17 @@ function update_apply_damage_flash(dt)
 end
 
 --- Applies fall damage to the entity
-function update_apply_fall_damage(_dt)
+function update_handle_fall_damage(_dt)
   -- NPCs don't suffer from fall damage.
 end
 
 --- Applies breathing effects to the entity
-function update_apply_breathing(_dt)
+function update_handle_breathing(_dt)
   -- NPCs don't breathe.
 end
 
 --- If the entity has invulnerability frames, this handles them.
-function update_apply_invulnerability_frames(dt)
+function update_handle_invulnerability_frames(dt)
   if status.statusProperty("hitInvulnerability") then
     self.hitInvulnerabilityTime = math.max(self.hitInvulnerabilityTime - dt, 0)
     local flashTime = status.statusProperty("hitInvulnerabilityFlash")
@@ -320,7 +320,7 @@ function update_apply_invulnerability_frames(dt)
 end
 
 --- Applies energy resource regeneration to the entity
-function update_apply_energy_regen(dt)
+function update_handle_energy_regen(dt)
   if status.resource("energy") == 0 then
     status.setResourceLocked("energy", true)
   elseif status.resourcePercentage("energy") == 1 then
@@ -336,7 +336,7 @@ function update_apply_energy_regen(dt)
 end
 
 --- Applies shield (item) resource regeneration to the entity
-function update_apply_shield_regen(dt)
+function update_handle_shield_regen(dt)
   if not status.resourcePositive("shieldStaminaRegenBlock") then
     status.modifyResourcePercentage(
       "shieldStamina",
@@ -346,7 +346,7 @@ function update_apply_shield_regen(dt)
 end
 
 --- If the entity is at/below the bottom of the world, KILL THEM
-function update_apply_world_limit(_dt)
+function update_handle_world_limit(_dt)
   if mcontroller.atWorldLimit(true) then
     status.setResourcePercentage("health", 0)
   end
