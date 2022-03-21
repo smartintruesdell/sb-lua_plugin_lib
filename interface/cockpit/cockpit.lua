@@ -13,7 +13,6 @@ local PLUGINS_PATH =
 -- Pane callbacks
 
 function init()
-  cockpitutil_init()
   View:init()
 
   self.clickEvents = {}
