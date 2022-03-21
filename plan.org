@@ -173,7 +173,7 @@
 - [X] ./achievements [2/2]
   - [X] ./achievements/event.lua
   - [X] ./achievements/achievement.lua
-- [-] ./stats [24/124]
+- [-] ./stats [36/124]
   - [X] ./stats/player_primary.lua
   - [X] ./stats/spacemonster_primary.lua
   - [X] ./stats/fishing_primary.lua
@@ -187,18 +187,18 @@
   - [X] ./stats/effects/breathprotectionvehicle/breathprotectionvehicle.lua
   - [X] ./stats/effects/burning/burning.lua
   - [X] ./stats/effects/camouflage/camouflage.lua
-  - [ ] ./stats/effects/capturebeamout/capturebeamout.lua
-  - [ ] ./stats/effects/castelectric/castelectric.lua
-  - [ ] ./stats/effects/castfire/castfire.lua
-  - [ ] ./stats/effects/castice/castice.lua
-  - [ ] ./stats/effects/castphysical/castphysical.lua
-  - [ ] ./stats/effects/castpoison/castpoison.lua
-  - [ ] ./stats/effects/color/color.lua
-  - [ ] ./stats/effects/crash/crash.lua
-  - [ ] ./stats/effects/cultistshield/cultistshield.lua
-  - [ ] ./stats/effects/deathbomb/deathbomb.lua
-  - [ ] ./stats/effects/dontstarve/dontstarve.lua
-  - [ ] ./stats/effects/doomed/doomed.lua
+  - [X] ./stats/effects/capturebeamout/capturebeamout.lua
+  - [X] ./stats/effects/castelectric/castelectric.lua
+  - [X] ./stats/effects/castfire/castfire.lua
+  - [X] ./stats/effects/castice/castice.lua
+  - [X] ./stats/effects/castphysical/castphysical.lua
+  - [X] ./stats/effects/castpoison/castpoison.lua
+  - [X] ./stats/effects/color/color.lua
+  - [X] ./stats/effects/crash/crash.lua
+  - [X] ./stats/effects/cultistshield/cultistshield.lua
+  - [X] ./stats/effects/deathbomb/deathbomb.lua
+  - [X] ./stats/effects/dontstarve/dontstarve.lua
+  - [X] ./stats/effects/doomed/doomed.lua
   - [ ] ./stats/effects/electricblock/electricblock.lua
   - [ ] ./stats/effects/electrified/electrified.lua
   - [ ] ./stats/effects/elementalaura/elementalaura.lua
