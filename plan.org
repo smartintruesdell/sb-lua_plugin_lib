@@ -173,132 +173,132 @@
 - [X] ./achievements [2/2]
   - [X] ./achievements/event.lua
   - [X] ./achievements/achievement.lua
-- [-] ./stats [6/125]
+- [-] ./stats [19/124]
   - [X] ./stats/player_primary.lua
   - [X] ./stats/spacemonster_primary.lua
   - [X] ./stats/fishing_primary.lua
   - [X] ./stats/npc_primary.lua
-  - [ ] ./stats/effects/playerbeamin/playerbeamin.lua
-  - [ ] ./stats/effects/liquidimmunity/liquidimmunity.lua
-  - [ ] ./stats/effects/frostslow/frostsnare.lua
-  - [ ] ./stats/effects/frostslow/frostslow.lua
-  - [ ] ./stats/effects/cultistshield/cultistshield.lua
-  - [ ] ./stats/effects/castfire/castfire.lua
-  - [ ] ./stats/effects/elementalcharge/elementalcharge.lua
-  - [ ] ./stats/effects/energyregen/energyregen.lua
-  - [ ] ./stats/effects/castelectric/castelectric.lua
-  - [ ] ./stats/effects/bed/bed.lua
-  - [ ] ./stats/effects/invisible/invisible.lua
-  - [ ] ./stats/effects/sandstorm/sandstorm.lua
-  - [ ] ./stats/effects/staffslow/staffslow.lua
-  - [ ] ./stats/effects/mudslow/mudslow.lua
-  - [ ] ./stats/effects/paralysis/paralysis.lua
-  - [ ] ./stats/effects/lowgrav/lowgravaugment.lua
-  - [ ] ./stats/effects/lowgrav/lowgrav.lua
-  - [ ] ./stats/effects/monsterrelocate/monsterrelocate.lua
+  - [X] ./stats/effects/biomeairless/biomeairless.lua
+  - [X] ./stats/effects/biomecold/biomecold.lua
+  - [X] ./stats/effects/biomeheat/biomeheat.lua
+  - [X] ./stats/effects/biomeradiation/biomeradiation.lua
+  - [ ] ./stats/effects/blink/blink.lua
+  - [ ] ./stats/effects/bouncy/bouncy.lua
+  - [ ] ./stats/effects/breathprotectionvehicle/breathprotectionvehicle.lua
   - [ ] ./stats/effects/burning/burning.lua
-  - [ ] ./stats/effects/heal/heal.lua
-  - [ ] ./stats/effects/nitroglycerine/nitroglycerine.lua
-  - [ ] ./stats/effects/skullheadlamp/skullheadlamp.lua
-  - [ ] ./stats/effects/erchiussickness/erchiussickness.lua
-  - [ ] ./stats/effects/crash/crash.lua
-  - [ ] ./stats/effects/windswept/windswept.lua
-  - [ ] ./stats/effects/overload/overload.lua
-  - [ ] ./stats/effects/thorns/thorns.lua
-  - [ ] ./stats/effects/stun/stun.lua
-  - [ ] ./stats/effects/poisonblock/poisonblock.lua
-  - [ ] ./stats/effects/foodpoison/foodpoison.lua
   - [ ] ./stats/effects/camouflage/camouflage.lua
-  - [ ] ./stats/effects/nofalldamage/nofalldamage.lua
-  - [ ] ./stats/effects/statusimmunity/statusimmunity.lua
-  - [ ] ./stats/effects/regeneration/regenerationaugment.lua
-  - [ ] ./stats/effects/regeneration/regeneration.lua
-  - [ ] ./stats/effects/beamburning/beamburning.lua
-  - [ ] ./stats/effects/maxenergyscalingboost/maxenergyscalingboost.lua
-  - [ ] ./stats/effects/halogenglow/halogenglow.lua
-  - [ ] ./stats/effects/levitation/levitation.lua
-  - [ ] ./stats/effects/ghostlyglow/ghostlyglow.lua
-  - [ ] ./stats/effects/glueslow/glueslow.lua
-  - [ ] ./stats/effects/ballistapusher/ballistapusher.lua
-  - [ ] ./stats/effects/melting/melting.lua
-  - [ ] ./stats/effects/iceblock/iceblock.lua
-  - [ ] ./stats/effects/swimming/swimming.lua
-  - [ ] ./stats/effects/maxprotection/protection.lua
-  - [ ] ./stats/effects/largedamageboost/largedamageboost.lua
-  - [ ] ./stats/effects/largedamageboost/largedamageboostapplier.lua
+  - [ ] ./stats/effects/capturebeamout/capturebeamout.lua
+  - [ ] ./stats/effects/castelectric/castelectric.lua
+  - [ ] ./stats/effects/castfire/castfire.lua
+  - [ ] ./stats/effects/castice/castice.lua
+  - [ ] ./stats/effects/castphysical/castphysical.lua
+  - [ ] ./stats/effects/castpoison/castpoison.lua
+  - [ ] ./stats/effects/color/color.lua
+  - [ ] ./stats/effects/crash/crash.lua
+  - [ ] ./stats/effects/cultistshield/cultistshield.lua
+  - [ ] ./stats/effects/deathbomb/deathbomb.lua
+  - [ ] ./stats/effects/dontstarve/dontstarve.lua
+  - [ ] ./stats/effects/doomed/doomed.lua
+  - [ ] ./stats/effects/electricblock/electricblock.lua
+  - [ ] ./stats/effects/electrified/electrified.lua
+  - [ ] ./stats/effects/elementalaura/elementalaura.lua
+  - [ ] ./stats/effects/elementalcharge/elementalcharge.lua
   - [ ] ./stats/effects/elitemonster/elitemonster.lua
-  - [ ] ./stats/effects/minibossglow/minibossglow.lua
-  - [X] ./stats/effects/arrested/arrested.lua
+  - [ ] ./stats/effects/energyregen/energyregen.lua
+  - [ ] ./stats/effects/erchiussickness/erchiussickness.lua
+  - [ ] ./stats/effects/fireblock/fireblock.lua
+  - [ ] ./stats/effects/food/hungry/hungry.lua
+  - [ ] ./stats/effects/food/starving/starving.lua
+  - [ ] ./stats/effects/food/wellfed/wellfed.lua
+  - [ ] ./stats/effects/foodpoison/foodpoison.lua
+  - [ ] ./stats/effects/frostslow/frostslow.lua
+  - [ ] ./stats/effects/frostslow/frostsnare.lua
+  - [ ] ./stats/effects/ghostlyglow/ghostlyglow.lua
+  - [ ] ./stats/effects/glow/glow.lua
+  - [ ] ./stats/effects/glueslow/glueslow.lua
+  - [ ] ./stats/effects/guardiandeath/guardiandeath.lua
+  - [ ] ./stats/effects/halogenglow/halogenglow.lua
+  - [ ] ./stats/effects/headlamp/headlamp.lua
+  - [ ] ./stats/effects/heal/heal.lua
+  - [ ] ./stats/effects/iceblock/iceblock.lua
+  - [ ] ./stats/effects/intents/intents.lua
+  - [ ] ./stats/effects/invisible/invisible.lua
+  - [ ] ./stats/effects/invulnerable/invulnerable.lua
   - [ ] ./stats/effects/jumpboost/jumpboost.lua
   - [ ] ./stats/effects/jumpboost/jumpboost20.lua
-  - [ ] ./stats/effects/peacekeeperaugment/peacekeeperaugment.lua
-  - [ ] ./stats/effects/elementalaura/elementalaura.lua
-  - [ ] ./stats/effects/bouncy/bouncy.lua
-  - [ ] ./stats/effects/rage/rage.lua
-  - [ ] ./stats/effects/rage/enemyrage.lua
-  - [ ] ./stats/effects/rage/rageweak.lua
-  - [ ] ./stats/effects/castice/castice.lua
-  - [ ] ./stats/effects/glow/glow.lua
-  - [ ] ./stats/effects/wet/wet.lua
   - [ ] ./stats/effects/lanternglow/lanternglow.lua
-  - [ ] ./stats/effects/capturebeamout/capturebeamout.lua
+  - [ ] ./stats/effects/largedamageboost/largedamageboost.lua
+  - [ ] ./stats/effects/largedamageboost/largedamageboostapplier.lua
   - [ ] ./stats/effects/lavaglow/lavaglow.lua
-  - [ ] ./stats/effects/tarslow/tarslow.lua
-  - [ ] ./stats/effects/timefreeze/timefreeze.lua
-  - [ ] ./stats/effects/beamin/beamin.lua
-  - [ ] ./stats/effects/ballistic/ballisticapplier.lua
-  - [ ] ./stats/effects/ballistic/ballistic.lua
-  - [ ] ./stats/effects/biomecold/biomecold.lua
-  - [ ] ./stats/effects/neon/neon.lua
-  - [ ] ./stats/effects/swimboost/swimboost.lua
+  - [ ] ./stats/effects/levitation/levitation.lua
   - [ ] ./stats/effects/lightaugment/lightaugment.lua
-  - [ ] ./stats/effects/intents/intents.lua
-  - [ ] ./stats/effects/slimeslow/slimeslow.lua
-  - [ ] ./stats/effects/biomeradiation/biomeradiation.lua
+  - [ ] ./stats/effects/liquidimmunity/liquidimmunity.lua
+  - [ ] ./stats/effects/lowgrav/lowgrav.lua
+  - [ ] ./stats/effects/lowgrav/lowgravaugment.lua
   - [ ] ./stats/effects/maxenergyboost/maxenergyboost.lua
-  - [ ] ./stats/effects/headlamp/headlamp.lua
-  - [ ] ./stats/effects/translocate/translocate.lua
-  - [ ] ./stats/effects/guardiandeath/guardiandeath.lua
-  - [ ] ./stats/effects/monsterdespawn/monsterdespawn.lua
-  - [ ] ./stats/effects/redflash/redflash.lua
-  - [ ] ./stats/effects/npcreactions/particlereaction.lua
-  - [ ] ./stats/effects/blink/blink.lua
-  - [ ] ./stats/effects/invulnerable/invulnerable.lua
-  - [ ] ./stats/effects/shieldregen/shieldregen.lua
+  - [ ] ./stats/effects/maxenergyscalingboost/maxenergyscalingboost.lua
+  - [ ] ./stats/effects/maxhealthboost/maxhealthboost.lua
   - [ ] ./stats/effects/maxhealthscalingboost/maxhealthscalingboost.lua
-  - [ ] ./stats/effects/vulnerability/vulnerability.lua
-  - [ ] ./stats/effects/breathprotectionvehicle/breathprotectionvehicle.lua
-  - [ ] ./stats/effects/xenonglow/xenonglow.lua
+  - [ ] ./stats/effects/maxprotection/protection.lua
+  - [ ] ./stats/effects/melting/melting.lua
+  - [ ] ./stats/effects/minibossglow/minibossglow.lua
+  - [ ] ./stats/effects/monstercapture/monstercapture.lua
+  - [ ] ./stats/effects/monsterdespawn/monsterdespawn.lua
   - [ ] ./stats/effects/monsterrelease/monsterrelease.lua
-  - [ ] ./stats/effects/biomeairless/biomeairless.lua
-  - [ ] ./stats/effects/techstun/techstun.lua
-  - [ ] ./stats/effects/arresting/arresting.lua
+  - [ ] ./stats/effects/monsterrelocate/monsterrelocate.lua
+  - [ ] ./stats/effects/motionattack/motionattack.lua
+  - [ ] ./stats/effects/mudslow/mudslow.lua
+  - [ ] ./stats/effects/neon/neon.lua
+  - [ ] ./stats/effects/nitroglycerine/nitroglycerine.lua
+  - [ ] ./stats/effects/nofalldamage/nofalldamage.lua
+  - [ ] ./stats/effects/npcreactions/particlereaction.lua
+  - [ ] ./stats/effects/nude/nude.lua
+  - [ ] ./stats/effects/overload/overload.lua
+  - [ ] ./stats/effects/paralysis/paralysis.lua
   - [ ] ./stats/effects/partytime/partytime.lua
-  - [ ] ./stats/effects/ufobeamstun/ufobeamstun.lua
-  - [ ] ./stats/effects/doomed/doomed.lua
-  - [ ] ./stats/effects/beamout/beamout.lua
-  - [ ] ./stats/effects/beamout/beamaway.lua
+  - [ ] ./stats/effects/peacekeeperaugment/peacekeeperaugment.lua
+  - [ ] ./stats/effects/poisonblock/poisonblock.lua
+  - [ ] ./stats/effects/rage/enemyrage.lua
+  - [ ] ./stats/effects/rage/rage.lua
+  - [ ] ./stats/effects/rage/rageweak.lua
+  - [ ] ./stats/effects/redflash/redflash.lua
+  - [ ] ./stats/effects/regeneration/regeneration.lua
+  - [ ] ./stats/effects/regeneration/regenerationaugment.lua
   - [ ] ./stats/effects/runboost/runboost.lua
   - [ ] ./stats/effects/runboost/runboost20.lua
-  - [ ] ./stats/effects/castpoison/castpoison.lua
-  - [ ] ./stats/effects/electrified/electrified.lua
-  - [ ] ./stats/effects/fireblock/fireblock.lua
-  - [ ] ./stats/effects/nude/nude.lua
-  - [ ] ./stats/effects/biomeheat/biomeheat.lua
-  - [ ] ./stats/effects/color/color.lua
-  - [ ] ./stats/effects/dontstarve/dontstarve.lua
-  - [ ] ./stats/effects/castphysical/castphysical.lua
-  - [ ] ./stats/effects/motionattack/motionattack.lua
-  - [ ] ./stats/effects/weakpoison/weakpoison.lua
+  - [ ] ./stats/effects/sandstorm/sandstorm.lua
   - [ ] ./stats/effects/shieldeffect/shieldeffect.lua
-  - [ ] ./stats/effects/electricblock/electricblock.lua
-  - [ ] ./stats/effects/monstercapture/monstercapture.lua
-  - [ ] ./stats/effects/deathbomb/deathbomb.lua
-  - [ ] ./stats/effects/food/starving/starving.lua
-  - [ ] ./stats/effects/food/hungry/hungry.lua
-  - [ ] ./stats/effects/food/wellfed/wellfed.lua
-  - [ ] ./stats/effects/maxhealthboost/maxhealthboost.lua
+  - [ ] ./stats/effects/shieldregen/shieldregen.lua
+  - [ ] ./stats/effects/skullheadlamp/skullheadlamp.lua
+  - [ ] ./stats/effects/slimeslow/slimeslow.lua
+  - [ ] ./stats/effects/staffslow/staffslow.lua
+  - [ ] ./stats/effects/statusimmunity/statusimmunity.lua
+  - [ ] ./stats/effects/stun/stun.lua
+  - [ ] ./stats/effects/swimboost/swimboost.lua
+  - [ ] ./stats/effects/swimming/swimming.lua
+  - [ ] ./stats/effects/tarslow/tarslow.lua
+  - [ ] ./stats/effects/techstun/techstun.lua
+  - [ ] ./stats/effects/thorns/thorns.lua
+  - [ ] ./stats/effects/timefreeze/timefreeze.lua
+  - [ ] ./stats/effects/translocate/translocate.lua
+  - [ ] ./stats/effects/ufobeamstun/ufobeamstun.lua
+  - [ ] ./stats/effects/vulnerability/vulnerability.lua
+  - [ ] ./stats/effects/weakpoison/weakpoison.lua
+  - [ ] ./stats/effects/wet/wet.lua
+  - [ ] ./stats/effects/windswept/windswept.lua
+  - [ ] ./stats/effects/xenonglow/xenonglow.lua
+  - [X] ./stats/effects/arrested/arrested.lua
+  - [X] ./stats/effects/arresting/arresting.lua
+  - [X] ./stats/effects/ballistapusher/ballistapusher.lua
+  - [X] ./stats/effects/ballistic/ballistic.lua
+  - [X] ./stats/effects/ballistic/ballisticapplier.lua
+  - [X] ./stats/effects/beamburning/beamburning.lua
+  - [X] ./stats/effects/beamin/beamin.lua
+  - [X] ./stats/effects/beamout/beamaway.lua
+  - [X] ./stats/effects/beamout/beamout.lua
+  - [X] ./stats/effects/bed/bed.lua
   - [X] ./stats/monster_primary.lua
+- [X] ./stats/effects/playerbeamin/playerbeamin.lua
 - [X] ./interface [35/35]
   - [X] ./interface/scripted/keytrader/keytradergui.lua
   - [X] ./interface/scripted/terraformer/terraformergui.lua
