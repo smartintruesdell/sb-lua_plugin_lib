@@ -173,7 +173,7 @@
 - [X] ./achievements [2/2]
   - [X] ./achievements/event.lua
   - [X] ./achievements/achievement.lua
-- [-] ./stats [19/124]
+- [-] ./stats [24/124]
   - [X] ./stats/player_primary.lua
   - [X] ./stats/spacemonster_primary.lua
   - [X] ./stats/fishing_primary.lua
@@ -182,11 +182,11 @@
   - [X] ./stats/effects/biomecold/biomecold.lua
   - [X] ./stats/effects/biomeheat/biomeheat.lua
   - [X] ./stats/effects/biomeradiation/biomeradiation.lua
-  - [ ] ./stats/effects/blink/blink.lua
-  - [ ] ./stats/effects/bouncy/bouncy.lua
-  - [ ] ./stats/effects/breathprotectionvehicle/breathprotectionvehicle.lua
-  - [ ] ./stats/effects/burning/burning.lua
-  - [ ] ./stats/effects/camouflage/camouflage.lua
+  - [X] ./stats/effects/blink/blink.lua
+  - [X] ./stats/effects/bouncy/bouncy.lua
+  - [X] ./stats/effects/breathprotectionvehicle/breathprotectionvehicle.lua
+  - [X] ./stats/effects/burning/burning.lua
+  - [X] ./stats/effects/camouflage/camouflage.lua
   - [ ] ./stats/effects/capturebeamout/capturebeamout.lua
   - [ ] ./stats/effects/castelectric/castelectric.lua
   - [ ] ./stats/effects/castfire/castfire.lua
