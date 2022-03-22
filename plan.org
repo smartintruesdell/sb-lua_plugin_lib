@@ -173,7 +173,7 @@
 - [X] ./achievements [2/2]
   - [X] ./achievements/event.lua
   - [X] ./achievements/achievement.lua
-- [-] ./stats [36/124]
+- [-] ./stats [43/124]
   - [X] ./stats/player_primary.lua
   - [X] ./stats/spacemonster_primary.lua
   - [X] ./stats/fishing_primary.lua
@@ -199,13 +199,13 @@
   - [X] ./stats/effects/deathbomb/deathbomb.lua
   - [X] ./stats/effects/dontstarve/dontstarve.lua
   - [X] ./stats/effects/doomed/doomed.lua
-  - [ ] ./stats/effects/electricblock/electricblock.lua
-  - [ ] ./stats/effects/electrified/electrified.lua
-  - [ ] ./stats/effects/elementalaura/elementalaura.lua
-  - [ ] ./stats/effects/elementalcharge/elementalcharge.lua
-  - [ ] ./stats/effects/elitemonster/elitemonster.lua
-  - [ ] ./stats/effects/energyregen/energyregen.lua
-  - [ ] ./stats/effects/erchiussickness/erchiussickness.lua
+  - [X] ./stats/effects/electricblock/electricblock.lua
+  - [X] ./stats/effects/electrified/electrified.lua
+  - [X] ./stats/effects/elementalaura/elementalaura.lua
+  - [X] ./stats/effects/elementalcharge/elementalcharge.lua
+  - [X] ./stats/effects/elitemonster/elitemonster.lua
+  - [X] ./stats/effects/energyregen/energyregen.lua
+  - [X] ./stats/effects/erchiussickness/erchiussickness.lua
   - [ ] ./stats/effects/fireblock/fireblock.lua
   - [ ] ./stats/effects/food/hungry/hungry.lua
   - [ ] ./stats/effects/food/starving/starving.lua
