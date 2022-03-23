@@ -76,7 +76,7 @@
   - [ ] ./projectiles/tracksourcestatus.lua
   - [ ] ./projectiles/throwable/filledcapturepod/filledcapturepodprojectile.lua
   - [ ] ./projectiles/throwable/capturepod/capturepod.lua
-- [-] ./monsters [36/93]
+- [-] ./monsters [43/93]
   - [X] ./monsters/boss/apebossprojector/apebossprojector.lua
   - [X] ./monsters/boss/crystalboss/crystalbossreset.lua
   - [X] ./monsters/boss/crystalboss/dieState.lua
@@ -105,13 +105,13 @@
   - [X] ./monsters/boss/penguinUfo/skills/ufoSlamAttack.lua
   - [X] ./monsters/boss/penguinUfo/skills/ufoSwoopAttack.lua
   - [X] ./monsters/boss/penguinUfo/skills/ufoTeleportAttack.lua
-  - [ ] ./monsters/boss/robotboss/dieState.lua
-  - [ ] ./monsters/boss/robotboss/idleState.lua
-  - [ ] ./monsters/boss/robotboss/skills/robotDashAttack.lua
-  - [ ] ./monsters/boss/robotboss/skills/robotElectricBurstAttack.lua
-  - [ ] ./monsters/boss/robotboss/skills/robotFlamethrowerAttack.lua
-  - [ ] ./monsters/boss/robotboss/skills/robotMissileBarrageAttack.lua
-  - [ ] ./monsters/boss/robotboss/skills/robotPunchAttack.lua
+  - [X] ./monsters/boss/robotboss/dieState.lua
+  - [X] ./monsters/boss/robotboss/idleState.lua
+  - [X] ./monsters/boss/robotboss/skills/robotDashAttack.lua
+  - [X] ./monsters/boss/robotboss/skills/robotElectricBurstAttack.lua
+  - [X] ./monsters/boss/robotboss/skills/robotFlamethrowerAttack.lua
+  - [X] ./monsters/boss/robotboss/skills/robotMissileBarrageAttack.lua
+  - [X] ./monsters/boss/robotboss/skills/robotPunchAttack.lua
   - [ ] ./monsters/boss/swansong/noxcapture.lua
   - [ ] ./monsters/boss/swansong/swansong.lua
   - [ ] ./monsters/boss/swansong/telegraph.lua
