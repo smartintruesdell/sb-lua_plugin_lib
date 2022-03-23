@@ -173,7 +173,7 @@
 - [X] ./achievements [2/2]
   - [X] ./achievements/event.lua
   - [X] ./achievements/achievement.lua
-- [-] ./stats [54/124]
+- [-] ./stats [64/125]
   - [X] ./stats/player_primary.lua
   - [X] ./stats/spacemonster_primary.lua
   - [X] ./stats/fishing_primary.lua
@@ -217,15 +217,15 @@
   - [X] ./stats/effects/glow/glow.lua
   - [X] ./stats/effects/glueslow/glueslow.lua
   - [X] ./stats/effects/guardiandeath/guardiandeath.lua
-  - [ ] ./stats/effects/halogenglow/halogenglow.lua
-  - [ ] ./stats/effects/headlamp/headlamp.lua
-  - [ ] ./stats/effects/heal/heal.lua
-  - [ ] ./stats/effects/iceblock/iceblock.lua
-  - [ ] ./stats/effects/intents/intents.lua
-  - [ ] ./stats/effects/invisible/invisible.lua
-  - [ ] ./stats/effects/invulnerable/invulnerable.lua
-  - [ ] ./stats/effects/jumpboost/jumpboost.lua
-  - [ ] ./stats/effects/jumpboost/jumpboost20.lua
+  - [X] ./stats/effects/halogenglow/halogenglow.lua
+  - [X] ./stats/effects/headlamp/headlamp.lua
+  - [X] ./stats/effects/heal/heal.lua
+  - [X] ./stats/effects/iceblock/iceblock.lua
+  - [X] ./stats/effects/intents/intents.lua
+  - [X] ./stats/effects/invisible/invisible.lua
+  - [X] ./stats/effects/invulnerable/invulnerable.lua
+  - [X] ./stats/effects/jumpboost/jumpboost.lua
+  - [X] ./stats/effects/jumpboost/jumpboost20.lua
   - [ ] ./stats/effects/lanternglow/lanternglow.lua
   - [ ] ./stats/effects/largedamageboost/largedamageboost.lua
   - [ ] ./stats/effects/largedamageboost/largedamageboostapplier.lua
@@ -298,7 +298,7 @@
   - [X] ./stats/effects/beamout/beamout.lua
   - [X] ./stats/effects/bed/bed.lua
   - [X] ./stats/monster_primary.lua
-- [X] ./stats/effects/playerbeamin/playerbeamin.lua
+  - [X] ./stats/effects/playerbeamin/playerbeamin.lua
 - [X] ./interface [35/35]
   - [X] ./interface/scripted/keytrader/keytradergui.lua
   - [X] ./interface/scripted/terraformer/terraformergui.lua
