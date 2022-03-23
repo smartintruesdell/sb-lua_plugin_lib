@@ -173,7 +173,7 @@
 - [X] ./achievements [2/2]
   - [X] ./achievements/event.lua
   - [X] ./achievements/achievement.lua
-- [-] ./stats [73/125]
+- [-] ./stats [86/125]
   - [X] ./stats/player_primary.lua
   - [X] ./stats/spacemonster_primary.lua
   - [X] ./stats/fishing_primary.lua
@@ -235,19 +235,19 @@
   - [X] ./stats/effects/liquidimmunity/liquidimmunity.lua
   - [X] ./stats/effects/lowgrav/lowgrav.lua
   - [X] ./stats/effects/lowgrav/lowgravaugment.lua
-  - [ ] ./stats/effects/maxenergyboost/maxenergyboost.lua
-  - [ ] ./stats/effects/maxenergyscalingboost/maxenergyscalingboost.lua
-  - [ ] ./stats/effects/maxhealthboost/maxhealthboost.lua
-  - [ ] ./stats/effects/maxhealthscalingboost/maxhealthscalingboost.lua
-  - [ ] ./stats/effects/maxprotection/protection.lua
-  - [ ] ./stats/effects/melting/melting.lua
-  - [ ] ./stats/effects/minibossglow/minibossglow.lua
-  - [ ] ./stats/effects/monstercapture/monstercapture.lua
-  - [ ] ./stats/effects/monsterdespawn/monsterdespawn.lua
-  - [ ] ./stats/effects/monsterrelease/monsterrelease.lua
-  - [ ] ./stats/effects/monsterrelocate/monsterrelocate.lua
-  - [ ] ./stats/effects/motionattack/motionattack.lua
-  - [ ] ./stats/effects/mudslow/mudslow.lua
+  - [X] ./stats/effects/maxenergyboost/maxenergyboost.lua
+  - [X] ./stats/effects/maxenergyscalingboost/maxenergyscalingboost.lua
+  - [X] ./stats/effects/maxhealthboost/maxhealthboost.lua
+  - [X] ./stats/effects/maxhealthscalingboost/maxhealthscalingboost.lua
+  - [X] ./stats/effects/maxprotection/protection.lua
+  - [X] ./stats/effects/melting/melting.lua
+  - [X] ./stats/effects/minibossglow/minibossglow.lua
+  - [X] ./stats/effects/monstercapture/monstercapture.lua
+  - [X] ./stats/effects/monsterdespawn/monsterdespawn.lua
+  - [X] ./stats/effects/monsterrelease/monsterrelease.lua
+  - [X] ./stats/effects/monsterrelocate/monsterrelocate.lua
+  - [X] ./stats/effects/motionattack/motionattack.lua
+  - [X] ./stats/effects/mudslow/mudslow.lua
   - [ ] ./stats/effects/neon/neon.lua
   - [ ] ./stats/effects/nitroglycerine/nitroglycerine.lua
   - [ ] ./stats/effects/nofalldamage/nofalldamage.lua
