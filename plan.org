@@ -76,7 +76,7 @@
   - [ ] ./projectiles/tracksourcestatus.lua
   - [ ] ./projectiles/throwable/filledcapturepod/filledcapturepodprojectile.lua
   - [ ] ./projectiles/throwable/capturepod/capturepod.lua
-- [-] ./monsters [20/93]
+- [-] ./monsters [24/93]
   - [X] ./monsters/boss/apebossprojector/apebossprojector.lua
   - [X] ./monsters/boss/crystalboss/crystalbossreset.lua
   - [X] ./monsters/boss/crystalboss/dieState.lua
@@ -89,10 +89,10 @@
   - [X] ./monsters/boss/crystalboss/skills/crystalSingleBeamAttack.lua
   - [X] ./monsters/boss/guardianboss/guardian.lua
   - [X] ./monsters/boss/guardianboss/handbeam.lua
-  - [ ] ./monsters/boss/guardianminion/collidingminion.lua
-  - [ ] ./monsters/boss/guardianminion/guardianminion.lua
-  - [ ] ./monsters/boss/guardianminion/minionline.lua
-  - [ ] ./monsters/boss/guardianminion/rangedminion.lua
+  - [X] ./monsters/boss/guardianminion/collidingminion.lua
+  - [X] ./monsters/boss/guardianminion/guardianminion.lua
+  - [X] ./monsters/boss/guardianminion/minionline.lua
+  - [X] ./monsters/boss/guardianminion/rangedminion.lua
   - [ ] ./monsters/boss/ophanim/ophanim.lua
   - [ ] ./monsters/boss/ophanim/ophanimbeam.lua
   - [ ] ./monsters/boss/penguin/behavior.lua
