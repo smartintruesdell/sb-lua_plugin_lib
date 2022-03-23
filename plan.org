@@ -76,7 +76,7 @@
   - [ ] ./projectiles/tracksourcestatus.lua
   - [ ] ./projectiles/throwable/filledcapturepod/filledcapturepodprojectile.lua
   - [ ] ./projectiles/throwable/capturepod/capturepod.lua
-- [-] ./monsters [43/93]
+- [-] ./monsters [46/93]
   - [X] ./monsters/boss/apebossprojector/apebossprojector.lua
   - [X] ./monsters/boss/crystalboss/crystalbossreset.lua
   - [X] ./monsters/boss/crystalboss/dieState.lua
@@ -112,9 +112,9 @@
   - [X] ./monsters/boss/robotboss/skills/robotFlamethrowerAttack.lua
   - [X] ./monsters/boss/robotboss/skills/robotMissileBarrageAttack.lua
   - [X] ./monsters/boss/robotboss/skills/robotPunchAttack.lua
-  - [ ] ./monsters/boss/swansong/noxcapture.lua
-  - [ ] ./monsters/boss/swansong/swansong.lua
-  - [ ] ./monsters/boss/swansong/telegraph.lua
+  - [X] ./monsters/boss/swansong/noxcapture.lua
+  - [X] ./monsters/boss/swansong/swansong.lua
+  - [X] ./monsters/boss/swansong/telegraph.lua
   - [ ] ./monsters/bugs/bug.lua
   - [ ] ./monsters/dungeon/chicken/behavior.lua
   - [ ] ./monsters/dungeon/giftmonster/behavior.lua
