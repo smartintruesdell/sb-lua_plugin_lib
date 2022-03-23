@@ -76,7 +76,7 @@
   - [ ] ./projectiles/tracksourcestatus.lua
   - [ ] ./projectiles/throwable/filledcapturepod/filledcapturepodprojectile.lua
   - [ ] ./projectiles/throwable/capturepod/capturepod.lua
-- [-] ./monsters [24/93]
+- [-] ./monsters [26/93]
   - [X] ./monsters/boss/apebossprojector/apebossprojector.lua
   - [X] ./monsters/boss/crystalboss/crystalbossreset.lua
   - [X] ./monsters/boss/crystalboss/dieState.lua
@@ -93,8 +93,8 @@
   - [X] ./monsters/boss/guardianminion/guardianminion.lua
   - [X] ./monsters/boss/guardianminion/minionline.lua
   - [X] ./monsters/boss/guardianminion/rangedminion.lua
-  - [ ] ./monsters/boss/ophanim/ophanim.lua
-  - [ ] ./monsters/boss/ophanim/ophanimbeam.lua
+  - [X] ./monsters/boss/ophanim/ophanim.lua
+  - [X] ./monsters/boss/ophanim/ophanimbeam.lua
   - [ ] ./monsters/boss/penguin/behavior.lua
   - [ ] ./monsters/boss/penguinMiniUfo/penguinMiniUfo.lua
   - [ ] ./monsters/boss/penguinUfo/dieState.lua
