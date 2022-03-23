@@ -173,7 +173,7 @@
 - [X] ./achievements [2/2]
   - [X] ./achievements/event.lua
   - [X] ./achievements/achievement.lua
-- [-] ./stats [64/125]
+- [-] ./stats [73/125]
   - [X] ./stats/player_primary.lua
   - [X] ./stats/spacemonster_primary.lua
   - [X] ./stats/fishing_primary.lua
@@ -226,15 +226,15 @@
   - [X] ./stats/effects/invulnerable/invulnerable.lua
   - [X] ./stats/effects/jumpboost/jumpboost.lua
   - [X] ./stats/effects/jumpboost/jumpboost20.lua
-  - [ ] ./stats/effects/lanternglow/lanternglow.lua
-  - [ ] ./stats/effects/largedamageboost/largedamageboost.lua
-  - [ ] ./stats/effects/largedamageboost/largedamageboostapplier.lua
-  - [ ] ./stats/effects/lavaglow/lavaglow.lua
-  - [ ] ./stats/effects/levitation/levitation.lua
-  - [ ] ./stats/effects/lightaugment/lightaugment.lua
-  - [ ] ./stats/effects/liquidimmunity/liquidimmunity.lua
-  - [ ] ./stats/effects/lowgrav/lowgrav.lua
-  - [ ] ./stats/effects/lowgrav/lowgravaugment.lua
+  - [X] ./stats/effects/lanternglow/lanternglow.lua
+  - [X] ./stats/effects/largedamageboost/largedamageboost.lua
+  - [X] ./stats/effects/largedamageboost/largedamageboostapplier.lua
+  - [X] ./stats/effects/lavaglow/lavaglow.lua
+  - [X] ./stats/effects/levitation/levitation.lua
+  - [X] ./stats/effects/lightaugment/lightaugment.lua
+  - [X] ./stats/effects/liquidimmunity/liquidimmunity.lua
+  - [X] ./stats/effects/lowgrav/lowgrav.lua
+  - [X] ./stats/effects/lowgrav/lowgravaugment.lua
   - [ ] ./stats/effects/maxenergyboost/maxenergyboost.lua
   - [ ] ./stats/effects/maxenergyscalingboost/maxenergyscalingboost.lua
   - [ ] ./stats/effects/maxhealthboost/maxhealthboost.lua
