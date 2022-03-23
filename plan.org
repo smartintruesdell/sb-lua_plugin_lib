@@ -76,101 +76,100 @@
   - [ ] ./projectiles/tracksourcestatus.lua
   - [ ] ./projectiles/throwable/filledcapturepod/filledcapturepodprojectile.lua
   - [ ] ./projectiles/throwable/capturepod/capturepod.lua
-- [-] ./monsters [8/93]
-  - [X] ./monsters/flocking.lua
-  - [ ] ./monsters/fishing/hookedState.lua
-  - [ ] ./monsters/fishing/landedState.lua
-  - [ ] ./monsters/fishing/flopState.lua
-  - [ ] ./monsters/fishing/outOfWaterState.lua
-  - [ ] ./monsters/fishing/appearState.lua
-  - [ ] ./monsters/fishing/idleState.lua
-  - [ ] ./monsters/fishing/fishingMonster.lua
-  - [ ] ./monsters/fishing/lurkState.lua
-  - [ ] ./monsters/fishing/wanderState.lua
-  - [ ] ./monsters/fishing/disappearState.lua
-  - [ ] ./monsters/fishing/aquariumMonster.lua
-  - [ ] ./monsters/fishing/approachState.lua
-  - [ ] ./monsters/dungeon/po/behavior.lua
-  - [ ] ./monsters/dungeon/glitchknight/behavior.lua
-  - [ ] ./monsters/dungeon/chicken/behavior.lua
-  - [ ] ./monsters/dungeon/giftmonster/behavior.lua
-  - [ ] ./monsters/dungeon/robotchicken/behavior.lua
-  - [ ] ./monsters/dungeon/swarpion/behavior.lua
-  - [ ] ./monsters/unsorted/miningdrone/miningdrone.lua
-  - [ ] ./monsters/unsorted/miningdrone/dronebeams.lua
-  - [ ] ./monsters/generated/swimming/flopState.lua
-  - [ ] ./monsters/generated/swimming/attackState.lua
-  - [ ] ./monsters/generated/swimming/smallfish/scatterState.lua
-  - [ ] ./monsters/generated/swimming/smallfish/investigateState.lua
-  - [ ] ./monsters/generated/swimming/smallfish/smallFish.lua
-  - [ ] ./monsters/generated/swimming/smallfish/fleeState.lua
-  - [ ] ./monsters/generated/swimming/swimmingMonster.lua
-  - [ ] ./monsters/generated/swimming/fleeState.lua
-  - [ ] ./monsters/generated/swimming/wanderState.lua
-  - [ ] ./monsters/generated/flying/skills/flyingSwoopAttack.lua
-  - [X] ./monsters/returnHomeState.lua
-  - [ ] ./monsters/mechdrone/drone_status.lua
-  - [ ] ./monsters/mechdrone/drone.lua
-  - [X] ./monsters/monster.lua
-  - [X] ./monsters/grumbleState.lua
-  - [ ] ./monsters/boss/penguin/behavior.lua
-  - [ ] ./monsters/boss/apebossprojector/apebossprojector.lua
-  - [ ] ./monsters/boss/penguinMiniUfo/penguinMiniUfo.lua
-  - [ ] ./monsters/boss/swansong/telegraph.lua
-  - [ ] ./monsters/boss/swansong/noxcapture.lua
-  - [ ] ./monsters/boss/swansong/swansong.lua
-  - [ ] ./monsters/boss/robotboss/dieState.lua
-  - [ ] ./monsters/boss/robotboss/skills/robotElectricBurstAttack.lua
-  - [ ] ./monsters/boss/robotboss/skills/robotPunchAttack.lua
-  - [ ] ./monsters/boss/robotboss/skills/robotMissileBarrageAttack.lua
-  - [ ] ./monsters/boss/robotboss/skills/robotDashAttack.lua
-  - [ ] ./monsters/boss/robotboss/skills/robotFlamethrowerAttack.lua
-  - [ ] ./monsters/boss/robotboss/idleState.lua
+- [-] ./monsters [18/93]
   - [X] ./monsters/boss/apebossprojector/apebossprojector.lua
+  - [X] ./monsters/boss/crystalboss/crystalbossreset.lua
+  - [X] ./monsters/boss/crystalboss/dieState.lua
+  - [X] ./monsters/boss/crystalboss/idleState.lua
+  - [X] ./monsters/boss/crystalboss/skills/crystalDoubleBeamAttack.lua
+  - [X] ./monsters/boss/crystalboss/skills/crystalIdleAttack.lua
+  - [X] ./monsters/boss/crystalboss/skills/crystalMoontantAttack.lua
+  - [X] ./monsters/boss/crystalboss/skills/crystalShatterAttack.lua
+  - [X] ./monsters/boss/crystalboss/skills/crystalSineBeamAttack.lua
+  - [X] ./monsters/boss/crystalboss/skills/crystalSingleBeamAttack.lua
   - [ ] ./monsters/boss/guardianboss/guardian.lua
   - [ ] ./monsters/boss/guardianboss/handbeam.lua
-  - [ ] ./monsters/boss/guardianminion/guardianminion.lua
-  - [ ] ./monsters/boss/guardianminion/rangedminion.lua
-  - [ ] ./monsters/boss/guardianminion/minionline.lua
   - [ ] ./monsters/boss/guardianminion/collidingminion.lua
-  - [ ] ./monsters/boss/ophanim/ophanimbeam.lua
+  - [ ] ./monsters/boss/guardianminion/guardianminion.lua
+  - [ ] ./monsters/boss/guardianminion/minionline.lua
+  - [ ] ./monsters/boss/guardianminion/rangedminion.lua
   - [ ] ./monsters/boss/ophanim/ophanim.lua
-  - [ ] ./monsters/boss/crystalboss/dieState.lua
-  - [ ] ./monsters/boss/crystalboss/skills/crystalIdleAttack.lua
-  - [ ] ./monsters/boss/crystalboss/skills/crystalDoubleBeamAttack.lua
-  - [ ] ./monsters/boss/crystalboss/skills/crystalSineBeamAttack.lua
-  - [ ] ./monsters/boss/crystalboss/skills/crystalMoontantAttack.lua
-  - [ ] ./monsters/boss/crystalboss/skills/crystalShatterAttack.lua
-  - [ ] ./monsters/boss/crystalboss/skills/crystalSingleBeamAttack.lua
-  - [ ] ./monsters/boss/crystalboss/idleState.lua
-  - [ ] ./monsters/boss/crystalboss/crystalbossreset.lua
+  - [ ] ./monsters/boss/ophanim/ophanimbeam.lua
+  - [ ] ./monsters/boss/penguin/behavior.lua
+  - [ ] ./monsters/boss/penguinMiniUfo/penguinMiniUfo.lua
   - [ ] ./monsters/boss/penguinUfo/dieState.lua
+  - [ ] ./monsters/boss/penguinUfo/idleState.lua
   - [ ] ./monsters/boss/penguinUfo/skills/ufoMoveFireAttack.lua
   - [ ] ./monsters/boss/penguinUfo/skills/ufoPulseCannonAttack.lua
+  - [ ] ./monsters/boss/penguinUfo/skills/ufoReinforcementsAttack.lua
+  - [ ] ./monsters/boss/penguinUfo/skills/ufoSlamAttack.lua
   - [ ] ./monsters/boss/penguinUfo/skills/ufoSwoopAttack.lua
   - [ ] ./monsters/boss/penguinUfo/skills/ufoTeleportAttack.lua
-  - [ ] ./monsters/boss/penguinUfo/skills/ufoSlamAttack.lua
-  - [ ] ./monsters/boss/penguinUfo/skills/ufoReinforcementsAttack.lua
-  - [ ] ./monsters/boss/penguinUfo/idleState.lua
-  - [X] ./monsters/boss/bossMonster.lua
+  - [ ] ./monsters/boss/robotboss/dieState.lua
+  - [ ] ./monsters/boss/robotboss/idleState.lua
+  - [ ] ./monsters/boss/robotboss/skills/robotDashAttack.lua
+  - [ ] ./monsters/boss/robotboss/skills/robotElectricBurstAttack.lua
+  - [ ] ./monsters/boss/robotboss/skills/robotFlamethrowerAttack.lua
+  - [ ] ./monsters/boss/robotboss/skills/robotMissileBarrageAttack.lua
+  - [ ] ./monsters/boss/robotboss/skills/robotPunchAttack.lua
+  - [ ] ./monsters/boss/swansong/noxcapture.lua
+  - [ ] ./monsters/boss/swansong/swansong.lua
+  - [ ] ./monsters/boss/swansong/telegraph.lua
   - [ ] ./monsters/bugs/bug.lua
-  - [ ] ./monsters/pets/petball/petball.lua
-  - [ ] ./monsters/pets/petBehavior.lua
-  - [ ] ./monsters/pets/actions/pounceAction.lua
-  - [ ] ./monsters/pets/actions/followAction.lua
-  - [ ] ./monsters/pets/actions/sleepAction.lua
-  - [ ] ./monsters/pets/actions/inspectAction.lua
+  - [ ] ./monsters/dungeon/chicken/behavior.lua
+  - [ ] ./monsters/dungeon/giftmonster/behavior.lua
+  - [ ] ./monsters/dungeon/glitchknight/behavior.lua
+  - [ ] ./monsters/dungeon/po/behavior.lua
+  - [ ] ./monsters/dungeon/robotchicken/behavior.lua
+  - [ ] ./monsters/dungeon/swarpion/behavior.lua
+  - [ ] ./monsters/fishing/appearState.lua
+  - [ ] ./monsters/fishing/approachState.lua
+  - [ ] ./monsters/fishing/aquariumMonster.lua
+  - [ ] ./monsters/fishing/disappearState.lua
+  - [ ] ./monsters/fishing/fishingMonster.lua
+  - [ ] ./monsters/fishing/flopState.lua
+  - [ ] ./monsters/fishing/hookedState.lua
+  - [ ] ./monsters/fishing/idleState.lua
+  - [ ] ./monsters/fishing/landedState.lua
+  - [ ] ./monsters/fishing/lurkState.lua
+  - [ ] ./monsters/fishing/outOfWaterState.lua
+  - [ ] ./monsters/fishing/wanderState.lua
+  - [ ] ./monsters/generated/flying/skills/flyingSwoopAttack.lua
+  - [ ] ./monsters/generated/swimming/attackState.lua
+  - [ ] ./monsters/generated/swimming/fleeState.lua
+  - [ ] ./monsters/generated/swimming/flopState.lua
+  - [ ] ./monsters/generated/swimming/smallfish/fleeState.lua
+  - [ ] ./monsters/generated/swimming/smallfish/investigateState.lua
+  - [ ] ./monsters/generated/swimming/smallfish/scatterState.lua
+  - [ ] ./monsters/generated/swimming/smallfish/smallFish.lua
+  - [ ] ./monsters/generated/swimming/swimmingMonster.lua
+  - [ ] ./monsters/generated/swimming/wanderState.lua
+  - [ ] ./monsters/ghosts/erchiusghost/erchiusghost.lua
+  - [ ] ./monsters/mechdrone/drone.lua
+  - [ ] ./monsters/mechdrone/drone_status.lua
   - [ ] ./monsters/pets/actions/begAction.lua
   - [ ] ./monsters/pets/actions/eatAction.lua
-  - [ ] ./monsters/pets/idleState.lua
-  - [ ] ./monsters/pets/wanderState.lua
+  - [ ] ./monsters/pets/actions/followAction.lua
+  - [ ] ./monsters/pets/actions/inspectAction.lua
+  - [ ] ./monsters/pets/actions/pounceAction.lua
+  - [ ] ./monsters/pets/actions/sleepAction.lua
   - [ ] ./monsters/pets/groundPet.lua
-  - [X] ./monsters/tenant.lua
-  - [ ] ./monsters/space/heavydrone/heavydrone.lua
+  - [ ] ./monsters/pets/idleState.lua
+  - [ ] ./monsters/pets/petBehavior.lua
+  - [ ] ./monsters/pets/petball/petball.lua
+  - [ ] ./monsters/pets/wanderState.lua
   - [ ] ./monsters/space/astrofae/astrofae.lua
-  - [X] ./monsters/simpleRangedAttack.lua
+  - [ ] ./monsters/space/heavydrone/heavydrone.lua
+  - [ ] ./monsters/unsorted/miningdrone/dronebeams.lua
+  - [ ] ./monsters/unsorted/miningdrone/miningdrone.lua
+  - [X] ./monsters/boss/bossMonster.lua
   - [X] ./monsters/groundMovement.lua
-  - [ ] ./monsters/ghosts/erchiusghost/erchiusghost.lua
+  - [X] ./monsters/grumbleState.lua
+  - [X] ./monsters/monster.lua
+  - [X] ./monsters/returnHomeState.lua
+  - [X] ./monsters/simpleRangedAttack.lua
+  - [X] ./monsters/tenant.lua
+  - [X] ./monsters/flocking.lua
 - [X] ./achievements [2/2]
   - [X] ./achievements/event.lua
   - [X] ./achievements/achievement.lua
