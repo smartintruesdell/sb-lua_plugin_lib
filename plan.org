@@ -76,8 +76,8 @@
   - [ ] ./projectiles/tracksourcestatus.lua
   - [ ] ./projectiles/throwable/filledcapturepod/filledcapturepodprojectile.lua
   - [ ] ./projectiles/throwable/capturepod/capturepod.lua
-- [-] ./monsters [2/93]
-  - [ ] ./monsters/flocking.lua
+- [-] ./monsters [8/93]
+  - [X] ./monsters/flocking.lua
   - [ ] ./monsters/fishing/hookedState.lua
   - [ ] ./monsters/fishing/landedState.lua
   - [ ] ./monsters/fishing/flopState.lua
@@ -108,11 +108,11 @@
   - [ ] ./monsters/generated/swimming/fleeState.lua
   - [ ] ./monsters/generated/swimming/wanderState.lua
   - [ ] ./monsters/generated/flying/skills/flyingSwoopAttack.lua
-  - [ ] ./monsters/returnHomeState.lua
+  - [X] ./monsters/returnHomeState.lua
   - [ ] ./monsters/mechdrone/drone_status.lua
   - [ ] ./monsters/mechdrone/drone.lua
   - [X] ./monsters/monster.lua
-  - [ ] ./monsters/grumbleState.lua
+  - [X] ./monsters/grumbleState.lua
   - [ ] ./monsters/boss/penguin/behavior.lua
   - [ ] ./monsters/boss/apebossprojector/apebossprojector.lua
   - [ ] ./monsters/boss/penguinMiniUfo/penguinMiniUfo.lua
@@ -164,11 +164,11 @@
   - [ ] ./monsters/pets/idleState.lua
   - [ ] ./monsters/pets/wanderState.lua
   - [ ] ./monsters/pets/groundPet.lua
-  - [ ] ./monsters/tenant.lua
+  - [X] ./monsters/tenant.lua
   - [ ] ./monsters/space/heavydrone/heavydrone.lua
   - [ ] ./monsters/space/astrofae/astrofae.lua
-  - [ ] ./monsters/simpleRangedAttack.lua
-  - [ ] ./monsters/groundMovement.lua
+  - [X] ./monsters/simpleRangedAttack.lua
+  - [X] ./monsters/groundMovement.lua
   - [ ] ./monsters/ghosts/erchiusghost/erchiusghost.lua
 - [X] ./achievements [2/2]
   - [X] ./achievements/event.lua
