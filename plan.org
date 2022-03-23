@@ -173,7 +173,7 @@
 - [X] ./achievements [2/2]
   - [X] ./achievements/event.lua
   - [X] ./achievements/achievement.lua
-- [-] ./stats [86/125]
+- [-] ./stats [96/125]
   - [X] ./stats/player_primary.lua
   - [X] ./stats/spacemonster_primary.lua
   - [X] ./stats/fishing_primary.lua
@@ -248,16 +248,16 @@
   - [X] ./stats/effects/monsterrelocate/monsterrelocate.lua
   - [X] ./stats/effects/motionattack/motionattack.lua
   - [X] ./stats/effects/mudslow/mudslow.lua
-  - [ ] ./stats/effects/neon/neon.lua
-  - [ ] ./stats/effects/nitroglycerine/nitroglycerine.lua
-  - [ ] ./stats/effects/nofalldamage/nofalldamage.lua
-  - [ ] ./stats/effects/npcreactions/particlereaction.lua
-  - [ ] ./stats/effects/nude/nude.lua
-  - [ ] ./stats/effects/overload/overload.lua
-  - [ ] ./stats/effects/paralysis/paralysis.lua
-  - [ ] ./stats/effects/partytime/partytime.lua
-  - [ ] ./stats/effects/peacekeeperaugment/peacekeeperaugment.lua
-  - [ ] ./stats/effects/poisonblock/poisonblock.lua
+  - [X] ./stats/effects/neon/neon.lua
+  - [X] ./stats/effects/nitroglycerine/nitroglycerine.lua
+  - [X] ./stats/effects/nofalldamage/nofalldamage.lua
+  - [X] ./stats/effects/npcreactions/particlereaction.lua
+  - [X] ./stats/effects/nude/nude.lua
+  - [X] ./stats/effects/overload/overload.lua
+  - [X] ./stats/effects/paralysis/paralysis.lua
+  - [X] ./stats/effects/partytime/partytime.lua
+  - [X] ./stats/effects/peacekeeperaugment/peacekeeperaugment.lua
+  - [X] ./stats/effects/poisonblock/poisonblock.lua
   - [ ] ./stats/effects/rage/enemyrage.lua
   - [ ] ./stats/effects/rage/rage.lua
   - [ ] ./stats/effects/rage/rageweak.lua
