@@ -126,6 +126,7 @@
   - [ ] ./monsters/boss/robotboss/skills/robotDashAttack.lua
   - [ ] ./monsters/boss/robotboss/skills/robotFlamethrowerAttack.lua
   - [ ] ./monsters/boss/robotboss/idleState.lua
+  - [X] ./monsters/boss/apebossprojector/apebossprojector.lua
   - [ ] ./monsters/boss/guardianboss/guardian.lua
   - [ ] ./monsters/boss/guardianboss/handbeam.lua
   - [ ] ./monsters/boss/guardianminion/guardianminion.lua
