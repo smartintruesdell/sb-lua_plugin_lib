@@ -76,7 +76,7 @@
   - [ ] ./projectiles/tracksourcestatus.lua
   - [ ] ./projectiles/throwable/filledcapturepod/filledcapturepodprojectile.lua
   - [ ] ./projectiles/throwable/capturepod/capturepod.lua
-- [-] ./monsters [26/93]
+- [-] ./monsters [36/93]
   - [X] ./monsters/boss/apebossprojector/apebossprojector.lua
   - [X] ./monsters/boss/crystalboss/crystalbossreset.lua
   - [X] ./monsters/boss/crystalboss/dieState.lua
@@ -95,16 +95,16 @@
   - [X] ./monsters/boss/guardianminion/rangedminion.lua
   - [X] ./monsters/boss/ophanim/ophanim.lua
   - [X] ./monsters/boss/ophanim/ophanimbeam.lua
-  - [ ] ./monsters/boss/penguin/behavior.lua
-  - [ ] ./monsters/boss/penguinMiniUfo/penguinMiniUfo.lua
-  - [ ] ./monsters/boss/penguinUfo/dieState.lua
-  - [ ] ./monsters/boss/penguinUfo/idleState.lua
-  - [ ] ./monsters/boss/penguinUfo/skills/ufoMoveFireAttack.lua
-  - [ ] ./monsters/boss/penguinUfo/skills/ufoPulseCannonAttack.lua
-  - [ ] ./monsters/boss/penguinUfo/skills/ufoReinforcementsAttack.lua
-  - [ ] ./monsters/boss/penguinUfo/skills/ufoSlamAttack.lua
-  - [ ] ./monsters/boss/penguinUfo/skills/ufoSwoopAttack.lua
-  - [ ] ./monsters/boss/penguinUfo/skills/ufoTeleportAttack.lua
+  - [X] ./monsters/boss/penguin/behavior.lua
+  - [X] ./monsters/boss/penguinMiniUfo/penguinMiniUfo.lua
+  - [X] ./monsters/boss/penguinUfo/dieState.lua
+  - [X] ./monsters/boss/penguinUfo/idleState.lua
+  - [X] ./monsters/boss/penguinUfo/skills/ufoMoveFireAttack.lua
+  - [X] ./monsters/boss/penguinUfo/skills/ufoPulseCannonAttack.lua
+  - [X] ./monsters/boss/penguinUfo/skills/ufoReinforcementsAttack.lua
+  - [X] ./monsters/boss/penguinUfo/skills/ufoSlamAttack.lua
+  - [X] ./monsters/boss/penguinUfo/skills/ufoSwoopAttack.lua
+  - [X] ./monsters/boss/penguinUfo/skills/ufoTeleportAttack.lua
   - [ ] ./monsters/boss/robotboss/dieState.lua
   - [ ] ./monsters/boss/robotboss/idleState.lua
   - [ ] ./monsters/boss/robotboss/skills/robotDashAttack.lua
