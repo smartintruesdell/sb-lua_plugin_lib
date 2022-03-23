@@ -76,7 +76,7 @@
   - [ ] ./projectiles/tracksourcestatus.lua
   - [ ] ./projectiles/throwable/filledcapturepod/filledcapturepodprojectile.lua
   - [ ] ./projectiles/throwable/capturepod/capturepod.lua
-- [-] ./monsters [18/93]
+- [-] ./monsters [20/93]
   - [X] ./monsters/boss/apebossprojector/apebossprojector.lua
   - [X] ./monsters/boss/crystalboss/crystalbossreset.lua
   - [X] ./monsters/boss/crystalboss/dieState.lua
@@ -87,8 +87,8 @@
   - [X] ./monsters/boss/crystalboss/skills/crystalShatterAttack.lua
   - [X] ./monsters/boss/crystalboss/skills/crystalSineBeamAttack.lua
   - [X] ./monsters/boss/crystalboss/skills/crystalSingleBeamAttack.lua
-  - [ ] ./monsters/boss/guardianboss/guardian.lua
-  - [ ] ./monsters/boss/guardianboss/handbeam.lua
+  - [X] ./monsters/boss/guardianboss/guardian.lua
+  - [X] ./monsters/boss/guardianboss/handbeam.lua
   - [ ] ./monsters/boss/guardianminion/collidingminion.lua
   - [ ] ./monsters/boss/guardianminion/guardianminion.lua
   - [ ] ./monsters/boss/guardianminion/minionline.lua
