@@ -173,7 +173,7 @@
 - [X] ./achievements [2/2]
   - [X] ./achievements/event.lua
   - [X] ./achievements/achievement.lua
-- [-] ./stats [96/125]
+- [X] ./stats [125/125]
   - [X] ./stats/player_primary.lua
   - [X] ./stats/spacemonster_primary.lua
   - [X] ./stats/fishing_primary.lua
@@ -258,35 +258,35 @@
   - [X] ./stats/effects/partytime/partytime.lua
   - [X] ./stats/effects/peacekeeperaugment/peacekeeperaugment.lua
   - [X] ./stats/effects/poisonblock/poisonblock.lua
-  - [ ] ./stats/effects/rage/enemyrage.lua
-  - [ ] ./stats/effects/rage/rage.lua
-  - [ ] ./stats/effects/rage/rageweak.lua
-  - [ ] ./stats/effects/redflash/redflash.lua
-  - [ ] ./stats/effects/regeneration/regeneration.lua
-  - [ ] ./stats/effects/regeneration/regenerationaugment.lua
-  - [ ] ./stats/effects/runboost/runboost.lua
-  - [ ] ./stats/effects/runboost/runboost20.lua
-  - [ ] ./stats/effects/sandstorm/sandstorm.lua
-  - [ ] ./stats/effects/shieldeffect/shieldeffect.lua
-  - [ ] ./stats/effects/shieldregen/shieldregen.lua
-  - [ ] ./stats/effects/skullheadlamp/skullheadlamp.lua
-  - [ ] ./stats/effects/slimeslow/slimeslow.lua
-  - [ ] ./stats/effects/staffslow/staffslow.lua
-  - [ ] ./stats/effects/statusimmunity/statusimmunity.lua
-  - [ ] ./stats/effects/stun/stun.lua
-  - [ ] ./stats/effects/swimboost/swimboost.lua
-  - [ ] ./stats/effects/swimming/swimming.lua
-  - [ ] ./stats/effects/tarslow/tarslow.lua
-  - [ ] ./stats/effects/techstun/techstun.lua
-  - [ ] ./stats/effects/thorns/thorns.lua
-  - [ ] ./stats/effects/timefreeze/timefreeze.lua
-  - [ ] ./stats/effects/translocate/translocate.lua
-  - [ ] ./stats/effects/ufobeamstun/ufobeamstun.lua
-  - [ ] ./stats/effects/vulnerability/vulnerability.lua
-  - [ ] ./stats/effects/weakpoison/weakpoison.lua
-  - [ ] ./stats/effects/wet/wet.lua
-  - [ ] ./stats/effects/windswept/windswept.lua
-  - [ ] ./stats/effects/xenonglow/xenonglow.lua
+  - [X] ./stats/effects/rage/enemyrage.lua
+  - [X] ./stats/effects/rage/rage.lua
+  - [X] ./stats/effects/rage/rageweak.lua
+  - [X] ./stats/effects/redflash/redflash.lua
+  - [X] ./stats/effects/regeneration/regeneration.lua
+  - [X] ./stats/effects/regeneration/regenerationaugment.lua
+  - [X] ./stats/effects/runboost/runboost.lua
+  - [X] ./stats/effects/runboost/runboost20.lua
+  - [X] ./stats/effects/sandstorm/sandstorm.lua
+  - [X] ./stats/effects/shieldeffect/shieldeffect.lua
+  - [X] ./stats/effects/shieldregen/shieldregen.lua
+  - [X] ./stats/effects/skullheadlamp/skullheadlamp.lua
+  - [X] ./stats/effects/slimeslow/slimeslow.lua
+  - [X] ./stats/effects/staffslow/staffslow.lua
+  - [X] ./stats/effects/statusimmunity/statusimmunity.lua
+  - [X] ./stats/effects/stun/stun.lua
+  - [X] ./stats/effects/swimboost/swimboost.lua
+  - [X] ./stats/effects/swimming/swimming.lua
+  - [X] ./stats/effects/tarslow/tarslow.lua
+  - [X] ./stats/effects/techstun/techstun.lua
+  - [X] ./stats/effects/thorns/thorns.lua
+  - [X] ./stats/effects/timefreeze/timefreeze.lua
+  - [X] ./stats/effects/translocate/translocate.lua
+  - [X] ./stats/effects/ufobeamstun/ufobeamstun.lua
+  - [X] ./stats/effects/vulnerability/vulnerability.lua
+  - [X] ./stats/effects/weakpoison/weakpoison.lua
+  - [X] ./stats/effects/wet/wet.lua
+  - [X] ./stats/effects/windswept/windswept.lua
+  - [X] ./stats/effects/xenonglow/xenonglow.lua
   - [X] ./stats/effects/arrested/arrested.lua
   - [X] ./stats/effects/arresting/arresting.lua
   - [X] ./stats/effects/ballistapusher/ballistapusher.lua
