@@ -76,7 +76,7 @@
   - [ ] ./projectiles/tracksourcestatus.lua
   - [ ] ./projectiles/throwable/filledcapturepod/filledcapturepodprojectile.lua
   - [ ] ./projectiles/throwable/capturepod/capturepod.lua
-- [-] ./monsters [46/93]
+- [-] ./monsters [53/93]
   - [X] ./monsters/boss/apebossprojector/apebossprojector.lua
   - [X] ./monsters/boss/crystalboss/crystalbossreset.lua
   - [X] ./monsters/boss/crystalboss/dieState.lua
@@ -115,13 +115,13 @@
   - [X] ./monsters/boss/swansong/noxcapture.lua
   - [X] ./monsters/boss/swansong/swansong.lua
   - [X] ./monsters/boss/swansong/telegraph.lua
-  - [ ] ./monsters/bugs/bug.lua
-  - [ ] ./monsters/dungeon/chicken/behavior.lua
-  - [ ] ./monsters/dungeon/giftmonster/behavior.lua
-  - [ ] ./monsters/dungeon/glitchknight/behavior.lua
-  - [ ] ./monsters/dungeon/po/behavior.lua
-  - [ ] ./monsters/dungeon/robotchicken/behavior.lua
-  - [ ] ./monsters/dungeon/swarpion/behavior.lua
+  - [X] ./monsters/bugs/bug.lua
+  - [X] ./monsters/dungeon/chicken/behavior.lua
+  - [X] ./monsters/dungeon/giftmonster/behavior.lua
+  - [X] ./monsters/dungeon/glitchknight/behavior.lua
+  - [X] ./monsters/dungeon/po/behavior.lua
+  - [X] ./monsters/dungeon/robotchicken/behavior.lua
+  - [X] ./monsters/dungeon/swarpion/behavior.lua
   - [ ] ./monsters/fishing/appearState.lua
   - [ ] ./monsters/fishing/approachState.lua
   - [ ] ./monsters/fishing/aquariumMonster.lua
