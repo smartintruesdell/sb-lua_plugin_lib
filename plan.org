@@ -772,32 +772,32 @@
   - [ ] ./objects/farmables/eggs/farmableegg.lua
   - [ ] ./objects/teleporter/exitteleporter.lua
   - [ ] ./objects/microformer/microformer.lua
-- [ ] ./versioning [0/25]
-  - [ ] ./versioning/WorldMetadata_21_22.lua
-  - [ ] ./versioning/PlayerEntity_27_28.lua
-  - [ ] ./versioning/PlayerEntity_26_27.lua
-  - [ ] ./versioning/MonsterEntity_4_5.lua
-  - [ ] ./versioning/CelestialChunk_10_11.lua
-  - [ ] ./versioning/WorldMetadata_25_26.lua
-  - [ ] ./versioning/WorldMetadata_24_26.lua
-  - [ ] ./versioning/ObjectEntity_8_9.lua
-  - [ ] ./versioning/ItemDropEntity_3_4.lua
-  - [ ] ./versioning/WorldMetadata_20_21.lua
-  - [ ] ./versioning/PlayerEntity_30_31.lua
-  - [ ] ./versioning/PlayerEntity_29_30.lua
-  - [ ] ./versioning/WorldMetadata_23_24.lua
-  - [ ] ./versioning/System_1_2.lua
-  - [ ] ./versioning/CelestialChunk_8_9.lua
-  - [ ] ./versioning/WorldMetadata_22_23.lua
-  - [ ] ./versioning/Item_7_8.lua
-  - [ ] ./versioning/CelestialChunk_9_10.lua
-  - [ ] ./versioning/StagehandEntity_2_3.lua
-  - [ ] ./versioning/ClientContext_5_6.lua
-  - [ ] ./versioning/WorldMetadata_24_25.lua
-  - [ ] ./versioning/CelestialChunk_11_12.lua
-  - [ ] ./versioning/PlayerEntity_28_29.lua
-  - [ ] ./versioning/PlayerEntity_24_25.lua
-  - [ ] ./versioning/PlayerEntity_25_26.lua
+- [X] ./versioning [25/25]
+  - [X] ./versioning/WorldMetadata_21_22.lua
+  - [X] ./versioning/PlayerEntity_27_28.lua
+  - [X] ./versioning/PlayerEntity_26_27.lua
+  - [X] ./versioning/MonsterEntity_4_5.lua
+  - [X] ./versioning/CelestialChunk_10_11.lua
+  - [X] ./versioning/WorldMetadata_25_26.lua
+  - [X] ./versioning/WorldMetadata_24_26.lua
+  - [X] ./versioning/ObjectEntity_8_9.lua
+  - [X] ./versioning/ItemDropEntity_3_4.lua
+  - [X] ./versioning/WorldMetadata_20_21.lua
+  - [X] ./versioning/PlayerEntity_30_31.lua
+  - [X] ./versioning/PlayerEntity_29_30.lua
+  - [X] ./versioning/WorldMetadata_23_24.lua
+  - [X] ./versioning/System_1_2.lua
+  - [X] ./versioning/CelestialChunk_8_9.lua
+  - [X] ./versioning/WorldMetadata_22_23.lua
+  - [X] ./versioning/Item_7_8.lua
+  - [X] ./versioning/CelestialChunk_9_10.lua
+  - [X] ./versioning/StagehandEntity_2_3.lua
+  - [X] ./versioning/ClientContext_5_6.lua
+  - [X] ./versioning/WorldMetadata_24_25.lua
+  - [X] ./versioning/CelestialChunk_11_12.lua
+  - [X] ./versioning/PlayerEntity_28_29.lua
+  - [X] ./versioning/PlayerEntity_24_25.lua
+  - [X] ./versioning/PlayerEntity_25_26.lua
 - [ ] ./stagehands [0/20]
   - [ ] ./stagehands/coordinator/npccombat.lua
   - [ ] ./stagehands/bossdooropener/bossdooropener.lua
