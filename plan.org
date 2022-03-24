@@ -76,7 +76,7 @@
   - [ ] ./projectiles/tracksourcestatus.lua
   - [ ] ./projectiles/throwable/filledcapturepod/filledcapturepodprojectile.lua
   - [ ] ./projectiles/throwable/capturepod/capturepod.lua
-- [-] ./monsters [65/93]
+- [-] ./monsters [75/93]
   - [X] ./monsters/boss/apebossprojector/apebossprojector.lua
   - [X] ./monsters/boss/crystalboss/crystalbossreset.lua
   - [X] ./monsters/boss/crystalboss/dieState.lua
@@ -134,16 +134,16 @@
   - [X] ./monsters/fishing/lurkState.lua
   - [X] ./monsters/fishing/outOfWaterState.lua
   - [X] ./monsters/fishing/wanderState.lua
-  - [ ] ./monsters/generated/flying/skills/flyingSwoopAttack.lua
-  - [ ] ./monsters/generated/swimming/attackState.lua
-  - [ ] ./monsters/generated/swimming/fleeState.lua
-  - [ ] ./monsters/generated/swimming/flopState.lua
-  - [ ] ./monsters/generated/swimming/smallfish/fleeState.lua
-  - [ ] ./monsters/generated/swimming/smallfish/investigateState.lua
-  - [ ] ./monsters/generated/swimming/smallfish/scatterState.lua
-  - [ ] ./monsters/generated/swimming/smallfish/smallFish.lua
-  - [ ] ./monsters/generated/swimming/swimmingMonster.lua
-  - [ ] ./monsters/generated/swimming/wanderState.lua
+  - [X] ./monsters/generated/flying/skills/flyingSwoopAttack.lua
+  - [X] ./monsters/generated/swimming/attackState.lua
+  - [X] ./monsters/generated/swimming/fleeState.lua
+  - [X] ./monsters/generated/swimming/flopState.lua
+  - [X] ./monsters/generated/swimming/smallfish/fleeState.lua
+  - [X] ./monsters/generated/swimming/smallfish/investigateState.lua
+  - [X] ./monsters/generated/swimming/smallfish/scatterState.lua
+  - [X] ./monsters/generated/swimming/smallfish/smallFish.lua
+  - [X] ./monsters/generated/swimming/swimmingMonster.lua
+  - [X] ./monsters/generated/swimming/wanderState.lua
   - [ ] ./monsters/ghosts/erchiusghost/erchiusghost.lua
   - [ ] ./monsters/mechdrone/drone.lua
   - [ ] ./monsters/mechdrone/drone_status.lua
