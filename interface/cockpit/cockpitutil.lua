@@ -1,10 +1,7 @@
-require "/scripts/lpl_load_plugins.lua"
-local PLUGINS_PATH =
-  "/interface/cockpit/cockpitutil_plugins.config"
-
-function cockpitutil_init() end
-cockpitutil_init =
-  PluginLoader.add_plugin_loader("cockpitutil", PLUGINS_PATH, cockpitutil_init)
+-- Set a global table so that we can detect modules that are loaded and need
+-- plugin patching but which do not have an init method for hooks.
+LPL_Additional_Paths = LPL_Additional_Paths or {}
+LPL_Additional_Paths["/interface/cockpit/cockpitutil_plugins.config"] = true
 
 function existingBookmark(system, bookmark)
   for _,b in pairs(player.systemBookmarks(system)) do
