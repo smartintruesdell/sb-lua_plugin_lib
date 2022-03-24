@@ -30,52 +30,52 @@
   - [X] ./vehicles/dropship/dropshipcontrol.lua
   - [X] ./vehicles/mech/mech.lua
   - [X] ./vehicles/miniufo/miniufo.lua
-- [ ] ./projectiles [0/45]
-  - [ ] ./projectiles/vehicles/dropship/capsule/capsule.lua
-  - [ ] ./projectiles/killable.lua
-  - [ ] ./projectiles/guns/tentaclefist/tentaclefist.lua
-  - [ ] ./projectiles/guns/rockets/homingrocket/homingrocket.lua
-  - [ ] ./projectiles/guns/rockets/minirocket/minirocket.lua
-  - [ ] ./projectiles/guns/grenades/proximitymines/proximitymine.lua
-  - [ ] ./projectiles/mech/gravitysphere/gravitysphere.lua
-  - [ ] ./projectiles/mech/mechenergypickup/energypickup.lua
-  - [ ] ./projectiles/activeitems/remotegrenade/remotegrenade.lua
-  - [ ] ./projectiles/activeitems/staff/plasmaball/plasmaball.lua
-  - [ ] ./projectiles/activeitems/staff/balllightning/balllightning.lua
-  - [ ] ./projectiles/activeitems/staff/staffprojectilespawner.lua
-  - [ ] ./projectiles/activeitems/staff/elementbouncer/bouncespikes.lua
-  - [ ] ./projectiles/activeitems/staff/boltguide/boltguide.lua
-  - [ ] ./projectiles/activeitems/staff/staffprojectile.lua
-  - [ ] ./projectiles/activeitems/staff/kluexstaffplasma/kluexstaffplasma.lua
-  - [ ] ./projectiles/activeitems/staff/elementportal/elementportal.lua
-  - [ ] ./projectiles/activeitems/staff/plasmablade/plasmablade.lua
-  - [ ] ./projectiles/activeitems/miniknogrocket/miniknogrocket.lua
-  - [ ] ./projectiles/activeitems/translocatordisc/translocatordisc.lua
-  - [ ] ./projectiles/activeitems/delaybullet/delaybullet.lua
-  - [ ] ./projectiles/activeitems/grapplehook/grapplehook.lua
-  - [ ] ./projectiles/activeitems/astraltear/astraltear.lua
-  - [ ] ./projectiles/activeitems/boomerang/lunarangprojectile.lua
-  - [ ] ./projectiles/activeitems/boomerang/wormerangprojectile.lua
-  - [ ] ./projectiles/activeitems/guidedrocket/guidedrocket.lua
-  - [ ] ./projectiles/activeitems/fishinglure/fishinglure.lua
-  - [ ] ./projectiles/activeitems/chakram/chakramprojectile.lua
-  - [ ] ./projectiles/activeitems/chakram/hoverchakramprojectile.lua
-  - [ ] ./projectiles/activeitems/fuelaircloud/fuelaircloud.lua
-  - [ ] ./projectiles/activeitems/stunmine/stunmineprojectile.lua
-  - [ ] ./projectiles/unsorted/monstercaptureenergy/monstercaptureenergy.lua
-  - [ ] ./projectiles/boss/kluexboss/iceeruption/iceeruptiontele.lua
-  - [ ] ./projectiles/boss/kluexboss/stoneplatform/pillarplatform.lua
-  - [ ] ./projectiles/boss/kluexboss/floorlava/floorlava.lua
-  - [ ] ./projectiles/boss/kluexboss/delayedplasma/delayedplasmaball.lua
-  - [ ] ./projectiles/boss/apeboss/apebossmissile/apebossmissile.lua
-  - [ ] ./projectiles/boss/eyeboss/spacemonsterspawner.lua
-  - [ ] ./projectiles/boss/swansong/swansongrocket/swansongrocket.lua
-  - [ ] ./projectiles/boss/swansong/ophanimspawner/ophanimspawner.lua
-  - [ ] ./projectiles/boss/guardianboss/delayedplasmashot/delayedplasmashot.lua
-  - [ ] ./projectiles/boss/spiderboss/ixolingspawn.lua
-  - [ ] ./projectiles/tracksourcestatus.lua
-  - [ ] ./projectiles/throwable/filledcapturepod/filledcapturepodprojectile.lua
-  - [ ] ./projectiles/throwable/capturepod/capturepod.lua
+- [X] ./projectiles [45/45]
+  - [X] ./projectiles/activeitems/astraltear/astraltear.lua
+  - [X] ./projectiles/activeitems/boomerang/lunarangprojectile.lua
+  - [X] ./projectiles/activeitems/boomerang/wormerangprojectile.lua
+  - [X] ./projectiles/activeitems/chakram/chakramprojectile.lua
+  - [X] ./projectiles/activeitems/chakram/hoverchakramprojectile.lua
+  - [X] ./projectiles/activeitems/delaybullet/delaybullet.lua
+  - [X] ./projectiles/activeitems/fishinglure/fishinglure.lua
+  - [X] ./projectiles/activeitems/fuelaircloud/fuelaircloud.lua
+  - [X] ./projectiles/activeitems/grapplehook/grapplehook.lua
+  - [X] ./projectiles/activeitems/guidedrocket/guidedrocket.lua
+  - [X] ./projectiles/activeitems/miniknogrocket/miniknogrocket.lua
+  - [X] ./projectiles/activeitems/remotegrenade/remotegrenade.lua
+  - [X] ./projectiles/activeitems/staff/balllightning/balllightning.lua
+  - [X] ./projectiles/activeitems/staff/boltguide/boltguide.lua
+  - [X] ./projectiles/activeitems/staff/elementbouncer/bouncespikes.lua
+  - [X] ./projectiles/activeitems/staff/elementportal/elementportal.lua
+  - [X] ./projectiles/activeitems/staff/kluexstaffplasma/kluexstaffplasma.lua
+  - [X] ./projectiles/activeitems/staff/plasmaball/plasmaball.lua
+  - [X] ./projectiles/activeitems/staff/plasmablade/plasmablade.lua
+  - [X] ./projectiles/activeitems/staff/staffprojectile.lua
+  - [X] ./projectiles/activeitems/staff/staffprojectilespawner.lua
+  - [X] ./projectiles/activeitems/stunmine/stunmineprojectile.lua
+  - [X] ./projectiles/activeitems/translocatordisc/translocatordisc.lua
+  - [X] ./projectiles/boss/apeboss/apebossmissile/apebossmissile.lua
+  - [X] ./projectiles/boss/eyeboss/spacemonsterspawner.lua
+  - [X] ./projectiles/boss/guardianboss/delayedplasmashot/delayedplasmashot.lua
+  - [X] ./projectiles/boss/kluexboss/delayedplasma/delayedplasmaball.lua
+  - [X] ./projectiles/boss/kluexboss/floorlava/floorlava.lua
+  - [X] ./projectiles/boss/kluexboss/iceeruption/iceeruptiontele.lua
+  - [X] ./projectiles/boss/kluexboss/stoneplatform/pillarplatform.lua
+  - [X] ./projectiles/boss/spiderboss/ixolingspawn.lua
+  - [X] ./projectiles/boss/swansong/ophanimspawner/ophanimspawner.lua
+  - [X] ./projectiles/boss/swansong/swansongrocket/swansongrocket.lua
+  - [X] ./projectiles/guns/grenades/proximitymines/proximitymine.lua
+  - [X] ./projectiles/guns/rockets/homingrocket/homingrocket.lua
+  - [X] ./projectiles/guns/rockets/minirocket/minirocket.lua
+  - [X] ./projectiles/guns/tentaclefist/tentaclefist.lua
+  - [X] ./projectiles/killable.
+  - [X] ./projectiles/mech/gravitysphere/gravitysphere.lua
+  - [X] ./projectiles/mech/mechenergypickup/energypickup.lua
+  - [X] ./projectiles/throwable/capturepod/capturepod.lua
+  - [X] ./projectiles/throwable/filledcapturepod/filledcapturepodprojectile.lua
+  - [X] ./projectiles/tracksourcestatus.lua
+  - [X] ./projectiles/unsorted/monstercaptureenergy/monstercaptureenergy.lua
+  - [X] ./projectiles/vehicles/dropship/capsule/capsule.lua
 - [X] ./monsters [93/93]
   - [X] ./monsters/boss/apebossprojector/apebossprojector.lua
   - [X] ./monsters/boss/crystalboss/crystalbossreset.lua
@@ -328,7 +328,7 @@
   - [X] ./interface/games/util.lua
   - [X] ./interface/games/fossilgame/tools.lua
   - [X] ./interface/games/fossilgame/generator.lua
-  - [X] ./interface/games/fossilgame/fossilgame.lua
+  - [X] ./interface/games/fossilgame/fossilgme.lua
   - [X] ./interface/games/fossilgame/fossil.lua
   - [X] ./interface/games/fossilgame/tileset.lua
   - [X] ./interface/games/fossilgame/level.lua
