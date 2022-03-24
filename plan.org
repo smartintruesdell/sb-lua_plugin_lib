@@ -76,7 +76,7 @@
   - [ ] ./projectiles/tracksourcestatus.lua
   - [ ] ./projectiles/throwable/filledcapturepod/filledcapturepodprojectile.lua
   - [ ] ./projectiles/throwable/capturepod/capturepod.lua
-- [-] ./monsters [53/93]
+- [-] ./monsters [65/93]
   - [X] ./monsters/boss/apebossprojector/apebossprojector.lua
   - [X] ./monsters/boss/crystalboss/crystalbossreset.lua
   - [X] ./monsters/boss/crystalboss/dieState.lua
@@ -122,18 +122,18 @@
   - [X] ./monsters/dungeon/po/behavior.lua
   - [X] ./monsters/dungeon/robotchicken/behavior.lua
   - [X] ./monsters/dungeon/swarpion/behavior.lua
-  - [ ] ./monsters/fishing/appearState.lua
-  - [ ] ./monsters/fishing/approachState.lua
-  - [ ] ./monsters/fishing/aquariumMonster.lua
-  - [ ] ./monsters/fishing/disappearState.lua
-  - [ ] ./monsters/fishing/fishingMonster.lua
-  - [ ] ./monsters/fishing/flopState.lua
-  - [ ] ./monsters/fishing/hookedState.lua
-  - [ ] ./monsters/fishing/idleState.lua
-  - [ ] ./monsters/fishing/landedState.lua
-  - [ ] ./monsters/fishing/lurkState.lua
-  - [ ] ./monsters/fishing/outOfWaterState.lua
-  - [ ] ./monsters/fishing/wanderState.lua
+  - [X] ./monsters/fishing/appearState.lua
+  - [X] ./monsters/fishing/approachState.lua
+  - [X] ./monsters/fishing/aquariumMonster.lua
+  - [X] ./monsters/fishing/disappearState.lua
+  - [X] ./monsters/fishing/fishingMonster.lua
+  - [X] ./monsters/fishing/flopState.lua
+  - [X] ./monsters/fishing/hookedState.lua
+  - [X] ./monsters/fishing/idleState.lua
+  - [X] ./monsters/fishing/landedState.lua
+  - [X] ./monsters/fishing/lurkState.lua
+  - [X] ./monsters/fishing/outOfWaterState.lua
+  - [X] ./monsters/fishing/wanderState.lua
   - [ ] ./monsters/generated/flying/skills/flyingSwoopAttack.lua
   - [ ] ./monsters/generated/swimming/attackState.lua
   - [ ] ./monsters/generated/swimming/fleeState.lua
