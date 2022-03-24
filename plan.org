@@ -649,7 +649,7 @@
   - [X] ./items/active/vehiclecontroller/vehiclecursor.lua
   - [X] ./items/active/vehiclecontroller/vehiclecontroller.lua
   - [X] ./items/tools/miningtools/beamaxe.lua
-- [ ] ./objects [0/122]
+- [-] ./objects [16/122]
   - [X] ./objects/ancient/ancientconsole/ancientconsole.lua
   - [X] ./objects/ancient/challengedoor/challengedoor.lua [[ob]]
   - [X] ./objects/ancient/monolithgate/monolithgate.lua
@@ -659,128 +659,119 @@
   - [X] ./objects/apex/respawnpod/behavior.lua
   - [X] ./objects/apex/securitycamera/securitycamera.lua
   - [X] ./objects/apex/turret/turret.lua
+  - [X] ./objects/biome/brain/brainsynapse.lua
+  - [X] ./objects/biome/geode/musicalgeodes/musicalgeode.lua
+  - [X] ./objects/biome/scorchedcity/lasertripwire/lasertripwire.lua
+  - [X] ./objects/biome/tentacle/bosstentacle/bosstentacle.lua
+  - [X] ./objects/biome/tentacle/litorgans/litorgans.lua
+  - [X] ./objects/biome/tentacle/spawner/bossrightspawner.lua
   - [ ] ./objects/crafting/pethealingstation/pethealingstation.lua
   - [ ] ./objects/crafting/upgradeablecraftingobjects/craftinganvil/addons/anviladdon.lua
   - [ ] ./objects/crafting/upgradeablecraftingobjects/upgradeablecraftingobject.lua
-  - [ ] ./objects/holiday/giftmonsterbox/giftmonsterbox.lua
-  - [ ] ./objects/noisy/noisy.lua
-  - [ ] ./objects/playerstation/expansionslot/expansionslot.lua
-  - [ ] ./objects/playerstation/stationgrid.lua
-  - [ ] ./objects/playerstation/playerstationconsole/playerstationconsole.lua
-  - [ ] ./objects/terraformer/terraformer.lua
-  - [ ] ./objects/rails/railstop/railstop.lua
-  - [ ] ./objects/rails/railsensor/railsensor.lua
-  - [ ] ./objects/rails/railswitch/railswitch.lua
-  - [ ] ./objects/rails/railtramstop/railtramstop.lua
+  - [ ] ./objects/farmables/eggs/farmableegg.lua
   - [ ] ./objects/fossils/dirtyfossils/dirtyfossil.lua
   - [ ] ./objects/fossils/displaystands/fossildisplay.lua
-  - [ ] ./objects/hylotl/hylotlredalert/hylotlredalert.lua
-  - [ ] ./objects/ancientvault/largefloorspike/largefloorspike.lua
-  - [ ] ./objects/ancientvault/interacttrigger.lua
-  - [ ] ./objects/ancientvault/gasdispenser/gasdispenser.lua
-  - [ ] ./objects/wired/movingplatform/movingplatform.lua
-  - [ ] ./objects/wired/shieldgenerator/shieldgenerator.lua
-  - [ ] ./objects/wired/drain/drain.lua
-  - [ ] ./objects/wired/keypad/keypad.lua
-  - [ ] ./objects/wired/door/trapdoor.lua
-  - [ ] ./objects/wired/door/door.lua
-  - [ ] ./objects/wired/logic/delay.lua
-  - [ ] ./objects/wired/logic/timer.lua
-  - [ ] ./objects/wired/logic/countdowntimer.lua
-  - [ ] ./objects/wired/logic/dlatch.lua
-  - [ ] ./objects/wired/logic/logic.lua
-  - [ ] ./objects/wired/forcepad/forcepad.lua
-  - [ ] ./objects/wired/lightsensor/lightsensor.lua
-  - [ ] ./objects/wired/lightsensor/unwiredlightsensor.lua
-  - [ ] ./objects/wired/light/light.lua
-  - [ ] ./objects/wired/light/lightnoise.lua
-  - [ ] ./objects/wired/momentaryswitch/momentaryswitch.lua
-  - [ ] ./objects/wired/liquidsensor/liquidsensor.lua
-  - [ ] ./objects/wired/alarm/alarm.lua
-  - [ ] ./objects/wired/landmine/landmine.lua
-  - [ ] ./objects/wired/projectiletrap/projectiletrap.lua
-  - [ ] ./objects/wired/projectiletrap/beamtraprendering.lua
-  - [ ] ./objects/wired/projectiletrap/beamtrap.lua
-  - [ ] ./objects/wired/proximitysensor/proximitysensor.lua
-  - [ ] ./objects/wired/ironbeacon/ironbeacon.lua
-  - [ ] ./objects/wired/ironbeacon/jellyboss.lua
-  - [ ] ./objects/wired/ironbeacon/robot.lua
-  - [ ] ./objects/wired/ironbeacon/decoyprincess.lua
-  - [ ] ./objects/wired/secretdoor/secretdoor.lua
-  - [ ] ./objects/wired/switch/switchwithinput.lua
-  - [ ] ./objects/wired/switch/persistentswitch.lua
-  - [ ] ./objects/wired/switch/switchwithinputalwayslit.lua
-  - [ ] ./objects/wired/switch/switch.lua
-  - [ ] ./objects/wired/standingturret/standingturret.lua
-  - [ ] ./objects/apex/respawnpod/behavior.lua
-  - [ ] ./objects/apex/securitycamera/securitycamera.lua
-  - [ ] ./objects/apex/turret/turret.lua
-  - [ ] ./objects/scripts/wiredmine.lua
-  - [ ] ./objects/scripts/autofill.lua
-  - [ ] ./objects/scripts/harvestable.lua
-  - [ ] ./objects/scripts/artifactaltar.lua
-  - [ ] ./objects/scripts/explodingsmashable.lua
-  - [ ] ./objects/scripts/breakoninteract.lua
-  - [ ] ./objects/scripts/treasureburst.lua
-  - [ ] ./objects/scripts/checkpoint.lua
-  - [ ] ./objects/spawner/pettether/pettether.lua
-  - [ ] ./objects/spawner/techstation.lua
-  - [ ] ./objects/spawner/monsterspawner.lua
-  - [ ] ./objects/spawner/colonydeed/timer.lua
-  - [ ] ./objects/spawner/colonydeed/colonydeed.lua
-  - [ ] ./objects/spawner/colonydeed/scanning.lua
-  - [ ] ./objects/spawner/spawners/spawner.lua
-  - [ ] ./objects/outpost/penguinweaponshop/penguinweaponshop.lua
-  - [ ] ./objects/outpost/2stopteleshop/2stoptele.lua
-  - [ ] ./objects/outpost/signstore/signstoreobject.lua
-  - [ ] ./objects/outpost/signstore/customeasel-data.lua
-  - [ ] ./objects/outpost/signstore/signdispenser.lua
-  - [ ] ./objects/outpost/penguinbar/penguinbartop2.lua
-  - [ ] ./objects/outpost/customsign/customsign.lua
-  - [ ] ./objects/outpost/repairo/repairo.lua
-  - [ ] ./objects/outpost/bountyboard/bountyboard.lua
-  - [ ] ./objects/outpost/frogfurnishing/frogfurnishing.lua
-  - [ ] ./objects/outpost/penguinbay/penguinbay.lua
-  - [ ] ./objects/generic/cropshipper/cropshipper.lua
-  - [ ] ./objects/generic/mannequin/mannequin.lua
-  - [ ] ./objects/generic/arcadegame/arcadegameobject.lua
   - [ ] ./objects/generic/arcadegame/arcadegamegui.lua
+  - [ ] ./objects/generic/arcadegame/arcadegameobject.lua
   - [ ] ./objects/generic/arcadegame/raycaster.lua
   - [ ] ./objects/generic/arcadegame/renderer.lua
-  - [ ] ./objects/protectorate/07/07back.lua
-  - [ ] ./objects/protectorate/objects/protectorateinfobooth/protectorateinfobooth.lua
-  - [ ] ./objects/protectorate/objects/protectoratehulagirl/protectoratehulagirl.lua
-  - [ ] ./objects/protectorate/objects/protectoratebrokenvending/protectoratebrokenvending.lua
-  - [ ] ./objects/protectorate/objects/protectorateship/protectorateship.lua
-  - [ ] ./objects/protectorate/objects/protectoratebeamaxe/protectoratebeamaxe.lua
-  - [ ] ./objects/protectorate/objects/protectoraterubble/protectoraterubble.lua
+  - [ ] ./objects/generic/cropshipper/cropshipper.lua
+  - [ ] ./objects/generic/mannequin/mannequin.lua
+  - [ ] ./objects/holiday/giftmonsterbox/giftmonsterbox.lua
   - [ ] ./objects/human/jukebox/jukebox.lua
-  - [ ] ./objects/themed/island/hulagirl/hulagirl.lua
-  - [ ] ./objects/novakid/saloondoor/saloondoor.lua
-  - [ ] ./objects/novakid/frontierwindmill/frontierwindmill.lua
-  - [ ] ./objects/ancient/monolithgate/monolithgate.lua
-  - [ ] ./objects/ancient/ancientconsole/ancientconsole.lua
-  - [ ] ./objects/ancient/challengedoor/challengedoor.lua
-  - [ ] ./objects/ship/boosters/boosterflame.lua
-  - [ ] ./objects/biome/geode/musicalgeodes/musicalgeode.lua
-  - [ ] ./objects/biome/tentacle/litorgans/litorgans.lua
-  - [ ] ./objects/biome/tentacle/bosstentacle/bosstentacle.lua
-  - [ ] ./objects/biome/tentacle/spawner/bossrightspawner.lua
-  - [ ] ./objects/biome/brain/brainsynapse.lua
-  - [ ] ./objects/biome/scorchedcity/lasertripwire/lasertripwire.lua
-  - [ ] ./objects/mission/glitchmission/glitchalarm/glitchalarm.lua
-  - [ ] ./objects/mission/lunarbaselaser/lunarbaselaser.lua
-  - [ ] ./objects/mission/mechplatform/mechplatform.lua
-  - [ ] ./objects/mission/lunarquestturnin/drillmachine.lua
+  - [ ] ./objects/hylotl/hylotlredalert/hylotlredalert.lua
+  - [ ] ./objects/microformer/microformer.lua
   - [ ] ./objects/mission/apexmission/bigapescreen/bigapescreen.lua
   - [ ] ./objects/mission/apexmission/fistlauncher/fistlauncher.lua
   - [ ] ./objects/mission/bossdoor/bossdoor.lua
+  - [ ] ./objects/mission/glitchmission/glitchalarm/glitchalarm.lua
+  - [ ] ./objects/mission/lunarbaselaser/lunarbaselaser.lua
+  - [ ] ./objects/mission/lunarquestturnin/drillmachine.lua
+  - [ ] ./objects/mission/mechplatform/mechplatform.lua
+  - [ ] ./objects/noisy/noisy.lua
+  - [ ] ./objects/novakid/frontierwindmill/frontierwindmill.lua
+  - [ ] ./objects/novakid/saloondoor/saloondoor.lua
+  - [ ] ./objects/outpost/2stopteleshop/2stoptele.lua
+  - [ ] ./objects/outpost/bountyboard/bountyboard.lua
+  - [ ] ./objects/outpost/frogfurnishing/frogfurnishing.lua
+  - [ ] ./objects/outpost/penguinbar/penguinbartop2.lua
+  - [ ] ./objects/outpost/penguinbay/penguinbay.lua
+  - [ ] ./objects/outpost/penguinweaponshop/penguinweaponshop.lua
+  - [ ] ./objects/outpost/repairo/repairo.lua
+  - [ ] ./objects/outpost/signstore/customeasel-data.lua
+  - [ ] ./objects/outpost/signstore/signdispenser.lua
+  - [ ] ./objects/outpost/signstore/signstoreobject.lua
+  - [ ] ./objects/playerstation/expansionslot/expansionslot.lua
+  - [ ] ./objects/playerstation/playerstationconsole/playerstationconsole.lua
+  - [ ] ./objects/playerstation/stationgrid.lua
+  - [ ] ./objects/protectorate/07/07back.lua
+  - [ ] ./objects/protectorate/objects/protectoratebeamaxe/protectoratebeamaxe.lua
+  - [ ] ./objects/protectorate/objects/protectoratebrokenvending/protectoratebrokenvending.lua
+  - [ ] ./objects/protectorate/objects/protectoratehulagirl/protectoratehulagirl.lua
+  - [ ] ./objects/protectorate/objects/protectorateinfobooth/protectorateinfobooth.lua
+  - [ ] ./objects/protectorate/objects/protectoraterubble/protectoraterubble.lua
+  - [ ] ./objects/protectorate/objects/protectorateship/protectorateship.lua
+  - [ ] ./objects/rails/railsensor/railsensor.lua
+  - [ ] ./objects/rails/railstop/railstop.lua
+  - [ ] ./objects/rails/railswitch/railswitch.lua
+  - [ ] ./objects/rails/railtramstop/railtramstop.lua
+  - [ ] ./objects/scripts/artifactaltar.lua
+  - [ ] ./objects/scripts/autofill.lua
+  - [ ] ./objects/scripts/breakoninteract.lua
+  - [ ] ./objects/scripts/checkpoint.lua
+  - [ ] ./objects/scripts/explodingsmashable.lua
+  - [ ] ./objects/scripts/harvestable.lua
+  - [ ] ./objects/scripts/treasureburst.lua
+  - [ ] ./objects/scripts/wiredmine.lua
+  - [ ] ./objects/ship/boosters/boosterflame.lua
   - [ ] ./objects/space/dockingfield/dockingfield.lua
   - [ ] ./objects/space/solarpanel/lightsensor.lua
   - [ ] ./objects/space/wiredtarget/wiredtarget.lua
-  - [ ] ./objects/farmables/eggs/farmableegg.lua
+  - [ ] ./objects/spawner/colonydeed/colonydeed.lua
+  - [ ] ./objects/spawner/colonydeed/scanning.lua
+  - [ ] ./objects/spawner/colonydeed/timer.lua
+  - [ ] ./objects/spawner/monsterspawner.lua
+  - [ ] ./objects/spawner/pettether/pettether.lua
+  - [ ] ./objects/spawner/spawners/spawner.lua
+  - [ ] ./objects/spawner/techstation.lua
   - [ ] ./objects/teleporter/exitteleporter.lua
-  - [ ] ./objects/microformer/microformer.lua
+  - [ ] ./objects/terraformer/terraformer.lua
+  - [ ] ./objects/themed/island/hulagirl/hulagirl.lua
+  - [ ] ./objects/wired/alarm/alarm.lua
+  - [ ] ./objects/wired/door/door.lua
+  - [ ] ./objects/wired/door/trapdoor.lua
+  - [ ] ./objects/wired/drain/drain.lua
+  - [ ] ./objects/wired/forcepad/forcepad.lua
+  - [ ] ./objects/wired/ironbeacon/decoyprincess.lua
+  - [ ] ./objects/wired/ironbeacon/ironbeacon.lua
+  - [ ] ./objects/wired/ironbeacon/jellyboss.lua
+  - [ ] ./objects/wired/ironbeacon/robot.lua
+  - [ ] ./objects/wired/keypad/keypad.lua
+  - [ ] ./objects/wired/landmine/landmine.lua
+  - [ ] ./objects/wired/light/light.lua
+  - [ ] ./objects/wired/light/lightnoise.lua
+  - [ ] ./objects/wired/lightsensor/lightsensor.lua
+  - [ ] ./objects/wired/lightsensor/unwiredlightsensor.lua
+  - [ ] ./objects/wired/liquidsensor/liquidsensor.lua
+  - [ ] ./objects/wired/logic/countdowntimer.lua
+  - [ ] ./objects/wired/logic/delay.lua
+  - [ ] ./objects/wired/logic/dlatch.lua
+  - [ ] ./objects/wired/logic/logic.lua
+  - [ ] ./objects/wired/logic/timer.lua
+  - [ ] ./objects/wired/momentaryswitch/momentaryswitch.lua
+  - [ ] ./objects/wired/movingplatform/movingplatform.lua
+  - [ ] ./objects/wired/projectiletrap/beamtrap.lua
+  - [ ] ./objects/wired/projectiletrap/beamtraprendering.lua
+  - [ ] ./objects/wired/projectiletrap/projectiletrap.lua
+  - [ ] ./objects/wired/proximitysensor/proximitysensor.lua
+  - [ ] ./objects/wired/secretdoor/secretdoor.lua
+  - [ ] ./objects/wired/shieldgenerator/shieldgenerator.lua
+  - [ ] ./objects/wired/standingturret/standingturret.lua
+  - [ ] ./objects/wired/switch/persistentswitch.lua
+  - [ ] ./objects/wired/switch/switch.lua
+  - [ ] ./objects/wired/switch/switchwithinput.lua
+  - [ ] ./objects/wired/switch/switchwithinputalwayslit.lua
+  - [X] ./objects/outpost/customsign/customsign.lua
 - [X] ./versioning [25/25]
   - [X] ./versioning/WorldMetadata_21_22.lua
   - [X] ./versioning/PlayerEntity_27_28.lua
