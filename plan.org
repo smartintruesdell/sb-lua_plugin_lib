@@ -76,7 +76,7 @@
   - [ ] ./projectiles/tracksourcestatus.lua
   - [ ] ./projectiles/throwable/filledcapturepod/filledcapturepodprojectile.lua
   - [ ] ./projectiles/throwable/capturepod/capturepod.lua
-- [-] ./monsters [78/93]
+- [-] ./monsters [89/93]
   - [X] ./monsters/boss/apebossprojector/apebossprojector.lua
   - [X] ./monsters/boss/crystalboss/crystalbossreset.lua
   - [X] ./monsters/boss/crystalboss/dieState.lua
@@ -147,17 +147,17 @@
   - [X] ./monsters/ghosts/erchiusghost/erchiusghost.lua
   - [X] ./monsters/mechdrone/drone.lua
   - [X] ./monsters/mechdrone/drone_status.lua
-  - [ ] ./monsters/pets/actions/begAction.lua
-  - [ ] ./monsters/pets/actions/eatAction.lua
-  - [ ] ./monsters/pets/actions/followAction.lua
-  - [ ] ./monsters/pets/actions/inspectAction.lua
-  - [ ] ./monsters/pets/actions/pounceAction.lua
-  - [ ] ./monsters/pets/actions/sleepAction.lua
-  - [ ] ./monsters/pets/groundPet.lua
-  - [ ] ./monsters/pets/idleState.lua
-  - [ ] ./monsters/pets/petBehavior.lua
-  - [ ] ./monsters/pets/petball/petball.lua
-  - [ ] ./monsters/pets/wanderState.lua
+  - [X] ./monsters/pets/actions/begAction.lua
+  - [X] ./monsters/pets/actions/eatAction.lua
+  - [X] ./monsters/pets/actions/followAction.lua
+  - [X] ./monsters/pets/actions/inspectAction.lua
+  - [X] ./monsters/pets/actions/pounceAction.lua
+  - [X] ./monsters/pets/actions/sleepAction.lua
+  - [X] ./monsters/pets/groundPet.lua
+  - [X] ./monsters/pets/idleState.lua
+  - [X] ./monsters/pets/petBehavior.lua
+  - [X] ./monsters/pets/petball/petball.lua
+  - [X] ./monsters/pets/wanderState.lua
   - [ ] ./monsters/space/astrofae/astrofae.lua
   - [ ] ./monsters/space/heavydrone/heavydrone.lua
   - [ ] ./monsters/unsorted/miningdrone/dronebeams.lua
