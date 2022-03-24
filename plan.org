@@ -652,6 +652,7 @@
 - [ ] ./objects [0/122]
   - [X] ./objects/ancient/ancientconsole/ancientconsole.lua
   - [X] ./objects/ancient/challengedoor/challengedoor.lua [[ob]]
+  - [X] ./objects/ancient/monolithgate/monolithgate.lua
   - [X] ./objects/ancientvault/gasdispenser/gasdispenser.lua
   - [X] ./objects/ancientvault/interacttrigger.lua
   - [X] ./objects/ancientvault/largefloorspike/largefloorspike.lua
