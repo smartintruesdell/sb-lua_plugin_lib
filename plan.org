@@ -76,7 +76,7 @@
   - [ ] ./projectiles/tracksourcestatus.lua
   - [ ] ./projectiles/throwable/filledcapturepod/filledcapturepodprojectile.lua
   - [ ] ./projectiles/throwable/capturepod/capturepod.lua
-- [-] ./monsters [76/93]
+- [-] ./monsters [78/93]
   - [X] ./monsters/boss/apebossprojector/apebossprojector.lua
   - [X] ./monsters/boss/crystalboss/crystalbossreset.lua
   - [X] ./monsters/boss/crystalboss/dieState.lua
@@ -145,8 +145,8 @@
   - [X] ./monsters/generated/swimming/swimmingMonster.lua
   - [X] ./monsters/generated/swimming/wanderState.lua
   - [X] ./monsters/ghosts/erchiusghost/erchiusghost.lua
-  - [ ] ./monsters/mechdrone/drone.lua
-  - [ ] ./monsters/mechdrone/drone_status.lua
+  - [X] ./monsters/mechdrone/drone.lua
+  - [X] ./monsters/mechdrone/drone_status.lua
   - [ ] ./monsters/pets/actions/begAction.lua
   - [ ] ./monsters/pets/actions/eatAction.lua
   - [ ] ./monsters/pets/actions/followAction.lua
