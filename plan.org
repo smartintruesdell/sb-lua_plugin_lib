@@ -30,53 +30,53 @@
   - [X] ./vehicles/dropship/dropshipcontrol.lua
   - [X] ./vehicles/mech/mech.lua
   - [X] ./vehicles/miniufo/miniufo.lua
-- [ ] ./projectiles [0/45]
-  - [ ] ./projectiles/vehicles/dropship/capsule/capsule.lua
-  - [ ] ./projectiles/killable.lua
-  - [ ] ./projectiles/guns/tentaclefist/tentaclefist.lua
-  - [ ] ./projectiles/guns/rockets/homingrocket/homingrocket.lua
-  - [ ] ./projectiles/guns/rockets/minirocket/minirocket.lua
-  - [ ] ./projectiles/guns/grenades/proximitymines/proximitymine.lua
-  - [ ] ./projectiles/mech/gravitysphere/gravitysphere.lua
-  - [ ] ./projectiles/mech/mechenergypickup/energypickup.lua
-  - [ ] ./projectiles/activeitems/remotegrenade/remotegrenade.lua
-  - [ ] ./projectiles/activeitems/staff/plasmaball/plasmaball.lua
-  - [ ] ./projectiles/activeitems/staff/balllightning/balllightning.lua
-  - [ ] ./projectiles/activeitems/staff/staffprojectilespawner.lua
-  - [ ] ./projectiles/activeitems/staff/elementbouncer/bouncespikes.lua
-  - [ ] ./projectiles/activeitems/staff/boltguide/boltguide.lua
-  - [ ] ./projectiles/activeitems/staff/staffprojectile.lua
-  - [ ] ./projectiles/activeitems/staff/kluexstaffplasma/kluexstaffplasma.lua
-  - [ ] ./projectiles/activeitems/staff/elementportal/elementportal.lua
-  - [ ] ./projectiles/activeitems/staff/plasmablade/plasmablade.lua
-  - [ ] ./projectiles/activeitems/miniknogrocket/miniknogrocket.lua
-  - [ ] ./projectiles/activeitems/translocatordisc/translocatordisc.lua
-  - [ ] ./projectiles/activeitems/delaybullet/delaybullet.lua
-  - [ ] ./projectiles/activeitems/grapplehook/grapplehook.lua
-  - [ ] ./projectiles/activeitems/astraltear/astraltear.lua
-  - [ ] ./projectiles/activeitems/boomerang/lunarangprojectile.lua
-  - [ ] ./projectiles/activeitems/boomerang/wormerangprojectile.lua
-  - [ ] ./projectiles/activeitems/guidedrocket/guidedrocket.lua
-  - [ ] ./projectiles/activeitems/fishinglure/fishinglure.lua
-  - [ ] ./projectiles/activeitems/chakram/chakramprojectile.lua
-  - [ ] ./projectiles/activeitems/chakram/hoverchakramprojectile.lua
-  - [ ] ./projectiles/activeitems/fuelaircloud/fuelaircloud.lua
-  - [ ] ./projectiles/activeitems/stunmine/stunmineprojectile.lua
-  - [ ] ./projectiles/unsorted/monstercaptureenergy/monstercaptureenergy.lua
-  - [ ] ./projectiles/boss/kluexboss/iceeruption/iceeruptiontele.lua
-  - [ ] ./projectiles/boss/kluexboss/stoneplatform/pillarplatform.lua
-  - [ ] ./projectiles/boss/kluexboss/floorlava/floorlava.lua
-  - [ ] ./projectiles/boss/kluexboss/delayedplasma/delayedplasmaball.lua
-  - [ ] ./projectiles/boss/apeboss/apebossmissile/apebossmissile.lua
-  - [ ] ./projectiles/boss/eyeboss/spacemonsterspawner.lua
-  - [ ] ./projectiles/boss/swansong/swansongrocket/swansongrocket.lua
-  - [ ] ./projectiles/boss/swansong/ophanimspawner/ophanimspawner.lua
-  - [ ] ./projectiles/boss/guardianboss/delayedplasmashot/delayedplasmashot.lua
-  - [ ] ./projectiles/boss/spiderboss/ixolingspawn.lua
-  - [ ] ./projectiles/tracksourcestatus.lua
-  - [ ] ./projectiles/throwable/filledcapturepod/filledcapturepodprojectile.lua
-  - [ ] ./projectiles/throwable/capturepod/capturepod.lua
-- [-] ./monsters [46/93]
+- [X] ./projectiles [45/45]
+  - [X] ./projectiles/activeitems/astraltear/astraltear.lua
+  - [X] ./projectiles/activeitems/boomerang/lunarangprojectile.lua
+  - [X] ./projectiles/activeitems/boomerang/wormerangprojectile.lua
+  - [X] ./projectiles/activeitems/chakram/chakramprojectile.lua
+  - [X] ./projectiles/activeitems/chakram/hoverchakramprojectile.lua
+  - [X] ./projectiles/activeitems/delaybullet/delaybullet.lua
+  - [X] ./projectiles/activeitems/fishinglure/fishinglure.lua
+  - [X] ./projectiles/activeitems/fuelaircloud/fuelaircloud.lua
+  - [X] ./projectiles/activeitems/grapplehook/grapplehook.lua
+  - [X] ./projectiles/activeitems/guidedrocket/guidedrocket.lua
+  - [X] ./projectiles/activeitems/miniknogrocket/miniknogrocket.lua
+  - [X] ./projectiles/activeitems/remotegrenade/remotegrenade.lua
+  - [X] ./projectiles/activeitems/staff/balllightning/balllightning.lua
+  - [X] ./projectiles/activeitems/staff/boltguide/boltguide.lua
+  - [X] ./projectiles/activeitems/staff/elementbouncer/bouncespikes.lua
+  - [X] ./projectiles/activeitems/staff/elementportal/elementportal.lua
+  - [X] ./projectiles/activeitems/staff/kluexstaffplasma/kluexstaffplasma.lua
+  - [X] ./projectiles/activeitems/staff/plasmaball/plasmaball.lua
+  - [X] ./projectiles/activeitems/staff/plasmablade/plasmablade.lua
+  - [X] ./projectiles/activeitems/staff/staffprojectile.lua
+  - [X] ./projectiles/activeitems/staff/staffprojectilespawner.lua
+  - [X] ./projectiles/activeitems/stunmine/stunmineprojectile.lua
+  - [X] ./projectiles/activeitems/translocatordisc/translocatordisc.lua
+  - [X] ./projectiles/boss/apeboss/apebossmissile/apebossmissile.lua
+  - [X] ./projectiles/boss/eyeboss/spacemonsterspawner.lua
+  - [X] ./projectiles/boss/guardianboss/delayedplasmashot/delayedplasmashot.lua
+  - [X] ./projectiles/boss/kluexboss/delayedplasma/delayedplasmaball.lua
+  - [X] ./projectiles/boss/kluexboss/floorlava/floorlava.lua
+  - [X] ./projectiles/boss/kluexboss/iceeruption/iceeruptiontele.lua
+  - [X] ./projectiles/boss/kluexboss/stoneplatform/pillarplatform.lua
+  - [X] ./projectiles/boss/spiderboss/ixolingspawn.lua
+  - [X] ./projectiles/boss/swansong/ophanimspawner/ophanimspawner.lua
+  - [X] ./projectiles/boss/swansong/swansongrocket/swansongrocket.lua
+  - [X] ./projectiles/guns/grenades/proximitymines/proximitymine.lua
+  - [X] ./projectiles/guns/rockets/homingrocket/homingrocket.lua
+  - [X] ./projectiles/guns/rockets/minirocket/minirocket.lua
+  - [X] ./projectiles/guns/tentaclefist/tentaclefist.lua
+  - [X] ./projectiles/killable.
+  - [X] ./projectiles/mech/gravitysphere/gravitysphere.lua
+  - [X] ./projectiles/mech/mechenergypickup/energypickup.lua
+  - [X] ./projectiles/throwable/capturepod/capturepod.lua
+  - [X] ./projectiles/throwable/filledcapturepod/filledcapturepodprojectile.lua
+  - [X] ./projectiles/tracksourcestatus.lua
+  - [X] ./projectiles/unsorted/monstercaptureenergy/monstercaptureenergy.lua
+  - [X] ./projectiles/vehicles/dropship/capsule/capsule.lua
+- [X] ./monsters [93/93]
   - [X] ./monsters/boss/apebossprojector/apebossprojector.lua
   - [X] ./monsters/boss/crystalboss/crystalbossreset.lua
   - [X] ./monsters/boss/crystalboss/dieState.lua
@@ -115,53 +115,53 @@
   - [X] ./monsters/boss/swansong/noxcapture.lua
   - [X] ./monsters/boss/swansong/swansong.lua
   - [X] ./monsters/boss/swansong/telegraph.lua
-  - [ ] ./monsters/bugs/bug.lua
-  - [ ] ./monsters/dungeon/chicken/behavior.lua
-  - [ ] ./monsters/dungeon/giftmonster/behavior.lua
-  - [ ] ./monsters/dungeon/glitchknight/behavior.lua
-  - [ ] ./monsters/dungeon/po/behavior.lua
-  - [ ] ./monsters/dungeon/robotchicken/behavior.lua
-  - [ ] ./monsters/dungeon/swarpion/behavior.lua
-  - [ ] ./monsters/fishing/appearState.lua
-  - [ ] ./monsters/fishing/approachState.lua
-  - [ ] ./monsters/fishing/aquariumMonster.lua
-  - [ ] ./monsters/fishing/disappearState.lua
-  - [ ] ./monsters/fishing/fishingMonster.lua
-  - [ ] ./monsters/fishing/flopState.lua
-  - [ ] ./monsters/fishing/hookedState.lua
-  - [ ] ./monsters/fishing/idleState.lua
-  - [ ] ./monsters/fishing/landedState.lua
-  - [ ] ./monsters/fishing/lurkState.lua
-  - [ ] ./monsters/fishing/outOfWaterState.lua
-  - [ ] ./monsters/fishing/wanderState.lua
-  - [ ] ./monsters/generated/flying/skills/flyingSwoopAttack.lua
-  - [ ] ./monsters/generated/swimming/attackState.lua
-  - [ ] ./monsters/generated/swimming/fleeState.lua
-  - [ ] ./monsters/generated/swimming/flopState.lua
-  - [ ] ./monsters/generated/swimming/smallfish/fleeState.lua
-  - [ ] ./monsters/generated/swimming/smallfish/investigateState.lua
-  - [ ] ./monsters/generated/swimming/smallfish/scatterState.lua
-  - [ ] ./monsters/generated/swimming/smallfish/smallFish.lua
-  - [ ] ./monsters/generated/swimming/swimmingMonster.lua
-  - [ ] ./monsters/generated/swimming/wanderState.lua
-  - [ ] ./monsters/ghosts/erchiusghost/erchiusghost.lua
-  - [ ] ./monsters/mechdrone/drone.lua
-  - [ ] ./monsters/mechdrone/drone_status.lua
-  - [ ] ./monsters/pets/actions/begAction.lua
-  - [ ] ./monsters/pets/actions/eatAction.lua
-  - [ ] ./monsters/pets/actions/followAction.lua
-  - [ ] ./monsters/pets/actions/inspectAction.lua
-  - [ ] ./monsters/pets/actions/pounceAction.lua
-  - [ ] ./monsters/pets/actions/sleepAction.lua
-  - [ ] ./monsters/pets/groundPet.lua
-  - [ ] ./monsters/pets/idleState.lua
-  - [ ] ./monsters/pets/petBehavior.lua
-  - [ ] ./monsters/pets/petball/petball.lua
-  - [ ] ./monsters/pets/wanderState.lua
-  - [ ] ./monsters/space/astrofae/astrofae.lua
-  - [ ] ./monsters/space/heavydrone/heavydrone.lua
-  - [ ] ./monsters/unsorted/miningdrone/dronebeams.lua
-  - [ ] ./monsters/unsorted/miningdrone/miningdrone.lua
+  - [X] ./monsters/bugs/bug.lua
+  - [X] ./monsters/dungeon/chicken/behavior.lua
+  - [X] ./monsters/dungeon/giftmonster/behavior.lua
+  - [X] ./monsters/dungeon/glitchknight/behavior.lua
+  - [X] ./monsters/dungeon/po/behavior.lua
+  - [X] ./monsters/dungeon/robotchicken/behavior.lua
+  - [X] ./monsters/dungeon/swarpion/behavior.lua
+  - [X] ./monsters/fishing/appearState.lua
+  - [X] ./monsters/fishing/approachState.lua
+  - [X] ./monsters/fishing/aquariumMonster.lua
+  - [X] ./monsters/fishing/disappearState.lua
+  - [X] ./monsters/fishing/fishingMonster.lua
+  - [X] ./monsters/fishing/flopState.lua
+  - [X] ./monsters/fishing/hookedState.lua
+  - [X] ./monsters/fishing/idleState.lua
+  - [X] ./monsters/fishing/landedState.lua
+  - [X] ./monsters/fishing/lurkState.lua
+  - [X] ./monsters/fishing/outOfWaterState.lua
+  - [X] ./monsters/fishing/wanderState.lua
+  - [X] ./monsters/generated/flying/skills/flyingSwoopAttack.lua
+  - [X] ./monsters/generated/swimming/attackState.lua
+  - [X] ./monsters/generated/swimming/fleeState.lua
+  - [X] ./monsters/generated/swimming/flopState.lua
+  - [X] ./monsters/generated/swimming/smallfish/fleeState.lua
+  - [X] ./monsters/generated/swimming/smallfish/investigateState.lua
+  - [X] ./monsters/generated/swimming/smallfish/scatterState.lua
+  - [X] ./monsters/generated/swimming/smallfish/smallFish.lua
+  - [X] ./monsters/generated/swimming/swimmingMonster.lua
+  - [X] ./monsters/generated/swimming/wanderState.lua
+  - [X] ./monsters/ghosts/erchiusghost/erchiusghost.lua
+  - [X] ./monsters/mechdrone/drone.lua
+  - [X] ./monsters/mechdrone/drone_status.lua
+  - [X] ./monsters/pets/actions/begAction.lua
+  - [X] ./monsters/pets/actions/eatAction.lua
+  - [X] ./monsters/pets/actions/followAction.lua
+  - [X] ./monsters/pets/actions/inspectAction.lua
+  - [X] ./monsters/pets/actions/pounceAction.lua
+  - [X] ./monsters/pets/actions/sleepAction.lua
+  - [X] ./monsters/pets/groundPet.lua
+  - [X] ./monsters/pets/idleState.lua
+  - [X] ./monsters/pets/petBehavior.lua
+  - [X] ./monsters/pets/petball/petball.lua
+  - [X] ./monsters/pets/wanderState.lua
+  - [X] ./monsters/space/astrofae/astrofae.lua
+  - [X] ./monsters/space/heavydrone/heavydrone.lua
+  - [X] ./monsters/unsorted/miningdrone/dronebeams.lua
+  - [X] ./monsters/unsorted/miningdrone/miningdrone.lua
   - [X] ./monsters/boss/bossMonster.lua
   - [X] ./monsters/groundMovement.lua
   - [X] ./monsters/grumbleState.lua
@@ -328,7 +328,7 @@
   - [X] ./interface/games/util.lua
   - [X] ./interface/games/fossilgame/tools.lua
   - [X] ./interface/games/fossilgame/generator.lua
-  - [X] ./interface/games/fossilgame/fossilgame.lua
+  - [X] ./interface/games/fossilgame/fossilgme.lua
   - [X] ./interface/games/fossilgame/fossil.lua
   - [X] ./interface/games/fossilgame/tileset.lua
   - [X] ./interface/games/fossilgame/level.lua
@@ -772,32 +772,32 @@
   - [ ] ./objects/farmables/eggs/farmableegg.lua
   - [ ] ./objects/teleporter/exitteleporter.lua
   - [ ] ./objects/microformer/microformer.lua
-- [ ] ./versioning [0/25]
-  - [ ] ./versioning/WorldMetadata_21_22.lua
-  - [ ] ./versioning/PlayerEntity_27_28.lua
-  - [ ] ./versioning/PlayerEntity_26_27.lua
-  - [ ] ./versioning/MonsterEntity_4_5.lua
-  - [ ] ./versioning/CelestialChunk_10_11.lua
-  - [ ] ./versioning/WorldMetadata_25_26.lua
-  - [ ] ./versioning/WorldMetadata_24_26.lua
-  - [ ] ./versioning/ObjectEntity_8_9.lua
-  - [ ] ./versioning/ItemDropEntity_3_4.lua
-  - [ ] ./versioning/WorldMetadata_20_21.lua
-  - [ ] ./versioning/PlayerEntity_30_31.lua
-  - [ ] ./versioning/PlayerEntity_29_30.lua
-  - [ ] ./versioning/WorldMetadata_23_24.lua
-  - [ ] ./versioning/System_1_2.lua
-  - [ ] ./versioning/CelestialChunk_8_9.lua
-  - [ ] ./versioning/WorldMetadata_22_23.lua
-  - [ ] ./versioning/Item_7_8.lua
-  - [ ] ./versioning/CelestialChunk_9_10.lua
-  - [ ] ./versioning/StagehandEntity_2_3.lua
-  - [ ] ./versioning/ClientContext_5_6.lua
-  - [ ] ./versioning/WorldMetadata_24_25.lua
-  - [ ] ./versioning/CelestialChunk_11_12.lua
-  - [ ] ./versioning/PlayerEntity_28_29.lua
-  - [ ] ./versioning/PlayerEntity_24_25.lua
-  - [ ] ./versioning/PlayerEntity_25_26.lua
+- [X] ./versioning [25/25]
+  - [X] ./versioning/WorldMetadata_21_22.lua
+  - [X] ./versioning/PlayerEntity_27_28.lua
+  - [X] ./versioning/PlayerEntity_26_27.lua
+  - [X] ./versioning/MonsterEntity_4_5.lua
+  - [X] ./versioning/CelestialChunk_10_11.lua
+  - [X] ./versioning/WorldMetadata_25_26.lua
+  - [X] ./versioning/WorldMetadata_24_26.lua
+  - [X] ./versioning/ObjectEntity_8_9.lua
+  - [X] ./versioning/ItemDropEntity_3_4.lua
+  - [X] ./versioning/WorldMetadata_20_21.lua
+  - [X] ./versioning/PlayerEntity_30_31.lua
+  - [X] ./versioning/PlayerEntity_29_30.lua
+  - [X] ./versioning/WorldMetadata_23_24.lua
+  - [X] ./versioning/System_1_2.lua
+  - [X] ./versioning/CelestialChunk_8_9.lua
+  - [X] ./versioning/WorldMetadata_22_23.lua
+  - [X] ./versioning/Item_7_8.lua
+  - [X] ./versioning/CelestialChunk_9_10.lua
+  - [X] ./versioning/StagehandEntity_2_3.lua
+  - [X] ./versioning/ClientContext_5_6.lua
+  - [X] ./versioning/WorldMetadata_24_25.lua
+  - [X] ./versioning/CelestialChunk_11_12.lua
+  - [X] ./versioning/PlayerEntity_28_29.lua
+  - [X] ./versioning/PlayerEntity_24_25.lua
+  - [X] ./versioning/PlayerEntity_25_26.lua
 - [ ] ./stagehands [0/20]
   - [ ] ./stagehands/coordinator/npccombat.lua
   - [ ] ./stagehands/bossdooropener/bossdooropener.lua
