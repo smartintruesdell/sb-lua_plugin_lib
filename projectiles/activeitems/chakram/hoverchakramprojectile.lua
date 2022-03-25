@@ -1,7 +1,7 @@
 require "/scripts/vec2.lua"
 require "/scripts/lpl_load_plugins.lua"
 local PLUGINS_PATH =
-  "/projectiles/chakram/hoverchakramprojectile_plugins.config"
+  "/projectiles/activeitems/chakram/hoverchakramprojectile_plugins.config"
 
 function init()
   self.returning = config.getParameter("returning", false)

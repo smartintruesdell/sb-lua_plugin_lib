@@ -1,7 +1,7 @@
 require "/scripts/vec2.lua"
 require "/scripts/lpl_load_plugins.lua"
 local PLUGINS_PATH =
-  "/projectiles/boomerang/lunarangprojectile_plugins.config"
+  "/projectiles/activeitems/boomerang/lunarangprojectile_plugins.config"
 
 boomerangExtra = {}
 

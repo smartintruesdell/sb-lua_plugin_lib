@@ -2,7 +2,7 @@ require "/scripts/util.lua"
 require "/scripts/vec2.lua"
 require "/scripts/lpl_load_plugins.lua"
 local PLUGINS_PATH =
-  "/projectiles/staff/balllightning/balllightning_plugins.config"
+  "/projectiles/activeitems/staff/balllightning/balllightning_plugins.config"
 
 function init()
   self.waitTime = config.getParameter("waitTime", 0.5)

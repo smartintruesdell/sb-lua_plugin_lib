@@ -2,7 +2,7 @@ require "/scripts/vec2.lua"
 require "/scripts/util.lua"
 require "/scripts/lpl_load_plugins.lua"
 local PLUGINS_PATH =
-  "/projectiles/guidedrocket/guidedrocket_plugins.config"
+  "/projectiles/activeitems/guidedrocket/guidedrocket_plugins.config"
 
 function init()
   self.trailProjectile = config.getParameter("trailProjectile")

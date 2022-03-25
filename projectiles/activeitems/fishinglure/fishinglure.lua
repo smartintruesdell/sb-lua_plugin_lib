@@ -3,7 +3,7 @@ require "/scripts/util.lua"
 require "/scripts/fishing/fishingspawner.lua"
 require "/scripts/lpl_load_plugins.lua"
 local PLUGINS_PATH =
-  "/projectiles/fishinglure/fishinglure_plugins.config"
+  "/projectiles/activeitems/fishinglure/fishinglure_plugins.config"
 
 function init()
   self.ownerId = projectile.sourceEntity()

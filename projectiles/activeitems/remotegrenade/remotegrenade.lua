@@ -1,6 +1,6 @@
 require "/scripts/lpl_load_plugins.lua"
 local PLUGINS_PATH =
-  "/projectiles/remotegrenade/remotegrenade_plugins.config"
+  "/projectiles/activeitems/remotegrenade/remotegrenade_plugins.config"
 
 function init() end
 

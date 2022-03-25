@@ -1,13 +1,13 @@
 require "/scripts/vec2.lua"
 require "/scripts/lpl_load_plugins.lua"
 local PLUGINS_PATH =
-  "/projectiles/grapplehook/grapplehook_plugins.config"
-init = PluginLoader.add_plugin_loader("grapplehook", PLUGINS_PATH, init)
+  "/projectiles/activeitems/grapplehook/grapplehook_plugins.config"
 
 function init()
   self.ownerId = projectile.sourceEntity()
   self.breakOnSlipperyCollision = config.getParameter("breakOnSlipperyCollision")
 end
+init = PluginLoader.add_plugin_loader("grapplehook", PLUGINS_PATH, init)
 
 function update(dt)
   if self.ownerId and world.entityExists(self.ownerId) then

@@ -1,6 +1,6 @@
 require "/scripts/lpl_load_plugins.lua"
 local PLUGINS_PATH =
-  "/projectiles/astraltear/astraltear_plugins.config"
+  "/projectiles/activeitems/astraltear/astraltear_plugins.config"
 
 function init()
 end

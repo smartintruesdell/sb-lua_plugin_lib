@@ -2,7 +2,7 @@ require "/scripts/util.lua"
 require "/scripts/vec2.lua"
 require "/scripts/lpl_load_plugins.lua"
 local PLUGINS_PATH =
-  "/projectiles/staff/kluexstaffplasma/kluexstaffplasma_plugins.config"
+  "/projectiles/activeitems/staff/kluexstaffplasma/kluexstaffplasma_plugins.config"
 
 function init()
   self.controlRotation = config.getParameter("controlRotation")

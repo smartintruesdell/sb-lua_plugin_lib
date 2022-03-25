@@ -1,6 +1,6 @@
 require "/scripts/lpl_load_plugins.lua"
 local PLUGINS_PATH =
-  "/projectiles/fuelaircloud/fuelaircloud_plugins.config"
+  "/projectiles/activeitems/fuelaircloud/fuelaircloud_plugins.config"
 
 function init()
   self.chainProjectile = config.getParameter("chainProjectile")

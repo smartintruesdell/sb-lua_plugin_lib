@@ -1,7 +1,7 @@
 require "/scripts/vec2.lua"
 require "/scripts/lpl_load_plugins.lua"
 local PLUGINS_PATH =
-  "/projectiles/staff/elementbouncer/bouncespikes_plugins.config"
+  "/projectiles/activeitems/staff/elementbouncer/bouncespikes_plugins.config"
 
 function init() end
 init = PluginLoader.add_plugin_loader("bouncespikes", PLUGINS_PATH, init)

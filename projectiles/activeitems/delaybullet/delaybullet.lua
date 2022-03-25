@@ -1,7 +1,7 @@
 require "/scripts/vec2.lua"
 require "/scripts/lpl_load_plugins.lua"
 local PLUGINS_PATH =
-  "/projectiles/delaybullet/delaybullet_plugins.config"
+  "/projectiles/activeitems/delaybullet/delaybullet_plugins.config"
 
 function init()
   self.delayTimer = config.getParameter("delayTime")
