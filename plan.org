@@ -649,7 +649,7 @@
   - [X] ./items/active/vehiclecontroller/vehiclecursor.lua
   - [X] ./items/active/vehiclecontroller/vehiclecontroller.lua
   - [X] ./items/tools/miningtools/beamaxe.lua
-- [-] ./objects [16/122]
+- [-] ./objects [31/122]
   - [X] ./objects/ancient/ancientconsole/ancientconsole.lua
   - [X] ./objects/ancient/challengedoor/challengedoor.lua [[ob]]
   - [X] ./objects/ancient/monolithgate/monolithgate.lua
@@ -665,21 +665,21 @@
   - [X] ./objects/biome/tentacle/bosstentacle/bosstentacle.lua
   - [X] ./objects/biome/tentacle/litorgans/litorgans.lua
   - [X] ./objects/biome/tentacle/spawner/bossrightspawner.lua
-  - [ ] ./objects/crafting/pethealingstation/pethealingstation.lua
-  - [ ] ./objects/crafting/upgradeablecraftingobjects/craftinganvil/addons/anviladdon.lua
-  - [ ] ./objects/crafting/upgradeablecraftingobjects/upgradeablecraftingobject.lua
-  - [ ] ./objects/farmables/eggs/farmableegg.lua
-  - [ ] ./objects/fossils/dirtyfossils/dirtyfossil.lua
-  - [ ] ./objects/fossils/displaystands/fossildisplay.lua
-  - [ ] ./objects/generic/arcadegame/arcadegamegui.lua
-  - [ ] ./objects/generic/arcadegame/arcadegameobject.lua
-  - [ ] ./objects/generic/arcadegame/raycaster.lua
-  - [ ] ./objects/generic/arcadegame/renderer.lua
-  - [ ] ./objects/generic/cropshipper/cropshipper.lua
-  - [ ] ./objects/generic/mannequin/mannequin.lua
-  - [ ] ./objects/holiday/giftmonsterbox/giftmonsterbox.lua
-  - [ ] ./objects/human/jukebox/jukebox.lua
-  - [ ] ./objects/hylotl/hylotlredalert/hylotlredalert.lua
+  - [X] ./objects/crafting/pethealingstation/pethealingstation.lua
+  - [X] ./objects/crafting/upgradeablecraftingobjects/craftinganvil/addons/anviladdon.lua
+  - [X] ./objects/crafting/upgradeablecraftingobjects/upgradeablecraftingobject.lua
+  - [X] ./objects/farmables/eggs/farmableegg.lua
+  - [X] ./objects/fossils/dirtyfossils/dirtyfossil.lua
+  - [X] ./objects/fossils/displaystands/fossildisplay.lua
+  - [X] ./objects/generic/arcadegame/arcadegamegui.lua
+  - [X] ./objects/generic/arcadegame/arcadegameobject.lua
+  - [X] ./objects/generic/arcadegame/raycaster.lua
+  - [X] ./objects/generic/arcadegame/renderer.lua
+  - [X] ./objects/generic/cropshipper/cropshipper.lua
+  - [X] ./objects/generic/mannequin/mannequin.lua
+  - [X] ./objects/holiday/giftmonsterbox/giftmonsterbox.lua
+  - [X] ./objects/human/jukebox/jukebox.lua
+  - [X] ./objects/hylotl/hylotlredalert/hylotlredalert.lua
   - [ ] ./objects/microformer/microformer.lua
   - [ ] ./objects/mission/apexmission/bigapescreen/bigapescreen.lua
   - [ ] ./objects/mission/apexmission/fistlauncher/fistlauncher.lua
